@@ -1,0 +1,1553 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ОбщаяКоманда_ВыгрузитьОбъявления" id="199">
+				<Type>CommandBarButton</Type>
+				<CommandName>CommonCommand.ns_ВыгрузитьОбъявления</CommandName>
+				<ExtendedTooltip name="ОбщаяКоманда_ВыгрузитьОбъявленияРасширеннаяПодсказка" id="200"/>
+			</Button>
+			<Popup name="ФормаОтметить" id="188">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отметить "Выгружать"</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма отметить</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ФормаОтметитьРасширеннаяПодсказка" id="189"/>
+				<ChildItems>
+					<Button name="ФормаУстановитьВыгружать" id="133">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.УстановитьВыгружать</CommandName>
+						<ExtendedTooltip name="ФормаУстановитьВыгружатьРасширеннаяПодсказка" id="134"/>
+					</Button>
+					<Button name="ФормаСнятьВыгружать" id="135">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СнятьВыгружать</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Снять</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаСнятьВыгружатьРасширеннаяПодсказка" id="136"/>
+					</Button>
+					<Button name="ФормаОбщаяФормаФормаОтметкиПоДокументуОткрыть" id="197">
+						<Type>CommandBarButton</Type>
+						<CommandName>CommonForm.ФормаОтметкиПоДокументу.StandardCommand.Open</CommandName>
+						<ExtendedTooltip name="ФормаОбщаяФормаФормаОтметкиПоДокументуОткрытьРасширеннаяПодсказка" id="198"/>
+					</Button>
+					<Button name="ФормаСнятьБезОстатковСВыгрузки" id="192">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СнятьБезОстатковСВыгрузки</CommandName>
+						<ExtendedTooltip name="ФормаСнятьБезОстатковСВыгрузкиРасширеннаяПодсказка" id="193"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+			<Button name="ОбщаяКомандаns_СформироватьЗаголовкиОбъявлений" id="216">
+				<Type>CommandBarButton</Type>
+				<CommandName>CommonCommand.ns_СформироватьЗаголовкиОбъявлений</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ОбщаяКомандаns_СформироватьЗаголовкиОбъявленийРасширеннаяПодсказка" id="217"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+		</UsualGroup>
+		<UsualGroup name="ГруппаЗаполнение" id="67">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа заполнение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Collapsible</Behavior>
+			<CollapsedRepresentationTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнение</v8:content>
+				</v8:item>
+			</CollapsedRepresentationTitle>
+			<Collapsed>true</Collapsed>
+			<ExtendedTooltip name="ГруппаЗаполнениеРасширеннаяПодсказка" id="68"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаЗаполнениеПодкатегория" id="74">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заполнение подкатегория</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заполнение подкатегория</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЗаполнениеПодкатегорияРасширеннаяПодсказка" id="75"/>
+					<ChildItems>
+						<UsualGroup name="Группа1" id="140">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="141"/>
+							<ChildItems>
+								<InputField name="ЗаполнениеTypeId" id="69">
+									<DataPath>TypeId</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>TypeId</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Подкатегория товара</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ЗаполнениеTypeIdКонтекстноеМеню" id="70"/>
+									<ExtendedTooltip name="ЗаполнениеTypeIdРасширеннаяПодсказка" id="71"/>
+									<Events>
+										<Event name="OnChange">TypeId1ПриИзменении</Event>
+									</Events>
+								</InputField>
+								<Button name="Установить" id="129">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.Установить</CommandName>
+									<ExtendedTooltip name="УстановитьРасширеннаяПодсказка" id="130"/>
+								</Button>
+								<Button name="Сбросить" id="90">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.Сбросить</CommandName>
+									<ExtendedTooltip name="СброситьРасширеннаяПодсказка" id="91"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="Производитель" id="204">
+							<DataPath>Производитель</DataPath>
+							<ContextMenu name="ПроизводительКонтекстноеМеню" id="205"/>
+							<ExtendedTooltip name="ПроизводительРасширеннаяПодсказка" id="206"/>
+						</InputField>
+						<InputField name="ConditionЗапчасти" id="146">
+							<DataPath>ConditionЗапчасти</DataPath>
+							<ContextMenu name="ConditionЗапчастиКонтекстноеМеню" id="147"/>
+							<ExtendedTooltip name="ConditionЗапчастиРасширеннаяПодсказка" id="148"/>
+						</InputField>
+						<InputField name="AdType" id="164">
+							<DataPath>AdType</DataPath>
+							<ContextMenu name="AdTypeКонтекстноеМеню" id="165"/>
+							<ExtendedTooltip name="AdTypeРасширеннаяПодсказка" id="166"/>
+						</InputField>
+						<InputField name="СопоставлениеРеквизитов" id="137">
+							<DataPath>СопоставлениеРеквизитов</DataPath>
+							<ContextMenu name="СопоставлениеРеквизитовКонтекстноеМеню" id="138"/>
+							<ExtendedTooltip name="СопоставлениеРеквизитовРасширеннаяПодсказка" id="139"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаДополнительно" id="144">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дополнительно</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Collapsible</Behavior>
+					<CollapsedRepresentationTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</CollapsedRepresentationTitle>
+					<Collapsed>true</Collapsed>
+					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="145"/>
+				</UsualGroup>
+				<UsualGroup name="ГруппаЗаполнениеШиныДиски" id="76">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шины, диски</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заполнение шины диски</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<CollapsedRepresentationTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шины, диски</v8:content>
+						</v8:item>
+					</CollapsedRepresentationTitle>
+					<Collapsed>true</Collapsed>
+					<Representation>None</Representation>
+					<ExtendedTooltip name="ГруппаЗаполнениеШиныДискиРасширеннаяПодсказка" id="77"/>
+					<ChildItems>
+						<UsualGroup name="Общее" id="106">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Общее</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Общее</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ОбщееРасширеннаяПодсказка" id="107"/>
+							<ChildItems>
+								<InputField name="ЗаполнениеRimDiameter" id="84">
+									<DataPath>RimDiameter</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Диаметр, дюймы</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ЗаполнениеRimDiameterКонтекстноеМеню" id="85"/>
+									<ExtendedTooltip name="ЗаполнениеRimDiameterРасширеннаяПодсказка" id="86"/>
+								</InputField>
+								<InputField name="ЗаполнениеRimWidth" id="98">
+									<DataPath>RimWidth</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ширина обода, дюймов</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ЗаполнениеRimWidthКонтекстноеМеню" id="99"/>
+									<ExtendedTooltip name="ЗаполнениеRimWidthРасширеннаяПодсказка" id="100"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Болты" id="104">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Болты</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Болты</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="БолтыРасширеннаяПодсказка" id="105"/>
+							<ChildItems>
+								<InputField name="ЗаполнениеRimBolts" id="78">
+									<DataPath>RimBolts</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Количество отверстий под болты</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ЗаполнениеRimBoltsКонтекстноеМеню" id="79"/>
+									<ExtendedTooltip name="ЗаполнениеRimBoltsРасширеннаяПодсказка" id="80"/>
+								</InputField>
+								<InputField name="ЗаполнениеRimBoltsDiameter" id="81">
+									<DataPath>RimBoltsDiameter</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Диаметр расположения отверстий под болты</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ЗаполнениеRimBoltsDiameterКонтекстноеМеню" id="82"/>
+									<ExtendedTooltip name="ЗаполнениеRimBoltsDiameterРасширеннаяПодсказка" id="83"/>
+								</InputField>
+								<InputField name="ЗаполнениеRimOffset" id="87">
+									<DataPath>RimOffset</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вылет (ET)</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ЗаполнениеRimOffsetКонтекстноеМеню" id="88"/>
+									<ExtendedTooltip name="ЗаполнениеRimOffsetРасширеннаяПодсказка" id="89"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="ЗаполнениеRimType" id="92">
+							<DataPath>RimType</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Тип диска</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ЗаполнениеRimTypeКонтекстноеМеню" id="93"/>
+							<ExtendedTooltip name="ЗаполнениеRimTypeРасширеннаяПодсказка" id="94"/>
+						</InputField>
+						<InputField name="ЗаполнениеWheelAxle" id="118">
+							<DataPath>WheelAxle</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Ось мотошины</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ЗаполнениеWheelAxleКонтекстноеМеню" id="119"/>
+							<ExtendedTooltip name="ЗаполнениеWheelAxleРасширеннаяПодсказка" id="120"/>
+						</InputField>
+						<InputField name="ЗаполнениеTireSectionWidth" id="110">
+							<DataPath>TireSectionWidth</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Ширина профиля</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ЗаполнениеTireSectionWidthКонтекстноеМеню" id="111"/>
+							<ExtendedTooltip name="ЗаполнениеTireSectionWidthРасширеннаяПодсказка" id="112"/>
+						</InputField>
+						<UsualGroup name="Шины" id="121">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Шины</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Шины</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ШиныРасширеннаяПодсказка" id="122"/>
+							<ChildItems>
+								<InputField name="ЗаполнениеTireAspectRatio" id="101">
+									<DataPath>TireAspectRatio</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Высота профиля шины</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ЗаполнениеTireAspectRatioКонтекстноеМеню" id="102"/>
+									<ExtendedTooltip name="ЗаполнениеTireAspectRatioРасширеннаяПодсказка" id="103"/>
+								</InputField>
+								<InputField name="ЗаполнениеTireType" id="126">
+									<DataPath>TireType</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сезонность шин или колес</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ЗаполнениеTireTypeКонтекстноеМеню" id="127"/>
+									<ExtendedTooltip name="ЗаполнениеTireTypeРасширеннаяПодсказка" id="128"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ШиныДоп" id="245">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Шины доп</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Шины доп</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ШиныДопРасширеннаяПодсказка" id="246"/>
+							<ChildItems>
+								<UsualGroup name="Группа2" id="256">
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="257"/>
+									<ChildItems>
+										<InputField name="SpeedIndex1" id="247">
+											<DataPath>SpeedIndex</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Индекс скорости</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="SpeedIndex1КонтекстноеМеню" id="248"/>
+											<ExtendedTooltip name="SpeedIndex1РасширеннаяПодсказка" id="249"/>
+										</InputField>
+										<InputField name="LoadIndex1" id="250">
+											<DataPath>LoadIndex</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Индекс нагрузки</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>ShowLeft</ToolTipRepresentation>
+											<ContextMenu name="LoadIndex1КонтекстноеМеню" id="251"/>
+											<ExtendedTooltip name="LoadIndex1РасширеннаяПодсказка" id="252"/>
+										</InputField>
+										<InputField name="ResidualTread" id="253">
+											<DataPath>ResidualTread</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Остаточная глубина протектора</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>ShowLeft</ToolTipRepresentation>
+											<ContextMenu name="ResidualTreadКонтекстноеМеню" id="254"/>
+											<ExtendedTooltip name="ResidualTreadРасширеннаяПодсказка" id="255"/>
+										</InputField>
+										<CheckBoxField name="RunFlat1" id="266">
+											<DataPath>RunFlat</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Наличие Run flat</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>ShowLeft</ToolTipRepresentation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="RunFlat1КонтекстноеМеню" id="267"/>
+											<ExtendedTooltip name="RunFlat1РасширеннаяПодсказка" id="268"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа3" id="258">
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="259"/>
+									<ChildItems>
+										<InputField name="TiresModels1" id="260">
+											<DataPath>TiresModels</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Название модели шины</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="TiresModels1КонтекстноеМеню" id="261"/>
+											<ExtendedTooltip name="TiresModels1РасширеннаяПодсказка" id="262"/>
+										</InputField>
+										<InputField name="Homologation" id="263">
+											<DataPath>Homologation</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Омологация - бренд авто, под который омологирована шина</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="HomologationКонтекстноеМеню" id="264"/>
+											<ExtendedTooltip name="HomologationРасширеннаяПодсказка" id="265"/>
+										</InputField>
+										<InputField name="Quantity1" id="269">
+											<DataPath>Quantity</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Количество шт. в комплекте</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>ShowLeft</ToolTipRepresentation>
+											<ContextMenu name="Quantity1КонтекстноеМеню" id="270"/>
+											<ExtendedTooltip name="Quantity1РасширеннаяПодсказка" id="271"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаШаблоны" id="175">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаблоны</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шаблоны</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Behavior>Collapsible</Behavior>
+					<CollapsedRepresentationTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаблоны</v8:content>
+						</v8:item>
+					</CollapsedRepresentationTitle>
+					<Collapsed>true</Collapsed>
+					<ExtendedTooltip name="ГруппаШаблоныРасширеннаяПодсказка" id="176"/>
+					<ChildItems>
+						<InputField name="ШаблонЗаголовка" id="177">
+							<DataPath>ШаблонЗаголовка</DataPath>
+							<ContextMenu name="ШаблонЗаголовкаКонтекстноеМеню" id="178"/>
+							<ExtendedTooltip name="ШаблонЗаголовкаРасширеннаяПодсказка" id="179"/>
+						</InputField>
+						<InputField name="ШаблонОбъявления" id="201">
+							<DataPath>ШаблонОбъявления</DataPath>
+							<ContextMenu name="ШаблонОбъявленияКонтекстноеМеню" id="202"/>
+							<ExtendedTooltip name="ШаблонОбъявленияРасширеннаяПодсказка" id="203"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаФильтры" id="180">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа фильтры</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Collapsible</Behavior>
+			<CollapsedRepresentationTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтры</v8:content>
+				</v8:item>
+			</CollapsedRepresentationTitle>
+			<Collapsed>true</Collapsed>
+			<ExtendedTooltip name="ГруппаФильтрыРасширеннаяПодсказка" id="181"/>
+			<ChildItems>
+				<InputField name="ДатаОстатков" id="182">
+					<DataPath>ДатаОстатков</DataPath>
+					<ContextMenu name="ДатаОстатковКонтекстноеМеню" id="183"/>
+					<ExtendedTooltip name="ДатаОстатковРасширеннаяПодсказка" id="184"/>
+					<Events>
+						<Event name="OnChange">ДатаОстатковПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Склад" id="185">
+					<DataPath>Склад</DataPath>
+					<ClearButton>true</ClearButton>
+					<ContextMenu name="СкладКонтекстноеМеню" id="186"/>
+					<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="187"/>
+					<Events>
+						<Event name="OnChange">СкладПриИзменении</Event>
+					</Events>
+				</InputField>
+				<Button name="ФормаПоказатьТолькоВыгружаемые" id="167">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ПоказатьТолькоВыгружаемые</CommandName>
+					<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+					<ExtendedTooltip name="ФормаПоказатьТолькоВыгружаемыеРасширеннаяПодсказка" id="168"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="Список" id="3">
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="8"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="11"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="13">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="Наименование" id="16">
+					<DataPath>Список.Наименование</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="18"/>
+				</LabelField>
+				<LabelField name="Характеристика" id="172">
+					<DataPath>Список.Характеристика</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ХарактеристикаКонтекстноеМеню" id="173"/>
+					<ExtendedTooltip name="ХарактеристикаРасширеннаяПодсказка" id="174"/>
+				</LabelField>
+				<LabelField name="Title" id="51">
+					<DataPath>Список.Title</DataPath>
+					<ContextMenu name="TitleКонтекстноеМеню" id="52"/>
+					<ExtendedTooltip name="TitleРасширеннаяПодсказка" id="53"/>
+				</LabelField>
+				<LabelField name="Артикул" id="213">
+					<DataPath>Список.Артикул</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="АртикулКонтекстноеМеню" id="214"/>
+					<ExtendedTooltip name="АртикулРасширеннаяПодсказка" id="215"/>
+				</LabelField>
+				<LabelField name="Id" id="54">
+					<DataPath>Список.Id</DataPath>
+					<ContextMenu name="IdКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="IdРасширеннаяПодсказка" id="56"/>
+				</LabelField>
+				<LabelField name="TypeId" id="57">
+					<DataPath>Список.TypeId</DataPath>
+					<ContextMenu name="TypeIdКонтекстноеМеню" id="58"/>
+					<ExtendedTooltip name="TypeIdРасширеннаяПодсказка" id="59"/>
+				</LabelField>
+				<ColumnGroup name="ГруппаШины" id="218">
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шины обязательное</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметры шины</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаШиныРасширеннаяПодсказка" id="219"/>
+					<ChildItems>
+						<LabelField name="TireSectionWidth" id="42">
+							<DataPath>Список.TireSectionWidth</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="TireSectionWidthКонтекстноеМеню" id="43"/>
+							<ExtendedTooltip name="TireSectionWidthРасширеннаяПодсказка" id="44"/>
+						</LabelField>
+						<LabelField name="TireAspectRatio" id="39">
+							<DataPath>Список.TireAspectRatio</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="TireAspectRatioКонтекстноеМеню" id="40"/>
+							<ExtendedTooltip name="TireAspectRatioРасширеннаяПодсказка" id="41"/>
+						</LabelField>
+						<LabelField name="RimDiameter" id="27">
+							<DataPath>Список.RimDiameter</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="RimDiameterКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="RimDiameterРасширеннаяПодсказка" id="29"/>
+						</LabelField>
+						<LabelField name="TireType" id="45">
+							<DataPath>Список.TireType</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="TireTypeКонтекстноеМеню" id="46"/>
+							<ExtendedTooltip name="TireTypeРасширеннаяПодсказка" id="47"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаШины2" id="237">
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шины доп</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Модель шины, Индекс скорости, Индекс нагрузки, Количество шт. в комплекте, RunFlat</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаШины2РасширеннаяПодсказка" id="238"/>
+					<ChildItems>
+						<LabelField name="TiresModels" id="239">
+							<DataPath>Список.TiresModels</DataPath>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="TiresModelsКонтекстноеМеню" id="240"/>
+							<ExtendedTooltip name="TiresModelsРасширеннаяПодсказка" id="241"/>
+						</LabelField>
+						<LabelField name="SpeedIndex" id="231">
+							<DataPath>Список.SpeedIndex</DataPath>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="SpeedIndexКонтекстноеМеню" id="232"/>
+							<ExtendedTooltip name="SpeedIndexРасширеннаяПодсказка" id="233"/>
+						</LabelField>
+						<LabelField name="LoadIndex" id="234">
+							<DataPath>Список.LoadIndex</DataPath>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="LoadIndexКонтекстноеМеню" id="235"/>
+							<ExtendedTooltip name="LoadIndexРасширеннаяПодсказка" id="236"/>
+						</LabelField>
+						<LabelField name="Quantity" id="242">
+							<DataPath>Список.Quantity</DataPath>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="QuantityКонтекстноеМеню" id="243"/>
+							<ExtendedTooltip name="QuantityРасширеннаяПодсказка" id="244"/>
+						</LabelField>
+						<CheckBoxField name="RunFlat" id="228">
+							<DataPath>Список.RunFlat</DataPath>
+							<ShowInHeader>false</ShowInHeader>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="RunFlatКонтекстноеМеню" id="229"/>
+							<ExtendedTooltip name="RunFlatРасширеннаяПодсказка" id="230"/>
+						</CheckBoxField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаДиски" id="220">
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметры диски</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметры диски</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаДискиРасширеннаяПодсказка" id="221"/>
+					<ChildItems>
+						<LabelField name="RimDiameter1" id="225">
+							<DataPath>Список.RimDiameter</DataPath>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="RimDiameter1КонтекстноеМеню" id="226"/>
+							<ExtendedTooltip name="RimDiameter1РасширеннаяПодсказка" id="227"/>
+						</LabelField>
+						<LabelField name="RimBolts" id="21">
+							<DataPath>Список.RimBolts</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="RimBoltsКонтекстноеМеню" id="22"/>
+							<ExtendedTooltip name="RimBoltsРасширеннаяПодсказка" id="23"/>
+						</LabelField>
+						<LabelField name="RimBoltsDiameter" id="24">
+							<DataPath>Список.RimBoltsDiameter</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="RimBoltsDiameterКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="RimBoltsDiameterРасширеннаяПодсказка" id="26"/>
+						</LabelField>
+						<LabelField name="RimOffset" id="30">
+							<DataPath>Список.RimOffset</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="RimOffsetКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="RimOffsetРасширеннаяПодсказка" id="32"/>
+						</LabelField>
+						<LabelField name="RimType" id="33">
+							<DataPath>Список.RimType</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="RimTypeКонтекстноеМеню" id="34"/>
+							<ExtendedTooltip name="RimTypeРасширеннаяПодсказка" id="35"/>
+						</LabelField>
+						<LabelField name="RimWidth" id="36">
+							<DataPath>Список.RimWidth</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="RimWidthКонтекстноеМеню" id="37"/>
+							<ExtendedTooltip name="RimWidthРасширеннаяПодсказка" id="38"/>
+						</LabelField>
+						<LabelField name="WheelAxle" id="48">
+							<DataPath>Список.WheelAxle</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ShowInHeader>false</ShowInHeader>
+							<ContextMenu name="WheelAxleКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="WheelAxleРасширеннаяПодсказка" id="50"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<CheckBoxField name="Выгружать" id="62">
+					<DataPath>Список.Выгружать</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>В</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВыгружатьКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="ВыгружатьРасширеннаяПодсказка" id="64"/>
+				</CheckBoxField>
+				<LabelField name="Condition" id="149">
+					<DataPath>Список.Condition</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ConditionКонтекстноеМеню" id="150"/>
+					<ExtendedTooltip name="ConditionРасширеннаяПодсказка" id="151"/>
+				</LabelField>
+				<LabelField name="VideoURL" id="152">
+					<DataPath>Список.VideoURL</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="VideoURLКонтекстноеМеню" id="153"/>
+					<ExtendedTooltip name="VideoURLРасширеннаяПодсказка" id="154"/>
+				</LabelField>
+				<LabelField name="ListingFee" id="161">
+					<DataPath>Список.ListingFee</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ListingFeeКонтекстноеМеню" id="162"/>
+					<ExtendedTooltip name="ListingFeeРасширеннаяПодсказка" id="163"/>
+				</LabelField>
+				<LabelField name="OEM" id="158">
+					<DataPath>Список.OEM</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="OEMКонтекстноеМеню" id="159"/>
+					<ExtendedTooltip name="OEMРасширеннаяПодсказка" id="160"/>
+				</LabelField>
+				<LabelField name="Availability" id="207">
+					<DataPath>Список.Availability</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="AvailabilityКонтекстноеМеню" id="208"/>
+					<ExtendedTooltip name="AvailabilityРасширеннаяПодсказка" id="209"/>
+				</LabelField>
+				<LabelField name="Brand" id="210">
+					<DataPath>Список.Brand</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="BrandКонтекстноеМеню" id="211"/>
+					<ExtendedTooltip name="BrandРасширеннаяПодсказка" id="212"/>
+				</LabelField>
+				<LabelField name="Шаблон" id="155">
+					<DataPath>Список.Шаблон</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ШаблонКонтекстноеМеню" id="156"/>
+					<ExtendedTooltip name="ШаблонРасширеннаяПодсказка" id="157"/>
+				</LabelField>
+				<LabelField name="Остаток" id="169">
+					<DataPath>Список.Остаток</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ОстатокКонтекстноеМеню" id="170"/>
+					<ExtendedTooltip name="ОстатокРасширеннаяПодсказка" id="171"/>
+				</LabelField>
+				<CheckBoxField name="ЕстьКартинка" id="194">
+					<DataPath>Список.ЕстьКартинка</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>К</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>У номенклатуры есть картинка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowAuto</ToolTipRepresentation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЕстьКартинкаКонтекстноеМеню" id="195"/>
+					<ExtendedTooltip name="ЕстьКартинкаРасширеннаяПодсказка" id="196"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.ЕстьКартинка</Field>
+				<Field>Список.Ссылка</Field>
+				<Field>Список.Характеристика</Field>
+				<Field>Список.ЭтоГруппа</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ns_ЗапчастиИАксессуары.Ссылка КАК Ссылка,
+	ns_ЗапчастиИАксессуары.ПометкаУдаления КАК ПометкаУдаления,
+	ns_ЗапчастиИАксессуары.Родитель КАК Родитель,
+	ns_ЗапчастиИАксессуары.ЭтоГруппа КАК ЭтоГруппа,
+	ns_ЗапчастиИАксессуары.Код КАК Код,
+	ns_ЗапчастиИАксессуары.Наименование КАК Наименование,
+	ns_ЗапчастиИАксессуары.AdStatus КАК AdStatus,
+	ns_ЗапчастиИАксессуары.AdType КАК AdType,
+	ns_ЗапчастиИАксессуары.AllowEmail КАК AllowEmail,
+	ns_ЗапчастиИАксессуары.AvitoId КАК AvitoId,
+	ns_ЗапчастиИАксессуары.Brand КАК Brand,
+	ns_ЗапчастиИАксессуары.Category КАК Category,
+	ns_ЗапчастиИАксессуары.Condition КАК Condition,
+	ns_ЗапчастиИАксессуары.DateBegin КАК DateBegin,
+	ns_ЗапчастиИАксессуары.DateEnd КАК DateEnd,
+	ns_ЗапчастиИАксессуары.Id КАК Id,
+	ns_ЗапчастиИАксессуары.ListingFee КАК ListingFee,
+	ns_ЗапчастиИАксессуары.nsDescription КАК nsDescription,
+	ns_ЗапчастиИАксессуары.OEM КАК OEM,
+	ns_ЗапчастиИАксессуары.RimBolts КАК RimBolts,
+	ns_ЗапчастиИАксессуары.RimBoltsDiameter КАК RimBoltsDiameter,
+	ns_ЗапчастиИАксессуары.RimDiameter КАК RimDiameter,
+	ns_ЗапчастиИАксессуары.RimOffset КАК RimOffset,
+	ns_ЗапчастиИАксессуары.RimType КАК RimType,
+	ns_ЗапчастиИАксессуары.RimWidth КАК RimWidth,
+	ns_ЗапчастиИАксессуары.TireAspectRatio КАК TireAspectRatio,
+	ns_ЗапчастиИАксессуары.TireSectionWidth КАК TireSectionWidth,
+	ns_ЗапчастиИАксессуары.TireType КАК TireType,
+	ns_ЗапчастиИАксессуары.Title КАК Title,
+	ns_ЗапчастиИАксессуары.TypeId КАК TypeId,
+	ns_ЗапчастиИАксессуары.VideoURL КАК VideoURL,
+	ns_ЗапчастиИАксессуары.WheelAxle КАК WheelAxle,
+	ns_ЗапчастиИАксессуары.Артикул КАК Артикул,
+	ns_ЗапчастиИАксессуары.Выгружать КАК Выгружать,
+	ns_ЗапчастиИАксессуары.Номенклатура КАК Номенклатура,
+	ns_ЗапчастиИАксессуары.Шаблон КАК Шаблон,
+	ns_ЗапчастиИАксессуары.Предопределенный КАК Предопределенный,
+	ВЫРАЗИТЬ(NULL КАК ЧИСЛО(15, 2)) КАК Остаток,
+	ns_ЗапчастиИАксессуары.Характеристика КАК Характеристика,
+	ВЫРАЗИТЬ(ЛОЖЬ КАК БУЛЕВО) КАК ЕстьКартинка,
+	ns_ЗапчастиИАксессуары.Availability КАК Availability,
+	ns_ЗапчастиИАксессуары.SpeedIndex КАК SpeedIndex,
+	ns_ЗапчастиИАксессуары.TiresModels КАК TiresModels,
+	ns_ЗапчастиИАксессуары.RunFlat КАК RunFlat,
+	ns_ЗапчастиИАксессуары.Homologation КАК Homologation,
+	ns_ЗапчастиИАксессуары.LoadIndex КАК LoadIndex,
+	ns_ЗапчастиИАксессуары.Quantity КАК Quantity
+ИЗ
+	Справочник.ns_ЗапчастиИАксессуары КАК ns_ЗапчастиИАксессуары</QueryText>
+				<MainTable>Catalog.ns_ЗапчастиИАксессуары</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Выгружать</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Остаток</dcsset:left>
+							<dcsset:comparisonType>Greater</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Выгружать</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:HoneyDew</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="TypeId" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Type id</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ns_TypeIdЗапчасти</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="RimBolts" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество отверстий под болты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ns_RimBolts</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="RimBoltsDiameter" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Диаметр расположения отверстий под болты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ns_RimBoltsDiameter</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="RimDiameter" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Диаметр, дюймы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ns_RimDiameter</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="RimOffset" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вылет (ET)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ns_RimOffset</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="RimType" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип диска</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ns_RimTypeDisk</v8:Type>
+				<v8:Type>cfg:EnumRef.ns_RimTypeWheels</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="RimWidth" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ширина обода, дюймов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ns_RimWidth</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="TireAspectRatio" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Высота профиля шины</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ns_TireAspectRatio</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="TireSectionWidth" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ширина профиля "Колеса"</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ns_TireSectionWidthШины</v8:Type>
+				<v8:Type>cfg:EnumRef.ns_TireSectionWidthМотошины</v8:Type>
+				<v8:Type>cfg:EnumRef.ns_TireSectionWidthКолёса</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="TireType" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сезонность шин или колес</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ns_TireType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="WheelAxle" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ось мотошины</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ns_WheelAxle</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СопоставлениеРеквизитов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сопоставление реквизитов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ns_СопоставлениеРеквизитов</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ConditionЗапчасти" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Condition</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ns_ConditionЗапчасти</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="AdType" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ad type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ns_AdType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ШаблонЗаголовка" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шаблон заголовка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ns_ШаблоныЗаголовков</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаОстатков" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата остатков</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Склад" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+			<Save>
+				<Field>Склад</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ШаблонОбъявления" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шаблон объявления</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ns_ШаблоныОбъявлений</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Производитель" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Производитель</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ns_ПроизводителиЗапчастей</v8:Type>
+				<v8:Type>cfg:CatalogRef.ns_ПроизводителиШин</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="SpeedIndex" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>SpeedIndex</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ns_SpeedIndex</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="LoadIndex" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>LoadIndex</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ResidualTread" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Residual tread</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>2</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="TiresModels" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>TiresModels</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ns_TiresModels</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Homologation" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Homologation</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="RunFlat" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Run flat</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Quantity" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Quantity</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>2</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Установить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+V</Shortcut>
+			<Action>Установить</Action>
+		</Command>
+		<Command name="Сбросить" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сбросить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сбросить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+X</Shortcut>
+			<Action>Сбросить</Action>
+		</Command>
+		<Command name="УстановитьВыгружать" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить выгружать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Alt+E</Shortcut>
+			<Action>УстановитьВыгружать</Action>
+		</Command>
+		<Command name="СнятьВыгружать" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять "Выгружать"</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять выгружать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Alt+C</Shortcut>
+			<Action>СнятьВыгружать</Action>
+		</Command>
+		<Command name="ПоказатьТолькоВыгружаемые" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать только выгружаемые</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать только выгружаемые</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьТолькоВыгружаемые</Action>
+		</Command>
+		<Command name="СнятьБезОстатковСВыгрузки" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять "Если нет на остатках"</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять без остатков с выгрузки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СнятьБезОстатковСВыгрузки</Action>
+		</Command>
+	</Commands>
+</Form>

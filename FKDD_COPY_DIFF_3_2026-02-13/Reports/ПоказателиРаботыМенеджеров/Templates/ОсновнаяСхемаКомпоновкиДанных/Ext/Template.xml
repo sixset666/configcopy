@@ -1,0 +1,1629 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+			<presentationExpression>ВЫБОР
+	КОГДА Сотрудник = ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка) ТОГДА
+		"Пустой менеджер"
+	ИНАЧЕ
+		Сотрудник.Наименование
+КОНЕЦ</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТрейдИн</dataPath>
+			<field>ТрейдИн</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Трейд-ин</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВходящиеВизиты</dataPath>
+			<field>ВходящиеВизиты</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВходящиеЗвонки</dataPath>
+			<field>ВходящиеЗвонки</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВходящийТрафикВизиты</dataPath>
+			<field>ВходящийТрафикВизиты</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВходящийТрафикЗвонки</dataPath>
+			<field>ВходящийТрафикЗвонки</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВходящийТрафикОбщий</dataPath>
+			<field>ВходящийТрафикОбщий</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Шрифт</dcscor:parameter>
+					<dcscor:value xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Выдачи</dataPath>
+			<field>Выдачи</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсходящиеВизиты</dataPath>
+			<field>ИсходящиеВизиты</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсходящиеЗвонки</dataPath>
+			<field>ИсходящиеЗвонки</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КарточкиКлиентов</dataPath>
+			<field>КарточкиКлиентов</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контракты</dataPath>
+			<field>Контракты</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НесостоявшиесяСделки</dataPath>
+			<field>НесостоявшиесяСделки</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отказы</dataPath>
+			<field>Отказы</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Оформления</dataPath>
+			<field>Оформления</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РабочиеЛисты</dataPath>
+			<field>РабочиеЛисты</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТестДрайвы</dataPath>
+			<field>ТестДрайвы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тест-драйвы</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Контрагенты.Автор.Сотрудник КАК Сотрудник,
+	СУММА(1) КАК КарточкиКлиентов
+{ВЫБРАТЬ
+	Сотрудник.* КАК Сотрудник,
+	КарточкиКлиентов КАК КарточкиКлиентов}
+ПОМЕСТИТЬ
+	ТаблицаКарточкиКлиентов
+ИЗ
+	Справочник.Контрагенты КАК Контрагенты
+ГДЕ
+	Контрагенты.ДатаРегистрации МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+{ГДЕ
+	Контрагенты.Автор.Сотрудник.Подразделение.* КАК Подразделение,
+	Контрагенты.Автор.Сотрудник.* КАК Сотрудник}
+СГРУППИРОВАТЬ ПО
+	Контрагенты.Автор.Сотрудник
+ИНДЕКСИРОВАТЬ ПО
+	Сотрудник
+;
+
+ВЫБРАТЬ
+	РегистрацияЗвонковИКонтактов.Сотрудник КАК Сотрудник,
+	СУММА(1) КАК ВходящийТрафикОбщий,
+	СУММА(ВЫБОР
+			КОГДА РегистрацияЗвонковИКонтактов.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ВходящийТрафикЗвонки,
+	СУММА(ВЫБОР
+			КОГДА РегистрацияЗвонковИКонтактов.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча)
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ВходящийТрафикВизиты
+{ВЫБРАТЬ
+	Сотрудник.* КАК Сотрудник,
+	ВходящийТрафикОбщий КАК ВходящийТрафикОбщий,
+	ВходящийТрафикЗвонки КАК ВходящийТрафикЗвонки,
+	ВходящийТрафикВизиты КАК ВходящийТрафикВизиты}
+ПОМЕСТИТЬ
+	ТаблицаВходящийТрафик
+ИЗ
+	РегистрСведений.РегистрацияЗвонковИКонтактов КАК РегистрацияЗвонковИКонтактов
+ГДЕ
+	РегистрацияЗвонковИКонтактов.ДатаДень МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И (РегистрацияЗвонковИКонтактов.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок) ИЛИ 
+		РегистрацияЗвонковИКонтактов.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча))
+{ГДЕ
+	РегистрацияЗвонковИКонтактов.Сотрудник.Подразделение.* КАК Подразделение,
+	РегистрацияЗвонковИКонтактов.Сотрудник.* КАК Сотрудник}
+СГРУППИРОВАТЬ ПО
+	РегистрацияЗвонковИКонтактов.Сотрудник
+ИНДЕКСИРОВАТЬ ПО
+	Сотрудник
+;
+
+ВЫБРАТЬ
+	ТаблицаСобытие.Автор.Сотрудник КАК Сотрудник,
+	СУММА(ВЫБОР
+			КОГДА ТаблицаСобытие.ТипСообщения = ЗНАЧЕНИЕ(Перечисление.ТипыСообщений.Входящее)
+					И ТаблицаСобытие.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ВходящиеЗвонки,
+	СУММА(ВЫБОР
+			КОГДА ТаблицаСобытие.ТипСообщения = ЗНАЧЕНИЕ(Перечисление.ТипыСообщений.Входящее)
+					И ТаблицаСобытие.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча)
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ВходящиеВизиты,
+	СУММА(ВЫБОР
+			КОГДА ТаблицаСобытие.ТипСообщения = ЗНАЧЕНИЕ(Перечисление.ТипыСообщений.Исходящее)
+					И ТаблицаСобытие.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ИсходящиеЗвонки,
+	СУММА(ВЫБОР
+			КОГДА ТаблицаСобытие.ТипСообщения = ЗНАЧЕНИЕ(Перечисление.ТипыСообщений.Исходящее)
+					И ТаблицаСобытие.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча)
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ИсходящиеВизиты
+{ВЫБРАТЬ
+	Сотрудник.* КАК Сотрудник,
+	ВходящиеЗвонки КАК ВходящиеЗвонки,
+	ВходящиеВизиты КАК ВходящиеВизиты,
+	ИсходящиеЗвонки КАК ИсходящиеЗвонки,
+	ИсходящиеВизиты КАК ИсходящиеВизиты}
+ПОМЕСТИТЬ
+	ТаблицаСобытия
+ИЗ
+	Документ.Событие КАК ТаблицаСобытие
+ГДЕ
+	ТаблицаСобытие.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ТаблицаСобытие.Состояние = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Завершено)
+	И (ТаблицаСобытие.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок) ИЛИ 
+		ТаблицаСобытие.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча))
+	И ТаблицаСобытие.Проведен
+{ГДЕ
+	ТаблицаСобытие.Автор.Сотрудник.Подразделение.* КАК Подразделение,
+	ТаблицаСобытие.Автор.Сотрудник.* КАК Сотрудник}
+СГРУППИРОВАТЬ ПО
+	ТаблицаСобытие.Автор.Сотрудник
+ИНДЕКСИРОВАТЬ ПО
+	Сотрудник
+;
+
+ВЫБРАТЬ
+	ТаблицаРабочийЛист.Менеджер КАК Сотрудник,
+	СУММА(1) КАК РабочиеЛисты
+{ВЫБРАТЬ
+	Сотрудник.* КАК Сотрудник,
+	РабочиеЛисты КАК РабочиеЛисты}
+ПОМЕСТИТЬ
+	ТаблицаРабочиеЛисты
+ИЗ
+	Документ.РабочийЛист КАК ТаблицаРабочийЛист
+ГДЕ
+	ТаблицаРабочийЛист.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ТаблицаРабочийЛист.Проведен
+{ГДЕ
+	ТаблицаРабочийЛист.Менеджер.Подразделение.* КАК Подразделение,
+	ТаблицаРабочийЛист.Менеджер.* КАК Сотрудник}
+СГРУППИРОВАТЬ ПО
+	ТаблицаРабочийЛист.Менеджер
+ИНДЕКСИРОВАТЬ ПО
+	Сотрудник
+;
+
+ВЫБРАТЬ
+	ТаблицаТестДрайв.Менеджер КАК Сотрудник,
+	СУММА(1) КАК ТестДрайвы
+{ВЫБРАТЬ
+	Сотрудник.* КАК Сотрудник,
+	ТестДрайвы КАК ТестДрайвы}
+ПОМЕСТИТЬ
+	ТаблицаТестДрайвы
+ИЗ
+	Документ.ТестДрайв КАК ТаблицаТестДрайв
+ГДЕ
+	ТаблицаТестДрайв.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания И 
+	ТаблицаТестДрайв.Проведен И 
+	ТаблицаТестДрайв.Состояние = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Завершено)
+{ГДЕ
+	ТаблицаТестДрайв.Менеджер.Подразделение.* КАК Подразделение,
+	ТаблицаТестДрайв.Менеджер.* КАК Сотрудник}
+СГРУППИРОВАТЬ ПО
+	ТаблицаТестДрайв.Менеджер
+ИНДЕКСИРОВАТЬ ПО
+	Сотрудник
+;
+
+ВЫБРАТЬ
+	ТаблицаВзаиморасчетыКомпании.Сделка КАК Сделка
+ПОМЕСТИТЬ
+	ТаблицаПерваяОплата
+ИЗ
+	РегистрНакопления.ВзаиморасчетыКомпании КАК ТаблицаВзаиморасчетыКомпании
+ГДЕ
+	ТаблицаВзаиморасчетыКомпании.Период &lt;= &amp;ДатаОкончания И 
+	(ТаблицаВзаиморасчетыКомпании.Сделка ССЫЛКА Документ.ЗаказНаАвтомобиль ИЛИ 
+	ТаблицаВзаиморасчетыКомпании.Сделка ССЫЛКА Документ.СчетНаОплатуЗаАвтомобили) И 
+	(ТаблицаВзаиморасчетыКомпании.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход) И ТаблицаВзаиморасчетыКомпании.Сумма &gt; 0 ИЛИ 
+	ТаблицаВзаиморасчетыКомпании.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход) И ТаблицаВзаиморасчетыКомпании.Сумма &lt; 0)
+СГРУППИРОВАТЬ ПО
+	ТаблицаВзаиморасчетыКомпании.Сделка
+ИМЕЮЩИЕ
+	МИНИМУМ(ТаблицаВзаиморасчетыКомпании.Период) &gt;= &amp;ДатаНачала
+;
+
+ВЫБРАТЬ
+	ТаблицаЗаказНаАвтомобиль.Менеджер КАК Сотрудник,
+	СУММА(1) КАК Контракты
+{ВЫБРАТЬ
+	Сотрудник.* КАК Сотрудник,
+	Контракты КАК Контракты}
+ПОМЕСТИТЬ
+	ТаблицаКонтракты
+ИЗ
+	ТаблицаПерваяОплата КАК ТаблицаПерваяОплата
+ЛЕВОЕ СОЕДИНЕНИЕ
+	Документ.СчетНаОплатуЗаАвтомобили КАК ТаблицаСчетНаОплатуЗаАвтомобили
+ПО
+	ТаблицаПерваяОплата.Сделка = ТаблицаСчетНаОплатуЗаАвтомобили.Ссылка И 
+	ТаблицаСчетНаОплатуЗаАвтомобили.ДокументОснование ССЫЛКА Документ.ЗаказНаАвтомобиль
+ВНУТРЕННЕЕ СОЕДИНЕНИЕ
+	Документ.ЗаказНаАвтомобиль КАК ТаблицаЗаказНаАвтомобиль
+ПО
+	ТаблицаПерваяОплата.Сделка = ТаблицаЗаказНаАвтомобиль.Ссылка ИЛИ 
+	ТаблицаСчетНаОплатуЗаАвтомобили.ДокументОснование = ТаблицаЗаказНаАвтомобиль.Ссылка
+{ГДЕ
+	ТаблицаЗаказНаАвтомобиль.Менеджер.Подразделение.* КАК Подразделение,
+	ТаблицаЗаказНаАвтомобиль.Менеджер.* КАК Сотрудник}
+СГРУППИРОВАТЬ ПО
+	ТаблицаЗаказНаАвтомобиль.Менеджер
+ИНДЕКСИРОВАТЬ ПО
+	Сотрудник
+;
+
+ВЫБРАТЬ
+	ВЫБОР
+		КОГДА ПродажиАвтомобилей.Регистратор ССЫЛКА Документ.РеализацияАвтомобилей ТОГДА
+			ТаблицаРеализацияАвтомобилей.Менеджер
+		ИНАЧЕ
+			ТаблицаРеализацияАктивов.Менеджер
+	КОНЕЦ КАК Сотрудник,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ПродажиАвтомобилей.Автомобиль) КАК Оформления
+{ВЫБРАТЬ
+	Сотрудник.* КАК Сотрудник,
+	Оформления КАК Оформления}
+ПОМЕСТИТЬ
+	ТаблицаОформления
+ИЗ
+	РегистрНакопления.ПродажиАвтомобилей КАК ПродажиАвтомобилей
+ЛЕВОЕ СОЕДИНЕНИЕ
+	Документ.РеализацияАвтомобилей КАК ТаблицаРеализацияАвтомобилей
+ПО
+	ПродажиАвтомобилей.Регистратор = ТаблицаРеализацияАвтомобилей.Ссылка
+ЛЕВОЕ СОЕДИНЕНИЕ
+	Документ.РеализацияАктивов КАК ТаблицаРеализацияАктивов
+ПО
+	ПродажиАвтомобилей.Регистратор = ТаблицаРеализацияАктивов.Ссылка
+ГДЕ
+	ПродажиАвтомобилей.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания И 
+	(ПродажиАвтомобилей.Регистратор ССЫЛКА Документ.РеализацияАвтомобилей ИЛИ 
+	ПродажиАвтомобилей.Регистратор ССЫЛКА Документ.РеализацияАктивов)
+{ГДЕ
+	(ВЫБОР
+		КОГДА ПродажиАвтомобилей.Регистратор ССЫЛКА Документ.РеализацияАвтомобилей ТОГДА
+			ТаблицаРеализацияАвтомобилей.Менеджер.Подразделение
+		ИНАЧЕ
+			ТаблицаРеализацияАктивов.Менеджер.Подразделение
+	КОНЕЦ).* КАК Подразделение,
+	(ВЫБОР
+		КОГДА ПродажиАвтомобилей.Регистратор ССЫЛКА Документ.РеализацияАвтомобилей ТОГДА
+			ТаблицаРеализацияАвтомобилей.Менеджер
+		ИНАЧЕ
+			ТаблицаРеализацияАктивов.Менеджер
+	КОНЕЦ).* КАК Сотрудник}
+СГРУППИРОВАТЬ ПО
+	ВЫБОР
+		КОГДА ПродажиАвтомобилей.Регистратор ССЫЛКА Документ.РеализацияАвтомобилей ТОГДА
+			ТаблицаРеализацияАвтомобилей.Менеджер
+		ИНАЧЕ
+			ТаблицаРеализацияАктивов.Менеджер
+	КОНЕЦ
+ИНДЕКСИРОВАТЬ ПО
+	Сотрудник
+;
+
+ВЫБРАТЬ
+	ТаблицаСобытие.Автор.Сотрудник КАК Сотрудник,
+	СУММА(1) КАК Выдачи
+{ВЫБРАТЬ
+	Сотрудник.* КАК Сотрудник,
+	Выдачи КАК Выдачи}
+ПОМЕСТИТЬ
+	ТаблицаВыдачи
+ИЗ
+	Документ.Событие КАК ТаблицаСобытие
+ГДЕ
+	ТаблицаСобытие.ФактическаяДатаВыдачиАвтомобиля МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ТаблицаСобытие.ФактическаяДатаВыдачиАвтомобиля &gt; ДАТАВРЕМЯ(1, 1, 1)
+	И ТаблицаСобытие.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ВыдачаАвтомобиля)
+	И ТаблицаСобытие.Состояние = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Завершено)
+	И ТаблицаСобытие.Проведен
+{ГДЕ
+	ТаблицаСобытие.Автор.Сотрудник.Подразделение.* КАК Подразделение,
+	ТаблицаСобытие.Автор.Сотрудник.* КАК Сотрудник}
+СГРУППИРОВАТЬ ПО
+	ТаблицаСобытие.Автор.Сотрудник
+ИНДЕКСИРОВАТЬ ПО
+	Сотрудник
+;
+
+ВЫБРАТЬ ПЕРВЫЕ 1
+	СтатусыРабочегоЛиста.Ссылка КАК СтатусМакс
+ПОМЕСТИТЬ
+	СтатусМаксимальный
+ИЗ
+	Справочник.СтатусыРабочегоЛиста КАК СтатусыРабочегоЛиста
+ГДЕ
+	СтатусыРабочегоЛиста.ИспользоватьВРабочемЛисте = ИСТИНА
+УПОРЯДОЧИТЬ ПО
+	СтатусыРабочегоЛиста.ПорядокВОтчете УБЫВ
+;
+
+ВЫБРАТЬ ПЕРВЫЕ 1
+	СтатусыРабочегоЛиста.Ссылка КАК СтатусМин
+ПОМЕСТИТЬ
+	СтатусМинимальный
+ИЗ
+	Справочник.СтатусыРабочегоЛиста КАК СтатусыРабочегоЛиста
+ГДЕ
+	СтатусыРабочегоЛиста.ИспользоватьВРабочемЛисте = ИСТИНА
+УПОРЯДОЧИТЬ ПО
+	СтатусыРабочегоЛиста.ПорядокВОтчете
+;
+
+ВЫБРАТЬ
+	ТаблицаРабочийЛист.Менеджер КАК Сотрудник,
+	СУММА(ВЫБОР
+		КОГДА ТаблицаЗаказНаАвтомобиль.Ссылка ЕСТЬ NULL 
+				И ТаблицаРабочийЛист.Статус = СтатусМаксимальный.СтатусМакс
+				ИЛИ ТаблицаРабочийЛист.Статус = СтатусМинимальный.СтатусМин
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ) КАК НесостоявшиесяСделки
+{ВЫБРАТЬ
+	Сотрудник.* КАК Сотрудник,
+	НесостоявшиесяСделки КАК НесостоявшиесяСделки}
+ПОМЕСТИТЬ
+	ТаблицаНесостоявшиесяСделки
+ИЗ
+	Документ.РабочийЛист КАК ТаблицаРабочийЛист
+ЛЕВОЕ СОЕДИНЕНИЕ
+	Документ.ЗаказНаАвтомобиль КАК ТаблицаЗаказНаАвтомобиль
+ПО
+	ТаблицаЗаказНаАвтомобиль.Дата &gt;= &amp;ДатаНачала И 
+	ТаблицаЗаказНаАвтомобиль.Проведен И 
+	ТаблицаРабочийЛист.Ссылка = ТаблицаЗаказНаАвтомобиль.ДокументОснование
+ВНУТРЕННЕЕ СОЕДИНЕНИЕ
+	СтатусМаксимальный КАК СтатусМаксимальный
+ПО
+	ИСТИНА
+ВНУТРЕННЕЕ СОЕДИНЕНИЕ
+	СтатусМинимальный КАК СтатусМинимальный
+ПО
+	ИСТИНА
+ГДЕ
+	ТаблицаРабочийЛист.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+{ГДЕ
+	ТаблицаРабочийЛист.Менеджер.Подразделение.* КАК Подразделение,
+	ТаблицаРабочийЛист.Менеджер.* КАК Сотрудник}
+СГРУППИРОВАТЬ ПО
+	ТаблицаРабочийЛист.Менеджер
+ИМЕЮЩИЕ
+СУММА(ВЫБОР
+		КОГДА ТаблицаЗаказНаАвтомобиль.Ссылка ЕСТЬ NULL 
+				И ТаблицаРабочийЛист.Статус = СтатусМаксимальный.СтатусМакс
+				ИЛИ ТаблицаРабочийЛист.Статус = СтатусМинимальный.СтатусМин
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ)&gt;0
+ИНДЕКСИРОВАТЬ ПО
+	Сотрудник
+;
+
+ВЫБРАТЬ
+	ТаблицаЗаказНаАвтомобиль.Менеджер КАК Сотрудник,
+	СУММА(1) КАК Отказы
+{ВЫБРАТЬ
+	Сотрудник.* КАК Сотрудник,
+	Отказы КАК Отказы}
+ПОМЕСТИТЬ
+	ТаблицаОтказы
+ИЗ
+	Документ.ЗаказНаАвтомобиль КАК ТаблицаЗаказНаАвтомобиль
+ГДЕ
+	ТаблицаЗаказНаАвтомобиль.Проведен = ИСТИНА
+	И ТаблицаЗаказНаАвтомобиль.ХозОперация = ЗНАЧЕНИЕ(Справочник.ХозОперации.ЗаказНаАвтомобильОтмена)
+	И ТаблицаЗаказНаАвтомобиль.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+{ГДЕ
+	ТаблицаЗаказНаАвтомобиль.Менеджер.Подразделение.* КАК Подразделение,
+	ТаблицаЗаказНаАвтомобиль.Менеджер.* КАК Сотрудник}
+СГРУППИРОВАТЬ ПО
+	ТаблицаЗаказНаАвтомобиль.Менеджер
+ИНДЕКСИРОВАТЬ ПО
+	Сотрудник
+;
+
+ВЫБРАТЬ
+	ТаблицаПоступлениеАвтомобилей.Автор.Сотрудник КАК Сотрудник,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ПоступлениеАвтомобилейАвтомобили.Автомобиль) КАК ТрейдИн
+{ВЫБРАТЬ
+	Сотрудник.* КАК Сотрудник,
+	ТрейдИн КАК ТрейдИн}
+ПОМЕСТИТЬ
+	ТаблицаТрейдИн
+ИЗ
+	Документ.ПоступлениеАвтомобилей КАК ТаблицаПоступлениеАвтомобилей
+ВНУТРЕННЕЕ СОЕДИНЕНИЕ
+	РегистрСведений.ЗначенияСвойствОбъектов КАК ТаблицаПоступлениеПоTradeIn
+ПО
+	ТаблицаПоступлениеПоTradeIn.Свойство = ЗНАЧЕНИЕ(ПланВидовХарактеристик.СвойстваОбъектов.ЗаказНаАвтомобиль) И 
+	ТаблицаПоступлениеАвтомобилей.Ссылка = ТаблицаПоступлениеПоTradeIn.Объект
+ВНУТРЕННЕЕ СОЕДИНЕНИЕ
+	Документ.ПоступлениеАвтомобилей.Автомобили КАК ПоступлениеАвтомобилейАвтомобили
+ПО
+	ТаблицаПоступлениеАвтомобилей.Ссылка = ПоступлениеАвтомобилейАвтомобили.Ссылка
+ГДЕ
+	ТаблицаПоступлениеАвтомобилей.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания И 
+	ТаблицаПоступлениеПоTradeIn.Свойство = ЗНАЧЕНИЕ(ПланВидовХарактеристик.СвойстваОбъектов.ЗаказНаАвтомобиль)
+{ГДЕ
+	ТаблицаПоступлениеАвтомобилей.Ссылка.Автор.Сотрудник.Подразделение.* КАК Подразделение,
+	ТаблицаПоступлениеАвтомобилей.Ссылка.Автор.Сотрудник.* КАК Сотрудник}
+СГРУППИРОВАТЬ ПО
+	ТаблицаПоступлениеАвтомобилей.Автор.Сотрудник
+ИНДЕКСИРОВАТЬ ПО
+	Сотрудник
+;
+
+ВЫБРАТЬ
+	Сотрудники.Ссылка.Подразделение КАК Подразделение,
+	Сотрудники.Ссылка КАК Сотрудник
+{ВЫБРАТЬ
+	Подразделение.* КАК Подразделение,
+	Сотрудник.* КАК Сотрудник}
+ПОМЕСТИТЬ
+	ТаблицаСотрудников
+ИЗ
+	Справочник.Сотрудники КАК Сотрудники
+ГДЕ
+	НЕ Сотрудники.ЭтоГруппа
+{ГДЕ
+	Сотрудники.Ссылка.Подразделение.* КАК Подразделение,
+	Сотрудники.Ссылка.* КАК Сотрудник}
+	
+ОБЪЕДИНИТЬ ВСЕ
+	
+ВЫБРАТЬ
+	ЗНАЧЕНИЕ(Справочник.ПодразделенияКомпании.ПустаяСсылка),
+	ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка)
+{ГДЕ
+	(ЗНАЧЕНИЕ(Справочник.ПодразделенияКомпании.ПустаяСсылка)).* КАК Подразделение,
+	(ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка)).* КАК Сотрудник}
+ИНДЕКСИРОВАТЬ ПО
+	Сотрудник
+;
+
+ВЫБРАТЬ
+	ТаблицаСотрудников.Подразделение КАК Подразделение,
+	ТаблицаСотрудников.Сотрудник КАК Сотрудник,
+	ЕСТЬNULL(ТаблицаКарточкиКлиентов.КарточкиКлиентов, 0) КАК КарточкиКлиентов,
+	ЕСТЬNULL(ТаблицаВходящийТрафик.ВходящийТрафикОбщий, 0) КАК ВходящийТрафикОбщий,
+	ЕСТЬNULL(ТаблицаВходящийТрафик.ВходящийТрафикЗвонки, 0) КАК ВходящийТрафикЗвонки,
+	ЕСТЬNULL(ТаблицаВходящийТрафик.ВходящийТрафикВизиты, 0) КАК ВходящийТрафикВизиты,
+	ЕСТЬNULL(ТаблицаСобытия.ВходящиеЗвонки, 0) КАК ВходящиеЗвонки,
+	ЕСТЬNULL(ТаблицаСобытия.ВходящиеВизиты, 0) КАК ВходящиеВизиты,
+	ЕСТЬNULL(ТаблицаСобытия.ИсходящиеЗвонки, 0) КАК ИсходящиеЗвонки,
+	ЕСТЬNULL(ТаблицаСобытия.ИсходящиеВизиты, 0) КАК ИсходящиеВизиты,
+	ЕСТЬNULL(ТаблицаРабочиеЛисты.РабочиеЛисты, 0) КАК РабочиеЛисты,
+	ЕСТЬNULL(ТаблицаТестДрайвы.ТестДрайвы, 0) КАК ТестДрайвы,
+	ЕСТЬNULL(ТаблицаКонтракты.Контракты, 0) КАК Контракты,
+	ЕСТЬNULL(ТаблицаОформления.Оформления, 0) КАК Оформления,
+	ЕСТЬNULL(ТаблицаВыдачи.Выдачи, 0) КАК Выдачи,
+	ЕСТЬNULL(ТаблицаНесостоявшиесяСделки.НесостоявшиесяСделки, 0) КАК НесостоявшиесяСделки,
+	ЕСТЬNULL(ТаблицаОтказы.Отказы, 0) КАК Отказы,
+	ЕСТЬNULL(ТаблицаТрейдИн.ТрейдИн, 0) КАК ТрейдИн
+	
+{ВЫБРАТЬ
+	Подразделение.* КАК Подразделение,
+	Сотрудник.* КАК Сотрудник,
+	КарточкиКлиентов КАК КарточкиКлиентов,
+	ВходящийТрафикОбщий КАК ВходящийТрафикОбщий,
+	ВходящийТрафикЗвонки КАК ВходящийТрафикЗвонки,
+	ВходящийТрафикВизиты КАК ВходящийТрафикВизиты,
+	ВходящиеЗвонки КАК ВходящиеЗвонки,
+	ВходящиеВизиты КАК ВходящиеВизиты,
+	ИсходящиеЗвонки КАК ИсходящиеЗвонки,
+	ИсходящиеВизиты КАК ИсходящиеВизиты,
+	РабочиеЛисты КАК РабочиеЛисты,
+	ТестДрайвы КАК ТестДрайвы,
+	Контракты КАК Контракты,
+	Оформления КАК Оформления,
+	Выдачи КАК Выдачи,
+	НесостоявшиесяСделки КАК НесостоявшиесяСделки,
+	Отказы КАК Отказы,
+	ТрейдИн КАК ТрейдИн}
+ИЗ
+	ТаблицаСотрудников КАК ТаблицаСотрудников
+{ЛЕВОЕ СОЕДИНЕНИЕ
+	ТаблицаКарточкиКлиентов КАК ТаблицаКарточкиКлиентов
+ПО
+	ТаблицаСотрудников.Сотрудник = ТаблицаКарточкиКлиентов.Сотрудник}
+{ЛЕВОЕ СОЕДИНЕНИЕ
+	ТаблицаВходящийТрафик КАК ТаблицаВходящийТрафик
+ПО
+	ТаблицаСотрудников.Сотрудник = ТаблицаВходящийТрафик.Сотрудник}
+{ЛЕВОЕ СОЕДИНЕНИЕ
+	ТаблицаСобытия КАК ТаблицаСобытия
+ПО
+	ТаблицаСотрудников.Сотрудник = ТаблицаСобытия.Сотрудник}
+{ЛЕВОЕ СОЕДИНЕНИЕ
+	ТаблицаРабочиеЛисты КАК ТаблицаРабочиеЛисты
+ПО
+	ТаблицаСотрудников.Сотрудник = ТаблицаРабочиеЛисты.Сотрудник}
+{ЛЕВОЕ СОЕДИНЕНИЕ
+	ТаблицаТестДрайвы КАК ТаблицаТестДрайвы
+ПО
+	ТаблицаСотрудников.Сотрудник = ТаблицаТестДрайвы.Сотрудник}
+{ЛЕВОЕ СОЕДИНЕНИЕ
+	ТаблицаКонтракты КАК ТаблицаКонтракты
+ПО
+	ТаблицаСотрудников.Сотрудник = ТаблицаКонтракты.Сотрудник}
+{ЛЕВОЕ СОЕДИНЕНИЕ
+	ТаблицаОформления КАК ТаблицаОформления
+ПО
+	ТаблицаСотрудников.Сотрудник = ТаблицаОформления.Сотрудник}
+{ЛЕВОЕ СОЕДИНЕНИЕ
+	ТаблицаВыдачи КАК ТаблицаВыдачи
+ПО
+	ТаблицаСотрудников.Сотрудник = ТаблицаВыдачи.Сотрудник}
+{ЛЕВОЕ СОЕДИНЕНИЕ
+	ТаблицаНесостоявшиесяСделки КАК ТаблицаНесостоявшиесяСделки
+ПО
+	ТаблицаСотрудников.Сотрудник = ТаблицаНесостоявшиесяСделки.Сотрудник}
+{ЛЕВОЕ СОЕДИНЕНИЕ
+	ТаблицаОтказы КАК ТаблицаОтказы
+ПО
+	ТаблицаСотрудников.Сотрудник = ТаблицаОтказы.Сотрудник}
+{ЛЕВОЕ СОЕДИНЕНИЕ
+	ТаблицаТрейдИн КАК ТаблицаТрейдИн
+ПО
+	ТаблицаСотрудников.Сотрудник = ТаблицаТрейдИн.Сотрудник}
+{ГДЕ
+	ЕСТЬNULL(ТаблицаКарточкиКлиентов.КарточкиКлиентов, 0) КАК КарточкиКлиентов,
+	ЕСТЬNULL(ТаблицаВходящийТрафик.ВходящийТрафикОбщий, 0) КАК ВходящийТрафикОбщий,
+	ЕСТЬNULL(ТаблицаВходящийТрафик.ВходящийТрафикЗвонки, 0) КАК ВходящийТрафикЗвонки,
+	ЕСТЬNULL(ТаблицаВходящийТрафик.ВходящийТрафикВизиты, 0) КАК ВходящийТрафикВизиты,
+	ЕСТЬNULL(ТаблицаСобытия.ВходящиеЗвонки, 0) КАК ВходящиеЗвонки,
+	ЕСТЬNULL(ТаблицаСобытия.ВходящиеВизиты, 0) КАК ВходящиеВизиты,
+	ЕСТЬNULL(ТаблицаСобытия.ИсходящиеЗвонки, 0) КАК ИсходящиеЗвонки,
+	ЕСТЬNULL(ТаблицаСобытия.ИсходящиеВизиты, 0) КАК ИсходящиеВизиты,
+	ЕСТЬNULL(ТаблицаРабочиеЛисты.РабочиеЛисты, 0) КАК РабочиеЛисты,
+	ЕСТЬNULL(ТаблицаТестДрайвы.ТестДрайвы, 0) КАК ТестДрайвы,
+	ЕСТЬNULL(ТаблицаКонтракты.Контракты, 0) КАК Контракты,
+	ЕСТЬNULL(ТаблицаОформления.Оформления, 0) КАК Оформления,
+	ЕСТЬNULL(ТаблицаВыдачи.Выдачи, 0) КАК Выдачи,
+	ЕСТЬNULL(ТаблицаНесостоявшиесяСделки.НесостоявшиесяСделки, 0) КАК НесостоявшиесяСделки,
+	ЕСТЬNULL(ТаблицаОтказы.Отказы, 0) КАК Отказы,
+	ЕСТЬNULL(ТаблицаТрейдИн.ТрейдИн, 0) КАК ТрейдИн}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ВходящиеСобытияОбщие</dataPath>
+		<expression>ВходящиеЗвонки+ВходящиеВизиты</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Входящие звонки и визиты</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Шрифт</dcscor:parameter>
+				<dcscor:value xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ИсходящиеСобытияОбщие</dataPath>
+		<expression>ИсходящиеЗвонки+ИсходящиеВизиты</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Исходящие звонки и визиты</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Шрифт</dcscor:parameter>
+				<dcscor:value xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>КонверсияТестДрайвыКТрафику</dataPath>
+		<expression>ВЫБОР
+	КОГДА (ВходящийТрафикЗвонки+ВходящийТрафикВизиты) = 0 И ТестДрайвы&gt;0 ТОГДА
+		100
+	КОГДА (ВходящийТрафикЗвонки+ВходящийТрафикВизиты) = 0 ТОГДА
+		0
+	ИНАЧЕ
+		ТестДрайвы/(ВходящийТрафикЗвонки+ВходящийТрафикВизиты)*100
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тест-драйвы к трафику</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>КонверсияТестДрайвыКСобытиям</dataPath>
+		<expression>ВЫБОР
+	КОГДА (ВходящиеЗвонки+ВходящиеВизиты) = 0 И ТестДрайвы&gt;0 ТОГДА
+		100
+	КОГДА (ВходящиеЗвонки+ВходящиеВизиты) = 0 ТОГДА
+		0
+	ИНАЧЕ
+		ТестДрайвы/(ВходящиеЗвонки+ВходящиеВизиты)*100
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тест-драйвы к событиям</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>КонверсияВизитыКЗвонкамТрафик</dataPath>
+		<expression>ВЫБОР
+	КОГДА ВходящийТрафикЗвонки = 0 И ВходящийТрафикВизиты&gt;0 ТОГДА
+		100
+	КОГДА ВходящийТрафикЗвонки = 0 ТОГДА
+		0
+ИНАЧЕ
+		ВходящийТрафикВизиты/ВходящийТрафикЗвонки*100
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Визиты к звонкам (трафик)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>КонверсияВизитыКЗвонкамСобытия</dataPath>
+		<expression>ВЫБОР
+	КОГДА ВходящиеЗвонки = 0 И ВходящиеВизиты&gt;0 ТОГДА
+		100
+	КОГДА ВходящиеЗвонки = 0 ТОГДА
+		0
+ИНАЧЕ
+		ВходящиеВизиты/ВходящиеЗвонки*100
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Визиты к звонкам (события)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>КонверсияКонтрактыКТрафику</dataPath>
+		<expression>ВЫБОР
+	КОГДА (ВходящийТрафикЗвонки+ВходящийТрафикВизиты) = 0 И Контракты&gt;0 ТОГДА
+		100
+	КОГДА (ВходящийТрафикЗвонки+ВходящийТрафикВизиты) = 0 ТОГДА
+		0
+	ИНАЧЕ
+		Контракты/(ВходящийТрафикЗвонки+ВходящийТрафикВизиты)*100
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Контракты к трафику</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>КонверсияКонтрактыКСобытиям</dataPath>
+		<expression>ВЫБОР
+	КОГДА (ВходящиеЗвонки+ВходящиеВизиты) = 0 И Контракты&gt;0 ТОГДА
+		100
+	КОГДА (ВходящиеЗвонки+ВходящиеВизиты) = 0 ТОГДА
+		0
+	ИНАЧЕ
+		Контракты/(ВходящиеЗвонки+ВходящиеВизиты)*100
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Контракты к событиям</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>КонверсияКонтрактыКТестДрайвам</dataPath>
+		<expression>ВЫБОР
+	КОГДА ТестДрайвы = 0 И Контракты&gt;0 ТОГДА
+		100
+	КОГДА ТестДрайвы = 0 ТОГДА
+		0
+	ИНАЧЕ
+		Контракты/ТестДрайвы*100
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Контракты к тест-драйвам</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>КонверсияОтказыККонтрактам</dataPath>
+		<expression>ВЫБОР
+	КОГДА Контракты = 0 И Отказы&gt;0 ТОГДА
+		100
+	КОГДА Контракты = 0 ТОГДА
+		0
+	ИНАЧЕ
+		Отказы/Контракты*100
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отказы к контрактам</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<totalField>
+		<dataPath>ВходящиеВизиты</dataPath>
+		<expression>Сумма(ВходящиеВизиты)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВходящиеЗвонки</dataPath>
+		<expression>Сумма(ВходящиеЗвонки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВходящиеСобытияОбщие</dataPath>
+		<expression>Сумма(ВходящиеСобытияОбщие)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВходящийТрафикВизиты</dataPath>
+		<expression>Сумма(ВходящийТрафикВизиты)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВходящийТрафикЗвонки</dataPath>
+		<expression>Сумма(ВходящийТрафикЗвонки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВходящийТрафикОбщий</dataPath>
+		<expression>Сумма(ВходящийТрафикОбщий)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Выдачи</dataPath>
+		<expression>Сумма(Выдачи)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИсходящиеВизиты</dataPath>
+		<expression>Сумма(ИсходящиеВизиты)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИсходящиеЗвонки</dataPath>
+		<expression>Сумма(ИсходящиеЗвонки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИсходящиеСобытияОбщие</dataPath>
+		<expression>Сумма(ИсходящиеСобытияОбщие)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КарточкиКлиентов</dataPath>
+		<expression>Сумма(КарточкиКлиентов)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КонверсияВизитыКЗвонкамСобытия</dataPath>
+		<expression>ВЫБОР
+	КОГДА Сумма(ВходящиеЗвонки) = 0 И Сумма(ВходящиеВизиты)&gt;0 ТОГДА
+		100
+	КОГДА Сумма(ВходящиеЗвонки) = 0 ТОГДА
+		0
+	ИНАЧЕ
+		Сумма(ВходящиеВизиты)/Сумма(ВходящиеЗвонки)*100
+КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КонверсияВизитыКЗвонкамТрафик</dataPath>
+		<expression>ВЫБОР
+	КОГДА Сумма(ВходящийТрафикЗвонки) = 0 И Сумма(ВходящийТрафикВизиты)&gt;0 ТОГДА
+		100
+	КОГДА Сумма(ВходящийТрафикЗвонки) = 0 ТОГДА
+		0
+	ИНАЧЕ
+	Сумма(ВходящийТрафикВизиты)/Сумма(ВходящийТрафикЗвонки)*100
+КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КонверсияКонтрактыКСобытиям</dataPath>
+		<expression>ВЫБОР
+	КОГДА Сумма(ВходящиеЗвонки+ВходящиеВизиты) = 0 И Сумма(Контракты)&gt;0 ТОГДА
+		100
+	КОГДА Сумма(ВходящиеЗвонки+ВходящиеВизиты) = 0 ТОГДА
+		0
+	ИНАЧЕ
+		Сумма(Контракты)/Сумма(ВходящиеЗвонки+ВходящиеВизиты)*100
+КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КонверсияКонтрактыКТестДрайвам</dataPath>
+		<expression>ВЫБОР
+	КОГДА Сумма(ТестДрайвы) = 0 И Сумма(Контракты)&gt;0 ТОГДА
+		100
+	КОГДА Сумма(ТестДрайвы) = 0 ТОГДА
+		0
+	ИНАЧЕ
+		Сумма(Контракты)/Сумма(ТестДрайвы)*100
+КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КонверсияКонтрактыКТрафику</dataPath>
+		<expression>ВЫБОР
+	КОГДА Сумма(ВходящийТрафикЗвонки+ВходящийТрафикВизиты) = 0 И Сумма(Контракты)&gt;0 ТОГДА
+		100
+	КОГДА Сумма(ВходящийТрафикЗвонки+ВходящийТрафикВизиты) = 0 ТОГДА
+		0
+	ИНАЧЕ
+		Сумма(Контракты)/Сумма(ВходящийТрафикЗвонки+ВходящийТрафикВизиты)*100
+КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КонверсияОтказыККонтрактам</dataPath>
+		<expression>ВЫБОР
+	КОГДА Сумма(Контракты) = 0 И Сумма(Отказы)&gt;0 ТОГДА
+		100
+	КОГДА Сумма(Контракты) = 0 ТОГДА
+		0
+	ИНАЧЕ
+		Сумма(Отказы)/Сумма(Контракты)*100
+КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КонверсияТестДрайвыКСобытиям</dataPath>
+		<expression>ВЫБОР
+	КОГДА Сумма(ВходящиеЗвонки+ВходящиеВизиты) = 0 И Сумма(ТестДрайвы)&gt;0 ТОГДА
+		100
+	КОГДА Сумма(ВходящиеЗвонки+ВходящиеВизиты) = 0 ТОГДА
+		0
+	ИНАЧЕ
+		Сумма(ТестДрайвы)/Сумма(ВходящиеЗвонки+ВходящиеВизиты)*100
+КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КонверсияТестДрайвыКТрафику</dataPath>
+		<expression>ВЫБОР
+	КОГДА Сумма(ВходящийТрафикЗвонки+ВходящийТрафикВизиты) = 0 И Сумма(ТестДрайвы)&gt;0 ТОГДА
+		100
+	КОГДА Сумма(ВходящийТрафикЗвонки+ВходящийТрафикВизиты) = 0 ТОГДА
+		0
+	ИНАЧЕ
+		Сумма(ТестДрайвы)/Сумма(ВходящийТрафикЗвонки+ВходящийТрафикВизиты)*100
+КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Контракты</dataPath>
+		<expression>Сумма(Контракты)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НесостоявшиесяСделки</dataPath>
+		<expression>Сумма(НесостоявшиесяСделки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Отказы</dataPath>
+		<expression>Сумма(Отказы)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Оформления</dataPath>
+		<expression>Сумма(Оформления)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РабочиеЛисты</dataPath>
+		<expression>Сумма(РабочиеЛисты)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТестДрайвы</dataPath>
+		<expression>Сумма(ТестДрайвы)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТрейдИн</dataPath>
+		<expression>Сумма(ТрейдИн)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Подразделение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сотрудник</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Абсолютные показатели</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КарточкиКлиентов</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Вх. трафик</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ВходящийТрафикОбщий</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ВходящийТрафикЗвонки</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ВходящийТрафикВизиты</dcsset:field>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Вх. события</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ВходящиеСобытияОбщие</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ВходящиеЗвонки</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ВходящиеВизиты</dcsset:field>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Исх. события</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ИсходящиеСобытияОбщие</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ИсходящиеЗвонки</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ИсходящиеВизиты</dcsset:field>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>РабочиеЛисты</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТестДрайвы</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Контракты</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Оформления</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Выдачи</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НесостоявшиесяСделки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Отказы</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТрейдИн</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Конверсия</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КонверсияВизитыКЗвонкамТрафик</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КонверсияВизитыКЗвонкамСобытия</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КонверсияТестДрайвыКТрафику</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КонверсияТестДрайвыКСобытиям</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КонверсияКонтрактыКТрафику</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КонверсияКонтрактыКСобытиям</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КонверсияКонтрактыКТестДрайвам</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КонверсияОтказыККонтрактам</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Подразделение</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Сотрудник</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

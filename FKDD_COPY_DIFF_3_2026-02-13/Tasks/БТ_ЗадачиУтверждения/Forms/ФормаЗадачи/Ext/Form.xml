@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСогласовать" id="38">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.Согласовать</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.AppearanceCheckIcon</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаСогласоватьРасширеннаяПодсказка" id="39"/>
+			</Button>
+			<Button name="ФормаСогласоватьИЗакрыть" id="40">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.СогласоватьИЗакрыть</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.WriteAndClose</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаСогласоватьИЗакрытьРасширеннаяПодсказка" id="41"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="42">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="43"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="ИнфоСтраницы" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Инфо страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Инфо страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ИнфоСтраницыРасширеннаяПодсказка" id="11"/>
+			<Events>
+				<Event name="OnCurrentPageChange">ИнфоСтраницыПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="Основная" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основная</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Basic</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основная</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ОсновнаяРасширеннаяПодсказка" id="13"/>
+					<ChildItems>
+						<SpreadSheetDocumentField name="ОписаниеЗаявки" id="14">
+							<DataPath>ОписаниеЗаявки</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="ОписаниеЗаявкиКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="ОписаниеЗаявкиРасширеннаяПодсказка" id="16"/>
+							<Events>
+								<Event name="DetailProcessing">ОписаниеЗаявкиОбработкаРасшифровки</Event>
+							</Events>
+						</SpreadSheetDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="ИсторияСогласования" id="28">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>История согласования</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>History of agreement</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>История согласования</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ИсторияСогласованияРасширеннаяПодсказка" id="29"/>
+					<ChildItems>
+						<SpreadSheetDocumentField name="История" id="30">
+							<DataPath>История</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<VerticalScrollBar>true</VerticalScrollBar>
+							<HorizontalScrollBar>true</HorizontalScrollBar>
+							<ContextMenu name="ИсторияКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="ИсторияРасширеннаяПодсказка" id="32"/>
+						</SpreadSheetDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="КартаМаршрута" id="33">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Карта маршрута</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Route map</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Карта маршрута</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Route map</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="КартаМаршрутаРасширеннаяПодсказка" id="34"/>
+					<ChildItems>
+						<GraphicalSchemaField name="КартаМаршрутаЗаявки" id="35">
+							<DataPath>КартаМаршрутаЗаявки</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<ContextMenu name="КартаМаршрутаЗаявкиКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="КартаМаршрутаЗаявкиРасширеннаяПодсказка" id="37"/>
+						</GraphicalSchemaField>
+					</ChildItems>
+				</Page>
+				<Page name="РеквизитыЗадачи" id="44">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты задачи</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты задачи</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="РеквизитыЗадачиРасширеннаяПодсказка" id="45"/>
+					<ChildItems>
+						<InputField name="Номер" id="49">
+							<DataPath>Объект.Number</DataPath>
+							<ContextMenu name="НомерКонтекстноеМеню" id="50"/>
+							<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="51"/>
+						</InputField>
+						<InputField name="Дата" id="55">
+							<DataPath>Объект.Date</DataPath>
+							<ContextMenu name="ДатаКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="57"/>
+						</InputField>
+						<UsualGroup name="Группа1" id="58">
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="59"/>
+							<ChildItems>
+								<InputField name="Наименование" id="52">
+									<DataPath>Объект.Description</DataPath>
+									<ContextMenu name="НаименованиеКонтекстноеМеню" id="53"/>
+									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="54"/>
+								</InputField>
+								<InputField name="Ссылка" id="46">
+									<DataPath>Объект.Ref</DataPath>
+									<ContextMenu name="СсылкаКонтекстноеМеню" id="47"/>
+									<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="48"/>
+								</InputField>
+								<InputField name="БизнесПроцесс" id="60">
+									<DataPath>Объект.BusinessProcess</DataPath>
+									<ContextMenu name="БизнесПроцессКонтекстноеМеню" id="61"/>
+									<ExtendedTooltip name="БизнесПроцессРасширеннаяПодсказка" id="62"/>
+								</InputField>
+								<InputField name="ТочкаМаршрута" id="63">
+									<DataPath>Объект.RoutePoint</DataPath>
+									<ContextMenu name="ТочкаМаршрутаКонтекстноеМеню" id="64"/>
+									<ExtendedTooltip name="ТочкаМаршрутаРасширеннаяПодсказка" id="65"/>
+								</InputField>
+								<InputField name="Заявка" id="66">
+									<DataPath>Объект.Заявка</DataPath>
+									<ContextMenu name="ЗаявкаКонтекстноеМеню" id="67"/>
+									<ExtendedTooltip name="ЗаявкаРасширеннаяПодсказка" id="68"/>
+								</InputField>
+								<InputField name="ВидЗаявки" id="69">
+									<DataPath>Объект.ВидЗаявки</DataPath>
+									<ContextMenu name="ВидЗаявкиКонтекстноеМеню" id="70"/>
+									<ExtendedTooltip name="ВидЗаявкиРасширеннаяПодсказка" id="71"/>
+								</InputField>
+								<InputField name="Роль" id="75">
+									<DataPath>Объект.Роль</DataPath>
+									<ContextMenu name="РольКонтекстноеМеню" id="76"/>
+									<ExtendedTooltip name="РольРасширеннаяПодсказка" id="77"/>
+								</InputField>
+								<InputField name="Пользователь" id="72">
+									<DataPath>Объект.Пользователь</DataPath>
+									<ContextMenu name="ПользовательКонтекстноеМеню" id="73"/>
+									<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="74"/>
+								</InputField>
+								<InputField name="Выполнена" id="78">
+									<DataPath>Объект.Executed</DataPath>
+									<ContextMenu name="ВыполненаКонтекстноеМеню" id="79"/>
+									<ExtendedTooltip name="ВыполненаРасширеннаяПодсказка" id="80"/>
+								</InputField>
+								<CheckBoxField name="ОтправленаНаДоработку" id="81">
+									<DataPath>Объект.ОтправленаНаДоработку</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ОтправленаНаДоработкуКонтекстноеМеню" id="82"/>
+									<ExtendedTooltip name="ОтправленаНаДоработкуРасширеннаяПодсказка" id="83"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:TaskObject.БТ_ЗадачиУтверждения</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="КартаМаршрутаЗаявки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Карта маршрута заявки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Application route map</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.2/data/graphscheme">d5p1:FlowchartContextType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="История" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОписаниеЗаявки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание заявки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтруктураЗаявокТабличныхДокументов" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура заявок табличных документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ЗаявкаПользователя" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка пользователя</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="АдресДанныхРасшифровкиОписаниеЗаявки" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес данных расшифровки описание заявки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Согласовать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Согласовать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Согласовать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Согласовать</Action>
+		</Command>
+		<Command name="СогласоватьИЗакрыть" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Согласовать и закрыть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Согласовать и закрыть</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СогласоватьИЗакрыть</Action>
+		</Command>
+		<Command name="Закрыть" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть</v8:content>
+				</v8:item>
+			</ToolTip>
+		</Command>
+	</Commands>
+</Form>

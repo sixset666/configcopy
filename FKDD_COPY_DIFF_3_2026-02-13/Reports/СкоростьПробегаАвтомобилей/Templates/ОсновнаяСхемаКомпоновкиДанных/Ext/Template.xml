@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<title xsi:type="xs:string">Автомобиль</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Автомобили</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПоследнегоИзменения</dataPath>
+			<field>ДатаПоследнегоИзменения</field>
+			<title xsi:type="xs:string">Дата последнего изменения пробега</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=дд.ММ.гггг</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоИзменений</dataPath>
+			<field>КоличествоИзменений</field>
+			<title xsi:type="xs:string">Количество изменений пробега</title>
+			<useRestriction>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МежсервисныйПробег</dataPath>
+			<field>МежсервисныйПробег</field>
+			<title xsi:type="xs:string">Межсервисный пробег</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">18</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+			<title xsi:type="xs:string">Модель</title>
+			<useRestriction>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Модели</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОсталосьПройтиДоТО</dataPath>
+			<field>ОсталосьПройтиДоТО</field>
+			<title xsi:type="xs:string">Осталось км до ТО</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=0</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановаяДата</dataPath>
+			<field>ПлановаяДата</field>
+			<title xsi:type="xs:string">Планируемая дата ТО</title>
+			<useRestriction>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=дд.ММ.гггг</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">17</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Пробег</dataPath>
+			<field>Пробег</field>
+			<title xsi:type="xs:string">Пробег</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=0</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрошлоДнейСМоментаИзменения</dataPath>
+			<field>ПрошлоДнейСМоментаИзменения</field>
+			<title xsi:type="xs:string">Прошло дней с момента изменения</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=0</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Скорость</dataPath>
+			<field>Скорость</field>
+			<title xsi:type="xs:string">Пробег в день</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=0</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТекущийПробег</dataPath>
+			<field>ТекущийПробег</field>
+			<title xsi:type="xs:string">Прогноз пробега на дату отчета</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=0</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль.Хозяин</dataPath>
+			<field>Хозяин</field>
+			<title xsi:type="xs:string">Владелец</title>
+			<useRestriction>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ПодтверждающиеДокументы</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:EnumRef.ВидАвтомобиля</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Автомобили.Автомобиль КАК Автомобиль,
+	ВЫБОР
+		КОГДА Автомобили.Автомобиль.ВариантКомплектации = ЗНАЧЕНИЕ(Справочник.ВариантыКомплектации.ПустаяСсылка)
+				ИЛИ Автомобили.Автомобиль.ВариантКомплектации.МежсервисныйПробегТО = 0
+			ТОГДА Автомобили.Автомобиль.Модель.МежсервисныйПробегТО
+		ИНАЧЕ Автомобили.Автомобиль.ВариантКомплектации.МежсервисныйПробегТО
+	КОНЕЦ КАК МежсервисныйПробег,
+	ВЫБОР
+		КОГДА РАЗНОСТЬДАТ(МИНИМУМ(Автомобили.Период), МАКСИМУМ(Автомобили.Период), ДЕНЬ) = 0
+			ТОГДА 0
+		ИНАЧЕ ((ВЫРАЗИТЬ(МАКСИМУМ(Автомобили.Значение) КАК ЧИСЛО(10, 0))) - (ВЫРАЗИТЬ(МИНИМУМ(Автомобили.Значение) КАК ЧИСЛО(10, 0)))) / РАЗНОСТЬДАТ(МИНИМУМ(Автомобили.Период), МАКСИМУМ(Автомобили.Период), ДЕНЬ)
+	КОНЕЦ КАК Скорость,
+	ВЫБОР
+		КОГДА РАЗНОСТЬДАТ(МИНИМУМ(Автомобили.Период), МАКСИМУМ(Автомобили.Период), ДЕНЬ) = 0
+			ТОГДА ВЫРАЗИТЬ(МАКСИМУМ(Автомобили.Значение) КАК ЧИСЛО(10, 0))
+		ИНАЧЕ (ВЫРАЗИТЬ(МАКСИМУМ(Автомобили.Значение) КАК ЧИСЛО(10, 0))) + РАЗНОСТЬДАТ(МАКСИМУМ(Автомобили.Период), &amp;ДатаОкончания, ДЕНЬ) * ((ВЫРАЗИТЬ(МАКСИМУМ(Автомобили.Значение) КАК ЧИСЛО(10, 0))) / РАЗНОСТЬДАТ(МИНИМУМ(Автомобили.Период), МАКСИМУМ(Автомобили.Период), ДЕНЬ))
+	КОНЕЦ КАК ТекущийПробег,
+	МАКСИМУМ(Автомобили.Период) КАК ДатаПоследнегоИзменения,
+	РАЗНОСТЬДАТ(МАКСИМУМ(Автомобили.Период), &amp;ДатаОкончания, ДЕНЬ) КАК ПрошлоДнейСМоментаИзменения,
+	ВЫРАЗИТЬ(МАКСИМУМ(Автомобили.Значение) КАК ЧИСЛО(10, 0)) КАК Пробег
+ПОМЕСТИТЬ ТаблицаАвтомобилей
+ИЗ
+	РегистрСведений.Автомобили КАК Автомобили
+ГДЕ
+	Автомобили.Период &lt;= &amp;ДатаОкончания
+	И Автомобили.ВидЗначения = ЗНАЧЕНИЕ(Перечисление.ДополнительнаяИнформацияАвтомобилей.Пробег)
+{ГДЕ
+	Автомобили.Автомобиль.* КАК Автомобиль,
+	Автомобили.Автомобиль.Модель.* КАК Модель,
+	(КОЛИЧЕСТВО(Автомобили.Период)) КАК КоличествоИзменений}
+
+СГРУППИРОВАТЬ ПО
+	Автомобили.Автомобиль,
+	ВЫБОР
+		КОГДА Автомобили.Автомобиль.ВариантКомплектации = ЗНАЧЕНИЕ(Справочник.ВариантыКомплектации.ПустаяСсылка)
+				ИЛИ Автомобили.Автомобиль.ВариантКомплектации.МежсервисныйПробегТО = 0
+			ТОГДА Автомобили.Автомобиль.Модель.МежсервисныйПробегТО
+		ИНАЧЕ Автомобили.Автомобиль.ВариантКомплектации.МежсервисныйПробегТО
+	КОНЕЦ
+
+ИМЕЮЩИЕ
+	МАКСИМУМ(Автомобили.Период) &gt;= &amp;ДатаОтбора
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТаблицаАвтомобилей.Автомобиль КАК Автомобиль,
+	АвтомобилиВладелец.Значение КАК Хозяин,
+	ТаблицаАвтомобилей.ДатаПоследнегоИзменения КАК ДатаПоследнегоИзменения,
+	ТаблицаАвтомобилей.ПрошлоДнейСМоментаИзменения КАК ПрошлоДнейСМоментаИзменения,
+	ТаблицаАвтомобилей.Пробег КАК Пробег,
+	ТаблицаАвтомобилей.МежсервисныйПробег КАК МежсервисныйПробег,
+	ТаблицаАвтомобилей.Скорость КАК Скорость,
+	ТаблицаАвтомобилей.ТекущийПробег КАК ТекущийПробег,
+	ВЫБОР
+		КОГДА ТаблицаАвтомобилей.Скорость = 0
+				ИЛИ ТаблицаАвтомобилей.МежсервисныйПробег = 0
+			ТОГДА 0
+		ИНАЧЕ -(ТаблицаАвтомобилей.ТекущийПробег - ((ВЫРАЗИТЬ(ТаблицаАвтомобилей.ТекущийПробег / ТаблицаАвтомобилей.МежсервисныйПробег - 0.5 КАК ЧИСЛО(10, 0))) + 1) * ТаблицаАвтомобилей.МежсервисныйПробег)
+	КОНЕЦ КАК ОсталосьПройтиДоТО,
+	ВЫБОР
+		КОГДА ТаблицаАвтомобилей.Скорость = 0
+				ИЛИ ТаблицаАвтомобилей.МежсервисныйПробег = 0
+			ТОГДА ДАТАВРЕМЯ(1, 1, 1)
+		ИНАЧЕ ДОБАВИТЬКДАТЕ(&amp;ДатаОкончания, ДЕНЬ, -(ТаблицаАвтомобилей.ТекущийПробег - ((ВЫРАЗИТЬ(ТаблицаАвтомобилей.ТекущийПробег / ТаблицаАвтомобилей.МежсервисныйПробег - 0.5 КАК ЧИСЛО(10, 0))) + 1) * ТаблицаАвтомобилей.МежсервисныйПробег) / ТаблицаАвтомобилей.Скорость)
+	КОНЕЦ КАК ПлановаяДата
+{ВЫБРАТЬ
+	Хозяин.* КАК Хозяин,
+	Автомобиль.* КАК Автомобиль,
+	Пробег КАК Пробег,
+	ПлановаяДата КАК ПлановаяДата,
+	Скорость КАК Скорость,
+	ДатаПоследнегоИзменения КАК ДатаПоследнегоИзменения,
+	ПрошлоДнейСМоментаИзменения КАК ПрошлоДнейСМоментаИзменения,
+	МежсервисныйПробег КАК МежсервисныйПробег,
+	ТекущийПробег КАК ТекущийПробег,
+	ОсталосьПройтиДоТО КАК ОсталосьПройтиДоТО}
+ИЗ
+	ТаблицаАвтомобилей КАК ТаблицаАвтомобилей
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Автомобили.СрезПоследних(, ВидЗначения = ЗНАЧЕНИЕ(Перечисление.ДополнительнаяИнформацияАвтомобилей.Хозяин) {(Автомобиль).* КАК Автомобиль, (Автомобиль.Модель).* КАК Модель}) КАК АвтомобилиВладелец
+		ПО ТаблицаАвтомобилей.Автомобиль = АвтомобилиВладелец.Автомобиль}
+{ГДЕ
+	(ВЫРАЗИТЬ(АвтомобилиВладелец.Значение КАК Справочник.Контрагенты)).* КАК Хозяин,
+	(ВЫБОР
+			КОГДА ТаблицаАвтомобилей.Скорость = 0
+					ИЛИ ТаблицаАвтомобилей.МежсервисныйПробег = 0
+				ТОГДА ДАТАВРЕМЯ(1, 1, 1)
+			ИНАЧЕ ДОБАВИТЬКДАТЕ(&amp;ДатаОкончания, ДЕНЬ, -(ТаблицаАвтомобилей.ТекущийПробег - ((ВЫРАЗИТЬ(ТаблицаАвтомобилей.ТекущийПробег / ТаблицаАвтомобилей.МежсервисныйПробег - 0.5 КАК ЧИСЛО(10, 0))) + 1) * ТаблицаАвтомобилей.МежсервисныйПробег) / ТаблицаАвтомобилей.Скорость)
+		КОНЕЦ) КАК ПлановаяДата}
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.Контрагенты)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			ВидыКонтактнойИнформации.Ссылка КАК Свойство,
+			"КИ." + ВидыКонтактнойИнформации.Наименование КАК Наименование
+		ИЗ
+			Справочник.ВидыКонтактнойИнформации КАК ВидыКонтактнойИнформации
+		ГДЕ
+			ВидыКонтактнойИнформации.ПометкаУдаления = ЛОЖЬ)
+	ПОЛЕКЛЮЧА Свойство
+	ПОЛЕИМЕНИ Наименование
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.КонтактнаяИнформация
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Вид
+	ПОЛЕЗНАЧЕНИЯ Представление }</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<totalField>
+		<dataPath>Автомобиль.Хозяин</dataPath>
+		<expression>Максимум(Автомобиль.Хозяин)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>МежсервисныйПробег</dataPath>
+		<expression>Сумма(МежсервисныйПробег)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДатаПоследнегоИзменения</dataPath>
+		<expression>Максимум(ДатаПоследнегоИзменения)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПрошлоДнейСМоментаИзменения</dataPath>
+		<expression>Сумма(ПрошлоДнейСМоментаИзменения)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Пробег</dataPath>
+		<expression>Сумма(Пробег)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Скорость</dataPath>
+		<expression>Сумма(Скорость)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТекущийПробег</dataPath>
+		<expression>Сумма(ТекущийПробег)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОсталосьПройтиДоТО</dataPath>
+		<expression>Сумма(ОсталосьПройтиДоТО)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПлановаяДата</dataPath>
+		<expression>Максимум(ПлановаяДата)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаОтбора</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата отбора</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автомобиль.Хозяин</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МежсервисныйПробег</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ДатаПоследнегоИзменения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПрошлоДнейСМоментаИзменения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Пробег</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Скорость</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТекущийПробег</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОсталосьПройтиДоТО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлановаяДата</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Автомобиль</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Модель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОтбора</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Автомобиль</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Автомобиль.VIN</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Автомобиль.Хозяин</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

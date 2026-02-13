@@ -1,0 +1,71 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://aaa24.ru">
+	<objectType name="feed">
+		<property name="version" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property name="uid" type="xs:string" lowerBound="0" form="Element"/>
+		<property name="creation_date" type="xs:string" lowerBound="0" localName="creation-date"/>
+		<property xmlns:d3p1="http://aaa24.ru" name="cars" type="d3p1:cars" lowerBound="0" upperBound="-1" form="Element"/>
+		<property xmlns:d3p1="http://aaa24.ru" name="sellers" type="d3p1:sellers" lowerBound="0" upperBound="-1" form="Element"/>
+	</objectType>
+	<objectType name="car">
+		<property name="id" type="xs:string" lowerBound="0"/>
+		<property name="active" type="xs:string" lowerBound="0" nillable="true" default="1"/>
+		<property name="date" type="xs:string" lowerBound="0"/>
+		<property name="update" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="price" type="xs:string" lowerBound="0"/>
+		<property name="state" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://aaa24.ru" name="params" type="d3p1:params" lowerBound="0"/>
+		<property xmlns:d3p1="http://aaa24.ru" name="images" type="d3p1:images" lowerBound="0" upperBound="1"/>
+		<property xmlns:d3p1="http://aaa24.ru" name="equipment" type="d3p1:equipment" lowerBound="0"/>
+		<property xmlns:d3p1="http://aaa24.ru" name="seller" type="d3p1:seller" lowerBound="0" upperBound="1"/>
+		<property xmlns:d3p1="http://aaa24.ru" name="additional" type="d3p1:additional" lowerBound="0"/>
+	</objectType>
+	<objectType name="seller">
+		<property name="id" type="xs:string" lowerBound="0"/>
+		<property name="name" type="xs:string" lowerBound="0"/>
+		<property name="phone" type="xs:string" lowerBound="0"/>
+		<property name="city" type="xs:string" lowerBound="0"/>
+		<property name="address" type="xs:string" lowerBound="0"/>
+		<property name="email" type="xs:string" lowerBound="0"/>
+		<property name="site" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="cars">
+		<property xmlns:d3p1="http://aaa24.ru" name="car" type="d3p1:car" lowerBound="1" upperBound="-1" form="Element"/>
+	</objectType>
+	<objectType name="sellers">
+		<property xmlns:d3p1="http://aaa24.ru" name="seller" type="d3p1:seller" lowerBound="1" upperBound="-1"/>
+	</objectType>
+	<objectType name="params">
+		<property name="catalog_id" type="xs:string" lowerBound="0" localName="catalog-id"/>
+		<property name="mark" type="xs:string" lowerBound="0"/>
+		<property name="model" type="xs:string" lowerBound="0"/>
+		<property name="modification" type="xs:string" lowerBound="0"/>
+		<property name="displacement" type="xs:string" lowerBound="0"/>
+		<property name="power" type="xs:integer" lowerBound="0"/>
+		<property name="body" type="xs:string" lowerBound="0"/>
+		<property name="engine" type="xs:string" lowerBound="0"/>
+		<property name="gear" type="xs:string" lowerBound="0"/>
+		<property name="transmission" type="xs:string" lowerBound="0"/>
+		<property name="year" type="xs:string" lowerBound="0"/>
+		<property name="doors" type="xs:integer" lowerBound="0"/>
+		<property name="run" type="xs:string" lowerBound="0"/>
+		<property name="wheel" type="xs:string" lowerBound="0"/>
+		<property name="vin" type="xs:string" lowerBound="0"/>
+		<property name="color" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="images">
+		<property name="image" type="xs:string" lowerBound="0" upperBound="-1" nillable="true" form="Element"/>
+	</objectType>
+	<objectType name="equipment">
+		<property name="name" type="xs:string" lowerBound="1"/>
+		<property name="item" type="xs:string" lowerBound="1" upperBound="-1"/>
+	</objectType>
+	<objectType name="additional">
+		<property name="info" type="xs:string"/>
+		<property name="stock" type="xs:string"/>
+		<property name="custom" type="xs:string"/>
+		<property name="car_location" type="xs:string" localName="car-location"/>
+		<property name="haggle" type="xs:string"/>
+		<property name="url" type="xs:string"/>
+		<property name="murl" type="xs:string"/>
+	</objectType>
+</package>

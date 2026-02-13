@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<title xsi:type="xs:string">Автомобиль</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Автомобили</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВариантКомплектации</dataPath>
+			<field>ВариантКомплектации</field>
+			<title xsi:type="xs:string">Вариант комплектации</title>
+			<useRestriction>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ВариантыКомплектации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОборудования</dataPath>
+			<field>ВидОборудования</field>
+			<title xsi:type="xs:string">Вид оборудования</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>12</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+			<title xsi:type="xs:string">Модель</title>
+			<useRestriction>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Модели</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<title xsi:type="xs:string">Номенклатура</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Опции</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Номенклатура</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ОстаткиАвтомобилей.Автомобиль,
+	МАКСИМУМ(ОстаткиАвтомобилей.Период) КАК Период
+ПОМЕСТИТЬ
+	ОстаткиАвтомобилей
+ИЗ
+	РегистрНакопления.ОстаткиАвтомобилей КАК ОстаткиАвтомобилей
+ГДЕ
+	ОстаткиАвтомобилей.Период &lt; &amp;ДатаОкончания И 
+	ОстаткиАвтомобилей.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход) И 
+	(ОстаткиАвтомобилей.Регистратор ССЫЛКА Документ.ВводОстатковАвтомобилей ИЛИ
+	 ОстаткиАвтомобилей.Регистратор ССЫЛКА Документ.ВозвратОтПокупателяАвтомобилей ИЛИ
+	 ОстаткиАвтомобилей.Регистратор ССЫЛКА Документ.ПоступлениеАвтомобилей
+	)
+{ГДЕ
+	ОстаткиАвтомобилей.Автомобиль.* КАК Автомобиль,
+	ОстаткиАвтомобилей.Автомобиль.Модель.* КАК Модель,
+	ОстаткиАвтомобилей.Автомобиль.ВариантКомплектации.* КАК ВариантКомплектации}
+СГРУППИРОВАТЬ ПО
+	ОстаткиАвтомобилей.Автомобиль,
+	ОстаткиАвтомобилей.Период
+ИМЕЮЩИЕ
+	СУММА(ОстаткиАвтомобилей.Количество)&gt;0
+ИНДЕКСИРОВАТЬ ПО
+	Автомобиль
+;
+
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ИтоговаяТаблица.Автомобиль,
+	ИтоговаяТаблица.Номенклатура,
+	ВЫБОР
+		КОГДА ИтоговаяТаблица.Номенклатура ССЫЛКА Справочник.Номенклатура ТОГДА
+			"Оборудование"
+		ИНАЧЕ
+			"Опции"
+	КОНЕЦ КАК ВидОборудования,
+	СУММА(ИтоговаяТаблица.Количество) КАК Количество
+{
+ВЫБРАТЬ
+	Автомобиль.* КАК Автомобиль,
+	Номенклатура.* КАК Номенклатура,
+	ВидОборудования КАК ВидОборудования,
+	Количество КАК Количество
+}
+ИЗ
+	(ВЫБРАТЬ
+		КомплектацияАвтомобилей.Автомобиль КАК Автомобиль,
+		КомплектацияАвтомобилей.Номенклатура КАК Номенклатура,
+		КомплектацияАвтомобилей.Количество КАК Количество
+	ИЗ
+		РегистрНакопления.КомплектацияАвтомобилей КАК КомплектацияАвтомобилей
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ
+		ОстаткиАвтомобилей КАК ОстаткиАвтомобилей
+	ПО
+		КомплектацияАвтомобилей.Автомобиль = ОстаткиАвтомобилей.Автомобиль И
+		КомплектацияАвтомобилей.Период = ОстаткиАвтомобилей.Период
+	{ГДЕ
+		КомплектацияАвтомобилей.Автомобиль.* КАК Автомобиль,
+		КомплектацияАвтомобилей.Автомобиль.Модель.* КАК Модель,
+		КомплектацияАвтомобилей.Автомобиль.ВариантКомплектации.* КАК ВариантКомплектации,
+		КомплектацияАвтомобилей.Номенклатура.* КАК Номенклатура}
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		КомплектацияАвтомобилей.Автомобиль,
+		КомплектацияАвтомобилей.Номенклатура,
+		ВЫБОР 
+			КОГДА КомплектацияАвтомобилей.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход) ТОГДА
+				КомплектацияАвтомобилей.Количество
+			ИНАЧЕ
+				-КомплектацияАвтомобилей.Количество
+		КОНЕЦ
+	ИЗ
+		РегистрНакопления.КомплектацияАвтомобилей КАК КомплектацияАвтомобилей
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ
+		ОстаткиАвтомобилей КАК ОстаткиАвтомобилей
+	ПО
+		КомплектацияАвтомобилей.Автомобиль = ОстаткиАвтомобилей.Автомобиль И
+		КомплектацияАвтомобилей.Период &gt;= ОстаткиАвтомобилей.Период
+	ГДЕ
+		КомплектацияАвтомобилей.Период &lt;= &amp;ДатаОкончания И 
+		КомплектацияАвтомобилей.Регистратор ССЫЛКА Документ.ЗаказНаряд
+		ИЛИ КомплектацияАвтомобилей.Регистратор ССЫЛКА Документ.РазукомплектацияАвтомобилей
+	{ГДЕ
+		КомплектацияАвтомобилей.Автомобиль.* КАК Автомобиль,
+		КомплектацияАвтомобилей.Автомобиль.Модель.* КАК Модель,
+		КомплектацияАвтомобилей.Автомобиль.ВариантКомплектации.* КАК ВариантКомплектации,
+		КомплектацияАвтомобилей.Номенклатура.* КАК Номенклатура}) КАК ИтоговаяТаблица
+СГРУППИРОВАТЬ ПО
+	ИтоговаяТаблица.Автомобиль,
+	ИтоговаяТаблица.Номенклатура
+ИМЕЮЩИЕ
+	СУММА(ИтоговаяТаблица.Количество) &gt; 0
+//{УПОРЯДОЧИТЬ ПО
+//	Автомобиль,
+//	ВидОборудования,
+//	Номенклатура
+//}
+//	
+//{ИТОГИ ПО
+//	Автомобиль,
+//	ВидОборудования,
+//	Номенклатура
+//}
+//	
+//ИТОГИ
+//	СУММА(Количество)
+//ПО
+//	Автомобиль,
+//	ВидОборудования,
+//	Номенклатура
+</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Автомобиль</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Модель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВариантКомплектации</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Автомобиль</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Автомобиль.Наименование</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ВидОборудования</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							<dcsset:item xsi:type="dcsset:OrderItemField">
+								<dcsset:field>ВидОборудования</dcsset:field>
+								<dcsset:orderType>Asc</dcsset:orderType>
+							</dcsset:item>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Номенклатура</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								<dcsset:item xsi:type="dcsset:OrderItemField">
+									<dcsset:field>Номенклатура.Наименование</dcsset:field>
+									<dcsset:orderType>Asc</dcsset:orderType>
+								</dcsset:item>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

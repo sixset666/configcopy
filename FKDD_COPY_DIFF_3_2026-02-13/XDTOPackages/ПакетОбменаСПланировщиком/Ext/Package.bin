@@ -1,0 +1,228 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.activewebservices.ru/TimePlanner">
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="АвтоРабота" base="d2p1:БазовыйИерархический" open="true" sequenced="true">
+		<property name="Артикул" type="xsd:string" nillable="true"/>
+	</objectType>
+	<objectType name="АвтомобилиКонтрагента">
+		<property name="КодКонтрагента" type="xsd:string"/>
+		<property name="Период" type="xsd:dateTime"/>
+		<property name="КодАвтомобиля" type="xsd:string"/>
+		<property name="ДополнительнаяИнформация" type="xsd:string"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="Автомобиль" base="d2p1:БазовыйИерархический" open="true" sequenced="true">
+		<property name="VIN" type="xsd:string"/>
+		<property name="ГодВыпуска" type="xsd:dateTime" nillable="true"/>
+		<property name="Модель" type="d2p1:МодельАвтомобиля" nillable="true"/>
+		<property name="МодельКод" type="xsd:string"/>
+		<property name="Цвет" type="xsd:string" nillable="true"/>
+		<property name="ГосНомер" type="xsd:string" nillable="true"/>
+		<property name="Пробег" type="xsd:int" nillable="true"/>
+		<property name="СтраховаяКомпанияКод" type="xsd:string" nillable="true"/>
+		<property name="НомерДвигателя" type="xsd:string" nillable="true"/>
+		<property name="КПП" type="xsd:string" nillable="true"/>
+		<property name="ПродавецКод" type="xsd:string" nillable="true"/>
+		<property name="ДатаНачалаГарантии" type="xsd:dateTime" nillable="true"/>
+		<property name="ХозяинКод" type="xsd:string" nillable="true"/>
+		<property name="Комплектация" type="d2p1:Комплектация" nillable="true"/>
+		<property name="КомплектацияКод" type="xsd:string" nillable="true"/>
+		<property name="Автор" type="xsd:string" nillable="true"/>
+	</objectType>
+	<objectType name="Базовый">
+		<property name="Ссылка" type="xsd:string"/>
+		<property name="Код" type="xsd:string"/>
+		<property name="Наименование" type="xsd:string" nillable="true"/>
+		<property name="НаименованиеПолное" type="xsd:string" nillable="true"/>
+		<property name="Комментарий" type="xsd:string" nillable="true"/>
+		<property name="ПометкаУдаления" type="xsd:boolean"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="БазовыйИерархический" base="d2p1:Базовый">
+		<property name="КодРодителя" type="xsd:string" nillable="true"/>
+		<property name="Группа" type="xsd:boolean"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="ВидРемонта" base="d2p1:БазовыйИерархический" open="true" sequenced="true">
+		<property name="ТипРемонта" type="xsd:string"/>
+	</objectType>
+	<objectType name="Документ">
+		<property name="Дата" type="xsd:dateTime"/>
+		<property name="Номер" type="xsd:string" nillable="true"/>
+		<property name="Ссылка" type="xsd:string" nillable="true"/>
+		<property name="Комментарий" type="xsd:string" nillable="true"/>
+	</objectType>
+	<objectType name="ДокументЭлементСтроки">
+		<property name="ИдентификаторСтроки" type="xsd:string" nillable="true"/>
+		<property name="Код" type="xsd:string"/>
+		<property name="Наименование" type="xsd:string" nillable="true"/>
+		<property name="Количество" type="xsd:float"/>
+		<property name="Коэффициент" type="xsd:float"/>
+		<property name="Цена" type="xsd:float"/>
+		<property name="Сумма" type="xsd:float"/>
+		<property name="СуммаВсего" type="xsd:float"/>
+		<property name="СуммаНДС" type="xsd:float"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="ЗаказНаряд" base="d2p1:Документ">
+		<property name="КонтрагентКод" type="xsd:string"/>
+		<property name="Контрагент" type="d2p1:Контрагент" nillable="true"/>
+		<property name="АвтомобильКод" type="xsd:string"/>
+		<property name="Автомобиль" type="d2p1:Автомобиль" nillable="true"/>
+		<property name="ВидРемонтаКод" type="xsd:string"/>
+		<property name="ЭлементыТовары" type="d2p1:ЗаказНарядТовар" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property name="ЭлементыРаботы" type="d2p1:ЗаказНарядРабота" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property name="Состояние" type="xsd:string" nillable="true"/>
+		<property name="Автор" type="xsd:string" nillable="true"/>
+	</objectType>
+	<objectType name="ЗаказНарядОстаткиРезервы">
+		<property name="ЗаказНарядНомер" type="xsd:string"/>
+		<property name="ЗаказНарядДата" type="xsd:dateTime"/>
+		<property name="Состояние" type="xsd:string" nillable="true"/>
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Остатки" type="d3p1:СловарьСтрокаЧисло" nillable="true"/>
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Резервы" type="d3p1:СловарьСтрокаЧисло" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="ЗаказНарядРабота" base="d2p1:ДокументЭлементСтроки">
+		<property name="Нормочас" type="xsd:float"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="ЗаказНарядТовар" base="d2p1:ДокументЭлементСтроки"/>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="Комплектация" base="d2p1:БазовыйИерархический" open="true" sequenced="true">
+		<property name="ТипКузова" type="d2p1:ТипКузова" nillable="true"/>
+		<property name="ТипКузоваКод" type="xsd:string" nillable="true"/>
+		<property name="ТипДвигателя" type="d2p1:ТипДвигателя" nillable="true"/>
+		<property name="ТипДвигателяКод" type="xsd:string" nillable="true"/>
+		<property name="ТипКПП" type="d2p1:ТипКПП" nillable="true"/>
+		<property name="ТипКППКод" type="xsd:string" nillable="true"/>
+		<property name="Модель" type="d2p1:МодельАвтомобиля" nillable="true"/>
+		<property name="МодельКод" type="xsd:string" nillable="true"/>
+	</objectType>
+	<objectType name="КонтактнаяИнформация">
+		<property name="КодКонтрагента" type="xsd:string"/>
+		<property name="Тип" type="xsd:string"/>
+		<property name="Вид" type="xsd:string"/>
+		<property name="Представление" type="xsd:string" nillable="true"/>
+	</objectType>
+	<objectType name="КонтекстЗапроса" open="true" sequenced="true">
+		<property name="Количество" type="xsd:int"/>
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Идентификаторы" type="d3p1:МассивСтрок"/>
+		<property name="Расширенный" type="xsd:boolean"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="Контрагент" base="d2p1:БазовыйИерархический" open="true" sequenced="true">
+		<property name="Адрес" type="xsd:string" nillable="true"/>
+		<property name="Телефон" type="xsd:string" nillable="true"/>
+		<property name="Email" type="xsd:string" nillable="true"/>
+		<property name="ВидКонтрагента" type="xsd:string" nillable="true"/>
+		<property name="ФормаСобственности" type="xsd:string" nillable="true"/>
+		<property name="ЭлементыКонтактнойИнформации" type="d2p1:КонтактнаяИнформация" lowerBound="0" upperBound="-1"/>
+		<property name="ЭлементыАвтомобилейКонтрагента" type="d2p1:АвтомобилиКонтрагента" lowerBound="0" upperBound="-1"/>
+		<property name="Автор" type="xsd:string" nillable="true"/>
+	</objectType>
+	<objectType name="МассивСтрок" open="true" sequenced="true">
+		<property name="Элементы" type="xsd:string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="МодельАвтомобиля" base="d2p1:БазовыйИерархический" open="true" sequenced="true"/>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="Номенклатура" base="d2p1:БазовыйИерархический" open="true" sequenced="true">
+		<property name="Артикул" type="xsd:string" nillable="true"/>
+	</objectType>
+	<objectType name="Нормочас" open="true" sequenced="true">
+		<property name="КлассАвтомобиля" type="xsd:string" nillable="true"/>
+		<property name="Время" type="xsd:float"/>
+		<property name="АвтоработаКод" type="xsd:string"/>
+	</objectType>
+	<objectType name="ПараСтрокаДата" open="true" sequenced="true">
+		<property name="Ключ" type="xsd:string"/>
+		<property name="Значение" type="xsd:dateTime"/>
+	</objectType>
+	<objectType name="ПараСтрокаКоллекция" open="true" sequenced="true">
+		<property name="Ключ" type="xsd:string"/>
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:ПараСтрокаСтрока" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ПараСтрокаСтрока" open="true" sequenced="true">
+		<property name="Ключ" type="xsd:string"/>
+		<property name="Значение" type="xsd:string"/>
+	</objectType>
+	<objectType name="ПараСтрокаЧисло" open="true" sequenced="true">
+		<property name="Ключ" type="xsd:string"/>
+		<property name="Значение" type="xsd:float"/>
+	</objectType>
+	<objectType name="РезультатВыполнения">
+		<property name="Успешно" type="xsd:boolean"/>
+		<property name="Параметры" type="xsd:string" nillable="true"/>
+		<property name="КодОшибки" type="xsd:int" nillable="true"/>
+		<property name="СообщениеСервера" type="xsd:string" nillable="true"/>
+		<property name="ПредупрежденияСервера" type="xsd:string" nillable="true"/>
+		<property name="ИмяМодуля" type="xsd:string" nillable="true"/>
+		<property name="ОписаниеОшибки" type="xsd:string" nillable="true"/>
+		<property name="НомерСтроки" type="xsd:string" nillable="true"/>
+		<property name="ИсходнаяСтрока" type="xsd:string" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="РезультатВыполненияАвтомобиль" base="d2p1:РезультатВыполнения">
+		<property name="Объект" type="d2p1:СписокАвтомобилей" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="РезультатВыполненияЗаказНаряд" base="d2p1:РезультатВыполнения">
+		<property name="Объект" type="d2p1:СписокЗаказНарядов" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="РезультатВыполненияКонтрагент" base="d2p1:РезультатВыполнения">
+		<property name="Объект" type="d2p1:СписокКонтрагентов" nillable="true"/>
+	</objectType>
+	<objectType name="СвязаннаяРабота" open="true" sequenced="true">
+		<property name="АвтоработаКод" type="xsd:string"/>
+		<property name="СвязаннаяРаботаКод" type="xsd:string"/>
+		<property name="МодельКод" type="xsd:string" nillable="true"/>
+		<property name="ТипДвигателяКод" type="xsd:string" nillable="true"/>
+		<property name="ТипКППКод" type="xsd:string" nillable="true"/>
+		<property name="Количество" type="xsd:decimal"/>
+		<property name="СвязьПоНоменклатуре" type="xsd:boolean"/>
+	</objectType>
+	<objectType name="СловарьСтрокаДата" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:ПараСтрокаДата" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СловарьСтрокаКоллекция" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:ПараСтрокаКоллекция" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СловарьСтрокаЧисло" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:ПараСтрокаЧисло" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокАвтоРабот" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:АвтоРабота" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокАвтомобилей" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:Автомобиль" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокБазовыхИерархическихЭлементов" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:БазовыйИерархический" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокВариантовКомплектации" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:Комплектация" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокВидовРемонта" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:ВидРемонта" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокЗаказНарядов" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:ЗаказНаряд" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокЗаказНарядовОстаткиРезервы" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:ЗаказНарядОстаткиРезервы" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокКонтрагентов" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:Контрагент" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокМоделейАвтомобилей" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:МодельАвтомобиля" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокНоменклатуры" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:Номенклатура" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокНормочасов" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:Нормочас" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокСвязанныхРабот" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:СвязаннаяРабота" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокТиповДвигателей" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:ТипДвигателя" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокТиповКПП" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:ТипКПП" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокТиповКузова" open="true" sequenced="true">
+		<property xmlns:d3p1="http://www.activewebservices.ru/TimePlanner" name="Элементы" type="d3p1:ТипКузова" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="ТипДвигателя" base="d2p1:БазовыйИерархический" open="true" sequenced="true"/>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="ТипКПП" base="d2p1:БазовыйИерархический" open="true" sequenced="true"/>
+	<objectType xmlns:d2p1="http://www.activewebservices.ru/TimePlanner" name="ТипКузова" base="d2p1:БазовыйИерархический" open="true" sequenced="true"/>
+</package>

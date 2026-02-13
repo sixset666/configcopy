@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументОснование</dataPath>
+			<field>ДокументОснование</field>
+			<title xsi:type="xs:string">Основание</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ЗаявкаНаРемонт</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ЗаказНаряд</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.Рассылка</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.РеализацияТоваров</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ЗаказПокупателя</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЖалобаКлиента</dataPath>
+			<field>ЖалобаКлиента</field>
+			<title xsi:type="xs:string">Жалоба клиента</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ЖалобаКлиента</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="xs:string">Контрагент</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Состояние</dataPath>
+			<field>Состояние</field>
+			<title xsi:type="xs:string">Состояние</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:EnumRef.СостояниеЖалобКлиентов</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+			<title xsi:type="xs:string">Сотрудник</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Сотрудники</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<title xsi:type="xs:string">Статус</title>
+			<useRestriction>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:EnumRef.СостоянияСобытий</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Суть</dataPath>
+			<field>Суть</field>
+			<title xsi:type="xs:string">Суть жалобы</title>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>250</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ХозОперация</dataPath>
+			<field>ХозОперация</field>
+			<title xsi:type="xs:string">Хоз. операция основания</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ХозОперации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Категория</dataPath>
+			<field>Категория</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодГод</dataPath>
+			<field>ПериодГод</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По годам</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='гггг "г."'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодДень</dataPath>
+			<field>ПериодДень</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По дням</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=дд.ММ.гггг</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодКвартал</dataPath>
+			<field>ПериодКвартал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По кварталам</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='к "квартал" гггг "г."'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодМесяц</dataPath>
+			<field>ПериодМесяц</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По месяцам</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='ММММ гггг "г."'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодНеделя</dataPath>
+			<field>ПериодНеделя</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По неделям</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='"Неделя с" дд.ММ.гггг "г."'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаРеакции</dataPath>
+			<field>ДатаРеакции</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаРегистрации</dataPath>
+			<field>ДатаРегистрации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Разобрано</dataPath>
+			<field>Разобрано</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РазобраноВовремя</dataPath>
+			<field>РазобраноВовремя</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РеальнаяДатаРазбора</dataPath>
+			<field>РеальнаяДатаРазбора</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Среагировали</dataPath>
+			<field>Среагировали</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СреагировалиВовремя</dataPath>
+			<field>СреагировалиВовремя</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СреднееВремяРазбора</dataPath>
+			<field>СреднееВремяРазбора</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СреднееВремяРеакции</dataPath>
+			<field>СреднееВремяРеакции</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МнениеОтветственного</dataPath>
+			<field>МнениеОтветственного</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Мнение ответственного</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МнениеКлиента</dataPath>
+			<field>МнениеКлиента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Мнение клиента</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МнениеСотрудника</dataPath>
+			<field>МнениеСотрудника</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Мнение сотрудника</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ
+	МИНИМУМ(Событие.Дата) КАК ДатаРеакции,
+	ВЫРАЗИТЬ(Событие.ДокументОснование КАК Документ.ЖалобаКлиента) КАК ЖалобаКлиента
+ПОМЕСТИТЬ ТаблицаРеакцииНаЖалобу
+ИЗ
+	Документ.Событие КАК Событие
+ГДЕ
+	Событие.ДокументОснование ССЫЛКА Документ.ЖалобаКлиента
+
+СГРУППИРОВАТЬ ПО
+	Событие.ДокументОснование
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ДокументЖалобаКлиента.Ссылка КАК ЖалобаКлиента,
+	ДокументЖалобаКлиента.ДокументОснование КАК ДокументОснование,
+	ДокументЖалобаКлиента.ДокументОснование.ХозОперация КАК ХозОперация,
+	ДокументЖалобаКлиента.Контрагент КАК Контрагент,
+	ДокументЖалобаКлиента.Сотрудник КАК Сотрудник,
+	ДокументЖалобаКлиента.Состояние КАК Состояние,
+	ВЫРАЗИТЬ(ДокументЖалобаКлиента.Суть КАК СТРОКА(1024)) КАК Суть,
+	ВЫРАЗИТЬ(ДокументЖалобаКлиента.МнениеКлиента КАК СТРОКА(1024)) КАК МнениеКлиента,
+	ВЫРАЗИТЬ(ДокументЖалобаКлиента.МнениеСотрудника КАК СТРОКА(1024)) КАК МнениеСотрудника,
+	ВЫРАЗИТЬ(ДокументЖалобаКлиента.МнениеОтветственного КАК СТРОКА(1024)) КАК МнениеОтветственного,
+	ДокументЖалобаКлиента.ДатаИВремяРеакции КАК ДатаРеакцииПоРегламенту,
+	ДокументЖалобаКлиента.ДатаИВремяРазбора КАК ДатаРазбораПоРегламенту,
+	ЕСТЬNULL(ЖалобаКлиентаКатегории.Категория, ЗНАЧЕНИЕ(Справочник.КатегорииЖалобКлиентов.ПустаяСсылка)) КАК Категория,
+	НАЧАЛОПЕРИОДА(ЖурналСостояний.Период, ДЕНЬ) КАК ПериодДень,
+	НАЧАЛОПЕРИОДА(ЖурналСостояний.Период, НЕДЕЛЯ) КАК ПериодНеделя,
+	НАЧАЛОПЕРИОДА(ЖурналСостояний.Период, МЕСЯЦ) КАК ПериодМесяц,
+	НАЧАЛОПЕРИОДА(ЖурналСостояний.Период, КВАРТАЛ) КАК ПериодКвартал,
+	НАЧАЛОПЕРИОДА(ЖурналСостояний.Период, ГОД) КАК ПериодГод,
+	ТаблицаРегистрацийЖалоб.Период КАК ДатаРегистрации,
+	ЕСТЬNULL(ТаблицаРеакцииНаЖалобу.ДатаРеакции, ДАТАВРЕМЯ(1, 1, 1)) КАК ДатаРеакции,
+	ЕСТЬNULL(ТаблицаРазбораЖалоб.Период, ДАТАВРЕМЯ(1, 1, 1)) КАК РеальнаяДатаРазбора,
+	ВЫБОР
+		КОГДА ТаблицаРеакцииНаЖалобу.ДатаРеакции ЕСТЬ NULL 
+			ТОГДА РАЗНОСТЬДАТ(ТаблицаРегистрацийЖалоб.Период, &amp;ТекущаяДата, ЧАС)
+		ИНАЧЕ РАЗНОСТЬДАТ(ТаблицаРегистрацийЖалоб.Период, ТаблицаРеакцииНаЖалобу.ДатаРеакции, ЧАС)
+	КОНЕЦ КАК СреднееВремяРеакции,
+	ВЫБОР
+		КОГДА ТаблицаРазбораЖалоб.Период ЕСТЬ NULL 
+			ТОГДА РАЗНОСТЬДАТ(ТаблицаРегистрацийЖалоб.Период, &amp;ТекущаяДата, ЧАС)
+		ИНАЧЕ РАЗНОСТЬДАТ(ТаблицаРегистрацийЖалоб.Период, ТаблицаРазбораЖалоб.Период, ЧАС)
+	КОНЕЦ КАК СреднееВремяРазбора,
+	ВЫБОР
+		КОГДА ТаблицаРеакцииНаЖалобу.ДатаРеакции ЕСТЬ NULL 
+			ТОГДА "Не среагировали"
+		КОГДА ТаблицаРеакцииНаЖалобу.ДатаРеакции &gt; ДокументЖалобаКлиента.ДатаИВремяРеакции
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК СреагировалиВовремя,
+	ВЫБОР
+		КОГДА ТаблицаРазбораЖалоб.Период ЕСТЬ NULL 
+			ТОГДА "Не разобрано"
+		КОГДА ТаблицаРазбораЖалоб.Период &gt; ДокументЖалобаКлиента.ДатаИВремяРазбора
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК РазобраноВовремя,
+	ВЫБОР
+		КОГДА ТаблицаРеакцииНаЖалобу.ДатаРеакции ЕСТЬ NULL 
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК Среагировали,
+	ВЫБОР
+		КОГДА ТаблицаРазбораЖалоб.Период ЕСТЬ NULL 
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК Разобрано
+{ВЫБРАТЬ
+	ЖалобаКлиента.* КАК ЖалобаКлиента,
+	ДокументОснование.* КАК ДокументОснование,
+	ХозОперация.* КАК ХозОперация,
+	Контрагент.* КАК Контрагент,
+	Сотрудник.* КАК Сотрудник,
+	Суть КАК Суть,
+	МнениеКлиента КАК МнениеКлиента,
+	МнениеСотрудника КАК МнениеСотрудника,
+	МнениеОтветственного КАК МнениеОтветственного,
+	Состояние КАК Состояние,
+	Категория.* КАК Категория,
+	ПериодДень КАК ПериодДень,
+	ПериодНеделя КАК ПериодНеделя,
+	ПериодМесяц КАК ПериодМесяц,
+	ПериодКвартал КАК ПериодКвартал,
+	ПериодГод КАК ПериодГод,
+	ДатаРегистрации КАК ДатаРегистрации,
+	ДатаРеакции КАК ДатаРеакции,
+	РеальнаяДатаРазбора КАК РеальнаяДатаРазбора,
+	СреднееВремяРеакции КАК СреднееВремяРеакции,
+	СреднееВремяРазбора КАК СреднееВремяРазбора,
+	СреагировалиВовремя КАК СреагировалиВовремя,
+	РазобраноВовремя КАК РазобраноВовремя,
+	Среагировали КАК Среагировали,
+	Разобрано КАК Разобрано}
+ИЗ
+	РегистрСведений.ЖурналСостояний КАК ЖурналСостояний
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЖалобаКлиента КАК ДокументЖалобаКлиента
+		ПО ЖурналСостояний.Объект = ДокументЖалобаКлиента.Ссылка
+		{ЛЕВОЕ СОЕДИНЕНИЕ Документ.ЖалобаКлиента.Категории КАК ЖалобаКлиентаКатегории
+		ПО (ДокументЖалобаКлиента.Ссылка = ЖалобаКлиентаКатегории.Ссылка)}
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ЖурналСостояний КАК ТаблицаРазбораЖалоб
+		ПО (ТаблицаРазбораЖалоб.Состояние = ЗНАЧЕНИЕ(Перечисление.СостояниеЖалобКлиентов.Разобрана))
+			И (ТаблицаРазбораЖалоб.Объект ССЫЛКА Документ.ЖалобаКлиента)
+			И ЖурналСостояний.Объект = ТаблицаРазбораЖалоб.Объект}
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ЖурналСостояний КАК ТаблицаРегистрацийЖалоб
+		ПО (ТаблицаРегистрацийЖалоб.Состояние = ЗНАЧЕНИЕ(Перечисление.СостояниеЖалобКлиентов.Зафиксирована))
+			И (ТаблицаРегистрацийЖалоб.Объект ССЫЛКА Документ.ЖалобаКлиента)
+			И ЖурналСостояний.Объект = ТаблицаРегистрацийЖалоб.Объект}
+		{ЛЕВОЕ СОЕДИНЕНИЕ ТаблицаРеакцииНаЖалобу КАК ТаблицаРеакцииНаЖалобу
+		ПО ЖурналСостояний.Объект = ТаблицаРеакцииНаЖалобу.ЖалобаКлиента}
+ГДЕ
+	ЖурналСостояний.Объект ССЫЛКА Документ.ЖалобаКлиента
+	И ЖурналСостояний.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+{ГДЕ
+	(ВЫРАЗИТЬ(ЖурналСостояний.Состояние КАК Перечисление.СостоянияСобытий)) КАК Статус,
+	ДокументЖалобаКлиента.Ссылка.* КАК ЖалобаКлиента,
+	ДокументЖалобаКлиента.ДокументОснование.* КАК ДокументОснование,
+	ДокументЖалобаКлиента.ДокументОснование.ХозОперация КАК ХозОперация,
+	ДокументЖалобаКлиента.Контрагент.* КАК Контрагент,
+	ДокументЖалобаКлиента.Сотрудник.* КАК Сотрудник,
+	ДокументЖалобаКлиента.Состояние КАК Состояние,
+	(ВЫРАЗИТЬ(ДокументЖалобаКлиента.Суть КАК СТРОКА(1024))) КАК Суть,
+	(ВЫРАЗИТЬ(ДокументЖалобаКлиента.МнениеКлиента КАК СТРОКА(1024))) КАК МнениеКлиента,
+	(ВЫРАЗИТЬ(ДокументЖалобаКлиента.МнениеСотрудника КАК СТРОКА(1024))) КАК МнениеСотрудника,
+	(ВЫРАЗИТЬ(ДокументЖалобаКлиента.МнениеОтветственного КАК СТРОКА(1024))) КАК МнениеОтветственного,
+	(ЕСТЬNULL(ЖалобаКлиентаКатегории.Категория, ЗНАЧЕНИЕ(Справочник.КатегорииЖалобКлиентов.ПустаяСсылка))).* КАК Категория,
+	ТаблицаРегистрацийЖалоб.Период КАК ДатаРегистрации,
+	(ЕСТЬNULL(ТаблицаРеакцииНаЖалобу.ДатаРеакции, ДАТАВРЕМЯ(1, 1, 1))) КАК ДатаРеакции,
+	(ЕСТЬNULL(ТаблицаРазбораЖалоб.Период, ДАТАВРЕМЯ(1, 1, 1))) КАК РеальнаяДатаРазбора,
+	(ВЫБОР
+			КОГДА ТаблицаРеакцииНаЖалобу.ДатаРеакции ЕСТЬ NULL 
+				ТОГДА РАЗНОСТЬДАТ(ТаблицаРегистрацийЖалоб.Период, &amp;ТекущаяДата, ЧАС)
+			ИНАЧЕ РАЗНОСТЬДАТ(ТаблицаРегистрацийЖалоб.Период, ТаблицаРеакцииНаЖалобу.ДатаРеакции, ЧАС)
+		КОНЕЦ) КАК СреднееВремяРеакции,
+	(ВЫБОР
+			КОГДА ТаблицаРазбораЖалоб.Период ЕСТЬ NULL 
+				ТОГДА РАЗНОСТЬДАТ(ТаблицаРегистрацийЖалоб.Период, &amp;ТекущаяДата, ЧАС)
+			ИНАЧЕ РАЗНОСТЬДАТ(ТаблицаРегистрацийЖалоб.Период, ТаблицаРазбораЖалоб.Период, ЧАС)
+		КОНЕЦ) КАК СреднееВремяРазбора,
+	(ВЫБОР
+			КОГДА ТаблицаРеакцииНаЖалобу.ДатаРеакции ЕСТЬ NULL 
+				ТОГДА "Не среагировали"
+			КОГДА ТаблицаРеакцииНаЖалобу.ДатаРеакции &gt; ДокументЖалобаКлиента.ДатаИВремяРеакции
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ) КАК СреагировалиВовремя,
+	(ВЫБОР
+			КОГДА ТаблицаРазбораЖалоб.Период ЕСТЬ NULL 
+				ТОГДА "Не разобрано"
+			КОГДА ТаблицаРазбораЖалоб.Период &gt; ДокументЖалобаКлиента.ДатаИВремяРазбора
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ) КАК РазобраноВовремя,
+	(ВЫБОР
+			КОГДА ТаблицаРеакцииНаЖалобу.ДатаРеакции ЕСТЬ NULL 
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ) КАК Среагировали,
+	(ВЫБОР
+			КОГДА ТаблицаРазбораЖалоб.Период ЕСТЬ NULL 
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ) КАК Разобрано}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<calculatedField>
+		<dataPath>Количество</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Количество</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<group>true</group>
+		</useRestriction>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+			</dcscor:item>
+		</appearance>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>15</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Количество(Различные ЖалобаКлиента)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СреднееВремяРеакции</dataPath>
+		<expression>Среднее(СреднееВремяРеакции)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СреднееВремяРазбора</dataPath>
+		<expression>Среднее(СреднееВремяРазбора)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ТекущаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущая дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ТекущаяДата()</expression>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СреднееВремяРеакции</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СреднееВремяРазбора</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ЖалобаКлиента</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДокументОснование</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Сотрудник</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Статус</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ХозОперация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Контрагент</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Контрагент.Наименование</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Сотрудник</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							<dcsset:item xsi:type="dcsset:OrderItemField">
+								<dcsset:field>Сотрудник.Наименование</dcsset:field>
+								<dcsset:orderType>Asc</dcsset:orderType>
+							</dcsset:item>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ЖалобаКлиента</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								<dcsset:item xsi:type="dcsset:OrderItemField">
+									<dcsset:field>ЖалобаКлиента.Дата</dcsset:field>
+									<dcsset:orderType>Asc</dcsset:orderType>
+								</dcsset:item>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+							<dcsset:item>
+								<dcsset:use>false</dcsset:use>
+								<dcsset:groupItems>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>СреагировалиВовремя</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+								</dcsset:groupItems>
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+									<dcsset:item xsi:type="dcsset:OrderItemField">
+										<dcsset:field>СреагировалиВовремя</dcsset:field>
+										<dcsset:orderType>Asc</dcsset:orderType>
+									</dcsset:item>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								</dcsset:selection>
+								<dcsset:item>
+									<dcsset:use>false</dcsset:use>
+									<dcsset:groupItems>
+										<dcsset:item xsi:type="dcsset:GroupItemField">
+											<dcsset:field>РазобраноВовремя</dcsset:field>
+											<dcsset:groupType>Items</dcsset:groupType>
+											<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+											<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+											<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+										</dcsset:item>
+									</dcsset:groupItems>
+									<dcsset:order>
+										<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+										<dcsset:item xsi:type="dcsset:OrderItemField">
+											<dcsset:field>РазобраноВовремя</dcsset:field>
+											<dcsset:orderType>Asc</dcsset:orderType>
+										</dcsset:item>
+									</dcsset:order>
+									<dcsset:selection>
+										<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+									</dcsset:selection>
+								</dcsset:item>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

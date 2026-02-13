@@ -1,0 +1,413 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="https://nizamov.studio/avito">
+	<valueType name="Originality" base="xs:string">
+		<enumeration xsi:type="xs:string">Оригинал</enumeration>
+		<enumeration xsi:type="xs:string">Аналог</enumeration>
+		<enumeration xsi:type="xs:string">Не знаю</enumeration>
+	</valueType>
+	<valueType name="ProductsType" base="xs:string">
+		<enumeration xsi:type="xs:string">Телевизоры</enumeration>
+		<enumeration xsi:type="xs:string">Проекторы</enumeration>
+		<enumeration xsi:type="xs:string">Другое</enumeration>
+	</valueType>
+	<valueType name="MotoType" base="xs:string">
+		<enumeration xsi:type="xs:string">Дорожные</enumeration>
+		<enumeration xsi:type="xs:string">Кастом-байки</enumeration>
+		<enumeration xsi:type="xs:string">Кросс и эндуро</enumeration>
+		<enumeration xsi:type="xs:string">Спортивные</enumeration>
+		<enumeration xsi:type="xs:string">Чопперы</enumeration>
+	</valueType>
+	<valueType name="VehicleTypeMoto" base="xs:string">
+		<enumeration xsi:type="xs:string">Багги</enumeration>
+		<enumeration xsi:type="xs:string">Вездеходы</enumeration>
+		<enumeration xsi:type="xs:string">Картинг</enumeration>
+		<enumeration xsi:type="xs:string">Квадроциклы</enumeration>
+		<enumeration xsi:type="xs:string">Мопеды и скутеры</enumeration>
+		<enumeration xsi:type="xs:string">Мотоциклы</enumeration>
+		<enumeration xsi:type="xs:string">Снегоходы</enumeration>
+	</valueType>
+	<valueType name="VehicleType" base="xs:string">
+		<enumeration xsi:type="xs:string">Горные</enumeration>
+		<enumeration xsi:type="xs:string">Дорожные</enumeration>
+		<enumeration xsi:type="xs:string">BMX</enumeration>
+		<enumeration xsi:type="xs:string">Детские</enumeration>
+		<enumeration xsi:type="xs:string">Запчасти и аксессуары</enumeration>
+	</valueType>
+	<valueType name="TireType" base="xs:string">
+		<enumeration xsi:type="xs:string">Всесезонные</enumeration>
+		<enumeration xsi:type="xs:string">Летние</enumeration>
+		<enumeration xsi:type="xs:string">Зимние нешипованные</enumeration>
+		<enumeration xsi:type="xs:string">Зимние шипованные</enumeration>
+	</valueType>
+	<valueType name="WheelAxle" base="xs:string">
+		<enumeration xsi:type="xs:string">Задняя</enumeration>
+		<enumeration xsi:type="xs:string">Любая</enumeration>
+		<enumeration xsi:type="xs:string">Передняя</enumeration>
+	</valueType>
+	<valueType name="RimType" base="xs:string">
+		<enumeration xsi:type="xs:string">Кованые</enumeration>
+		<enumeration xsi:type="xs:string">Литые</enumeration>
+		<enumeration xsi:type="xs:string">Штампованные</enumeration>
+		<enumeration xsi:type="xs:string">Спицованные</enumeration>
+		<enumeration xsi:type="xs:string">Сборные</enumeration>
+	</valueType>
+	<valueType name="AdStatus" base="xs:string">
+		<enumeration xsi:type="xs:string">Free</enumeration>
+		<enumeration xsi:type="xs:string">Premium</enumeration>
+		<enumeration xsi:type="xs:string">VIP</enumeration>
+		<enumeration xsi:type="xs:string">PushUp</enumeration>
+		<enumeration xsi:type="xs:string">Highlight</enumeration>
+		<enumeration xsi:type="xs:string">TurboSale</enumeration>
+		<enumeration xsi:type="xs:string">QuickSale</enumeration>
+	</valueType>
+	<valueType name="AllowEmail" base="xs:string">
+		<enumeration xsi:type="xs:string">Да</enumeration>
+		<enumeration xsi:type="xs:string">Нет</enumeration>
+	</valueType>
+	<valueType name="ListingFee" base="xs:string">
+		<enumeration xsi:type="xs:string">Package</enumeration>
+		<enumeration xsi:type="xs:string">PackageSingle</enumeration>
+		<enumeration xsi:type="xs:string">Single</enumeration>
+	</valueType>
+	<valueType name="AdType" base="xs:string">
+		<enumeration xsi:type="xs:string">Товар приобретен на продажу</enumeration>
+		<enumeration xsi:type="xs:string">Товар от производителя</enumeration>
+	</valueType>
+	<valueType name="CarType" base="xs:string">
+		<enumeration xsi:type="xs:string">С пробегом</enumeration>
+		<enumeration xsi:type="xs:string">Новые</enumeration>
+	</valueType>
+	<valueType name="Accident" base="xs:string">
+		<enumeration xsi:type="xs:string">Не битый</enumeration>
+		<enumeration xsi:type="xs:string">Битый</enumeration>
+	</valueType>
+	<valueType name="AllowAvtokodReportLink" base="xs:string">
+		<enumeration xsi:type="xs:string">Да</enumeration>
+		<enumeration xsi:type="xs:string">Нет</enumeration>
+	</valueType>
+	<valueType name="BodyType" base="xs:string">
+		<enumeration xsi:type="xs:string">Седан</enumeration>
+		<enumeration xsi:type="xs:string">Хетчбэк</enumeration>
+		<enumeration xsi:type="xs:string">Универсал</enumeration>
+		<enumeration xsi:type="xs:string">Внедорожник</enumeration>
+		<enumeration xsi:type="xs:string">Кабриолет</enumeration>
+		<enumeration xsi:type="xs:string">Купе</enumeration>
+		<enumeration xsi:type="xs:string">Лимузин</enumeration>
+		<enumeration xsi:type="xs:string">Минивэн</enumeration>
+		<enumeration xsi:type="xs:string">Пикап</enumeration>
+		<enumeration xsi:type="xs:string">Фургон</enumeration>
+		<enumeration xsi:type="xs:string">Микроавтобус</enumeration>
+	</valueType>
+	<valueType name="Color" base="xs:string">
+		<enumeration xsi:type="xs:string">Красный</enumeration>
+		<enumeration xsi:type="xs:string">Коричневый</enumeration>
+		<enumeration xsi:type="xs:string">Оранжевый</enumeration>
+		<enumeration xsi:type="xs:string">Бежевый</enumeration>
+		<enumeration xsi:type="xs:string">Жёлтый</enumeration>
+		<enumeration xsi:type="xs:string">Зелёный</enumeration>
+		<enumeration xsi:type="xs:string">Голубой</enumeration>
+		<enumeration xsi:type="xs:string">Синий</enumeration>
+		<enumeration xsi:type="xs:string">Фиолетовый</enumeration>
+		<enumeration xsi:type="xs:string">Пурпурный</enumeration>
+		<enumeration xsi:type="xs:string">Розовый</enumeration>
+		<enumeration xsi:type="xs:string">Белый</enumeration>
+		<enumeration xsi:type="xs:string">Серый</enumeration>
+		<enumeration xsi:type="xs:string">Чёрный</enumeration>
+		<enumeration xsi:type="xs:string">Золотой</enumeration>
+		<enumeration xsi:type="xs:string">Серебряный</enumeration>
+	</valueType>
+	<valueType name="FuelType" base="xs:string">
+		<enumeration xsi:type="xs:string">Бензин</enumeration>
+		<enumeration xsi:type="xs:string">Дизель</enumeration>
+		<enumeration xsi:type="xs:string">Гибрид</enumeration>
+		<enumeration xsi:type="xs:string">Электро</enumeration>
+		<enumeration xsi:type="xs:string">Газ</enumeration>
+	</valueType>
+	<valueType name="Transmission" base="xs:string">
+		<enumeration xsi:type="xs:string">Механика</enumeration>
+		<enumeration xsi:type="xs:string">Автомат</enumeration>
+		<enumeration xsi:type="xs:string">Робот</enumeration>
+		<enumeration xsi:type="xs:string">Вариатор</enumeration>
+	</valueType>
+	<valueType name="DriveType" base="xs:string">
+		<enumeration xsi:type="xs:string">Передний</enumeration>
+		<enumeration xsi:type="xs:string">Задний</enumeration>
+		<enumeration xsi:type="xs:string">Полный</enumeration>
+	</valueType>
+	<valueType name="WheelType" base="xs:string">
+		<enumeration xsi:type="xs:string">Левый</enumeration>
+		<enumeration xsi:type="xs:string">Правый</enumeration>
+	</valueType>
+	<valueType name="PowerSteering" base="xs:string">
+		<enumeration xsi:type="xs:string">Гидро-</enumeration>
+		<enumeration xsi:type="xs:string">Электро-</enumeration>
+		<enumeration xsi:type="xs:string">Электрогидро-</enumeration>
+	</valueType>
+	<valueType name="ClimateControl" base="xs:string">
+		<enumeration xsi:type="xs:string">Кондиционер</enumeration>
+		<enumeration xsi:type="xs:string">Климат-контроль однозонный</enumeration>
+		<enumeration xsi:type="xs:string">Климат-контроль многозонный</enumeration>
+	</valueType>
+	<valueType name="ClimateControlOptions" base="xs:string">
+		<enumeration xsi:type="xs:string">Управление на руле</enumeration>
+		<enumeration xsi:type="xs:string">Атермальное остекление</enumeration>
+	</valueType>
+	<valueType name="Interior" base="xs:string">
+		<enumeration xsi:type="xs:string">Кожа</enumeration>
+		<enumeration xsi:type="xs:string">Ткань</enumeration>
+		<enumeration xsi:type="xs:string">Велюр</enumeration>
+		<enumeration xsi:type="xs:string">Комбинированный</enumeration>
+	</valueType>
+	<valueType name="InteriorOptions" base="xs:string">
+		<enumeration xsi:type="xs:string">Кожаный руль</enumeration>
+		<enumeration xsi:type="xs:string">Люк</enumeration>
+	</valueType>
+	<valueType name="Heating" base="xs:string">
+		<enumeration xsi:type="xs:string">Передних сидений</enumeration>
+		<enumeration xsi:type="xs:string">Задних сидений</enumeration>
+		<enumeration xsi:type="xs:string">Зеркал</enumeration>
+		<enumeration xsi:type="xs:string">Заднего стекла</enumeration>
+		<enumeration xsi:type="xs:string">Руля</enumeration>
+	</valueType>
+	<valueType name="PowerWindows" base="xs:string">
+		<enumeration xsi:type="xs:string">Только передние</enumeration>
+		<enumeration xsi:type="xs:string">Передние и задние</enumeration>
+	</valueType>
+	<valueType name="ElectricDrive" base="xs:string">
+		<enumeration xsi:type="xs:string">Передних сидений</enumeration>
+		<enumeration xsi:type="xs:string">Задних сидений</enumeration>
+		<enumeration xsi:type="xs:string">Зеркал</enumeration>
+		<enumeration xsi:type="xs:string">Рулевой колонки</enumeration>
+		<enumeration xsi:type="xs:string">Складывания зеркал</enumeration>
+	</valueType>
+	<valueType name="MemorySettings" base="xs:string">
+		<enumeration xsi:type="xs:string">Передних сидений</enumeration>
+		<enumeration xsi:type="xs:string">Задних сидений</enumeration>
+		<enumeration xsi:type="xs:string">Зеркал</enumeration>
+		<enumeration xsi:type="xs:string">Рулевой колонки</enumeration>
+	</valueType>
+	<valueType name="DrivingAssistance" base="xs:string">
+		<enumeration xsi:type="xs:string">Автоматический парковщик</enumeration>
+		<enumeration xsi:type="xs:string">Датчик дождя</enumeration>
+		<enumeration xsi:type="xs:string">Датчик света</enumeration>
+		<enumeration xsi:type="xs:string">Парктроник задний</enumeration>
+		<enumeration xsi:type="xs:string">Парктроник передний</enumeration>
+		<enumeration xsi:type="xs:string">Система контроля слепых зон</enumeration>
+		<enumeration xsi:type="xs:string">Камера заднего вида</enumeration>
+		<enumeration xsi:type="xs:string">Круиз-контроль</enumeration>
+		<enumeration xsi:type="xs:string">Бортовой компьютер</enumeration>
+	</valueType>
+	<valueType name="AntitheftSystem" base="xs:string">
+		<enumeration xsi:type="xs:string">Сигнализация</enumeration>
+		<enumeration xsi:type="xs:string">Центральный замок</enumeration>
+		<enumeration xsi:type="xs:string">Иммобилайзер</enumeration>
+		<enumeration xsi:type="xs:string">Спутник</enumeration>
+	</valueType>
+	<valueType name="Airbags" base="xs:string">
+		<enumeration xsi:type="xs:string">Фронтальные</enumeration>
+		<enumeration xsi:type="xs:string">Коленные</enumeration>
+		<enumeration xsi:type="xs:string">Шторки</enumeration>
+		<enumeration xsi:type="xs:string">Боковые передние</enumeration>
+		<enumeration xsi:type="xs:string">Боковые задние</enumeration>
+	</valueType>
+	<valueType name="ActiveSafety" base="xs:string">
+		<enumeration xsi:type="xs:string">Антиблокировка тормозов</enumeration>
+		<enumeration xsi:type="xs:string">Антипробуксовка</enumeration>
+		<enumeration xsi:type="xs:string">Курсовая устойчивость</enumeration>
+		<enumeration xsi:type="xs:string">Распред. тормозных усилий</enumeration>
+		<enumeration xsi:type="xs:string">Экстренное торможение</enumeration>
+		<enumeration xsi:type="xs:string">Блок. дифференциала</enumeration>
+		<enumeration xsi:type="xs:string">Обнаружение пешеходов</enumeration>
+	</valueType>
+	<valueType name="Multimedia" base="xs:string">
+		<enumeration xsi:type="xs:string">CD/DVD/Blu-ray</enumeration>
+		<enumeration xsi:type="xs:string">MP3</enumeration>
+		<enumeration xsi:type="xs:string">Радио</enumeration>
+		<enumeration xsi:type="xs:string">TV</enumeration>
+		<enumeration xsi:type="xs:string">Видео</enumeration>
+		<enumeration xsi:type="xs:string">Управление на руле</enumeration>
+		<enumeration xsi:type="xs:string">USB</enumeration>
+		<enumeration xsi:type="xs:string">AUX</enumeration>
+		<enumeration xsi:type="xs:string">Bluetooth</enumeration>
+		<enumeration xsi:type="xs:string">GPS-навигатор</enumeration>
+	</valueType>
+	<valueType name="AudioSystem" base="xs:string">
+		<enumeration xsi:type="xs:string">2 колонки</enumeration>
+		<enumeration xsi:type="xs:string">4 колонки</enumeration>
+		<enumeration xsi:type="xs:string">6 колонок</enumeration>
+		<enumeration xsi:type="xs:string">8+ колонок</enumeration>
+	</valueType>
+	<valueType name="AudioSystemOptions" base="xs:string">
+		<enumeration xsi:type="xs:string">Сабвуфер</enumeration>
+	</valueType>
+	<valueType name="Lights" base="xs:string">
+		<enumeration xsi:type="xs:string">Галогенные</enumeration>
+		<enumeration xsi:type="xs:string">Ксеноновые</enumeration>
+		<enumeration xsi:type="xs:string">Светодиодные</enumeration>
+	</valueType>
+	<valueType name="LightsOptions" base="xs:string">
+		<enumeration xsi:type="xs:string">Противотуманные</enumeration>
+		<enumeration xsi:type="xs:string">Омыватели фар</enumeration>
+		<enumeration xsi:type="xs:string">Адаптивное освещение</enumeration>
+	</valueType>
+	<valueType name="WheelsOptions" base="xs:string">
+		<enumeration xsi:type="xs:string">Зимние шины в комплекте</enumeration>
+	</valueType>
+	<valueType name="Maintenance" base="xs:string">
+		<enumeration xsi:type="xs:string">Есть сервисная книжка</enumeration>
+		<enumeration xsi:type="xs:string">Обслуживался у дилера</enumeration>
+		<enumeration xsi:type="xs:string">На гарантии</enumeration>
+	</valueType>
+	<valueType name="Availability" base="xs:string">
+		<enumeration xsi:type="xs:string">В наличии</enumeration>
+		<enumeration xsi:type="xs:string">Под заказ</enumeration>
+	</valueType>
+	<objectType name="Ad">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="AdStatus" type="d3p1:AdStatus" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="AllowEmail" type="d3p1:AllowEmail" lowerBound="0"/>
+		<property name="AvitoId" type="xs:string" lowerBound="0"/>
+		<property name="Category" type="xs:string"/>
+		<property name="City" type="xs:string" lowerBound="0"/>
+		<property name="ContactPhone" type="xs:string" lowerBound="0"/>
+		<property name="DateBegin" type="xs:date" lowerBound="0"/>
+		<property name="DateEnd" type="xs:date" lowerBound="0"/>
+		<property name="Description" type="xs:string"/>
+		<property name="District" type="xs:string" lowerBound="0"/>
+		<property name="GoodsType" type="xs:string" lowerBound="0"/>
+		<property name="GoodsSubType" type="xs:string" lowerBound="0"/>
+		<property name="Id" type="xs:string"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Images" type="d3p1:Ad.Images" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="DisplayAreas" type="d3p1:Ad.DisplayAreas" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="ListingFee" type="d3p1:ListingFee" lowerBound="0"/>
+		<property name="ManagerName" type="xs:string" lowerBound="0"/>
+		<property name="Price" type="xs:decimal" lowerBound="0"/>
+		<property name="Region" type="xs:string"/>
+		<property name="RimBolts" type="xs:decimal" lowerBound="0"/>
+		<property name="RimBoltsDiameter" type="xs:decimal" lowerBound="0"/>
+		<property name="RimDiameter" type="xs:decimal" lowerBound="0"/>
+		<property name="RimOffset" type="xs:decimal" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="RimType" type="d3p1:RimType" lowerBound="0"/>
+		<property name="RimWidth" type="xs:decimal" lowerBound="0"/>
+		<property name="Subway" type="xs:string" lowerBound="0"/>
+		<property name="TireAspectRatio" type="xs:decimal" lowerBound="0"/>
+		<property name="TireSectionWidth" type="xs:decimal" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="TireType" type="d3p1:TireType" lowerBound="0"/>
+		<property name="Title" type="xs:string"/>
+		<property name="TypeId" type="xs:string" lowerBound="0"/>
+		<property name="VideoURL" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="WheelAxle" type="d3p1:WheelAxle" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="AdType" type="d3p1:AdType" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="CarType" type="d3p1:CarType" lowerBound="0"/>
+		<property name="Make" type="xs:string" lowerBound="0"/>
+		<property name="Model" type="xs:string" lowerBound="0"/>
+		<property name="Year" type="xs:decimal" lowerBound="0"/>
+		<property name="Kilometrage" type="xs:decimal" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Accident" type="d3p1:Accident" lowerBound="0"/>
+		<property name="VIN" type="xs:string" lowerBound="0"/>
+		<property name="CertificationNumber" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="AllowAvtokodReportLink" type="d3p1:AllowAvtokodReportLink" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="BodyType" type="d3p1:BodyType" lowerBound="0"/>
+		<property name="Doors" type="xs:decimal" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Color" type="d3p1:Color" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="FuelType" type="d3p1:FuelType" lowerBound="0"/>
+		<property name="EngineSize" type="xs:float" lowerBound="0"/>
+		<property name="Power" type="xs:decimal" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Transmission" type="d3p1:Transmission" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="DriveType" type="d3p1:DriveType" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="WheelType" type="d3p1:WheelType" lowerBound="0"/>
+		<property name="Owners" type="xs:decimal" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="PowerSteering" type="d3p1:PowerSteering" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="ClimateControl" type="d3p1:ClimateControl" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="ClimateControlOptions" type="d3p1:Ad.ClimateControlOptions" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Interior" type="d3p1:Interior" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="InteriorOptions" type="d3p1:Ad.InteriorOptions" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Heating" type="d3p1:Ad.Heating" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="PowerWindows" type="d3p1:PowerWindows" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="ElectricDrive" type="d3p1:Ad.ElectricDrive" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="MemorySettings" type="d3p1:Ad.MemorySettings" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="DrivingAssistance" type="d3p1:Ad.DrivingAssistance" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="AntitheftSystem" type="d3p1:Ad.AntitheftSystem" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Airbags" type="d3p1:Ad.Airbags" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="ActiveSafety" type="d3p1:Ad.ActiveSafety" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Multimedia" type="d3p1:Ad.Multimedia" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="AudioSystem" type="d3p1:AudioSystem" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="AudioSystemOptions" type="d3p1:Ad.AudioSystemOptions" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Lights" type="d3p1:Lights" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="LightsOptions" type="d3p1:Ad.LightsOptions" lowerBound="0" upperBound="-1"/>
+		<property name="Wheels" type="xs:decimal" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="WheelsOptions" type="d3p1:Ad.WheelsOptions" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Maintenance" type="d3p1:Ad.Maintenance" lowerBound="0" upperBound="-1"/>
+		<property name="Street" type="xs:string" lowerBound="0"/>
+		<property name="Address" type="xs:string" lowerBound="0"/>
+		<property name="Condition" type="xs:string" lowerBound="0"/>
+		<property name="Size" type="xs:string" lowerBound="0"/>
+		<property name="VehicleType" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="MotoType" type="d3p1:MotoType" lowerBound="0"/>
+		<property name="OEM" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Availability" type="d3p1:Availability" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="ProductsType" type="d3p1:ProductsType" lowerBound="0"/>
+		<property name="Brand" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Originality" type="d3p1:Originality" lowerBound="0"/>
+		<property name="OriginalOEM" type="xs:string" lowerBound="0"/>
+		<property name="OriginalVendor" type="xs:string" lowerBound="0"/>
+		<property name="RunFlat" type="xs:string" lowerBound="0"/>
+		<property name="Homologation" type="xs:string" lowerBound="0"/>
+		<property name="SpeedIndex" type="xs:string" lowerBound="0"/>
+		<property name="LoadIndex" type="xs:integer" lowerBound="0"/>
+		<property name="ResidualTread" type="xs:integer" lowerBound="0"/>
+		<property name="Apparel" type="xs:string" lowerBound="0"/>
+		<property name="ApparelType" type="xs:string" lowerBound="0"/>
+		<property name="Quantity" type="xs:integer" lowerBound="0"/>
+	</objectType>
+	<objectType name="Image">
+		<property name="name" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property name="url" type="xs:string" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="Ad.Images">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Image" type="d3p1:Image" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.ClimateControlOptions">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:ClimateControlOptions" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.InteriorOptions">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:InteriorOptions" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.Heating">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:Heating" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.ElectricDrive">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:ElectricDrive" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.MemorySettings">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:MemorySettings" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.DrivingAssistance">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:DrivingAssistance" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.AntitheftSystem">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:AntitheftSystem" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.Airbags">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:Airbags" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.ActiveSafety">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:ActiveSafety" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.Multimedia">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:Multimedia" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.AudioSystemOptions">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:AudioSystemOptions" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.LightsOptions">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:LightsOptions" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.WheelsOptions">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:WheelsOptions" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.Maintenance">
+		<property xmlns:d3p1="https://nizamov.studio/avito" name="Option" type="d3p1:Maintenance" upperBound="-1"/>
+	</objectType>
+	<objectType name="Ad.DisplayAreas">
+		<property name="Area" type="xs:string" upperBound="-1"/>
+	</objectType>
+</package>

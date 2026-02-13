@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetUnion">
+		<name>ТаблицаОборотов</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+			<title xsi:type="xs:string">Документ движения</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.РеализацияАвтомобилей</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ВводОстатковНакопительныхСумм</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ЗаказНаряд</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.РеализацияТоваров</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ЗакрытиеСмены</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ВозвратОтПокупателяАвтомобилей</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.Чек</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ВозвратОтПокупателя</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.АктРазногласий</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ЗакрытиеНакопительныхСумм</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Карточка</dataPath>
+			<field>Карточка</field>
+			<title xsi:type="xs:string">Дисконтная карта</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Карточки</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="xs:string">Контрагент</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+			<title xsi:type="xs:string">Подразделение</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ПодразделенияКомпании</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодГод</dataPath>
+			<field>ПериодГод</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодДень</dataPath>
+			<field>ПериодДень</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодКвартал</dataPath>
+			<field>ПериодКвартал</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодМесяц</dataPath>
+			<field>ПериодМесяц</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодНеделя</dataPath>
+			<field>ПериодНеделя</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоНоменклатурыНаДату</dataPath>
+			<field>КоличествоНоменклатурыНаДату</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЧековНаДату</dataPath>
+			<field>КоличествоЧековНаДату</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНаДату</dataPath>
+			<field>СуммаНаДату</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоНоменклатурыОборот</dataPath>
+			<field>КоличествоНоменклатурыОборот</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЧековОборот</dataPath>
+			<field>КоличествоЧековОборот</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаОборот</dataPath>
+			<field>СуммаОборот</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<item xsi:type="DataSetQuery">
+			<name>Остатки</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Карточка</dataPath>
+				<field>Карточка</field>
+				<title xsi:type="xs:string">Дисконтная карта</title>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Карточки</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Контрагент</dataPath>
+				<field>Контрагент</field>
+				<title xsi:type="xs:string">Контрагент</title>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Контрагенты</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+				<title xsi:type="xs:string">Подразделение</title>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ПодразделенияКомпании</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоНоменклатурыНаДату</dataPath>
+				<field>КоличествоНоменклатурыНаДату</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоЧековНаДату</dataPath>
+				<field>КоличествоЧековНаДату</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаНаДату</dataPath>
+				<field>СуммаНаДату</field>
+			</field>
+			<dataSource>ИсточникДанных</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НакоплениеСумм.Контрагент КАК Контрагент,
+	НакоплениеСумм.Карточка КАК Карточка,
+	НакоплениеСумм.Подразделение КАК Подразделение,
+	СУММА(НакоплениеСумм.Сумма) КАК СуммаНаДату,
+	СУММА(НакоплениеСумм.КоличествоЧеков) КАК КоличествоЧековНаДату,
+	СУММА(НакоплениеСумм.КоличествоНоменклатуры) КАК КоличествоНоменклатурыНаДату
+	//СВОЙСТВА
+{ВЫБРАТЬ
+	Контрагент.* КАК Контрагент,
+	Карточка.* КАК Карточка,
+	Подразделение.* КАК Подразделение,
+	СуммаНаДату КАК СуммаНаДату,
+	КоличествоЧековНаДату КАК КоличествоЧековНаДату,
+	КоличествоНоменклатурыНаДату КАК КоличествоНоменклатурыНаДату
+	//СВОЙСТВА
+}
+ИЗ
+	РегистрСведений.НакоплениеСумм КАК НакоплениеСумм
+	//СОЕДИНЕНИЯ
+ГДЕ
+	НакоплениеСумм.ПериодНакопления&lt;=&amp;ДатаОкончания
+{ГДЕ
+	НакоплениеСумм.Контрагент.*    КАК Контрагент,
+	НакоплениеСумм.Карточка.*      КАК Карточка,
+	НакоплениеСумм.Подразделение.* КАК Подразделение,
+	СУММА(НакоплениеСумм.Сумма) КАК СуммаНаДату,
+	СУММА(НакоплениеСумм.КоличествоЧеков) КАК КоличествоЧековНаДату,
+	СУММА(НакоплениеСумм.КоличествоНоменклатуры) КАК КоличествоНоменклатурыНаДату
+	//СВОЙСТВА
+}
+СГРУППИРОВАТЬ ПО
+	НакоплениеСумм.Контрагент,
+	НакоплениеСумм.Карточка,
+	НакоплениеСумм.Подразделение</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>Обороты</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Документ</dataPath>
+				<field>Документ</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Карточка</dataPath>
+				<field>Карточка</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Контрагент</dataPath>
+				<field>Контрагент</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодГод</dataPath>
+				<field>ПериодГод</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодДень</dataPath>
+				<field>ПериодДень</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодКвартал</dataPath>
+				<field>ПериодКвартал</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодМесяц</dataPath>
+				<field>ПериодМесяц</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодНеделя</dataPath>
+				<field>ПериодНеделя</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоНоменклатурыОборот</dataPath>
+				<field>КоличествоНоменклатурыОборот</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоЧековОборот</dataPath>
+				<field>КоличествоЧековОборот</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаОборот</dataPath>
+				<field>СуммаОборот</field>
+			</field>
+			<dataSource>ИсточникДанных</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НакоплениеСумм.Контрагент КАК Контрагент,
+	НакоплениеСумм.Карточка КАК Карточка,
+	НачалоПериода(НакоплениеСумм.ПериодНакопления, День) КАК ПериодДень,
+	НачалоПериода(НакоплениеСумм.ПериодНакопления, Неделя) КАК ПериодНеделя,
+	НачалоПериода(НакоплениеСумм.ПериодНакопления, Месяц) КАК ПериодМесяц,
+	НачалоПериода(НакоплениеСумм.ПериодНакопления, Квартал) КАК ПериодКвартал,
+	НачалоПериода(НакоплениеСумм.ПериодНакопления, Год) КАК ПериодГод,
+	НакоплениеСумм.Подразделение КАК Подразделение,
+	НакоплениеСумм.Документ КАК Документ,
+	СУММА(НакоплениеСумм.Сумма) КАК СуммаОборот,
+	СУММА(НакоплениеСумм.КоличествоЧеков) КАК КоличествоЧековОборот,
+	СУММА(НакоплениеСумм.КоличествоНоменклатуры) КАК КоличествоНоменклатурыОборот
+	//СВОЙСТВА
+{ВЫБРАТЬ
+	Контрагент.* КАК Контрагент,
+	Карточка.* КАК Карточка,
+	ПериодДень КАК ПериодДень,
+	ПериодНеделя КАК ПериодНеделя,
+	ПериодМесяц КАК ПериодМесяц,
+	ПериодКвартал КАК ПериодКвартал,
+	ПериодГод КАК ПериодГод,
+	Подразделение.* КАК Подразделение,
+	Документ.* КАК Документ,
+	СуммаОборот КАК СуммаОборот,
+	КоличествоЧековОборот КАК КоличествоЧековОборот,
+	КоличествоНоменклатурыОборот КАК КоличествоНоменклатурыОборот
+	//СВОЙСТВА}
+ИЗ
+	РегистрСведений.НакоплениеСумм КАК НакоплениеСумм
+	//СОЕДИНЕНИЯ
+ГДЕ
+	НакоплениеСумм.ПериодНакопления МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+{ГДЕ
+	НакоплениеСумм.Контрагент.* КАК Контрагент,
+	НакоплениеСумм.Карточка.* КАК Карточка,
+	НакоплениеСумм.Подразделение.* КАК Подразделение,
+	НакоплениеСумм.Документ.* КАК Документ
+	//СВОЙСТВА
+}
+СГРУППИРОВАТЬ ПО
+	НакоплениеСумм.Контрагент,
+	НакоплениеСумм.Карточка,
+	НачалоПериода(НакоплениеСумм.ПериодНакопления, День),
+	НачалоПериода(НакоплениеСумм.ПериодНакопления, Неделя),
+	НачалоПериода(НакоплениеСумм.ПериодНакопления, Месяц),
+	НачалоПериода(НакоплениеСумм.ПериодНакопления, Квартал),
+	НачалоПериода(НакоплениеСумм.ПериодНакопления, Год),
+	НакоплениеСумм.Подразделение,
+	НакоплениеСумм.Документ
+</query>
+		</item>
+	</dataSet>
+	<totalField>
+		<dataPath>КоличествоНоменклатурыНаДату</dataPath>
+		<expression>Сумма(КоличествоНоменклатурыНаДату)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоНоменклатурыОборот</dataPath>
+		<expression>Сумма(КоличествоНоменклатурыОборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЧековНаДату</dataPath>
+		<expression>Сумма(КоличествоЧековНаДату)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЧековОборот</dataPath>
+		<expression>Сумма(КоличествоЧековОборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНаДату</dataPath>
+		<expression>Сумма(СуммаНаДату)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаОборот</dataPath>
+		<expression>Сумма(СуммаОборот)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<inputParameters>
+			<dcscor:item>
+				<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+			</dcscor:item>
+		</inputParameters>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<inputParameters>
+			<dcscor:item>
+				<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+			</dcscor:item>
+		</inputParameters>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоНоменклатурыНаДату</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоНоменклатурыОборот</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЧековНаДату</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЧековОборот</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНаДату</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаОборот</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Карточка</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Документ</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Подразделение</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Подразделение.Наименование</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Контрагент</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							<dcsset:item xsi:type="dcsset:OrderItemField">
+								<dcsset:field>Контрагент.Наименование</dcsset:field>
+								<dcsset:orderType>Asc</dcsset:orderType>
+							</dcsset:item>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Карточка</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								<dcsset:item xsi:type="dcsset:OrderItemField">
+									<dcsset:field>Карточка.Наименование</dcsset:field>
+									<dcsset:orderType>Asc</dcsset:orderType>
+								</dcsset:item>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

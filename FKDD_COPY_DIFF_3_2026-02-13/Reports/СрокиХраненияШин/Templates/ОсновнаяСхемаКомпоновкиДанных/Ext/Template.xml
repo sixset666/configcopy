@@ -1,0 +1,816 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<title xsi:type="xs:string">Количество (в базовых ед.)</title>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<title xsi:type="xs:string">Номенклатура</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Номенклатура</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СкладКомпании</dataPath>
+			<field>СкладКомпании</field>
+			<title xsi:type="xs:string">Склад компании</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Цеха</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СкладыКомпании</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ХарактеристикаНоменклатуры</dataPath>
+			<field>ХарактеристикаНоменклатуры</field>
+			<title xsi:type="xs:string">Характеристика номенклатуры</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ХарактеристикиНоменклатуры</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаНачалаХранения</dataPath>
+			<field>ДатаНачалаХранения</field>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОкончанияХранения</dataPath>
+			<field>ДатаОкончанияХранения</field>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕдиницаИзмерения</dataPath>
+			<field>ЕдиницаИзмерения</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаявкаНаХранениеШин</dataPath>
+			<field>ЗаявкаНаХранениеШин</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОсталосьДнейХранения</dataPath>
+			<field>ОсталосьДнейХранения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодХранения</dataPath>
+			<field>ПериодХранения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПросроченоДнейХранения</dataPath>
+			<field>ПросроченоДнейХранения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ячейка</dataPath>
+			<field>Ячейка</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ХранитсяНаСкладе</dataPath>
+			<field>ХранитсяНаСкладе</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВариантКомплектации</dataPath>
+			<field>ВариантКомплектации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорВзаиморасчетов</dataPath>
+			<field>ДоговорВзаиморасчетов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИнтервалХранения</dataPath>
+			<field>ИнтервалХранения</field>
+			<orderExpression>
+				<dcscom:expression>ИнтервалХраненияПорядок</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>false</dcscom:autoOrder>
+			</orderExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИнтервалХраненияПорядок</dataPath>
+			<field>ИнтервалХраненияПорядок</field>
+			<useRestriction>
+				<field>true</field>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ
+	5000 КАК МинПредел,
+	0 КАК МаксПредел,
+	"Пустышка" КАК Представление,
+	100 КАК Порядок
+ПОМЕСТИТЬ ИнтервалыХранения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	5000 КАК МинПредел,
+	0 КАК МаксПредел,
+	"Пустышка" КАК Представление,
+	100 КАК Порядок
+ПОМЕСТИТЬ ПросроченныеИнтервалыХранения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ОстаткиТоваровОрдерныйСкладОстатки.СкладКомпании КАК СкладКомпании,
+	ОстаткиТоваровОрдерныйСкладОстатки.СкладКомпании.Организация КАК Организация,
+	ОстаткиТоваровОрдерныйСкладОстатки.СкладКомпании.Подразделение КАК Подразделение,
+	ОстаткиТоваровОрдерныйСкладОстатки.Ячейка КАК Ячейка,
+	ОстаткиТоваровОрдерныйСкладОстатки.Номенклатура КАК Номенклатура,
+	ОстаткиТоваровОрдерныйСкладОстатки.ХарактеристикаНоменклатуры КАК ХарактеристикаНоменклатуры,
+	ОстаткиТоваровОрдерныйСкладОстатки.ЕдиницаИзмерения КАК ЕдиницаИзмерения,
+	ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин КАК ЗаявкаНаХранениеШин,
+	ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.Контрагент КАК Контрагент,
+	ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.Автомобиль КАК Автомобиль,
+	ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДоговорВзаиморасчетов КАК ДоговорВзаиморасчетов,
+	ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.Автомобиль.Модель КАК Модель,
+	ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.Автомобиль.ВариантКомплектации КАК ВариантКомплектации,
+	ОстаткиТоваровОрдерныйСкладОстатки.КоличествоОстаток КАК Количество,
+	НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаНачала, ДЕНЬ) КАК ДатаНачалаХранения,
+	НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ) КАК ДатаОкончанияХранения,
+	РАЗНОСТЬДАТ(НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаНачала, ДЕНЬ), ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ) КАК ПериодХранения,
+	РАЗНОСТЬДАТ(НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаНачала, ДЕНЬ), &amp;ДатаОкончания, ДЕНЬ) КАК ХранитсяНаСкладе,
+	ВЫБОР
+		КОГДА НЕ ПросроченныеИнтервалыХранения.Представление ЕСТЬ NULL
+			ТОГДА ПросроченныеИнтервалыХранения.Представление
+		КОГДА НЕ ИнтервалыХранения.Представление ЕСТЬ NULL
+			ТОГДА ИнтервалыХранения.Представление
+		ИНАЧЕ ""
+	КОНЕЦ КАК ИнтервалХранения,
+	ВЫБОР
+		КОГДА НЕ ПросроченныеИнтервалыХранения.Порядок ЕСТЬ NULL
+			ТОГДА ПросроченныеИнтервалыХранения.Порядок
+		КОГДА НЕ ИнтервалыХранения.Порядок ЕСТЬ NULL
+			ТОГДА ИнтервалыХранения.Порядок
+		ИНАЧЕ ""
+	КОНЕЦ КАК ИнтервалХраненияПорядок,
+	ВЫБОР
+		КОГДА РАЗНОСТЬДАТ(&amp;ДатаОкончания, НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ), ДЕНЬ) &gt; 0
+			ТОГДА РАЗНОСТЬДАТ(&amp;ДатаОкончания, НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ), ДЕНЬ)
+		ИНАЧЕ 0
+	КОНЕЦ КАК ОсталосьДнейХранения,
+	ВЫБОР
+		КОГДА РАЗНОСТЬДАТ(НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ), &amp;ДатаОкончания, ДЕНЬ) &gt; 0
+			ТОГДА РАЗНОСТЬДАТ(НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ), &amp;ДатаОкончания, ДЕНЬ)
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПросроченоДнейХранения
+{ВЫБРАТЬ
+	СкладКомпании.* КАК СкладКомпании,
+	Организация.* КАК Организация,
+	Подразделение.* КАК Подразделение,
+	Ячейка.* КАК Ячейка,
+	Номенклатура.* КАК Номенклатура,
+	ХарактеристикаНоменклатуры.* КАК ХарактеристикаНоменклатуры,
+	ЕдиницаИзмерения.* КАК ЕдиницаИзмерения,
+	ЗаявкаНаХранениеШин.* КАК ЗаявкаНаХранениеШин,
+	Контрагент.* КАК Контрагент,
+	Автомобиль.* КАК Автомобиль,
+	ДоговорВзаиморасчетов.* КАК ДоговорВзаиморасчетов,
+	Модель.* КАК Модель,
+	ВариантКомплектации.* КАК ВариантКомплектации,
+	ИнтервалХранения КАК ИнтервалХранения,
+	ИнтервалХраненияПорядок КАК ИнтервалХраненияПорядок,
+	ДатаНачалаХранения КАК ДатаНачалаХранения,
+	ДатаОкончанияХранения КАК ДатаОкончанияХранения,
+	ХранитсяНаСкладе КАК ХранитсяНаСкладе,
+	ПериодХранения КАК ПериодХранения,
+	ОсталосьДнейХранения КАК ОсталосьДнейХранения,
+	ПросроченоДнейХранения КАК ПросроченоДнейХранения,
+	Количество КАК Количество}
+ИЗ
+	РегистрНакопления.ОстаткиТоваровОрдерныйСклад.Остатки(&amp;ДатаОкончания, НЕ ЗаявкаНаХранениеШин = ЗНАЧЕНИЕ(Документ.ЗаявкаНаХранениеШин.ПустаяСсылка) {(СкладКомпании).* КАК СкладКомпании, (СкладКомпании.Организация).* КАК Организация, (СкладКомпании.Подразделение).* КАК Подразделение, (Номенклатура).* КАК Номенклатура, (ХарактеристикаНоменклатуры).* КАК ХарактеристикаНоменклатуры, (ЗаявкаНаХранениеШин).* КАК ЗаявкаНаХранениеШин, (Ячейка).* КАК Ячейка, (ЕдиницаИзмерения).* КАК ЕдиницаИзмерения}) КАК ОстаткиТоваровОрдерныйСкладОстатки
+		{ЛЕВОЕ СОЕДИНЕНИЕ ИнтервалыХранения КАК ИнтервалыХранения
+		ПО (РАЗНОСТЬДАТ(&amp;ДатаОкончания, НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ), ДЕНЬ) &gt; ИнтервалыХранения.МинПредел)
+			И (РАЗНОСТЬДАТ(&amp;ДатаОкончания, НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ), ДЕНЬ) &lt;= ИнтервалыХранения.МаксПредел)}
+		{ЛЕВОЕ СОЕДИНЕНИЕ ПросроченныеИнтервалыХранения КАК ПросроченныеИнтервалыХранения
+		ПО (РАЗНОСТЬДАТ(НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ), &amp;ДатаОкончания, ДЕНЬ) &gt; ПросроченныеИнтервалыХранения.МинПредел)
+			И (РАЗНОСТЬДАТ(НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ), &amp;ДатаОкончания, ДЕНЬ) &lt;= ПросроченныеИнтервалыХранения.МаксПредел)}
+ГДЕ
+	ОстаткиТоваровОрдерныйСкладОстатки.КоличествоОстаток &gt; 0
+{ГДЕ
+	ОстаткиТоваровОрдерныйСкладОстатки.СкладКомпании.Организация.* КАК Организация,
+	ОстаткиТоваровОрдерныйСкладОстатки.СкладКомпании.Подразделение.* КАК Подразделение,
+	ОстаткиТоваровОрдерныйСкладОстатки.СкладКомпании.* КАК СкладКомпании,
+	ОстаткиТоваровОрдерныйСкладОстатки.Номенклатура.* КАК Номенклатура,
+	ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.* КАК ЗаявкаНаХранениеШин,
+	ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.Контрагент.* КАК Контрагент,
+	ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.Автомобиль.* КАК Автомобиль,
+	ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДоговорВзаиморасчетов.* КАК ДоговорВзаиморасчетов,
+	ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.Автомобиль.Модель.* КАК Модель,
+	ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.Автомобиль.ВариантКомплектации.* КАК ВариантКомплектации,
+	ОстаткиТоваровОрдерныйСкладОстатки.КоличествоОстаток КАК Количество,
+	(НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаНачала, ДЕНЬ)) КАК ДатаНачалаХранения,
+	(НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ)) КАК ДатаОкончанияХранения,
+	(РАЗНОСТЬДАТ(НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаНачала, ДЕНЬ), ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ)) КАК ПериодХранения,
+	(ВЫБОР
+			КОГДА РАЗНОСТЬДАТ(&amp;ДатаОкончания, НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ), ДЕНЬ) &gt; 0
+				ТОГДА РАЗНОСТЬДАТ(&amp;ДатаОкончания, НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ), ДЕНЬ)
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОсталосьДнейХранения,
+	(ВЫБОР
+			КОГДА РАЗНОСТЬДАТ(НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ), &amp;ДатаОкончания, ДЕНЬ) &gt; 0
+				ТОГДА РАЗНОСТЬДАТ(НАЧАЛОПЕРИОДА(ОстаткиТоваровОрдерныйСкладОстатки.ЗаявкаНаХранениеШин.ДатаОкончания, ДЕНЬ), &amp;ДатаОкончания, ДЕНЬ)
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ПросроченоДнейХранения}
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.Контрагенты)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			ВидыКонтактнойИнформации.Ссылка КАК Свойство,
+			"КИ." + ВидыКонтактнойИнформации.Наименование КАК Наименование
+		ИЗ
+			Справочник.ВидыКонтактнойИнформации КАК ВидыКонтактнойИнформации
+		ГДЕ
+			ВидыКонтактнойИнформации.ПометкаУдаления = ЛОЖЬ)
+	ПОЛЕКЛЮЧА Свойство
+	ПОЛЕИМЕНИ Наименование
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.КонтактнаяИнформация
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Вид
+	ПОЛЕЗНАЧЕНИЯ Представление }</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОсталосьДнейХранения</dataPath>
+		<expression>Минимум(ОсталосьДнейХранения)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПериодХранения</dataPath>
+		<expression>Минимум(ПериодХранения)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПросроченоДнейХранения</dataPath>
+		<expression>Максимум(ПросроченоДнейХранения)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДатаНачалаХранения</dataPath>
+		<expression>Минимум(ДатаНачалаХранения)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДатаОкончанияХранения</dataPath>
+		<expression>Минимум(ДатаОкончанияХранения)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ХранитсяНаСкладе</dataPath>
+		<expression>Максимум(ХранитсяНаСкладе)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<inputParameters>
+			<dcscor:item>
+				<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+			</dcscor:item>
+		</inputParameters>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>АдресТаблицыИнтервалов</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Адрес таблицы интервалов</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>36</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string"/>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>СрокиХраненияШин</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сроки хранения шин</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаНачалаХранения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаОкончанияХранения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПериодХранения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ХранитсяНаСкладе</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОсталосьДнейХранения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПросроченоДнейХранения</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СкладКомпании</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ОсталосьДнейХранения</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПросроченоДнейХранения</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Контрагент</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ЗаявкаНаХранениеШин</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Контрагент</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Автомобиль</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:item>
+							<dcsset:use>false</dcsset:use>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Номенклатура</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Номенклатура.Артикул</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>СрокиХраненияШинПоИнтервалам</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сроки хранения шин по интервалам</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаНачалаХранения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаОкончанияХранения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПериодХранения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ХранитсяНаСкладе</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОсталосьДнейХранения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПросроченоДнейХранения</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СкладКомпании</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ОсталосьДнейХранения</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПросроченоДнейХранения</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ИнтервалХранения</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Контрагент</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ЗаявкаНаХранениеШин</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Контрагент</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Автомобиль</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:item>
+								<dcsset:use>false</dcsset:use>
+								<dcsset:groupItems>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Номенклатура</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+								</dcsset:groupItems>
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>Номенклатура.Артикул</dcsset:field>
+									</dcsset:item>
+								</dcsset:selection>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ХранениеПоЯчейкам</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Хранение по ячейкам</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаНачалаХранения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаОкончанияХранения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПериодХранения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ХранитсяНаСкладе</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОсталосьДнейХранения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПросроченоДнейХранения</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СкладКомпании</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ОсталосьДнейХранения</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПросроченоДнейХранения</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СкладКомпании</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Ячейка</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Номенклатура</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Номенклатура.Артикул</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

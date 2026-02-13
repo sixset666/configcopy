@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:tns="http://tempuri.org/"
+		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsd1="http://tempuri.org/"
+		targetNamespace="http://tempuri.org/">
+	<types>
+		<s:schema xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+				xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+				xmlns:s="http://www.w3.org/2001/XMLSchema"
+				xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+				xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+				xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				elementFormDefault="qualified"
+				targetNamespace="http://tempuri.org/">
+			<s:element name="ActivateInterview">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="dealerCode"
+								type="s:int"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="salonCode"
+								type="s:string"/>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="date"
+								type="s:dateTime"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="name"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="phone"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="vin"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="licNumber"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ActivateInterviewResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="ActivateInterviewResult"
+								type="xsd1:InterviewInfo"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="InterviewInfo">
+				<s:sequence>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="RespondentId"
+							type="s:int"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="InterviewId"
+							type="s:int"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="ActivateMarketingModule">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="type"
+								type="xsd1:ActivateMarketingModuleType"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:simpleType name="ActivateMarketingModuleType">
+				<s:restriction base="s:string">
+					<s:enumeration value="Play"/>
+					<s:enumeration value="Stop"/>
+					<s:enumeration value="PlaylistUpdated"/>
+				</s:restriction>
+			</s:simpleType>
+			<s:element name="ActivateMarketingModuleResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1"
+								maxOccurs="1"
+								name="ActivateMarketingModuleResult"
+								type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+	</types>
+	<message name="ActivateInterviewSoapIn">
+		<part name="parameters"
+				element="tns:ActivateInterview"/>
+	</message>
+	<message name="ActivateInterviewSoapOut">
+		<part name="parameters"
+				element="tns:ActivateInterviewResponse"/>
+	</message>
+	<message name="ActivateMarketingModuleSoapIn">
+		<part name="parameters"
+				element="tns:ActivateMarketingModule"/>
+	</message>
+	<message name="ActivateMarketingModuleSoapOut">
+		<part name="parameters"
+				element="tns:ActivateMarketingModuleResponse"/>
+	</message>
+	<portType name="ActivationInterviewServiceSoap">
+		<operation name="ActivateInterview">
+			<input name="ActivateInterviewRequest"
+					message="tns:ActivateInterviewSoapIn"/>
+			<output name="ActivateInterviewResponse"
+					message="tns:ActivateInterviewSoapOut"/>
+		</operation>
+		<operation name="ActivateMarketingModule">
+			<input name="ActivateMarketingModuleRequest"
+					message="tns:ActivateMarketingModuleSoapIn"/>
+			<output name="ActivateMarketingModuleResponse"
+					message="tns:ActivateMarketingModuleSoapOut"/>
+		</operation>
+	</portType>
+	<binding name="ActivationInterviewServiceSoap"
+			type="tns:ActivationInterviewServiceSoap">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="ActivateInterview">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/ActivateInterview"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ActivateMarketingModule">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/ActivateMarketingModule"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="ActivationInterviewServiceSoap12"
+			type="tns:ActivationInterviewServiceSoap">
+		<soap12bind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="ActivateInterview">
+			<soap12bind:operation style="document"
+					soapAction="http://tempuri.org/ActivateInterview"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ActivateMarketingModule">
+			<soap12bind:operation style="document"
+					soapAction="http://tempuri.org/ActivateMarketingModule"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="ActivationInterviewService">
+		<port name="ActivationInterviewServiceSoap"
+				binding="tns:ActivationInterviewServiceSoap">
+			<soapbind:address location="http://89.108.106.100:1555/OtherServices/ActivationService/ActivationInterviewService.asmx"/>
+		</port>
+		<port name="ActivationInterviewServiceSoap12"
+				binding="tns:ActivationInterviewServiceSoap12">
+			<soap12bind:address location="http://89.108.106.100:1555/OtherServices/ActivationService/ActivationInterviewService.asmx"/>
+		</port>
+	</service>
+</definitions>

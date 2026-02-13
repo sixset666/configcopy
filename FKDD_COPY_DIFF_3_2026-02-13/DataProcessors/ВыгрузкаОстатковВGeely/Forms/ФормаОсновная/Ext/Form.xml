@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<SaveWindowSettings>false</SaveWindowSettings>
+	<CommandBarLocation>None</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnSaveDataInSettingsAtServer">ПриСохраненииДанныхВНастройкахНаСервере</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаУчетнаяЗапись" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учетная запись</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа учетная запись</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаУчетнаяЗаписьРасширеннаяПодсказка" id="10"/>
+			<ChildItems>
+				<InputField name="СсылкаНаУчетнуюЗапись" id="1">
+					<DataPath>Объект.СсылкаНаУчетнуюЗапись</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ChooseType>false</ChooseType>
+					<ContextMenu name="СсылкаНаУчетнуюЗаписьКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="СсылкаНаУчетнуюЗаписьРасширеннаяПодсказка" id="3"/>
+					<Events>
+						<Event name="OnChange">ВсемПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ДилерID" id="11">
+					<DataPath>Объект.ДилерID</DataPath>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ChooseType>false</ChooseType>
+					<ContextMenu name="ДилерIDКонтекстноеМеню" id="12"/>
+					<ExtendedTooltip name="ДилерIDРасширеннаяПодсказка" id="13"/>
+					<Events>
+						<Event name="OnChange">ВсемПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаОсновное" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общие настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основное</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="33"/>
+			<ChildItems>
+				<InputField name="КонтрагентыПоставщики" id="6">
+					<DataPath>Объект.КонтрагентыПоставщики</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ChoiceButton>false</ChoiceButton>
+					<OpenButton>true</OpenButton>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ChooseType>false</ChooseType>
+					<ContextMenu name="КонтрагентыПоставщикиКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="КонтрагентыПоставщикиРасширеннаяПодсказка" id="8"/>
+					<Events>
+						<Event name="OnChange">ВсемПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ПапкаНоменклатуры" id="14">
+					<DataPath>Объект.ПапкаНоменклатуры</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ChooseType>false</ChooseType>
+					<ContextMenu name="ПапкаНоменклатурыКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ПапкаНоменклатурыРасширеннаяПодсказка" id="16"/>
+					<Events>
+						<Event name="OnChange">ВсемПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="СкладыКомпании" id="17">
+					<DataPath>Объект.СкладыКомпании</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ChoiceButton>false</ChoiceButton>
+					<OpenButton>true</OpenButton>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ChooseType>false</ChooseType>
+					<ContextMenu name="СкладыКомпанииКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="СкладыКомпанииРасширеннаяПодсказка" id="19"/>
+					<Events>
+						<Event name="OnChange">ВсемПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="КонтрагентыИсключенияДляРеализаций" id="50">
+					<DataPath>Объект.КонтрагентыИсключенияДляРеализаций</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ChoiceButton>false</ChoiceButton>
+					<OpenButton>true</OpenButton>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="КонтрагентыИсключенияДляРеализацийКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="КонтрагентыИсключенияДляРеализацийРасширеннаяПодсказка" id="52"/>
+					<Events>
+						<Event name="OnChange">ВсемПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаОстатки" id="4">
+			<EnableContentChange>true</EnableContentChange>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузка остатков</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа остатки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаОстаткиРасширеннаяПодсказка" id="5"/>
+			<ChildItems>
+				<CheckBoxField name="ВыгружатьОстатки" id="20">
+					<DataPath>Объект.ВыгружатьОстатки</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВыгружатьОстаткиКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ВыгружатьОстаткиРасширеннаяПодсказка" id="22"/>
+					<Events>
+						<Event name="OnChange">ВсемПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<Button name="КомандаПредпросмотрОстатков" id="23">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<CommandName>Form.Command.КомандаПредпросмотрОстатков</CommandName>
+					<ExtendedTooltip name="КомандаПредпросмотрОстатковРасширеннаяПодсказка" id="24"/>
+				</Button>
+				<Button name="КомандаВыгрузитьОстатки" id="34">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<CommandName>Form.Command.КомандаВыгрузитьОстатки</CommandName>
+					<ExtendedTooltip name="КомандаВыгрузитьОстаткиРасширеннаяПодсказка" id="35"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРеализации" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузка реализаций товаров</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реализации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаРеализацииРасширеннаяПодсказка" id="26"/>
+			<ChildItems>
+				<CheckBoxField name="ВыгружатьРеализации" id="27">
+					<DataPath>Объект.ВыгружатьРеализации</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВыгружатьРеализацииКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="ВыгружатьРеализацииРасширеннаяПодсказка" id="29"/>
+					<Events>
+						<Event name="OnChange">ВсемПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="НаДату" id="45">
+					<DataPath>Объект.НаДату</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>На конец месяца</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="НаДатуКонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="НаДатуРасширеннаяПодсказка" id="47"/>
+				</InputField>
+				<Button name="КомандаПредпросмотрРеализаций" id="30">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<CommandName>Form.Command.КомандаПредпросмотрРеализаций</CommandName>
+					<ExtendedTooltip name="КомандаПредпросмотрРеализацийРасширеннаяПодсказка" id="31"/>
+				</Button>
+				<Button name="КомандаВыгрузитьРеализации" id="48">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<CommandName>Form.Command.КомандаВыгрузитьРеализации</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выгрузить реализации</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="КомандаВыгрузитьРеализацииРасширеннаяПодсказка" id="49"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПодвал" id="40">
+			<EnableContentChange>true</EnableContentChange>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ThroughAlign>Use</ThroughAlign>
+			<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="41"/>
+			<ChildItems>
+				<Button name="КомандаСохранитьНастройки" id="36">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<CommandName>Form.Command.КомандаСохранитьНастройки</CommandName>
+					<ExtendedTooltip name="КомандаСохранитьНастройкиРасширеннаяПодсказка" id="37"/>
+				</Button>
+				<Button name="КомандаОткрытьРегистр" id="38">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<CommandName>Form.Command.КомандаОткрытьРегистр</CommandName>
+					<ExtendedTooltip name="КомандаОткрытьРегистрРасширеннаяПодсказка" id="39"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ВыгрузкаОстатковВGeely</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Save>
+				<Field>Объект.ВыгружатьОстатки</Field>
+				<Field>Объект.ВыгружатьРеализации</Field>
+				<Field>Объект.ДилерID</Field>
+				<Field>Объект.КонтрагентыПоставщики</Field>
+				<Field>Объект.ПапкаНоменклатуры</Field>
+				<Field>Объект.СкладыКомпании</Field>
+				<Field>Объект.СсылкаНаУчетнуюЗапись</Field>
+			</Save>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаПредпросмотрОстатков" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать данные для выгрузки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда предпросмотр остатков</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПредпросмотрОстатков</Action>
+		</Command>
+		<Command name="КомандаПредпросмотрРеализаций" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать данные для выгрузки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда предпросмотр реализаций</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПредпросмотрРеализаций</Action>
+		</Command>
+		<Command name="КомандаВыгрузитьОстатки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить остатки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда выгрузить остатки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаВыгрузитьОстатки</Action>
+		</Command>
+		<Command name="КомандаСохранитьНастройки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда сохранить настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаСохранитьНастройки</Action>
+		</Command>
+		<Command name="КомандаОткрытьРегистр" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть регистр инфообмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда открыть регистр</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОткрытьРегистр</Action>
+		</Command>
+		<Command name="КомандаВыгрузитьРеализации" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда выгрузить реализации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда выгрузить реализации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаВыгрузитьРеализации</Action>
+		</Command>
+	</Commands>
+</Form>

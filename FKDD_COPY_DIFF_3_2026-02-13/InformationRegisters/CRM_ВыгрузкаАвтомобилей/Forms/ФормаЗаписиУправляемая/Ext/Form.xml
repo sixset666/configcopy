@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа4" id="64">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="65"/>
+			<ChildItems>
+				<InputField name="Период" id="1">
+					<DataPath>Запись.Period</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ПериодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<CheckBoxField name="НеВыгружать" id="55">
+					<DataPath>Запись.НеВыгружать</DataPath>
+					<TitleFont ref="style:TextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="НеВыгружатьКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="НеВыгружатьРасширеннаяПодсказка" id="57"/>
+				</CheckBoxField>
+				<CheckBoxField name="ТрейдИн" id="71">
+					<DataPath>Запись.ТрейдИн</DataPath>
+					<Visible>false</Visible>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТрейдИнКонтекстноеМеню" id="72"/>
+					<ExtendedTooltip name="ТрейдИнРасширеннаяПодсказка" id="73"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Автомобиль" id="4">
+			<DataPath>Запись.Автомобиль</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="АвтомобильКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="АвтомобильРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="58">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="59"/>
+			<ChildItems>
+				<InputField name="Марка1С" id="16">
+					<DataPath>Запись.Марка1С</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="Марка1СКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="Марка1СРасширеннаяПодсказка" id="18"/>
+				</InputField>
+				<InputField name="Марка" id="19">
+					<DataPath>Запись.Марка</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="МаркаКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="МаркаРасширеннаяПодсказка" id="21"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="60">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="61"/>
+			<ChildItems>
+				<InputField name="Модель1С" id="22">
+					<DataPath>Запись.Модель1С</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="Модель1СКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="Модель1СРасширеннаяПодсказка" id="24"/>
+				</InputField>
+				<InputField name="Модель" id="25">
+					<DataPath>Запись.Модель</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ChoiceParameterLinks>
+						<xr:Link>
+							<xr:Name>Отбор.Марка</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Запись.Марка</xr:DataPath>
+							<xr:ValueChange>Clear</xr:ValueChange>
+						</xr:Link>
+					</ChoiceParameterLinks>
+					<ContextMenu name="МодельКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="МодельРасширеннаяПодсказка" id="27"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Комплектация1С" id="28">
+			<DataPath>Запись.Комплектация1С</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="Комплектация1СКонтекстноеМеню" id="29"/>
+			<ExtendedTooltip name="Комплектация1СРасширеннаяПодсказка" id="30"/>
+		</InputField>
+		<InputField name="Поколение" id="31">
+			<DataPath>Запись.Поколение</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ПоколениеКонтекстноеМеню" id="32"/>
+			<ExtendedTooltip name="ПоколениеРасширеннаяПодсказка" id="33"/>
+		</InputField>
+		<InputField name="Серия" id="34">
+			<DataPath>Запись.Серия</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="СерияКонтекстноеМеню" id="35"/>
+			<ExtendedTooltip name="СерияРасширеннаяПодсказка" id="36"/>
+		</InputField>
+		<InputField name="Комплектация" id="37">
+			<DataPath>Запись.Комплектация</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="КомплектацияКонтекстноеМеню" id="38"/>
+			<ExtendedTooltip name="КомплектацияРасширеннаяПодсказка" id="39"/>
+		</InputField>
+		<InputField name="Модификация" id="40">
+			<DataPath>Запись.Модификация</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="МодификацияКонтекстноеМеню" id="41"/>
+			<ExtendedTooltip name="МодификацияРасширеннаяПодсказка" id="42"/>
+		</InputField>
+		<UsualGroup name="Группа3" id="62">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="63"/>
+			<ChildItems>
+				<InputField name="Цвет1С" id="43">
+					<DataPath>Запись.Цвет1С</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="Цвет1СКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="Цвет1СРасширеннаяПодсказка" id="45"/>
+				</InputField>
+				<InputField name="Цвет" id="46">
+					<DataPath>Запись.Цвет</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ЦветКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="ЦветРасширеннаяПодсказка" id="48"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа5" id="66">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="67"/>
+			<ChildItems>
+				<InputField name="Салон1С" id="68">
+					<DataPath>Запись.Салон1С</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="Салон1СКонтекстноеМеню" id="69"/>
+					<ExtendedTooltip name="Салон1СРасширеннаяПодсказка" id="70"/>
+				</InputField>
+				<InputField name="Отделка" id="49">
+					<DataPath>Запись.Отделка</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ОтделкаКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="ОтделкаРасширеннаяПодсказка" id="51"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ДатаВыгрузки" id="7">
+			<DataPath>Запись.ДатаВыгрузки</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ДатаВыгрузкиКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ДатаВыгрузкиРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<CheckBoxField name="Принят" id="10">
+			<DataPath>Запись.Принят</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ПринятКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ПринятРасширеннаяПодсказка" id="12"/>
+		</CheckBoxField>
+		<InputField name="ID" id="13">
+			<DataPath>Запись.ID</DataPath>
+			<ContextMenu name="IDКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="IDРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="ОтветCRM" id="52">
+			<DataPath>Запись.ОтветCRM</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>true</HorizontalStretch>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="ОтветCRMКонтекстноеМеню" id="53"/>
+			<ExtendedTooltip name="ОтветCRMРасширеннаяПодсказка" id="54"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.CRM_ВыгрузкаАвтомобилей</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

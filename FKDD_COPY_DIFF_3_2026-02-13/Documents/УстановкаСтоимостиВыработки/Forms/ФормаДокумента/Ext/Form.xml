@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаДатаНомер" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дата номер</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дата номер</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДатаНомерРасширеннаяПодсказка" id="11"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>11</Width>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Организация" id="70">
+			<DataPath>Объект.Организация</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="71"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="72"/>
+		</InputField>
+		<InputField name="ПодразделениеКомпании" id="73">
+			<DataPath>Объект.ПодразделениеКомпании</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ПодразделениеКомпанииКонтекстноеМеню" id="74"/>
+			<ExtendedTooltip name="ПодразделениеКомпанииРасширеннаяПодсказка" id="75"/>
+		</InputField>
+		<InputField name="НачалоДействияДокумента" id="76">
+			<DataPath>Объект.НачалоДействияДокумента</DataPath>
+			<ContextMenu name="НачалоДействияДокументаКонтекстноеМеню" id="77"/>
+			<ExtendedTooltip name="НачалоДействияДокументаРасширеннаяПодсказка" id="78"/>
+		</InputField>
+		<Pages name="ГруппаСтраницы" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="13"/>
+			<ChildItems>
+				<Page name="СтраницаНормоЧасы" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нормочасы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница нормо часы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаНормоЧасыРасширеннаяПодсказка" id="15"/>
+					<ChildItems>
+						<Table name="НормоЧасы" id="27">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.НормоЧасы</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="НормоЧасыКонтекстноеМеню" id="28"/>
+							<AutoCommandBar name="НормоЧасыКоманднаяПанель" id="29"/>
+							<ExtendedTooltip name="НормоЧасыРасширеннаяПодсказка" id="30"/>
+							<SearchStringAddition name="НормоЧасыСтрокаПоиска" id="31">
+								<AdditionSource>
+									<Item>НормоЧасы</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НормоЧасыСтрокаПоискаКонтекстноеМеню" id="32"/>
+								<ExtendedTooltip name="НормоЧасыСтрокаПоискаРасширеннаяПодсказка" id="33"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="НормоЧасыСостояниеПросмотра" id="34">
+								<AdditionSource>
+									<Item>НормоЧасы</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НормоЧасыСостояниеПросмотраКонтекстноеМеню" id="35"/>
+								<ExtendedTooltip name="НормоЧасыСостояниеПросмотраРасширеннаяПодсказка" id="36"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="НормоЧасыУправлениеПоиском" id="37">
+								<AdditionSource>
+									<Item>НормоЧасы</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="НормоЧасыУправлениеПоискомКонтекстноеМеню" id="38"/>
+								<ExtendedTooltip name="НормоЧасыУправлениеПоискомРасширеннаяПодсказка" id="39"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="НормоЧасыНомерСтроки" id="40">
+									<DataPath>Объект.НормоЧасы.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НормоЧасыНомерСтрокиКонтекстноеМеню" id="41"/>
+									<ExtendedTooltip name="НормоЧасыНомерСтрокиРасширеннаяПодсказка" id="42"/>
+								</LabelField>
+								<InputField name="НормоЧасыВидРемонта" id="64">
+									<DataPath>Объект.НормоЧасы.ВидРемонта</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НормоЧасыВидРемонтаКонтекстноеМеню" id="65"/>
+									<ExtendedTooltip name="НормоЧасыВидРемонтаРасширеннаяПодсказка" id="66"/>
+								</InputField>
+								<InputField name="НормоЧасыВидРабот" id="67">
+									<DataPath>Объект.НормоЧасы.ВидРабот</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НормоЧасыВидРаботКонтекстноеМеню" id="68"/>
+									<ExtendedTooltip name="НормоЧасыВидРаботРасширеннаяПодсказка" id="69"/>
+								</InputField>
+								<InputField name="НормоЧасыДолжность" id="82">
+									<DataPath>Объект.НормоЧасы.Должность</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НормоЧасыДолжностьКонтекстноеМеню" id="83"/>
+									<ExtendedTooltip name="НормоЧасыДолжностьРасширеннаяПодсказка" id="84"/>
+								</InputField>
+								<InputField name="НормоЧасыПроценПремииОтВыработки" id="85">
+									<DataPath>Объект.НормоЧасы.ПроценПремииОтВыработки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>% премии от выработки</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НормоЧасыПроценПремииОтВыработкиКонтекстноеМеню" id="86"/>
+									<ExtendedTooltip name="НормоЧасыПроценПремииОтВыработкиРасширеннаяПодсказка" id="87"/>
+								</InputField>
+								<InputField name="НормоЧасыСтоимость" id="79">
+									<DataPath>Объект.НормоЧасы.Стоимость</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НормоЧасыСтоимостьКонтекстноеМеню" id="80"/>
+									<ExtendedTooltip name="НормоЧасыСтоимостьРасширеннаяПодсказка" id="81"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаДополнительно" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница дополнительно</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаДополнительноРасширеннаяПодсказка" id="17"/>
+					<ChildItems>
+						<InputField name="Автор" id="18">
+							<DataPath>Объект.Автор</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="АвторКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="20"/>
+						</InputField>
+						<InputField name="АвторПоследнегоИзменения" id="21">
+							<DataPath>Объект.АвторПоследнегоИзменения</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="АвторПоследнегоИзмененияКонтекстноеМеню" id="22"/>
+							<ExtendedTooltip name="АвторПоследнегоИзмененияРасширеннаяПодсказка" id="23"/>
+						</InputField>
+						<InputField name="ДатаПоследнегоИзменения" id="24">
+							<DataPath>Объект.ДатаПоследнегоИзменения</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="ДатаПоследнегоИзмененияКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="ДатаПоследнегоИзмененияРасширеннаяПодсказка" id="26"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.УстановкаСтоимостиВыработки</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>InformationRegister.УстановкаСтоимостиВыработки.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

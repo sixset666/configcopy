@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<DocumentJournal uuid="3542569f-c119-4ad7-8cc3-99333e43a770">
+		<InternalInfo>
+			<xr:GeneratedType name="DocumentJournalSelection.ЗаказыИРезервы" category="Selection">
+				<xr:TypeId>73b2b509-c1c1-4aaa-a2a5-c61ec07ff153</xr:TypeId>
+				<xr:ValueId>8ac9e4d0-66ac-4dd9-a540-b5dfeaf0a2c1</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalList.ЗаказыИРезервы" category="List">
+				<xr:TypeId>59bd8bf6-ac43-44c8-84ea-1e4b1c22fc30</xr:TypeId>
+				<xr:ValueId>a9f2fe22-1b7d-4253-bd92-3b7e8c1d48bb</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalManager.ЗаказыИРезервы" category="Manager">
+				<xr:TypeId>15f6d419-3ae6-414b-8e86-31b4e39b9b21</xr:TypeId>
+				<xr:ValueId>41cd4085-3ef8-44b9-8cc0-6e1fca212fff</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ЗаказыИРезервы</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказы и резервы</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment>Журнал заказов покупателей, поставщиков и резервов</Comment>
+			<DefaultForm>DocumentJournal.ЗаказыИРезервы.Form.ФормаСписка</DefaultForm>
+			<AuxiliaryForm/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<RegisteredDocuments>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПокупателя</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПоставщику</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.РезервированиеЗаказовПокупателя</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРезервовЗаказовПокупателя</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.РаспределениеЗаказаПокупателя</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПокупателя</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРаспределенияЗаказовПокупателя</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПоставщику</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеРезервов</xr:Item>
+			</RegisteredDocuments>
+			<IncludeHelpInContents>true</IncludeHelpInContents>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+		</Properties>
+		<ChildObjects>
+			<Column uuid="3b8de98a-7ac1-489b-989b-c249695987bd">
+				<Properties>
+					<Name>Операция</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Операция</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Выполняемая документом операция</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПоставщику.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПокупателя.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРезервовЗаказовПокупателя.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РезервированиеЗаказовПокупателя.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РаспределениеЗаказаПокупателя.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПокупателя.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРаспределенияЗаказовПокупателя.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПоставщику.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеРезервов.Attribute.ХозОперация</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="fc6a1767-e16e-4cc3-82d8-a0c5922573b2">
+				<Properties>
+					<Name>Контрагент</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Контрагент или подразделение компании</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРезервовЗаказовПокупателя.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПоставщику.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РезервированиеЗаказовПокупателя.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПокупателя.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний.Attribute.ПодразделениеПолучатель</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РаспределениеЗаказаПокупателя.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПокупателя.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРаспределенияЗаказовПокупателя.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеРезервов.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПоставщику.Attribute.Контрагент</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="64fec74d-8f7c-4ec0-9a7e-f1a349df2ef7">
+				<Properties>
+					<Name>Договор</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Договор</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Договор взаиморасчетов с контрагентом</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.ДоговорВзаиморасчетов</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.ДоговорВзаиморасчетов</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РаспределениеЗаказаПокупателя.Attribute.ДоговорВзаиморасчетов</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="0ebd4d8c-e27f-4f3a-945e-8e488ff60077">
+				<Properties>
+					<Name>Сумма</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Сумма документа</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПоставщику.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПокупателя.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРезервовЗаказовПокупателя.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РезервированиеЗаказовПокупателя.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПокупателя.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРаспределенияЗаказовПокупателя.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПоставщику.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеРезервов.Attribute.СуммаДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="96c889c2-a435-4e3f-8d5a-7ef739dc23e3">
+				<Properties>
+					<Name>Валюта</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валюта</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Валюта документа</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПоставщику.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПокупателя.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРезервовЗаказовПокупателя.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РезервированиеЗаказовПокупателя.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПокупателя.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРаспределенияЗаказовПокупателя.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПоставщику.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеРезервов.Attribute.ВалютаДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="0cb03190-4d9d-44f9-b2d5-974e64c578ec">
+				<Properties>
+					<Name>Курс</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Курс</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Курс валюты документа</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПоставщику.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПокупателя.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРезервовЗаказовПокупателя.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РезервированиеЗаказовПокупателя.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПокупателя.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРаспределенияЗаказовПокупателя.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПоставщику.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеРезервов.Attribute.КурсДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="f3de42f4-9e9f-4dc9-aa24-446d94a76569">
+				<Properties>
+					<Name>Организация</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Юридическое лицо, от которого выписан документ</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПоставщику.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПокупателя.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРезервовЗаказовПокупателя.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РезервированиеЗаказовПокупателя.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РаспределениеЗаказаПокупателя.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПокупателя.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРаспределенияЗаказовПокупателя.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПоставщику.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеРезервов.Attribute.Организация</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="64c56bfd-43ff-4f5b-b019-617eb5e3251b">
+				<Properties>
+					<Name>Подразделение</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подразделение</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Подразделение компании в котором был выписан документ</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПоставщику.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПокупателя.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРезервовЗаказовПокупателя.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РезервированиеЗаказовПокупателя.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РаспределениеЗаказаПокупателя.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПокупателя.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРаспределенияЗаказовПокупателя.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПоставщику.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеРезервов.Attribute.ПодразделениеКомпании</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="c51fb829-33e5-429b-a3ce-b55594e2b001">
+				<Properties>
+					<Name>Автор</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автор</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Автор документа - пользователь, создавший документ.</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПоставщику.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПокупателя.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРезервовЗаказовПокупателя.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РезервированиеЗаказовПокупателя.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РаспределениеЗаказаПокупателя.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПокупателя.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРаспределенияЗаказовПокупателя.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПоставщику.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеРезервов.Attribute.Автор</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="41e6746a-7657-45e5-a423-235fa9408ded">
+				<Properties>
+					<Name>Склад</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Склад компании на котором производится резервирование по заказу</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.СкладКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний.Attribute.СкладКомпании</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="af684439-186d-4903-9b69-6abd59a692d0">
+				<Properties>
+					<Name>ТипЦен</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип цен</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Тип цен заказов</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.ТипЦен</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПоставщику.Attribute.ТипЦен</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.ТипЦен</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний.Attribute.ТипЦен</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПокупателя.Attribute.ТипЦен</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПокупателя.Attribute.ТипЦен</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПоставщику.Attribute.ТипЦен</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="06656a39-4537-4e7c-9d92-76a02195459e">
+				<Properties>
+					<Name>Комментарий</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Комментарий к документу</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПоставщику.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРезервовЗаказовПокупателя.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПокупателя.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РезервированиеЗаказовПокупателя.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПокупателя.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРаспределенияЗаказовПокупателя.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПоставщику.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеРезервов.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РаспределениеЗаказаПокупателя.Attribute.Комментарий</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="9881e710-32ef-4471-a2ee-a9ef0fc4f5d2">
+				<Properties>
+					<Name>ДатаСоздания</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата создания</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Дата создания</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПокупателя.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПокупателя.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПоставщику.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РаспределениеЗаказаПокупателя.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РезервированиеЗаказовПокупателя.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРаспределенияЗаказовПокупателя.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРезервовЗаказовПокупателя.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПоставщику.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеРезервов.Attribute.ДатаСоздания</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="4bf1c17b-826f-45f9-9bab-6063be355c59">
+				<Properties>
+					<Name>ДатаОперации</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата операции</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Дата операции</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказВнутренний.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПокупателя.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПокупателя.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.КорректировкаЗаказаПоставщику.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РаспределениеЗаказаПокупателя.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РезервированиеЗаказовПокупателя.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРаспределенияЗаказовПокупателя.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СнятиеРезервовЗаказовПокупателя.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаменаВЗаказеПоставщику.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеРезервов.Attribute.ДатаОперации</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="8bd42989-d32b-483e-95dd-85a4f08d966c">
+				<Properties>
+					<Name>ТипЗаказа</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип заказа</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПокупателя.Attribute.ТипЗаказа</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаказПоставщику.Attribute.ТипЗаказа</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Form>ФормаСписка</Form>
+		</ChildObjects>
+	</DocumentJournal>
+</MetaDataObject>

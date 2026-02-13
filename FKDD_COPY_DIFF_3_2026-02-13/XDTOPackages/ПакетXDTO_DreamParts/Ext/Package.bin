@@ -1,0 +1,32 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://dreamparts.archive.systems/v1/">
+	<objectType name="GetMovementsResponse">
+		<property xmlns:d3p1="http://dreamparts.archive.systems/v1/" name="movement" type="d3p1:Movement" upperBound="-1"/>
+	</objectType>
+	<objectType name="GetStockResponse">
+		<property xmlns:d3p1="http://dreamparts.archive.systems/v1/" name="part" type="d3p1:StockItem" upperBound="-1"/>
+	</objectType>
+	<objectType name="Movement">
+		<property name="make" type="xs:string"/>
+		<property name="number" type="xs:string"/>
+		<property name="dms_id" type="xs:string" lowerBound="0"/>
+		<property name="quantity_arrived" type="xs:decimal"/>
+		<property name="quantity_left" type="xs:decimal"/>
+	</objectType>
+	<objectType name="SearchPartsResponse">
+		<property xmlns:d3p1="http://dreamparts.archive.systems/v1/" name="part" type="d3p1:StockItem" upperBound="-1"/>
+	</objectType>
+	<objectType name="StockItem">
+		<property name="make" type="xs:string"/>
+		<property name="number" type="xs:string"/>
+		<property name="title" type="xs:string"/>
+		<property name="quantity" type="xs:decimal"/>
+		<property name="unit" type="xs:string"/>
+		<property name="min_order" type="xs:decimal" lowerBound="0"/>
+		<property name="cost" type="xs:decimal"/>
+		<property name="price" type="xs:decimal"/>
+		<property name="is_vat_used" type="xs:boolean"/>
+		<property name="dms_id" type="xs:string" lowerBound="0"/>
+		<property name="is_available" type="xs:boolean"/>
+		<property name="hide_quantity" type="xs:boolean" lowerBound="0"/>
+	</objectType>
+</package>

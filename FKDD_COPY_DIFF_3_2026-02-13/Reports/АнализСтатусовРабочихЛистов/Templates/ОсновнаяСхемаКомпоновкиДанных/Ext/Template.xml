@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидКонтакта</dataPath>
+			<field>ВидКонтакта</field>
+			<title xsi:type="xs:string">Вид контакта</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:EnumRef.ВидыСобытий</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Возраст</dataPath>
+			<field>Возраст</field>
+			<title xsi:type="xs:string">Возраст</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ВозрастныеГруппы</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Длительность</dataPath>
+			<field>Длительность</field>
+			<title xsi:type="xs:string">Длительность, ч</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">17</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КАСКО</dataPath>
+			<field>КАСКО</field>
+			<title xsi:type="xs:string">КАСКО</title>
+			<valueType>
+				<v8:Type>xs:boolean</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоРабочихЛистов</dataPath>
+			<field>КоличествоРабочихЛистов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество рабочих листов</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+			<title xsi:type="xs:string">Модель</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Модели</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="xs:string">Организация</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОСАГО</dataPath>
+			<field>ОСАГО</field>
+			<title xsi:type="xs:string">ОСАГО</title>
+			<valueType>
+				<v8:Type>xs:boolean</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодДень</dataPath>
+			<field>ПериодДень</field>
+			<title xsi:type="xs:string">По дням</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=дд.ММ.гггг</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодМесяц</dataPath>
+			<field>ПериодМесяц</field>
+			<title xsi:type="xs:string">По месяцам</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='ММММ гггг "г."'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодНеделя</dataPath>
+			<field>ПериодНеделя</field>
+			<title xsi:type="xs:string">По неделям</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='"Неделя с" дд.ММ.гггг "г."'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании</dataPath>
+			<field>ПодразделениеКомпании</field>
+			<title xsi:type="xs:string">Подразделение</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ПодразделенияКомпании</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РабочийЛист</dataPath>
+			<field>РабочийЛист</field>
+			<title xsi:type="xs:string">Рабочий лист</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.РабочийЛист</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Реклама</dataPath>
+			<field>Реклама</field>
+			<title xsi:type="xs:string">Реклама</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ИсточникиИнформации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СредняяДлительностьНаРабочийЛист</dataPath>
+			<field>СредняяДлительностьНаРабочийЛист</field>
+			<title xsi:type="xs:string">Средняя длительность, ч</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">17</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<title xsi:type="xs:string">Статус</title>
+			<orderExpression>
+				<dcscom:expression>Статус.ПорядокВОтчете</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>false</dcscom:autoOrder>
+			</orderExpression>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СтатусыРабочегоЛиста</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛист)               КАК РабочийЛист,
+	ВЫРАЗИТЬ(ЖурналСостояний.Состояние КАК Справочник.СтатусыРабочегоЛиста) КАК Статус,
+	ЖурналСостояний.Период                                                  КАК Период
+ПОМЕСТИТЬ
+	ТаблицаСостоянийРабочегоЛистаОсновная
+ИЗ
+	РегистрСведений.ЖурналСостояний КАК ЖурналСостояний
+ГДЕ
+	ЖурналСостояний.Объект ССЫЛКА Документ.РабочийЛист
+	И ЖурналСостояний.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ЖурналСостояний.Состояние ССЫЛКА Справочник.СтатусыРабочегоЛиста
+	И ЖурналСостояний.Состояние&lt;&gt;ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.Отказ)
+	И ЖурналСостояний.Состояние&lt;&gt;ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.Сделка)
+	И (НЕ ЖурналСостояний.Объект.ПометкаУдаления)
+{
+ГДЕ
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛист).*						КАК РабочийЛист,
+	ВЫРАЗИТЬ(Состояние КАК Справочник.СтатусыРабочегоЛиста).*						КАК Статус,
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛист).ВидКонтакта			КАК ВидКонтакта,
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛист).Возраст.*				КАК Возраст,
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛист).КАСКО					КАК КАСКО,
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛист).Модель.*				КАК Модель,
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛист).ОСАГО					КАК ОСАГО,
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛист).ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛист).Организация.*			КАК Организация,
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛист).Менеджер.*			КАК Менеджер,
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛист).Реклама.*				КАК Реклама
+}
+;
+
+///////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТаблицаОсновная.РабочийЛист         КАК РабочийЛист,
+	МАКСИМУМ(ТаблицаОсновная.Статус)    КАК Статус,
+	ТаблицаОсновная.Период              КАК Период,
+	РАЗНОСТЬДАТ(ТаблицаОсновная.Период, МИНИМУМ(ЕСТЬNULL(ТаблицаСоединения.Период, &amp;ТекущаяДата)), МИНУТА)/60 КАК Длительность
+ПОМЕСТИТЬ
+	ТаблицаРезультат
+ИЗ
+	ТаблицаСостоянийРабочегоЛистаОсновная КАК ТаблицаОсновная
+ЛЕВОЕ СОЕДИНЕНИЕ
+	РегистрСведений.ЖурналСостояний КАК ТаблицаСоединения
+ПО
+	ТаблицаСоединения.Объект    ССЫЛКА Документ.РабочийЛист И 
+	ТаблицаСоединения.Состояние ССЫЛКА Справочник.СтатусыРабочегоЛиста И 
+	ТаблицаОсновная.Период      &lt; ТаблицаСоединения.Период И 
+	ТаблицаОсновная.РабочийЛист = ТаблицаСоединения.Объект
+СГРУППИРОВАТЬ ПО
+	ТаблицаОсновная.РабочийЛист,
+	ТаблицаОсновная.Период
+;
+
+//////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ
+	ТаблицаСостоянийРабочегоЛистаОсновная
+;
+
+//////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТаблицаРезультат.РабочийЛист                       КАК РабочийЛист,
+	ТаблицаРезультат.РабочийЛист.Возраст               КАК Возраст,
+	ТаблицаРезультат.РабочийЛист.Модель                КАК Модель,
+	ТаблицаРезультат.РабочийЛист.ПодразделениеКомпании КАК ПодразделениеКомпании,
+	ТаблицаРезультат.РабочийЛист.Организация           КАК Организация,
+	ТаблицаРезультат.РабочийЛист.Менеджер              КАК Менеджер,
+	ТаблицаРезультат.РабочийЛист.Реклама               КАК Реклама,
+	
+	ТаблицаРезультат.Статус                            КАК Статус,
+	ТаблицаРезультат.РабочийЛист.ВидКонтакта           КАК ВидКонтакта,
+	ТаблицаРезультат.РабочийЛист.КАСКО                 КАК КАСКО,
+	ТаблицаРезультат.РабочийЛист.ОСАГО                 КАК ОСАГО,
+	ТаблицаРезультат.Длительность                      КАК Длительность,
+	ТаблицаРезультат.Длительность                      КАК СредняяДлительностьНаРабочийЛист,
+	0                                                  КАК КоличествоРабочихЛистов,
+	НачалоПериода(ТаблицаРезультат.Период, День)       КАК ПериодДень,
+	НачалоПериода(ТаблицаРезультат.Период, Неделя)     КАК ПериодНеделя,
+	НачалоПериода(ТаблицаРезультат.Период, Месяц)      КАК ПериодМесяц
+{ВЫБРАТЬ
+	РабочийЛист.*                    КАК РабочийЛист,
+	Статус.*                         КАК Статус,
+	Возраст.*                        КАК Возраст,
+	Модель.*                         КАК Модель,
+	ПодразделениеКомпании.*          КАК ПодразделениеКомпании,
+	Организация.*                    КАК Организация,
+	Менеджер.*                       КАК Менеджер,
+	Реклама.*                        КАК Реклама,
+	ВидКонтакта                      КАК ВидКонтакта,
+	КАСКО                            КАК КАСКО,
+	ОСАГО                            КАК ОСАГО,
+	Длительность                     КАК Длительность,
+	СредняяДлительностьНаРабочийЛист КАК СредняяДлительностьНаРабочийЛист,
+	КоличествоРабочихЛистов          КАК КоличествоРабочихЛистов,
+	ПериодДень                       КАК ПериодДень,
+	ПериодНеделя                     КАК ПериодНеделя,
+	ПериодМесяц                      КАК ПериодМесяц
+}
+ИЗ
+	ТаблицаРезультат КАК ТаблицаРезультат
+//,
+//	ТаблицаОбщаяДлительность КАК ТаблицаОбщаяДлительность
+{ГДЕ
+	ТаблицаРезультат.РабочийЛист								КАК РабочийЛист,
+	ТаблицаРезультат.РабочийЛист.Статус.*						КАК Статус,
+	ТаблицаРезультат.РабочийЛист.Возраст.*						КАК Возраст,
+	ТаблицаРезультат.РабочийЛист.Модель.*						КАК Модель,
+	ТаблицаРезультат.РабочийЛист.ПодразделениеКомпании.*		КАК ПодразделениеКомпании,
+	ТаблицаРезультат.РабочийЛист.Организация.*					КАК Организация,
+	ТаблицаРезультат.РабочийЛист.Менеджер.*						КАК Менеджер,
+	ТаблицаРезультат.РабочийЛист.Реклама.*						КАК Реклама,
+	ТаблицаРезультат.РабочийЛист.ВидКонтакта					КАК ВидКонтакта,
+	ТаблицаРезультат.РабочийЛист.КАСКО							КАК КАСКО,
+	ТаблицаРезультат.РабочийЛист.ОСАГО							КАК ОСАГО
+	}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<totalField>
+		<dataPath>Длительность</dataPath>
+		<expression>Сумма(Длительность)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СредняяДлительностьНаРабочийЛист</dataPath>
+		<expression>Сумма(СредняяДлительностьНаРабочийЛист)</expression>
+		<group>РабочийЛист</group>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоРабочихЛистов</dataPath>
+		<expression>КОЛИЧЕСТВО(РАЗЛИЧНЫЕ РабочийЛист)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СредняяДлительностьНаРабочийЛист</dataPath>
+		<expression>СУММА(СредняяДлительностьНаРабочийЛист)/КОЛИЧЕСТВО(РАЗЛИЧНЫЕ РабочийЛист)</expression>
+		<group>ВидКонтакта</group>
+		<group>Возраст</group>
+		<group>КАСКО</group>
+		<group>Менеджер</group>
+		<group>Менеджер Иерархия</group>
+		<group>Модель</group>
+		<group>Модель Иерархия</group>
+		<group>Организация</group>
+		<group>ОСАГО</group>
+		<group>ПериодДень</group>
+		<group>ПериодМесяц</group>
+		<group>ПериодНеделя</group>
+		<group>ПодразделениеКомпании</group>
+		<group>ПодразделениеКомпании Иерархия</group>
+		<group>Реклама</group>
+		<group>Статус</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ТекущаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущая дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ТекущаяДата()</expression>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Длительность</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СредняяДлительностьНаРабочийЛист</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоРабочихЛистов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Длительность.ПроцентОбщий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Длительность.ПроцентВГруппе</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидКонтакта</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Возраст</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">КАСКО</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Модель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ОСАГО</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПодразделениеКомпании</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Менеджер</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">РабочийЛист</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Реклама</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Статус</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Статус</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Статус.ПорядокВОтчете</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

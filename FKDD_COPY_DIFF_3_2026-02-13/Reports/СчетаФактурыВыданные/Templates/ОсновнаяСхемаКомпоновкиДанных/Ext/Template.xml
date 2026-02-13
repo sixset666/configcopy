@@ -1,0 +1,927 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Проведен</dataPath>
+			<field>Проведен</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проведен</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаБезНДС</dataPath>
+			<field>СуммаБезНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма без НДС</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНДС</dataPath>
+			<field>СуммаНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма НДС</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаБезНДСДокументаРеализации</dataPath>
+			<field>СуммаБезНДСДокументаРеализации</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма без НДС документа реализации</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНДСДокументаРеализации</dataPath>
+			<field>СуммаНДСДокументаРеализации</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма НДС документа реализации</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Покупатель</dataPath>
+			<field>Покупатель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Покупатель</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументРеализации</dataPath>
+			<field>Ссылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ реализации</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПолеСортировки</dataPath>
+			<field>ПолеСортировки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поле сортировки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СчетФактура</dataPath>
+			<field>СчетФактура</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Счет-фактура</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоДокументов</dataPath>
+			<field>КоличествоДокументов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество документов</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РазницаНДС</dataPath>
+			<field>РазницаНДС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РазницаСуммБезНДС</dataPath>
+			<field>РазницаСуммБезНДС</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ОбъединенныйЗапрос.Ссылка,
+	ОбъединенныйЗапрос.ПолеСортировки КАК ПолеСортировки,
+	СУММА(ОбъединенныйЗапрос.СуммаНДС) КАК СуммаНДС,
+	СУММА(ОбъединенныйЗапрос.СуммаБезНДС) КАК СуммаБезНДС
+ПОМЕСТИТЬ ТаблицаДокументов
+ИЗ
+	(ВЫБРАТЬ
+		АктРазногласий.Ссылка КАК Ссылка,
+		"АктРазногласий" КАК ПолеСортировки,
+		ЕСТЬNULL(АктРазногласийТовары.СуммаНДС, 0) КАК СуммаНДС,
+		ЕСТЬNULL(АктРазногласийТовары.СуммаВсего - АктРазногласийТовары.СуммаНДС, 0) КАК СуммаБезНДС
+	ИЗ
+		Документ.АктРазногласий КАК АктРазногласий
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.АктРазногласий.Товары КАК АктРазногласийТовары
+			ПО (АктРазногласийТовары.Ссылка = АктРазногласий.Ссылка)
+	ГДЕ
+		АктРазногласий.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И АктРазногласий.ПометкаУдаления = ЛОЖЬ
+		И АктРазногласий.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		АктРазногласий.Ссылка,
+		"АктРазногласий",
+		ЕСТЬNULL(АктРазногласийРаботы.СуммаНДС, 0),
+		ЕСТЬNULL(АктРазногласийРаботы.СуммаВсего - АктРазногласийРаботы.СуммаНДС, 0)
+	ИЗ
+		Документ.АктРазногласий КАК АктРазногласий
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.АктРазногласий.Работы КАК АктРазногласийРаботы
+			ПО (АктРазногласийРаботы.Ссылка = АктРазногласий.Ссылка)
+	ГДЕ
+		АктРазногласий.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И АктРазногласий.ПометкаУдаления = ЛОЖЬ
+		И АктРазногласий.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ВозвратПоставщику.Ссылка,
+		"ВозвратПоставщику",
+		ЕСТЬNULL(ВозвратПоставщикуТовары.СуммаНДС, 0),
+		ЕСТЬNULL(ВозвратПоставщикуТовары.СуммаВсего - ВозвратПоставщикуТовары.СуммаНДС, 0)
+	ИЗ
+		Документ.ВозвратПоставщику КАК ВозвратПоставщику
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ВозвратПоставщику.Товары КАК ВозвратПоставщикуТовары
+			ПО (ВозвратПоставщикуТовары.Ссылка = ВозвратПоставщику.Ссылка)
+	ГДЕ
+		ВозвратПоставщику.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И ВозвратПоставщику.ПометкаУдаления = ЛОЖЬ
+		И ВозвратПоставщику.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ВозвратПоставщикуАвтомобилей.Ссылка,
+		"ВозвратПоставщикуАвтомобилей",
+		ЕСТЬNULL(ВозвратПоставщикуАвтомобилейТовары.СуммаНДС, 0),
+		ЕСТЬNULL(ВозвратПоставщикуАвтомобилейТовары.СуммаВсего - ВозвратПоставщикуАвтомобилейТовары.СуммаНДС, 0)
+	ИЗ
+		Документ.ВозвратПоставщикуАвтомобилей КАК ВозвратПоставщикуАвтомобилей
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ВозвратПоставщикуАвтомобилей.Товары КАК ВозвратПоставщикуАвтомобилейТовары
+			ПО (ВозвратПоставщикуАвтомобилейТовары.Ссылка = ВозвратПоставщикуАвтомобилей.Ссылка)
+	ГДЕ
+		ВозвратПоставщикуАвтомобилей.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И ВозвратПоставщикуАвтомобилей.ПометкаУдаления = ЛОЖЬ
+		И ВозвратПоставщикуАвтомобилей.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ВозвратПоставщикуАвтомобилей.Ссылка,
+		"ВозвратПоставщикуАвтомобилей",
+		ЕСТЬNULL(ВозвратПоставщикуАвтомобилейАвтомобили.СуммаНДС, 0),
+		ЕСТЬNULL(ВозвратПоставщикуАвтомобилейАвтомобили.СуммаВсего - ВозвратПоставщикуАвтомобилейАвтомобили.СуммаНДС, 0)
+	ИЗ
+		Документ.ВозвратПоставщикуАвтомобилей КАК ВозвратПоставщикуАвтомобилей
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ВозвратПоставщикуАвтомобилей.Автомобили КАК ВозвратПоставщикуАвтомобилейАвтомобили
+			ПО (ВозвратПоставщикуАвтомобилейАвтомобили.Ссылка = ВозвратПоставщикуАвтомобилей.Ссылка)
+	ГДЕ
+		ВозвратПоставщикуАвтомобилей.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И ВозвратПоставщикуАвтомобилей.ПометкаУдаления = ЛОЖЬ
+		И ВозвратПоставщикуАвтомобилей.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		Выписка.Ссылка,
+		"Выписка",
+		ЕСТЬNULL(ВыпискаСостав.СуммаНДС, 0),
+		ВЫБОР
+			КОГДА ВыпискаСостав.СуммаРасход &gt; 0
+				ТОГДА ЕСТЬNULL(ВыпискаСостав.СуммаРасход - ВыпискаСостав.СуммаНДС, 0)
+			ИНАЧЕ ЕСТЬNULL(ВыпискаСостав.СуммаПриход - ВыпискаСостав.СуммаНДС, 0)
+		КОНЕЦ
+	ИЗ
+		Документ.Выписка КАК Выписка
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.Выписка.Состав КАК ВыпискаСостав
+			ПО (ВыпискаСостав.Ссылка = Выписка.Ссылка)
+	ГДЕ
+		Выписка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И Выписка.ПометкаУдаления = ЛОЖЬ
+		И Выписка.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ЗаказНаряд.Ссылка,
+		"ЗаказНаряд",
+		ЕСТЬNULL(ЗаказНарядТовары.СуммаНДС, 0),
+		ЕСТЬNULL(ЗаказНарядТовары.СуммаВсего - ЗаказНарядТовары.СуммаНДС, 0)
+	ИЗ
+		Документ.ЗаказНаряд КАК ЗаказНаряд
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ЗаказНаряд.Товары КАК ЗаказНарядТовары
+			ПО (ЗаказНарядТовары.Ссылка = ЗаказНаряд.Ссылка)
+	ГДЕ
+		ЗаказНаряд.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И ЗаказНаряд.ПометкаУдаления = ЛОЖЬ
+		И ЗаказНаряд.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ЗаказНаряд.Ссылка,
+		"ЗаказНаряд",
+		ЕСТЬNULL(ЗаказНарядРаботы.СуммаНДС, 0),
+		ЕСТЬNULL(ЗаказНарядРаботы.СуммаВсего - ЗаказНарядРаботы.СуммаНДС, 0)
+	ИЗ
+		Документ.ЗаказНаряд КАК ЗаказНаряд
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+			ПО (ЗаказНарядРаботы.Ссылка = ЗаказНаряд.Ссылка)
+	ГДЕ
+		ЗаказНаряд.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И ЗаказНаряд.ПометкаУдаления = ЛОЖЬ
+		И ЗаказНаряд.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ЗакрытиеСмены.Ссылка,
+		"ЗакрытиеСмены",
+		ЕСТЬNULL(ЗакрытиеСменыТовары.СуммаНДС, 0),
+		ЕСТЬNULL(ЗакрытиеСменыТовары.СуммаВсего - ЗакрытиеСменыТовары.СуммаНДС, 0)
+	ИЗ
+		Документ.ЗакрытиеСмены КАК ЗакрытиеСмены
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ЗакрытиеСмены.Товары КАК ЗакрытиеСменыТовары
+			ПО (ЗакрытиеСменыТовары.Ссылка = ЗакрытиеСмены.Ссылка)
+	ГДЕ
+		ЗакрытиеСмены.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И ЗакрытиеСмены.ПометкаУдаления = ЛОЖЬ
+		И ЗакрытиеСмены.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		КорректировкаРеализации.Ссылка,
+		"КорректировкаРеализации",
+		ЕСТЬNULL(КорректировкаРеализацииТовары.СуммаНДС, 0),
+		ЕСТЬNULL(КорректировкаРеализацииТовары.СуммаВсего - КорректировкаРеализацииТовары.СуммаНДС, 0)
+	ИЗ
+		Документ.КорректировкаРеализации КАК КорректировкаРеализации
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.КорректировкаРеализации.Товары КАК КорректировкаРеализацииТовары
+			ПО (КорректировкаРеализацииТовары.Ссылка = КорректировкаРеализации.Ссылка)
+	ГДЕ
+		КорректировкаРеализации.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И КорректировкаРеализации.ПометкаУдаления = ЛОЖЬ
+		И КорректировкаРеализации.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		КорректировкаРеализации.Ссылка,
+		"КорректировкаРеализации",
+		ЕСТЬNULL(КорректировкаРеализацииРаботы.СуммаНДС, 0),
+		ЕСТЬNULL(КорректировкаРеализацииРаботы.СуммаВсего - КорректировкаРеализацииРаботы.СуммаНДС, 0)
+	ИЗ
+		Документ.КорректировкаРеализации КАК КорректировкаРеализации
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.КорректировкаРеализации.Работы КАК КорректировкаРеализацииРаботы
+			ПО (КорректировкаРеализацииРаботы.Ссылка = КорректировкаРеализации.Ссылка)
+	ГДЕ
+		КорректировкаРеализации.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И КорректировкаРеализации.ПометкаУдаления = ЛОЖЬ
+		И КорректировкаРеализации.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ОтчетКомиссионера.Ссылка,
+		"ОтчетКомиссионера",
+		ЕСТЬNULL(ОтчетКомиссионераТовары.СуммаНДС, 0),
+		ЕСТЬNULL(ОтчетКомиссионераТовары.СуммаВсего - ОтчетКомиссионераТовары.СуммаНДС, 0)
+	ИЗ
+		Документ.ОтчетКомиссионера КАК ОтчетКомиссионера
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ОтчетКомиссионера.Товары КАК ОтчетКомиссионераТовары
+			ПО (ОтчетКомиссионераТовары.Ссылка = ОтчетКомиссионера.Ссылка)
+	ГДЕ
+		ОтчетКомиссионера.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И ОтчетКомиссионера.ПометкаУдаления = ЛОЖЬ
+		И ОтчетКомиссионера.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ОтчетКомиссионераЗаАвтомобили.Ссылка,
+		"ОтчетКомиссионераЗаАвтомобили",
+		ЕСТЬNULL(ОтчетКомиссионераЗаАвтомобилиТовары.СуммаНДС, 0),
+		ЕСТЬNULL(ОтчетКомиссионераЗаАвтомобилиТовары.СуммаВсего - ОтчетКомиссионераЗаАвтомобилиТовары.СуммаНДС, 0)
+	ИЗ
+		Документ.ОтчетКомиссионераЗаАвтомобили КАК ОтчетКомиссионераЗаАвтомобили
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ОтчетКомиссионераЗаАвтомобили.Товары КАК ОтчетКомиссионераЗаАвтомобилиТовары
+			ПО (ОтчетКомиссионераЗаАвтомобилиТовары.Ссылка = ОтчетКомиссионераЗаАвтомобили.Ссылка)
+	ГДЕ
+		ОтчетКомиссионераЗаАвтомобили.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И ОтчетКомиссионераЗаАвтомобили.ПометкаУдаления = ЛОЖЬ
+		И ОтчетКомиссионераЗаАвтомобили.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ОтчетКомиссионераЗаАвтомобили.Ссылка,
+		"ОтчетКомиссионераЗаАвтомобили",
+		ЕСТЬNULL(ОтчетКомиссионераЗаАвтомобилиАвтомобили.СуммаНДС, 0),
+		ЕСТЬNULL(ОтчетКомиссионераЗаАвтомобилиАвтомобили.СуммаВсего - ОтчетКомиссионераЗаАвтомобилиАвтомобили.СуммаНДС, 0)
+	ИЗ
+		Документ.ОтчетКомиссионераЗаАвтомобили КАК ОтчетКомиссионераЗаАвтомобили
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ОтчетКомиссионераЗаАвтомобили.Автомобили КАК ОтчетКомиссионераЗаАвтомобилиАвтомобили
+			ПО (ОтчетКомиссионераЗаАвтомобилиАвтомобили.Ссылка = ОтчетКомиссионераЗаАвтомобили.Ссылка)
+	ГДЕ
+		ОтчетКомиссионераЗаАвтомобили.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И ОтчетКомиссионераЗаАвтомобили.ПометкаУдаления = ЛОЖЬ
+		И ОтчетКомиссионераЗаАвтомобили.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ОтчетКомитенту.Ссылка,
+		"ОтчетКомитенту",
+		ЕСТЬNULL(ОтчетКомитентуТовары.СуммаНДС, 0),
+		ЕСТЬNULL(ОтчетКомитентуТовары.СуммаВсего - ОтчетКомитентуТовары.СуммаНДС, 0)
+	ИЗ
+		Документ.ОтчетКомитенту КАК ОтчетКомитенту
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ОтчетКомитенту.Товары КАК ОтчетКомитентуТовары
+			ПО (ОтчетКомитентуТовары.Ссылка = ОтчетКомитенту.Ссылка)
+	ГДЕ
+		ОтчетКомитенту.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И ОтчетКомитенту.ПометкаУдаления = ЛОЖЬ
+		И ОтчетКомитенту.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ОтчетКомитентуЗаАвтомобили.Ссылка,
+		"ОтчетКомитентуЗаАвтомобили",
+		ЕСТЬNULL(ОтчетКомитентуЗаАвтомобилиАвтомобили.СуммаНДС, 0),
+		ЕСТЬNULL(ОтчетКомитентуЗаАвтомобилиАвтомобили.СуммаВсего - ОтчетКомитентуЗаАвтомобилиАвтомобили.СуммаНДС, 0)
+	ИЗ
+		Документ.ОтчетКомитентуЗаАвтомобили КАК ОтчетКомитентуЗаАвтомобили
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ОтчетКомитентуЗаАвтомобили.Автомобили КАК ОтчетКомитентуЗаАвтомобилиАвтомобили
+			ПО (ОтчетКомитентуЗаАвтомобилиАвтомобили.Ссылка = ОтчетКомитентуЗаАвтомобили.Ссылка)
+	ГДЕ
+		ОтчетКомитентуЗаАвтомобили.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И ОтчетКомитентуЗаАвтомобили.ПометкаУдаления = ЛОЖЬ
+		И ОтчетКомитентуЗаАвтомобили.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ПриходныйКассовыйОрдер.Ссылка,
+		"ПриходныйКассовыйОрдер",
+		ЕСТЬNULL(ПриходныйКассовыйОрдер.СуммаНДС, 0),
+		ЕСТЬNULL(ПриходныйКассовыйОрдер.СуммаДокумента - ПриходныйКассовыйОрдер.СуммаНДС, 0)
+	ИЗ
+		Документ.ПриходныйКассовыйОрдер КАК ПриходныйКассовыйОрдер
+	ГДЕ
+		ПриходныйКассовыйОрдер.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И ПриходныйКассовыйОрдер.ПометкаУдаления = ЛОЖЬ
+		И ПриходныйКассовыйОрдер.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		РеализацияАвтомобилей.Ссылка,
+		"РеализацияАвтомобилей",
+		ЕСТЬNULL(РеализацияАвтомобилейТовары.СуммаНДС, 0),
+		ЕСТЬNULL(РеализацияАвтомобилейТовары.СуммаВсего - РеализацияАвтомобилейТовары.СуммаНДС, 0)
+	ИЗ
+		Документ.РеализацияАвтомобилей КАК РеализацияАвтомобилей
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.РеализацияАвтомобилей.Товары КАК РеализацияАвтомобилейТовары
+			ПО (РеализацияАвтомобилейТовары.Ссылка = РеализацияАвтомобилей.Ссылка)
+	ГДЕ
+		РеализацияАвтомобилей.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И РеализацияАвтомобилей.ПометкаУдаления = ЛОЖЬ
+		И РеализацияАвтомобилей.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		РеализацияАвтомобилей.Ссылка,
+		"РеализацияАвтомобилей",
+		ЕСТЬNULL(РеализацияАвтомобилейАвтомобили.СуммаНДС, 0),
+		ЕСТЬNULL(РеализацияАвтомобилейАвтомобили.СуммаВсего - РеализацияАвтомобилейАвтомобили.СуммаНДС, 0)
+	ИЗ
+		Документ.РеализацияАвтомобилей КАК РеализацияАвтомобилей
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.РеализацияАвтомобилей.Автомобили КАК РеализацияАвтомобилейАвтомобили
+			ПО (РеализацияАвтомобилейАвтомобили.Ссылка = РеализацияАвтомобилей.Ссылка)
+	ГДЕ
+		РеализацияАвтомобилей.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И РеализацияАвтомобилей.ПометкаУдаления = ЛОЖЬ
+		И РеализацияАвтомобилей.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		РеализацияТоваров.Ссылка,
+		"РеализацияТоваров",
+		ЕСТЬNULL(РеализацияТоваровТовары.СуммаНДС, 0),
+		ЕСТЬNULL(РеализацияТоваровТовары.СуммаВсего - РеализацияТоваровТовары.СуммаНДС, 0)
+	ИЗ
+		Документ.РеализацияТоваров КАК РеализацияТоваров
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.РеализацияТоваров.Товары КАК РеализацияТоваровТовары
+			ПО (РеализацияТоваровТовары.Ссылка = РеализацияТоваров.Ссылка)
+	ГДЕ
+		РеализацияТоваров.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И РеализацияТоваров.ПометкаУдаления = ЛОЖЬ
+		И РеализацияТоваров.Проведен = ИСТИНА
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		Чек.Ссылка,
+		"Чек",
+		ЕСТЬNULL(ЧекТовары.СуммаНДС, 0),
+		ЕСТЬNULL(ЧекТовары.СуммаВсего - ЧекТовары.СуммаНДС, 0)
+	ИЗ
+		Документ.Чек КАК Чек
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.Чек.Товары КАК ЧекТовары
+			ПО (ЧекТовары.Ссылка = Чек.Ссылка)
+	ГДЕ
+		Чек.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И Чек.ПометкаУдаления = ЛОЖЬ
+		И Чек.Проведен = ИСТИНА) КАК ОбъединенныйЗапрос
+{ГДЕ
+	ОбъединенныйЗапрос.Ссылка.* КАК Ссылка,
+	ОбъединенныйЗапрос.ПолеСортировки КАК ПолеСортировки,
+	ОбъединенныйЗапрос.СуммаНДС КАК СуммаНДС,
+	ОбъединенныйЗапрос.СуммаБезНДС КАК СуммаБезНДС}
+
+СГРУППИРОВАТЬ ПО
+	ОбъединенныйЗапрос.Ссылка,
+	ОбъединенныйЗапрос.ПолеСортировки
+
+ИМЕЮЩИЕ
+	(НЕ СУММА(ОбъединенныйЗапрос.СуммаНДС) = 0
+		ИЛИ НЕ СУММА(ОбъединенныйЗапрос.СуммаБезНДС) = 0)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СчетФактураВыданный.ДокументОснование КАК Ссылка,
+	ТаблицаДокументов.ПолеСортировки КАК ПолеСортировки,
+	СчетФактураВыданный.Ссылка КАК СчетФактура,
+	СчетФактураВыданный.Проведен КАК Проведен,
+	СчетФактураВыданный.ПометкаУдаления КАК ПометкаУдаления,
+	СчетФактураВыданный.Контрагент КАК Покупатель,
+	СчетФактураВыданный.СуммаДокумента - СчетФактураВыданный.СуммаНДСДокумента КАК СуммаБезНДС,
+	СчетФактураВыданный.СуммаНДСДокумента КАК СуммаНДС,
+	ТаблицаДокументов.СуммаБезНДС КАК СуммаБезНДСДокументаРеализации,
+	ТаблицаДокументов.СуммаНДС КАК СуммаНДСДокументаРеализации
+ПОМЕСТИТЬ ТаблицаСчетФактур
+ИЗ
+	Документ.СчетФактураВыданный КАК СчетФактураВыданный
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ТаблицаДокументов КАК ТаблицаДокументов
+		ПО (ТаблицаДокументов.Ссылка = СчетФактураВыданный.ДокументОснование)
+{ГДЕ
+	СчетФактураВыданный.ДокументОснование.* КАК Ссылка,
+	СчетФактураВыданный.Ссылка.* КАК СчетФактура,
+	СчетФактураВыданный.Проведен КАК Проведен,
+	СчетФактураВыданный.Контрагент.* КАК Покупатель}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТаблицаДокументов.Ссылка КАК Ссылка,
+	ТаблицаДокументов.ПолеСортировки КАК ПолеСортировки,
+	ТаблицаДокументов.СуммаБезНДС КАК СуммаБезНДСДокументаРеализации,
+	ТаблицаДокументов.СуммаНДС КАК СуммаНДСДокументаРеализации,
+	0 КАК КоличествоДокументов,
+	ЗНАЧЕНИЕ(Документ.СчетФактураВыданный.ПустаяСсылка) КАК СчетФактура,
+	ЛОЖЬ КАК Проведен,
+	ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка) КАК Покупатель,
+	0 КАК СуммаБезНДС,
+	0 КАК СуммаНДС,
+	0 КАК РазницаСуммБезНДС,
+	0 КАК РазницаНДС
+{ВЫБРАТЬ
+	Ссылка КАК Ссылка,
+	ПолеСортировки КАК ПолеСортировки,
+	СуммаБезНДСДокументаРеализации КАК СуммаБезНДСДокументаРеализации,
+	СуммаНДСДокументаРеализации КАК СуммаНДСДокументаРеализации,
+	КоличествоДокументов КАК КоличествоДокументов,
+	СчетФактура КАК СчетФактура,
+	Проведен КАК Проведен,
+	Покупатель КАК Покупатель,
+	СуммаБезНДС КАК СуммаБезНДС,
+	СуммаНДС КАК СуммаНДС,
+	РазницаСуммБезНДС КАК РазницаСуммБезНДС,
+	РазницаНДС КАК РазницаНДС}
+ИЗ
+	ТаблицаДокументов КАК ТаблицаДокументов
+{ГДЕ
+	ТаблицаДокументов.Ссылка.* КАК Ссылка}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	СчетФактураВыданный.Ссылка,
+	СчетФактураВыданный.ПолеСортировки,
+	0,
+	0,
+	1,
+	СчетФактураВыданный.СчетФактура,
+	ВЫБОР
+		КОГДА СчетФактураВыданный.ПометкаУдаления = ИСТИНА
+			ТОГДА "Удален"
+		ИНАЧЕ СчетФактураВыданный.Проведен
+	КОНЕЦ,
+	СчетФактураВыданный.Покупатель,
+	СчетФактураВыданный.СуммаБезНДС,
+	СчетФактураВыданный.СуммаНДС,
+	0,
+	0
+ИЗ
+	ТаблицаСчетФактур КАК СчетФактураВыданный
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	СчетФактураВыданный.Ссылка,
+	МАКСИМУМ(СчетФактураВыданный.ПолеСортировки),
+	0,
+	0,
+	0,
+	ЗНАЧЕНИЕ(Документ.СчетФактураВыданный.ПустаяСсылка),
+	ЛОЖЬ,
+	ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка),
+	0,
+	0,
+	МАКСИМУМ(СчетФактураВыданный.СуммаБезНДСДокументаРеализации) - СУММА(СчетФактураВыданный.СуммаБезНДС),
+	МАКСИМУМ(СчетФактураВыданный.СуммаНДСДокументаРеализации) - СУММА(СчетФактураВыданный.СуммаНДС)
+ИЗ
+	ТаблицаСчетФактур КАК СчетФактураВыданный
+
+СГРУППИРОВАТЬ ПО
+	СчетФактураВыданный.Ссылка</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<totalField>
+		<dataPath>СуммаБезНДС</dataPath>
+		<expression>Сумма(СуммаБезНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаБезНДСДокументаРеализации</dataPath>
+		<expression>Сумма(СуммаБезНДСДокументаРеализации)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНДС</dataPath>
+		<expression>Сумма(СуммаНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНДСДокументаРеализации</dataPath>
+		<expression>Сумма(СуммаНДСДокументаРеализации)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоДокументов</dataPath>
+		<expression>Сумма(КоличествоДокументов)</expression>
+		<group>ДокументРеализации</group>
+	</totalField>
+	<totalField>
+		<dataPath>ПолеСортировки</dataPath>
+		<expression>Максимум(ПолеСортировки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РазницаНДС</dataPath>
+		<expression>Сумма(РазницаНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РазницаСуммБезНДС</dataPath>
+		<expression>Сумма(РазницаСуммБезНДС)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<inputParameters>
+			<dcscor:item>
+				<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yy</dcscor:value>
+			</dcscor:item>
+		</inputParameters>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<inputParameters>
+			<dcscor:item>
+				<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yy</dcscor:value>
+			</dcscor:item>
+		</inputParameters>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СчетФактура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Проведен</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Покупатель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоДокументов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаБезНДСДокументаРеализации</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНДСДокументаРеализации</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РазницаСуммБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РазницаНДС</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ПолеСортировки</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ДокументРеализации</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Покупатель</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Проведен</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Документ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>КоличествоДокументов</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>РазницаНДС</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>РазницаСуммБезНДС</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаБезНДС</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаБезНДСДокументаРеализации</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаНДС</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаНДСДокументаРеализации</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>SystemFields.SerialNumber</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>SystemFields.GroupSerialNumber</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>SystemFields.Level</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>SystemFields.LevelInGroup</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">РазницаНДС</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">РазницаСуммБезНДС</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">#800000</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>РазницаНДС</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>РазницаСуммБезНДС</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаБезНДС</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаБезНДСДокументаРеализации</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаНДС</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаНДСДокументаРеализации</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">РазницаНДС</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">РазницаСуммБезНДС</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">СуммаБезНДС</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">СуммаНДС</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧЦ=12; ЧДЦ=2; ЧН=0,00</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отчет по выданным счетам-фактурам</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДокументРеализации</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:filter>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">СчетФактура</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
+							</dcsset:item>
+						</dcsset:filter>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СчетФактура</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Проведен</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Покупатель</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СуммаБезНДС</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СуммаНДС</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:outputParameters>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+							</dcscor:item>
+						</dcsset:outputParameters>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

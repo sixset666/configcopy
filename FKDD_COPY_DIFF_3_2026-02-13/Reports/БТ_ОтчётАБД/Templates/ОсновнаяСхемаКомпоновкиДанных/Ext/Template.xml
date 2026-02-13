@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвторВерсииСотрудникНаименование</dataPath>
+			<field>АвторВерсииСотрудникНаименование</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Последний редактирующий</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказчикНаименование</dataPath>
+			<field>ЗаказчикНаименование</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказчик</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Представление</dataPath>
+			<field>Представление</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Телефон</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Представление1</dataPath>
+			<field>Представление1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Наименование</dataPath>
+			<field>Наименование</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подтв. документ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвтомобильГодВыпуска</dataPath>
+			<field>АвтомобильГодВыпуска</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Год выпуска автомобиля</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвтомобильМодельНаименованиеПолное</dataPath>
+			<field>АвтомобильМодельНаименованиеПолное</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Модель автомобиля</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПризнакЛояльности</dataPath>
+			<field>ПризнакЛояльности</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Признак лояльности</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказчикСогласиеНаОбработкуПерсональныхДанных</dataPath>
+			<field>ЗаказчикСогласиеНаОбработкуПерсональныхДанных</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Согласие на обработку персональных данных</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказчикСогласиеНаОбработкуПерсональныхДанныхДата</dataPath>
+			<field>ЗаказчикСогласиеНаОбработкуПерсональныхДанныхДата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата согласия на обработку персональных данных</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ЗаказНаряд.Ссылка КАК Ссылка,
+	ЗаказНаряд.Заказчик КАК Заказчик,
+	ЗаказНаряд.Автомобиль КАК Автомобиль
+ПОМЕСТИТЬ ЗаказНаряды
+ИЗ
+	Документ.ЗаказНаряд КАК ЗаказНаряд
+ГДЕ
+	ЗаказНаряд.Дата МЕЖДУ &amp;ДатаН И &amp;ДатаК
+	И ЗаказНаряд.Проведен = ИСТИНА
+	И ЗаказНаряд.Заказчик.ФормаСобственности = &amp;ФормаСобственности
+	И ЗаказНаряд.ПодразделениеКомпании В(&amp;ПодразделениеКомпании)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КонтактнаяИнформация.Объект КАК Объект,
+	КонтактнаяИнформация.Представление КАК Представление
+ПОМЕСТИТЬ ТелефонКонтрагента
+ИЗ
+	РегистрСведений.КонтактнаяИнформация КАК КонтактнаяИнформация
+ГДЕ
+	КонтактнаяИнформация.Объект В
+			(ВЫБРАТЬ
+				ЗаказНаряды.Заказчик КАК Заказчик
+			ИЗ
+				ЗаказНаряды КАК ЗаказНаряды)
+	И КонтактнаяИнформация.Тип = &amp;ТипКонтИнфТелефон
+	И КонтактнаяИнформация.ЗначениеПоУмолчанию = ИСТИНА
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КонтактнаяИнформация.Объект КАК Объект,
+	КонтактнаяИнформация.Представление КАК Представление
+ПОМЕСТИТЬ АдресКонтрагента
+ИЗ
+	РегистрСведений.КонтактнаяИнформация КАК КонтактнаяИнформация
+ГДЕ
+	КонтактнаяИнформация.Объект В
+			(ВЫБРАТЬ
+				ЗаказНаряды.Заказчик КАК Заказчик
+			ИЗ
+				ЗаказНаряды КАК ЗаказНаряды)
+	И КонтактнаяИнформация.Тип = &amp;ТипКонтИнфАдрес
+	И КонтактнаяИнформация.ЗначениеПоУмолчанию = ИСТИНА
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПодтверждающиеДокументы.Владелец КАК Владелец,
+	ПодтверждающиеДокументы.Наименование КАК Наименование
+ПОМЕСТИТЬ ПаспортКонтрагента
+ИЗ
+	Справочник.ПодтверждающиеДокументы КАК ПодтверждающиеДокументы
+ГДЕ
+	ПодтверждающиеДокументы.Владелец В
+			(ВЫБРАТЬ
+				ЗаказНаряды.Заказчик КАК Заказчик
+			ИЗ
+				ЗаказНаряды КАК ЗаказНаряды)
+	И ПодтверждающиеДокументы.ВидПодтверждающегоДокумента = &amp;ВидПодтверждающегоДокументаПаспорт
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВерсииОбъектов.Объект КАК Объект,
+	МАКСИМУМ(ВерсииОбъектов.НомерВерсии) КАК НомерВерсии
+ПОМЕСТИТЬ НомерПоследнейВерсии
+ИЗ
+	РегистрСведений.ВерсииОбъектов КАК ВерсииОбъектов
+ГДЕ
+	ВерсииОбъектов.Объект В
+			(ВЫБРАТЬ
+				ЗаказНаряды.Заказчик КАК Заказчик
+			ИЗ
+				ЗаказНаряды КАК ЗаказНаряды)
+
+СГРУППИРОВАТЬ ПО
+	ВерсииОбъектов.Объект
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВерсииОбъектов.Объект КАК Объект,
+	ЕСТЬNULL(ВерсииОбъектов.АвторВерсии, ВерсииОбъектов.Объект.Автор.Сотрудник.Наименование) КАК АвторВерсии,
+	НомерПоследнейВерсии.НомерВерсии КАК НомерВерсии
+ПОМЕСТИТЬ ПоследнийАвторИзменений
+ИЗ
+	РегистрСведений.ВерсииОбъектов КАК ВерсииОбъектов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ НомерПоследнейВерсии КАК НомерПоследнейВерсии
+		ПО ВерсииОбъектов.Объект = НомерПоследнейВерсии.Объект
+			И ВерсииОбъектов.НомерВерсии = НомерПоследнейВерсии.НомерВерсии
+ГДЕ
+	ВерсииОбъектов.Объект В
+			(ВЫБРАТЬ
+				ЗаказНаряды.Заказчик КАК Заказчик
+			ИЗ
+				ЗаказНаряды КАК ЗаказНаряды)
+	И ВерсииОбъектов.ЕстьДанныеВерсии = ЛОЖЬ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗаказНаряды.Заказчик КАК ЗаказчикНаименование,
+	ТелефонКонтрагента.Представление КАК Представление,
+	АдресКонтрагента.Представление КАК Представление1,
+	ПаспортКонтрагента.Наименование КАК Наименование,
+	ЗаказНаряды.Заказчик.БТ_ПризнакЛояльности КАК ПризнакЛояльности,
+	ЗаказНаряды.Заказчик.СогласиеНаОбработкуПерсональныхДанных КАК ЗаказчикСогласиеНаОбработкуПерсональныхДанных,
+	ЗаказНаряды.Заказчик.СогласиеНаОбработкуПерсональныхДанныхДата КАК ЗаказчикСогласиеНаОбработкуПерсональныхДанныхДата,
+	ЗаказНаряды.Автомобиль.Модель.НаименованиеПолное КАК АвтомобильМодельНаименованиеПолное,
+	ВЫБОР
+		КОГДА ГОД(ЗаказНаряды.Автомобиль.ГодВыпуска) = 1
+			ТОГДА ""
+		ИНАЧЕ ГОД(ЗаказНаряды.Автомобиль.ГодВыпуска)
+	КОНЕЦ КАК АвтомобильГодВыпуска,
+	ЕСТЬNULL(ПоследнийАвторИзменений.АвторВерсии.Сотрудник.Наименование, ЗаказНаряды.Заказчик.Автор.Наименование) КАК АвторВерсииСотрудникНаименование,
+	ЗаказНаряды.Ссылка КАК Ссылка
+ИЗ
+	ЗаказНаряды КАК ЗаказНаряды
+		ЛЕВОЕ СОЕДИНЕНИЕ ТелефонКонтрагента КАК ТелефонКонтрагента
+		ПО ЗаказНаряды.Заказчик = ТелефонКонтрагента.Объект
+		ЛЕВОЕ СОЕДИНЕНИЕ АдресКонтрагента КАК АдресКонтрагента
+		ПО ЗаказНаряды.Заказчик = АдресКонтрагента.Объект
+		ЛЕВОЕ СОЕДИНЕНИЕ ПаспортКонтрагента КАК ПаспортКонтрагента
+		ПО ЗаказНаряды.Заказчик = ПаспортКонтрагента.Владелец
+		ЛЕВОЕ СОЕДИНЕНИЕ ПоследнийАвторИзменений КАК ПоследнийАвторИзменений
+		ПО ЗаказНаряды.Заказчик = ПоследнийАвторИзменений.Объект</query>
+	</dataSet>
+	<parameter>
+		<name>ВидПодтверждающегоДокументаПаспорт</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид подтверждающего документа паспорт</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыДокументов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыДокументов.Паспорт</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаН</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаК</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ТипКонтИнфАдрес</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип конт инф адрес</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ТипыКонтактнойИнформации</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ТипыКонтактнойИнформации.Адрес</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТипКонтИнфТелефон</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип конт инф телефон</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ТипыКонтактнойИнформации</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ТипыКонтактнойИнформации.Телефон</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ФормаСобственности</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Форма собственности</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ФормыСобственности</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ПодразделениеКомпании</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Подразделение компании</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ПодразделенияКомпании</v8:Type>
+		</valueType>
+		<useRestriction>false</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказчикНаименование</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Представление</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Представление1</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Наименование</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПризнакЛояльности</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказчикСогласиеНаОбработкуПерсональныхДанных</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказчикСогласиеНаОбработкуПерсональныхДанныхДата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АвтомобильМодельНаименованиеПолное</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АвтомобильГодВыпуска</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АвторВерсииСотрудникНаименование</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаН</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisYear</v8:variant>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаК</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ФормаСобственности</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Перечисление.ФормыСобственности.ЧастноеЛицо</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПодразделениеКомпании</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Main</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МакетОформления</dcscor:parameter>
+							<dcscor:value xsi:type="xs:string">Main</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+				</dcsset:row>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

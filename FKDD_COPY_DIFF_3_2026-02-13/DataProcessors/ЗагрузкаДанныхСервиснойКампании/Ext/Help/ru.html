@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"></meta><link rel="stylesheet" type="text/css" href="v8help://service_book/service_style"></link><meta name="GENERATOR" content="MSHTML 8.00.6001.18928"></meta></head><body>
+<h1><font color="#000080">Обработка "Загрузка данных сервисной кампании"</font></h1>
+<h3>Назначение</h3>
+<p class="Usual">Обработка предназначена для загрузки списка идентификационных номеров автомобилей(VIN), из различных источников данных(файлы MS Excel (.XLS) включая MS Excel 2007(*.XLSX), файлы электронных таблиц OpenOffice(.ODS), текстовый файл (.TXT), источник данных ADO).</p>
+<p>
+</p><h3>Реквизиты</h3>
+<ul><li><strong><font color="#800000">Кодировка</font></strong>. Реквизит является обязательным для заполнения. Тип значения: «Строка». Кодовая страница прайс-листа. Выбирается из выпадающего списка: CP 1251, KOI 8, CP 866, ISO 8859. 
+</li><li><strong>Размещение</strong>. Тип значения: «Булево». Флаг, указывающий в каком формате представлен прайс-лист (файл или источник данных). 
+</li><li><strong>Подключение</strong>. Тип значения: «Строка». Имя файла с данными прайс-листа или строка подключения к источнику данных ODBC. 
+</li><li><strong>Разделитель</strong>. Тип значения: «Строка». Разделитель текстового файла. Поле активно при выборе вида размещения "Файл". 
+</li><li><strong>Со строки</strong>. Тип значения: «Число». Номер первой строки прайс-листа в файле для обработки. Поле активно при выборе вида размещения "Файл". 
+</li><li><strong>По строку</strong>. Тип значения: «Число». Номер последней строки прайс-листа в файле для обработки. Поле активно при выборе вида размещения "Файл". 
+</li><li><strong>Имя таблицы</strong>. Тип значения: «Строка». Имя таблицы, из которой будет осуществляться загрузка прайс-листа при подключении через ODBC. Поле активно при выборе вида размещения "Источник данных".</li></ul><h3>Табличная часть «Структура файла»</h3>
+<ul><li>
+<div><strong>Реквизит справочника</strong>. Тип значения: «Строка». Реквизит справочника, который необходимо заполнить из файла.</div>
+</li><li>
+<div><strong>Поле таблицы</strong>. Тип значения: «Строка». Номер колонки соответствующей реквизиту справочника. если номер не указан, то соответствующий реквизит справочника заполнятся не будет.</div>
+</li><li>
+<div><strong>Ключ</strong>. Тип значения: «Булево». Признак ключевого поля, по этому полю проводится идентификация.</div></li></ul><p></p>
+<p>
+</p><h3>
+</h3><p><font color="#ff0000" size="3"></font></p>
+<p></p>
+<p></p>Способ вызова
+<p class="Usual"><font color="#ff0000"><font size="2"><font size="1"><font color="#000000">Вызывается по кнопке </font><font color="#800000">"<font size="1">Загрузить список VIN"</font></font></font><font color="#000000" size="1"> из формы списка или формы элемента справочника сервисные кампании</font><font color="#800000"><font size="1">.</font> </font></font></font></p>
+<p>
+</p><h3>Дополнительная информация</h3>
+<p class="Usual">В форме списка и в форме элемента имеется возможность загрузки списка VIN из внешнего источника в ИБ и возможность очистки прайс-листа.</p>
+<p class="Usual">Форматы данных загрузки списка VIN следующие:</p>
+<ul><li>
+<div>Для случая загрузки из файла MS Excel (.XLS, .XLSX) или OpenOffice(.ODS): в колонке "Поле таблицы" цифрами указываются соответствующие реквизитам колонки документа MS Excel(OpenOffice), в поле "Со строки" указывается номер строки таблицы MS Excel(OpenOffice), с которой начинаются данные, в поле "По строку" указывается номер последней строки с данными. Для приведенного примера:<br><br><table id="Table1" border="1" cellspacing="0" bordercolor="#000000"><tbody><tr><td bgcolor="#d4d0c8" width="30"> </td>
+<td bgcolor="#d4d0c8" width="40" align="middle">1</td>
+<td bgcolor="#d4d0c8" align="middle">2</td>
+<td bgcolor="#d4d0c8" align="middle">3</td>
+<td bgcolor="#d4d0c8" align="middle">4</td>
+<td bgcolor="#d4d0c8" align="middle">5</td>
+<td bgcolor="#d4d0c8" align="middle">6</td>
+<td bgcolor="#d4d0c8" align="middle">7</td></tr><tr><td bgcolor="#d4d0c8" width="30" align="middle">1</td>
+<td align="middle">  </td>
+<td align="middle">VIN</td>
+<td align="middle">   <em>Дата выполнения</em>       </td>
+<td align="middle"></td>
+<td align="middle"> </td>
+<td align="middle"> </td>
+<td align="middle"> </td></tr><tr><td bgcolor="#d4d0c8" width="30" align="middle">2</td>
+<td align="middle"></td>
+<td align="middle">JT121LHB200012319</td>
+<td align="middle">25.01.2010</td>
+<td width="40" align="middle"></td>
+<td width="40" align="middle"></td>
+<td width="40" align="middle"></td>
+<td width="40" align="middle"> </td></tr><tr><td bgcolor="#d4d0c8" width="30" align="middle">3</td>
+<td align="middle"></td>
+<td align="middle">JT121LHB200012320</td>
+<td align="middle">25.01.2010</td>
+<td width="40" align="middle"></td>
+<td width="40" align="middle"></td>
+<td width="40" align="middle"></td>
+<td width="40" align="middle"> </td></tr><tr><td bgcolor="#d4d0c8" width="30" align="middle">4</td>
+<td align="middle"></td>
+<td align="middle">JT121LHB200012321</td>
+<td align="middle">25.01.2010</td>
+<td width="40" align="middle"></td>
+<td width="40" align="middle"></td>
+<td width="40" align="middle"></td>
+<td width="40" align="middle"> </td></tr><tr><td bgcolor="#d4d0c8" width="30" align="middle">5</td>
+<td align="middle"></td>
+<td align="middle"> </td>
+<td align="middle">  </td>
+<td width="40" align="middle"></td>
+<td width="40" align="middle"></td>
+<td width="40" align="middle"> </td>
+<td width="40" align="middle"> </td></tr></tbody></table> <br>значения будут такими:<br>- <em>"VIN"</em> = 2;<br>- <em>"Дата выполнения"</em> = 3;<br>В поле ввода <em>"Со строки"</em> должно быть введено "2", в поле <em>"По строку"</em> - "4".</div>
+</li><li>
+<div>Для случая загрузки из текстового файла (.TXT): данные располагаются в файле через разделитель, указанный в поле ввода "Разделитель". В колонке "Поле таблицы" цифрами указываются номера значений (т.е. количество разделителей с начала строки до требуемого значения плюс 1). В поле "Со строки" указывается начальная строка, а в поле "По строку" - конечная строка текстового файла, которую нужно обработать. Например, для файла, содержащего:<br><br>JT121LHB200012319,25.01.2010<br>JT121LHB200012321,25.01.2010<br>JT121LHB200012320,25.01.2010<br><br>значения будут такими:<br>- <em>"VIN"</em> = 1;<br>- <em>"Дата выполнения"</em> = 2;<br><br>В поле ввода <em>"Со строки"</em> должно быть введено "1", в поле <em>"По строку"</em> - "3". Поле <em>"Разделитель"</em> должно содержать ",".</div>
+</li><li>
+<div>Для случая загрузки с источника данных ADO в колонке "Поле таблицы", вместо номера колонки, указываются названия полей таблицы базы данных соответствующие реквизитам, а в поле имя таблицы указывается таблица из которой будут загружены колонки.</div></li></ul><p>Если поле "Со строки" не заполнено, подразумевается, что там введена цифра 1, если поле "По строку" не заполнено, считываются данные с позиции, указанной в поле "Со строки" и до конца.</p></body></html>

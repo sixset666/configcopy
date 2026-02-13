@@ -1,0 +1,732 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="ГруппаСтраницы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<Page name="ГруппаОтправка" id="36">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправка данных</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отправка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаОтправкаРасширеннаяПодсказка" id="37"/>
+					<ChildItems>
+						<InputField name="ЗаказНаряд" id="38">
+							<DataPath>ЗаказНаряд</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ЗаказНарядКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ЗаказНарядРасширеннаяПодсказка" id="40"/>
+						</InputField>
+						<UsualGroup name="ЧтоОтправить" id="63">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Что отправить</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Что отправить</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ЧтоОтправитьРасширеннаяПодсказка" id="64"/>
+							<ChildItems>
+								<CheckBoxField name="ОбновитьЗаказНаряд" id="71">
+									<DataPath>ОбновитьЗаказНаряд</DataPath>
+									<Enabled>false</Enabled>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ОбновитьЗаказНарядКонтекстноеМеню" id="72"/>
+									<ExtendedTooltip name="ОбновитьЗаказНарядРасширеннаяПодсказка" id="73"/>
+								</CheckBoxField>
+								<CheckBoxField name="ОбновитьАвтомобиль" id="65">
+									<DataPath>ОбновитьАвтомобиль</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ОбновитьАвтомобильКонтекстноеМеню" id="66"/>
+									<ExtendedTooltip name="ОбновитьАвтомобильРасширеннаяПодсказка" id="67"/>
+								</CheckBoxField>
+								<CheckBoxField name="ОбновитьКонтрагента" id="68">
+									<DataPath>ОбновитьКонтрагента</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ОбновитьКонтрагентаКонтекстноеМеню" id="69"/>
+									<ExtendedTooltip name="ОбновитьКонтрагентаРасширеннаяПодсказка" id="70"/>
+								</CheckBoxField>
+								<CheckBoxField name="ОбновитьТоварыИУслуги" id="104">
+									<DataPath>ОбновитьТоварыИУслуги</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ОбновитьТоварыИУслугиКонтекстноеМеню" id="105"/>
+									<ExtendedTooltip name="ОбновитьТоварыИУслугиРасширеннаяПодсказка" id="106"/>
+								</CheckBoxField>
+								<CheckBoxField name="ВыгрузитьКакОткрытый" id="107">
+									<DataPath>ВыгрузитьКакОткрытый</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Выгрузить как открытый</v8:content>
+										</v8:item>
+									</Title>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ВыгрузитьКакОткрытыйКонтекстноеМеню" id="108"/>
+									<ExtendedTooltip name="ВыгрузитьКакОткрытыйРасширеннаяПодсказка" id="109"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<Button name="КомандаОтправить" id="59">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаОтправить</CommandName>
+							<ExtendedTooltip name="КомандаОтправитьРасширеннаяПодсказка" id="60"/>
+						</Button>
+						<Button name="КомандаВыполнитьРегламентноеЗадание" id="61">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаВыполнитьРегламентноеЗадание</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отправить все заказ-наряды по регистру</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="КомандаВыполнитьРегламентноеЗаданиеРасширеннаяПодсказка" id="62"/>
+						</Button>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаПолучениеДанных" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Получение данных</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа получение данных</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаПолучениеДанныхРасширеннаяПодсказка" id="9"/>
+					<ChildItems>
+						<InputField name="ПолучитьУчетнаяЗапись" id="101">
+							<DataPath>ПолучитьУчетнаяЗапись</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>С учетной записи</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ПолучитьУчетнаяЗаписьКонтекстноеМеню" id="102"/>
+							<ExtendedTooltip name="ПолучитьУчетнаяЗаписьРасширеннаяПодсказка" id="103"/>
+						</InputField>
+						<CheckBoxField name="ПолучитьБренды" id="13">
+							<DataPath>ПолучитьБренды</DataPath>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="ПолучитьБрендыКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ПолучитьБрендыРасширеннаяПодсказка" id="15"/>
+						</CheckBoxField>
+						<CheckBoxField name="ПолучитьМодели" id="16">
+							<DataPath>ПолучитьМодели</DataPath>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="ПолучитьМоделиКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ПолучитьМоделиРасширеннаяПодсказка" id="18"/>
+						</CheckBoxField>
+						<CheckBoxField name="ПолучитьЦеха" id="19">
+							<DataPath>ПолучитьЦеха</DataPath>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="ПолучитьЦехаКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ПолучитьЦехаРасширеннаяПодсказка" id="21"/>
+						</CheckBoxField>
+						<CheckBoxField name="ПолучитьТипыОплат" id="22">
+							<DataPath>ПолучитьТипыОплат</DataPath>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="ПолучитьТипыОплатКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="ПолучитьТипыОплатРасширеннаяПодсказка" id="24"/>
+						</CheckBoxField>
+						<CheckBoxField name="ПолучитьВидыРемонта" id="25">
+							<DataPath>ПолучитьВидыРемонта</DataPath>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="ПолучитьВидыРемонтаКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="ПолучитьВидыРемонтаРасширеннаяПодсказка" id="27"/>
+						</CheckBoxField>
+						<CheckBoxField name="ПолучитьДолжности" id="28">
+							<DataPath>ПолучитьДолжности</DataPath>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="ПолучитьДолжностиКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="ПолучитьДолжностиРасширеннаяПодсказка" id="30"/>
+						</CheckBoxField>
+						<CheckBoxField name="ПолучитьСотрудников" id="98">
+							<DataPath>ПолучитьСотрудников</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПолучитьСотрудниковКонтекстноеМеню" id="99"/>
+							<ExtendedTooltip name="ПолучитьСотрудниковРасширеннаяПодсказка" id="100"/>
+						</CheckBoxField>
+						<CheckBoxField name="ПолучитьКлиенты" id="31">
+							<DataPath>ПолучитьКлиенты</DataPath>
+							<Enabled>false</Enabled>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="ПолучитьКлиентыКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="ПолучитьКлиентыРасширеннаяПодсказка" id="33"/>
+						</CheckBoxField>
+						<Button name="КомандаПолучитьДанные" id="34">
+							<Type>UsualButton</Type>
+							<HorizontalStretch>true</HorizontalStretch>
+							<CommandName>Form.Command.КомандаПолучитьДанные</CommandName>
+							<ExtendedTooltip name="КомандаПолучитьДанныеРасширеннаяПодсказка" id="35"/>
+						</Button>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаНастройкиВыгрузки" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки выгрузки</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки выгрузки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаНастройкиВыгрузкиРасширеннаяПодсказка" id="4"/>
+					<ChildItems>
+						<RadioButtonField name="УчетнаяЗаписьВыбирается" id="83">
+							<DataPath>Объект.УчетнаяЗаписьВыбирается</DataPath>
+							<Visible>false</Visible>
+							<RadioButtonType>Tumbler</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Определенная</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>По подразделению</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="УчетнаяЗаписьВыбираетсяКонтекстноеМеню" id="84"/>
+							<ExtendedTooltip name="УчетнаяЗаписьВыбираетсяРасширеннаяПодсказка" id="85"/>
+							<Events>
+								<Event name="OnChange">УчетнаяЗаписьВыбираетсяПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<InputField name="УчетнаяЗаписьHTTP" id="5">
+							<DataPath>Объект.УчетнаяЗаписьHTTP</DataPath>
+							<Visible>false</Visible>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="УчетнаяЗаписьHTTPКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="УчетнаяЗаписьHTTPРасширеннаяПодсказка" id="7"/>
+							<Events>
+								<Event name="OnChange">УчетнаяЗаписьHTTPПриИзменении</Event>
+							</Events>
+						</InputField>
+						<UsualGroup name="ГруппаНастройкиКнопки" id="90">
+							<Visible>false</Visible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки кнопки</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки кнопки</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНастройкиКнопкиРасширеннаяПодсказка" id="91"/>
+							<ChildItems>
+								<Button name="КомандаСохранитьНастройки" id="86">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.КомандаСохранитьНастройки</CommandName>
+									<ExtendedTooltip name="КомандаСохранитьНастройкиРасширеннаяПодсказка" id="87"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаСвязанныеРегистры" id="92">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Связанные регистры</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа связанные регистры</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаСвязанныеРегистрыРасширеннаяПодсказка" id="93"/>
+							<ChildItems>
+								<Button name="КомандаОткрытьРегистрСопоставления" id="96">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.КомандаОткрытьРегистрСопоставления</CommandName>
+									<ExtendedTooltip name="КомандаОткрытьРегистрСопоставленияРасширеннаяПодсказка" id="97"/>
+								</Button>
+								<Button name="КомандаОткрытьРегистрСопоставленияПодразделений" id="88">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.КомандаОткрытьРегистрСопоставленияПодразделений</CommandName>
+									<ExtendedTooltip name="КомандаОткрытьРегистрСопоставленияПодразделенийРасширеннаяПодсказка" id="89"/>
+								</Button>
+								<Button name="КомандаОткрытьРегистрСопоставленияВидовРемонта" id="94">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.КомандаОткрытьРегистрСопоставленияВидовРемонта</CommandName>
+									<ExtendedTooltip name="КомандаОткрытьРегистрСопоставленияВидовРемонтаРасширеннаяПодсказка" id="95"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаПодменаПодразделения" id="110">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подмена подразделения</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа подмена подразделения</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаПодменаПодразделенияРасширеннаяПодсказка" id="111"/>
+					<ChildItems>
+						<Button name="ЗаполнитьПодразделениямиО2" id="112">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ЗаполнитьПодразделениямиО2</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заполнить подразделениями О2</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ЗаполнитьПодразделениямиО2РасширеннаяПодсказка" id="113"/>
+						</Button>
+						<Table name="ПодменяемыеДанные" id="114">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ПодменяемыеДанные</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПодменяемыеДанныеКонтекстноеМеню" id="115"/>
+							<AutoCommandBar name="ПодменяемыеДанныеКоманднаяПанель" id="116"/>
+							<ExtendedTooltip name="ПодменяемыеДанныеРасширеннаяПодсказка" id="117"/>
+							<SearchStringAddition name="ПодменяемыеДанныеСтрокаПоиска" id="118">
+								<AdditionSource>
+									<Item>ПодменяемыеДанные</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПодменяемыеДанныеСтрокаПоискаКонтекстноеМеню" id="119"/>
+								<ExtendedTooltip name="ПодменяемыеДанныеСтрокаПоискаРасширеннаяПодсказка" id="120"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПодменяемыеДанныеСостояниеПросмотра" id="121">
+								<AdditionSource>
+									<Item>ПодменяемыеДанные</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПодменяемыеДанныеСостояниеПросмотраКонтекстноеМеню" id="122"/>
+								<ExtendedTooltip name="ПодменяемыеДанныеСостояниеПросмотраРасширеннаяПодсказка" id="123"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПодменяемыеДанныеУправлениеПоиском" id="124">
+								<AdditionSource>
+									<Item>ПодменяемыеДанные</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПодменяемыеДанныеУправлениеПоискомКонтекстноеМеню" id="125"/>
+								<ExtendedTooltip name="ПодменяемыеДанныеУправлениеПоискомРасширеннаяПодсказка" id="126"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ПодменяемыеДанныеПодменяемоеЗначение" id="141">
+									<DataPath>Объект.ПодменяемыеДанные.ПодменяемоеЗначение</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ПодменяемыеДанныеПодменяемоеЗначениеКонтекстноеМеню" id="142"/>
+									<ExtendedTooltip name="ПодменяемыеДанныеПодменяемоеЗначениеРасширеннаяПодсказка" id="143"/>
+								</InputField>
+								<InputField name="ПодменяемыеДанныеЗначениеПодмены" id="144">
+									<DataPath>Объект.ПодменяемыеДанные.ЗначениеПодмены</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ПодменяемыеДанныеЗначениеПодменыКонтекстноеМеню" id="145"/>
+									<ExtendedTooltip name="ПодменяемыеДанныеЗначениеПодменыРасширеннаяПодсказка" id="146"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<Button name="КомандаСохранитьНастройкиПодмены" id="136">
+							<Type>UsualButton</Type>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<CommandName>Form.Command.КомандаСохранитьНастройкиПодмены</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сохранить настройки</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="КомандаСохранитьНастройкиПодменыРасширеннаяПодсказка" id="137"/>
+						</Button>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.БТ_ИнфообменHongqi</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ПолучитьБренды" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить бренды</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолучитьМодели" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить модели</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолучитьЦеха" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить цеха</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолучитьТипыОплат" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить типы оплат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолучитьВидыРемонта" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить виды ремонта</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолучитьДолжности" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить должности</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолучитьКлиенты" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить клиентов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбновитьАвтомобиль" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить автомобиль</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбновитьКонтрагента" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить контрагента</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбновитьЗаказНаряд" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить заказ-наряд</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗаказНаряд" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ наряд</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.ЗаказНаряд</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолучитьСотрудников" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить сотрудников</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолучитьУчетнаяЗапись" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить учетная запись</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.БТ_ПрофилиПодключенияHTTP</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбновитьТоварыИУслуги" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить товары и услуги</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыгрузитьКакОткрытый" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить как открытый</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаПолучитьДанные" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить данные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Для первоначальной инициализации выгрузки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПолучитьДанные</Action>
+		</Command>
+		<Command name="КомандаОтправить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить данные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить только один заказ-наряд</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтправить</Action>
+		</Command>
+		<Command name="КомандаВыполнитьРегламентноеЗадание" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить регламентное задание</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Позволяет запустить процесс выгрузки всех заказ-нарядов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаВыполнитьРегламентноеЗадание</Action>
+		</Command>
+		<Command name="КомандаСохранитьНастройки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда сохранить настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаСохранитьНастройки</Action>
+		</Command>
+		<Command name="КомандаОткрытьРегистрСопоставленияПодразделений" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистр сопоставлений по подразделению</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>открыть регистр сопоставления подразделений</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОткрытьРегистрСопоставленияПодразделений</Action>
+		</Command>
+		<Command name="КомандаОткрытьРегистрСопоставленияВидовРемонта" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистр сопоставлений видов ремонта</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>открыть регистр сопоставления подразделений</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОткрытьРегистрСопоставленияВидовРемонта</Action>
+		</Command>
+		<Command name="КомандаОткрытьРегистрСопоставления" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистр сопоставлений данных</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>открыть регистр сопоставления подразделений</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОткрытьРегистрСопоставления</Action>
+		</Command>
+		<Command name="ЗаполнитьПодразделениямиО2" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить подразделениями о2</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить подразделениями о2</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьПодразделениямиО2</Action>
+		</Command>
+		<Command name="КомандаСохранитьНастройкиПодмены" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда сохранить настройки подмены</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда сохранить настройки подмены</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаСохранитьНастройкиПодмены</Action>
+		</Command>
+	</Commands>
+</Form>
