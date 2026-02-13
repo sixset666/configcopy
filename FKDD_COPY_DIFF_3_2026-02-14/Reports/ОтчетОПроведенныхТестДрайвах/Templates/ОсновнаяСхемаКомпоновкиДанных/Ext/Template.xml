@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АнкетаИтоговая</dataPath>
+			<field>АнкетаИтоговая</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АнкетаПредварительная</dataPath>
+			<field>АнкетаПредварительная</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаНачала</dataPath>
+			<field>ДатаНачала</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОкончания</dataPath>
+			<field>ДатаОкончания</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаТД</dataPath>
+			<field>ДатаТД</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИтоговыйОпрос</dataPath>
+			<field>ИтоговыйОпрос</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Маршрут</dataPath>
+			<field>Маршрут</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании</dataPath>
+			<field>ПодразделениеКомпании</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПредварительныйОпрос</dataPath>
+			<field>ПредварительныйОпрос</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПробегНаКонец</dataPath>
+			<field>ПробегНаКонец</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПробегНаНачало</dataPath>
+			<field>ПробегНаНачало</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Проект</dataPath>
+			<field>Проект</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РезультатТестДрайва</dataPath>
+			<field>РезультатТестДрайва</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат тест-драйва</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТестДрайв</dataPath>
+			<field>ТестДрайв</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тест-драйв</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПредставлениеТелефона</dataPath>
+			<field>ПредставлениеТелефона</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Длительность</dataPath>
+			<field>Длительность</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ
+	НастройкиТестДрайва.Модель КАК Модель,
+	НАЧАЛОПЕРИОДА(ТестДрайв.Дата, ДЕНЬ) КАК ДатаТД,
+	НастройкиТестДрайва.Период КАК Период,
+	МАКСИМУМ(НастройкиТестДрайва.АнкетаПредварительная) КАК АнкетаПредварительная,
+	МАКСИМУМ(НастройкиТестДрайва.АнкетаИтоговая) КАК АнкетаИтоговая
+ПОМЕСТИТЬ НастройкиТестДрайва
+ИЗ
+	Документ.ТестДрайв КАК ТестДрайв
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.НастройкиТестДрайва КАК НастройкиТестДрайва
+		ПО (НастройкиТестДрайва.Модель = ТестДрайв.Автомобиль.Модель)
+			И (НастройкиТестДрайва.Период &lt;= НАЧАЛОПЕРИОДА(ТестДрайв.Дата, ДЕНЬ))
+ГДЕ
+	ТестДрайв.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И (ТестДрайв.Состояние = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Выполняется)
+			ИЛИ ТестДрайв.Состояние = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Завершено))
+{ГДЕ
+	ТестДрайв.Ссылка.* КАК ТестДрайв,
+	ТестДрайв.Контрагент.* КАК Контрагент,
+	ТестДрайв.ДатаНачала КАК ДатаНачала,
+	ТестДрайв.ДатаОкончания КАК ДатаОкончания,
+	ТестДрайв.Дата КАК ДатаТД,
+	ТестДрайв.Менеджер.* КАК Менеджер,
+	ТестДрайв.Организация.* КАК Организация,
+	ТестДрайв.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ТестДрайв.Проект.* КАК Проект,
+	ТестДрайв.Автомобиль.* КАК Автомобиль,
+	ТестДрайв.Автомобиль.Модель.* КАК Модель,
+	ТестДрайв.ПредставлениеТелефона КАК ПредставлениеТелефона,
+	ТестДрайв.Маршрут.* КАК Маршрут,
+	ТестДрайв.ПробегНаНачало КАК ПробегНаНачало,
+	ТестДрайв.ПробегНаКонец КАК ПробегНаКонец,
+	ТестДрайв.РезультатТестДрайва.* КАК РезультатТестДрайва}
+
+СГРУППИРОВАТЬ ПО
+	НастройкиТестДрайва.Модель,
+	НАЧАЛОПЕРИОДА(ТестДрайв.Дата, ДЕНЬ),
+	НастройкиТестДрайва.Период
+
+ИНДЕКСИРОВАТЬ ПО
+	Модель
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	НастройкиТестДрайва.Модель КАК Модель,
+	НастройкиТестДрайва.ДатаТД КАК ДатаТД,
+	МАКСИМУМ(НастройкиТестДрайва.Период) КАК Период
+ПОМЕСТИТЬ СрезПоследних
+ИЗ
+	НастройкиТестДрайва КАК НастройкиТестДрайва
+
+СГРУППИРОВАТЬ ПО
+	НастройкиТестДрайва.Модель,
+	НастройкиТестДрайва.ДатаТД
+
+ИНДЕКСИРОВАТЬ ПО
+	Модель
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВложенныйЗапрос.ТестДрайв КАК ТестДрайв,
+	ВложенныйЗапрос.ТестДрайв.Контрагент КАК Контрагент,
+	ВложенныйЗапрос.ТестДрайв.ДатаНачала КАК ДатаНачала,
+	ВложенныйЗапрос.ТестДрайв.ДатаОкончания КАК ДатаОкончания,
+	ВложенныйЗапрос.ТестДрайв.Дата КАК ДатаТД,
+	ВложенныйЗапрос.ТестДрайв.Менеджер КАК Менеджер,
+	ВложенныйЗапрос.ТестДрайв.Организация КАК Организация,
+	ВложенныйЗапрос.ТестДрайв.ПодразделениеКомпании КАК ПодразделениеКомпании,
+	ВложенныйЗапрос.ТестДрайв.Проект КАК Проект,
+	ВложенныйЗапрос.ТестДрайв.Автомобиль КАК Автомобиль,
+	ВложенныйЗапрос.Модель КАК Модель,
+	ВложенныйЗапрос.ТестДрайв.ПредставлениеТелефона КАК ПредставлениеТелефона,
+	ВложенныйЗапрос.ТестДрайв.Маршрут КАК Маршрут,
+	ВложенныйЗапрос.ТестДрайв.ПробегНаНачало КАК ПробегНаНачало,
+	ВложенныйЗапрос.ТестДрайв.ПробегНаКонец КАК ПробегНаКонец,
+	ВложенныйЗапрос.ТестДрайв.РезультатТестДрайва КАК РезультатТестДрайва,
+	ВложенныйЗапрос.Количество КАК Количество,
+	РАЗНОСТЬДАТ(ВложенныйЗапрос.ТестДрайв.ДатаНачала, ВложенныйЗапрос.ТестДрайв.ДатаОкончания, МИНУТА)/60 КАК Длительность,
+	ВложенныйЗапрос.АнкетаПредварительная КАК АнкетаПредварительная,
+	ВложенныйЗапрос.АнкетаИтоговая КАК АнкетаИтоговая,
+	ВложенныйЗапрос.ПредварительныйОпрос КАК ПредварительныйОпрос,
+	ВложенныйЗапрос.ИтоговыйОпрос КАК ИтоговыйОпрос
+{ВЫБРАТЬ
+	ТестДрайв КАК ТестДрайв,
+	Контрагент.* КАК Контрагент,
+	ДатаНачала КАК ДатаНачала,
+	ДатаОкончания КАК ДатаОкончания,
+	ДатаТД КАК ДатаТД,
+	Менеджер.* КАК Менеджер,
+	Организация.* КАК Организация,
+	ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	Проект.* КАК Проект,
+	Автомобиль.* КАК Автомобиль,
+	Модель.* КАК Модель,
+	ПредставлениеТелефона КАК ПредставлениеТелефона,
+	Маршрут.* КАК Маршрут,
+	ПробегНаНачало КАК ПробегНаНачало,
+	ПробегНаКонец КАК ПробегНаКонец,
+	РезультатТестДрайва.* КАК РезультатТестДрайва,
+	АнкетаПредварительная.* КАК АнкетаПредварительная,
+	АнкетаИтоговая.* КАК АнкетаИтоговая,
+	ПредварительныйОпрос.* КАК ПредварительныйОпрос,
+	ИтоговыйОпрос.* КАК ИтоговыйОпрос,
+	Длительность КАК Длительность,
+	Количество}
+ИЗ
+	(ВЫБРАТЬ
+		ТестДрайв.Ссылка КАК ТестДрайв,
+		ТестДрайв.Автомобиль.Модель КАК Модель,
+		1 КАК Количество,
+		ЕСТЬNULL(НастройкиТестДрайва.АнкетаПредварительная, ЗНАЧЕНИЕ(Справочник.ТиповыеАнкеты.ПустаяСсылка)) КАК АнкетаПредварительная,
+		ЕСТЬNULL(НастройкиТестДрайва.АнкетаИтоговая, ЗНАЧЕНИЕ(Справочник.ТиповыеАнкеты.ПустаяСсылка)) КАК АнкетаИтоговая,
+		МАКСИМУМ(ЕСТЬNULL(ТабПредварительныйОпрос.Ссылка, ЗНАЧЕНИЕ(Документ.Опрос.ПустаяСсылка))) КАК ПредварительныйОпрос,
+		МАКСИМУМ(ЕСТЬNULL(ТабИтоговыйОпрос.Ссылка, ЗНАЧЕНИЕ(Документ.Опрос.ПустаяСсылка))) КАК ИтоговыйОпрос
+	{ВЫБРАТЬ
+		Модель.* КАК Модель,
+		АнкетаПредварительная.* КАК АнкетаПредварительная,
+		АнкетаИтоговая.* КАК АнкетаИтоговая,
+		ПредварительныйОпрос.* КАК ПредварительныйОпрос,
+		ИтоговыйОпрос.* КАК ИтоговыйОпрос,
+		Количество}
+	ИЗ
+		Документ.ТестДрайв КАК ТестДрайв
+			ЛЕВОЕ СОЕДИНЕНИЕ СрезПоследних КАК СрезПоследних
+			ПО ТестДрайв.Автомобиль.Модель = СрезПоследних.Модель
+				И (НАЧАЛОПЕРИОДА(ТестДрайв.Дата, ДЕНЬ) = СрезПоследних.ДатаТД)
+			ЛЕВОЕ СОЕДИНЕНИЕ НастройкиТестДрайва КАК НастройкиТестДрайва
+			ПО (СрезПоследних.Модель = НастройкиТестДрайва.Модель)
+				И (СрезПоследних.ДатаТД = НастройкиТестДрайва.ДатаТД)
+				И (СрезПоследних.Период = НастройкиТестДрайва.Период)
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.Опрос КАК ТабПредварительныйОпрос
+			ПО ТестДрайв.Ссылка = ТабПредварительныйОпрос.ДокументОснование
+				И ТабПредварительныйОпрос.ПометкаУдаления = ЛОЖЬ
+				И (НастройкиТестДрайва.АнкетаПредварительная = ТабПредварительныйОпрос.ТиповаяАнкета)
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.Опрос КАК ТабИтоговыйОпрос
+			ПО ТестДрайв.Ссылка = ТабИтоговыйОпрос.ДокументОснование
+				И ТабИтоговыйОпрос.ПометкаУдаления = ЛОЖЬ
+				И (НастройкиТестДрайва.АнкетаИтоговая = ТабИтоговыйОпрос.ТиповаяАнкета)
+	ГДЕ
+		ТестДрайв.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		И (ТестДрайв.Состояние = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Выполняется)
+				ИЛИ ТестДрайв.Состояние = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Завершено))
+	СГРУППИРОВАТЬ ПО
+		ТестДрайв.Ссылка,
+		ТестДрайв.Автомобиль.Модель,
+		ЕСТЬNULL(НастройкиТестДрайва.АнкетаПредварительная, ЗНАЧЕНИЕ(Справочник.ТиповыеАнкеты.ПустаяСсылка)),
+		ЕСТЬNULL(НастройкиТестДрайва.АнкетаИтоговая, ЗНАЧЕНИЕ(Справочник.ТиповыеАнкеты.ПустаяСсылка))
+	{ГДЕ
+		ТестДрайв.Ссылка.* КАК ТестДрайв,
+		ТестДрайв.Контрагент.* КАК Контрагент,
+		ТестДрайв.ДатаНачала КАК ДатаНачала,
+		ТестДрайв.ДатаОкончания КАК ДатаОкончания,
+		ТестДрайв.Дата КАК ДатаТД,
+		ТестДрайв.Менеджер.* КАК Менеджер,
+		ТестДрайв.Организация.* КАК Организация,
+		ТестДрайв.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+		ТестДрайв.Проект.* КАК Проект,
+		ТестДрайв.Автомобиль.* КАК Автомобиль,
+		ТестДрайв.Автомобиль.Модель.* КАК Модель,
+		ТестДрайв.ПредставлениеТелефона КАК ПредставлениеТелефона,
+		ТестДрайв.Маршрут.* КАК Маршрут,
+		ТестДрайв.ПробегНаНачало КАК ПробегНаНачало,
+		ТестДрайв.ПробегНаКонец КАК ПробегНаКонец,
+		ТестДрайв.РезультатТестДрайва.* КАК РезультатТестДрайва}) КАК ВложенныйЗапрос
+{ГДЕ
+		ВложенныйЗапрос.ТестДрайв.* КАК ТестДрайв,
+		ВложенныйЗапрос.ТестДрайв.Контрагент.* КАК Контрагент,
+		ВложенныйЗапрос.ТестДрайв.ДатаНачала КАК ДатаНачала,
+		ВложенныйЗапрос.ТестДрайв.ДатаОкончания КАК ДатаОкончания,
+		ВложенныйЗапрос.ТестДрайв.Дата КАК ДатаТД,
+		ВложенныйЗапрос.ТестДрайв.Менеджер.* КАК Менеджер,
+		ВложенныйЗапрос.ТестДрайв.Организация.* КАК Организация,
+		ВложенныйЗапрос.ТестДрайв.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+		ВложенныйЗапрос.ТестДрайв.Проект.* КАК Проект,
+		ВложенныйЗапрос.ТестДрайв.Автомобиль.* КАК Автомобиль,
+		ВложенныйЗапрос.Модель.* КАК Модель,
+		ВложенныйЗапрос.ТестДрайв.ПредставлениеТелефона КАК ПредставлениеТелефона,
+		ВложенныйЗапрос.ТестДрайв.Маршрут.* КАК Маршрут,
+		ВложенныйЗапрос.ТестДрайв.ПробегНаНачало КАК ПробегНаНачало,
+		ВложенныйЗапрос.ТестДрайв.ПробегНаКонец КАК ПробегНаКонец,
+		ВложенныйЗапрос.ТестДрайв.РезультатТестДрайва.* КАК РезультатТестДрайва,
+		ВложенныйЗапрос.АнкетаПредварительная.* КАК АнкетаПредварительная,
+		ВложенныйЗапрос.АнкетаИтоговая.* КАК АнкетаИтоговая,
+		ВложенныйЗапрос.ПредварительныйОпрос.* КАК ПредварительныйОпрос,
+		ВложенныйЗапрос.ИтоговыйОпрос.* КАК ИтоговыйОпрос,
+		РАЗНОСТЬДАТ(ВложенныйЗапрос.ТестДрайв.ДатаНачала, ВложенныйЗапрос.ТестДрайв.ДатаОкончания, МИНУТА)/60 КАК Длительность}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Длительность</dataPath>
+		<expression>Сумма(Длительность)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>ОтчетОПроведенныхТестДрайвах</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отчет о проведенных тест-драйвах</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Длительность</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Автомобиль</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Менеджер</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПодразделениеКомпании</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Маршрут</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">РезультатТестДрайва</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ПодразделениеКомпании</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Модель</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ТестДрайв</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>СписокПроведенныхТестДрайвов</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Список проведенных тест-драйвов</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автомобиль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаТД</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаНачала</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаОкончания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПробегНаНачало</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПробегНаКонец</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Менеджер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РезультатТестДрайва</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИтоговыйОпрос</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПредварительныйОпрос</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АнкетаИтоговая</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АнкетаПредварительная</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПредставлениеТелефона</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Автомобиль</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Маршрут</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Менеджер</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Модель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПодразделениеКомпании</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">РезультатТестДрайва</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ПодразделениеКомпании</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Модель</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

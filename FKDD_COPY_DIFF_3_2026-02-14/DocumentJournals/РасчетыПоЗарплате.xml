@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<DocumentJournal uuid="7afe7cb8-9342-4b5e-a91e-9a823304b6b8">
+		<InternalInfo>
+			<xr:GeneratedType name="DocumentJournalSelection.РасчетыПоЗарплате" category="Selection">
+				<xr:TypeId>3d891077-fde2-401d-aa28-7b47e1319713</xr:TypeId>
+				<xr:ValueId>8f62354d-d652-4a1d-b06c-c6411a783e03</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalList.РасчетыПоЗарплате" category="List">
+				<xr:TypeId>ff10c00d-3d43-459a-9240-4273fc6fbeb1</xr:TypeId>
+				<xr:ValueId>ff0815fe-3fe8-4678-9958-bc1555a02c5c</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalManager.РасчетыПоЗарплате" category="Manager">
+				<xr:TypeId>a03431a6-f750-4a92-9e1a-98611dd89acf</xr:TypeId>
+				<xr:ValueId>a3fc0fd2-5e7a-4f3b-b7ed-ec29efe9266e</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>РасчетыПоЗарплате</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расчеты по зарплате</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment>Журнал расчетов по заработной плате</Comment>
+			<DefaultForm>DocumentJournal.РасчетыПоЗарплате.Form.ФормаСписка</DefaultForm>
+			<AuxiliaryForm/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<RegisteredDocuments>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВыплатаЗарплаты</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.НачислениеЗарплаты</xr:Item>
+			</RegisteredDocuments>
+			<IncludeHelpInContents>true</IncludeHelpInContents>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+		</Properties>
+		<ChildObjects>
+			<Column uuid="81044016-d785-4a52-b073-d9cb200bb402">
+				<Properties>
+					<Name>Операция</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Операция</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Выполняемая документом операция</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.НачислениеЗарплаты.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВыплатаЗарплаты.Attribute.ХозОперация</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="05a3376f-12b5-428c-9383-8fd5a1f60999">
+				<Properties>
+					<Name>Сумма</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Сумма выданных/принятых денежных средств</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.НачислениеЗарплаты.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВыплатаЗарплаты.Attribute.СуммаДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="48127b9d-cb7e-4cea-9ec7-55ab7d3a1d7e">
+				<Properties>
+					<Name>Валюта</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валюта</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Валюта документа</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.НачислениеЗарплаты.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВыплатаЗарплаты.Attribute.ВалютаДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="3690058b-3ac4-4065-ba0c-0e6f67d8c6a5">
+				<Properties>
+					<Name>Курс</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Курс</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Курс валюты документа</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.НачислениеЗарплаты.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВыплатаЗарплаты.Attribute.КурсДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="7dbafd1f-af8f-4950-934f-964835a6a5f7">
+				<Properties>
+					<Name>Касса</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Касса</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Касса компании в которой проходила операция приема/выдачи денежных средств</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВыплатаЗарплаты.Attribute.КассаКомпании</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="9daab510-31cd-405b-be68-f00f36fe7d41">
+				<Properties>
+					<Name>Организация</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Юридическое лицо, от которого выписан документ</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.НачислениеЗарплаты.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВыплатаЗарплаты.Attribute.Организация</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="6dffa142-9326-466b-b0ed-46d95d78c5db">
+				<Properties>
+					<Name>Подразделение</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подразделение</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Подразделение компании в котором был выписан документ</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.НачислениеЗарплаты.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВыплатаЗарплаты.Attribute.ПодразделениеКомпании</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="c54f3690-7df6-4d57-9717-644c518c9e46">
+				<Properties>
+					<Name>Автор</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автор</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Автор документа - пользователь, создавший документ.</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.НачислениеЗарплаты.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВыплатаЗарплаты.Attribute.Автор</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="6b5dfdbd-6317-431f-a70d-2a02637bf1ce">
+				<Properties>
+					<Name>РегламентированныйУчет</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Регламентированный учет</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Флаг отражения документа в регламентированном учете</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.НачислениеЗарплаты.Attribute.РегламентированныйУчет</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВыплатаЗарплаты.Attribute.РегламентированныйУчет</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="a64e65b4-b69a-4ccc-a732-1943c60dd6fe">
+				<Properties>
+					<Name>Комментарий</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий к документу</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Комментарий к документу</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВыплатаЗарплаты.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.НачислениеЗарплаты.Attribute.Комментарий</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="b7c40a90-6f56-4d00-9398-7dc41d6eb169">
+				<Properties>
+					<Name>ДатаСоздания</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата создания</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Дата создания</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВыплатаЗарплаты.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.НачислениеЗарплаты.Attribute.ДатаСоздания</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="7567318a-1778-4e86-99e6-d7c26aa13654">
+				<Properties>
+					<Name>ДатаОперации</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата операции</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Дата операции</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВыплатаЗарплаты.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.НачислениеЗарплаты.Attribute.ДатаОперации</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Form>ФормаСписка</Form>
+		</ChildObjects>
+	</DocumentJournal>
+</MetaDataObject>

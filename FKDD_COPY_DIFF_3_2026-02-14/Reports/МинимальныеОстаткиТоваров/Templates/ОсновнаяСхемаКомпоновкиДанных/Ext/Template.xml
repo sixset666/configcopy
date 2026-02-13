@@ -1,0 +1,756 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказано</dataPath>
+			<field>Заказано</field>
+			<title xsi:type="xs:string">Заказано поставщикам</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">17</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<title xsi:type="xs:string">Количество (в ед. хр.)</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МинимальныйОстаток</dataPath>
+			<field>МинимальныйОстаток</field>
+			<title xsi:type="xs:string">Мин. остаток (в ед. хр.)</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НедостатокПревышение</dataPath>
+			<field>НедостатокПревышение</field>
+			<title xsi:type="xs:string">Нед./прев. (в ед. хр.)</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<title xsi:type="xs:string">Номенклатура</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Номенклатура</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="xs:string">Организация</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+			<title xsi:type="xs:string">Подразделение</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ПодразделенияКомпании</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Резерв</dataPath>
+			<field>Резерв</field>
+			<title xsi:type="xs:string">Резерв. (в ед. хр.)</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СвободныйОстаток</dataPath>
+			<field>СвободныйОстаток</field>
+			<title xsi:type="xs:string">Свободный остаток. (в ед. хр.)</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СкладКомпании</dataPath>
+			<field>СкладКомпании</field>
+			<title xsi:type="xs:string">Склад компании</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СкладыКомпании</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РезервПоПодразделению</dataPath>
+			<field>РезервПоПодразделению</field>
+			<useRestriction>
+				<field>true</field>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СвободныйОстатокПоПодразделению</dataPath>
+			<field>СвободныйОстатокПоПодразделению</field>
+			<useRestriction>
+				<field>true</field>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоПоПодразделению</dataPath>
+			<field>КоличествоПоПодразделению</field>
+			<useRestriction>
+				<field>true</field>
+				<group>true</group>
+			</useRestriction>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ОстаткиНоменклатуры.СкладКомпании КАК СкладКомпании,
+	ОстаткиНоменклатуры.СкладКомпании.Подразделение КАК Подразделение,
+	ОстаткиНоменклатуры.Номенклатура КАК Номенклатура,
+	СУММА(ОстаткиНоменклатуры.КоличествоОстаток) КАК КоличествоОстаток,
+	СУММА(ОстаткиНоменклатуры.РезервОстаток) КАК РезервОстаток
+ПОМЕСТИТЬ ОстаткиНоменклатуры
+ИЗ
+	РегистрНакопления.ОстаткиТоваровКомпании.Остатки(&amp;ДатаОкончанияГраница, {(СкладКомпании.Подразделение.Организация).* КАК Организация, (СкладКомпании.Подразделение).* КАК Подразделение, (Номенклатура).* КАК Номенклатура}) КАК ОстаткиНоменклатуры
+
+СГРУППИРОВАТЬ ПО
+	ОстаткиНоменклатуры.СкладКомпании,
+	ОстаткиНоменклатуры.Номенклатура,
+	ОстаткиНоменклатуры.СкладКомпании.Подразделение
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура,
+	Подразделение
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПодразделенияКомпании.Ссылка КАК Подразделение
+ПОМЕСТИТЬ ТаблицаПодразделений
+ИЗ
+	Справочник.ПодразделенияКомпании КАК ПодразделенияКомпании
+		{ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.СкладыКомпании КАК СкладыКомпании
+		ПО ПодразделенияКомпании.Ссылка = СкладыКомпании.Подразделение}
+ГДЕ
+	ПодразделенияКомпании.ПометкаУдаления = ЛОЖЬ
+	И (&amp;ЕстьОтборПоПодразделению
+			ИЛИ &amp;ЕстьПодразделение
+			ИЛИ ПодразделенияКомпании.Ссылка = ЗНАЧЕНИЕ(Справочник.ПодразделенияКомпании.ОсновноеПодразделение))
+{ГДЕ
+	ПодразделенияКомпании.Ссылка.* КАК Подразделение,
+	СкладыКомпании.Ссылка.* КАК СкладКомпании}
+
+СГРУППИРОВАТЬ ПО
+	ПодразделенияКомпании.Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МинимальныеОстаткиПоКомпании.Номенклатура КАК Номенклатура,
+	ЕСТЬNULL(ТаблицаПодразделений.Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияКомпании.ОсновноеПодразделение)) КАК Подразделение,
+	МинимальныеОстаткиПоКомпании.ЗначениеРеквизита КАК МинимальныйОстаток
+ПОМЕСТИТЬ МинимальныеОстаткиПоКомпании
+ИЗ
+	РегистрСведений.ДополнительныеРеквизитыНоменклатуры.СрезПоследних(
+			&amp;ДатаОкончания,
+			ДополнительныйРеквизит = ЗНАЧЕНИЕ(Перечисление.ДополнительныеРеквизитыНоменклатуры.МинимальныйОстаток)
+				И ПодразделениеКомпании = ЗНАЧЕНИЕ(Справочник.ПодразделенияКомпании.ОсновноеПодразделение) {(Номенклатура).* КАК Номенклатура}) КАК МинимальныеОстаткиПоКомпании
+		ЛЕВОЕ СОЕДИНЕНИЕ ТаблицаПодразделений КАК ТаблицаПодразделений
+		ПО (ИСТИНА)
+
+ИНДЕКСИРОВАТЬ ПО
+	МинимальныеОстаткиПоКомпании.Номенклатура,
+	Подразделение
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЕСТЬNULL(МинимальныеОстаткиПоПодразделениям.Номенклатура, МинимальныеОстаткиПоКомпании.Номенклатура) КАК Номенклатура,
+	ЕСТЬNULL(МинимальныеОстаткиПоПодразделениям.ПодразделениеКомпании, МинимальныеОстаткиПоКомпании.Подразделение) КАК Подразделение,
+	МИНИМУМ(ЕСТЬNULL(МинимальныеОстаткиПоПодразделениям.ЗначениеРеквизита, МинимальныеОстаткиПоКомпании.МинимальныйОстаток)) КАК МинимальныйОстаток,
+	МИНИМУМ(ЕСТЬNULL(ОстаткиЗаказыПоставщикам.ЗаказаноОстаток, 0)) КАК Заказано,
+	МИНИМУМ(ЕСТЬNULL(ОстаткиЗаказыРаспределение.КоличествоОстаток, 0)) КАК Распределено,
+	СУММА(ЕСТЬNULL(ОстаткиНоменклатуры.КоличествоОстаток, 0)) КАК КоличествоОстаток,
+	СУММА(ЕСТЬNULL(ОстаткиНоменклатуры.РезервОстаток, 0)) КАК РезервОстаток
+ПОМЕСТИТЬ МинимальныеОстаткиПоПодразделениям
+ИЗ
+	РегистрСведений.ДополнительныеРеквизитыНоменклатуры.СрезПоследних(
+			&amp;ДатаОкончания,
+			ДополнительныйРеквизит = ЗНАЧЕНИЕ(Перечисление.ДополнительныеРеквизитыНоменклатуры.МинимальныйОстаток)
+				И ВЫБОР
+					КОГДА &amp;ЕстьОтборПоПодразделениюИлиСкладу = ИСТИНА
+						ТОГДА ПодразделениеКомпании &lt;&gt; ЗНАЧЕНИЕ(Справочник.ПодразделенияКомпании.ОсновноеПодразделение)
+					ИНАЧЕ ПодразделениеКомпании В
+							(ВЫБРАТЬ
+								ТаблицаПодразделений.Подразделение
+							ИЗ
+								ТаблицаПодразделений)
+				КОНЕЦ {(ПодразделениеКомпании.Организация).* КАК Организация, (ПодразделениеКомпании).* КАК Подразделение, (Номенклатура).* КАК Номенклатура}) КАК МинимальныеОстаткиПоПодразделениям
+		ПОЛНОЕ СОЕДИНЕНИЕ МинимальныеОстаткиПоКомпании КАК МинимальныеОстаткиПоКомпании
+		ПО МинимальныеОстаткиПоПодразделениям.ПодразделениеКомпании = МинимальныеОстаткиПоКомпании.Подразделение
+			И МинимальныеОстаткиПоПодразделениям.Номенклатура = МинимальныеОстаткиПоКомпании.Номенклатура
+		ЛЕВОЕ СОЕДИНЕНИЕ ОстаткиНоменклатуры КАК ОстаткиНоменклатуры
+		ПО (ЕСТЬNULL(МинимальныеОстаткиПоПодразделениям.Номенклатура, МинимальныеОстаткиПоКомпании.Номенклатура) = ОстаткиНоменклатуры.Номенклатура)
+			И (ЕСТЬNULL(МинимальныеОстаткиПоПодразделениям.ПодразделениеКомпании, МинимальныеОстаткиПоКомпании.Подразделение) = ОстаткиНоменклатуры.Подразделение)
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ЗаказыПоставщикамОстатки.Номенклатура КАК Номенклатура,
+			ЗаказыПоставщикамОстатки.ЗаказПоставщику.ПодразделениеКомпании КАК ЗаказПоставщикуПодразделениеКомпании,
+			СУММА(ЗаказыПоставщикамОстатки.ЗаказаноОстаток) КАК ЗаказаноОстаток,
+			СУММА(ЗаказыПоставщикамОстатки.СуммаОстаток) КАК СуммаОстаток,
+			СУММА(ЗаказыПоставщикамОстатки.СуммаУпрОстаток) КАК СуммаУпрОстаток
+		ИЗ
+			РегистрНакопления.ЗаказыПоставщикам.Остатки(&amp;ДатаОкончанияГраница, {(Номенклатура).* КАК Номенклатура}) КАК ЗаказыПоставщикамОстатки
+		
+		СГРУППИРОВАТЬ ПО
+			ЗаказыПоставщикамОстатки.ЗаказПоставщику.ПодразделениеКомпании,
+			ЗаказыПоставщикамОстатки.Номенклатура) КАК ОстаткиЗаказыПоставщикам
+		ПО (ЕСТЬNULL(МинимальныеОстаткиПоПодразделениям.Номенклатура, МинимальныеОстаткиПоКомпании.Номенклатура) = ОстаткиЗаказыПоставщикам.Номенклатура)
+			И (ЕСТЬNULL(МинимальныеОстаткиПоПодразделениям.ПодразделениеКомпании, МинимальныеОстаткиПоКомпании.Подразделение) = ОстаткиЗаказыПоставщикам.ЗаказПоставщикуПодразделениеКомпании)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ЗаказыРаспределение.Остатки(&amp;ДатаОкончанияГраница, {(Номенклатура).* КАК Номенклатура}) КАК ОстаткиЗаказыРаспределение
+		ПО (ЕСТЬNULL(МинимальныеОстаткиПоПодразделениям.Номенклатура, МинимальныеОстаткиПоКомпании.Номенклатура) = ОстаткиЗаказыРаспределение.Номенклатура)
+
+СГРУППИРОВАТЬ ПО
+	ЕСТЬNULL(МинимальныеОстаткиПоПодразделениям.Номенклатура, МинимальныеОстаткиПоКомпании.Номенклатура),
+	ЕСТЬNULL(МинимальныеОстаткиПоПодразделениям.ПодразделениеКомпании, МинимальныеОстаткиПоКомпании.Подразделение)
+
+ИМЕЮЩИЕ
+	(&amp;ОтображениеМинимума = 0
+		ИЛИ &amp;ОтображениеМинимума = 1
+			И СУММА(ЕСТЬNULL(ОстаткиНоменклатуры.КоличествоОстаток, -1)) &lt; МИНИМУМ(ЕСТЬNULL(МинимальныеОстаткиПоПодразделениям.ЗначениеРеквизита, МинимальныеОстаткиПоКомпании.МинимальныйОстаток))
+		ИЛИ &amp;ОтображениеМинимума = 2
+			И СУММА(ЕСТЬNULL(ОстаткиНоменклатуры.КоличествоОстаток, 0)) &gt;= МИНИМУМ(ЕСТЬNULL(МинимальныеОстаткиПоПодразделениям.ЗначениеРеквизита, МинимальныеОстаткиПоКомпании.МинимальныйОстаток)))
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура,
+	Подразделение
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	МинимальныеОстаткиНоменклатуры.Номенклатура КАК Номенклатура,
+	МинимальныеОстаткиНоменклатуры.Подразделение КАК Подразделение,
+	МинимальныеОстаткиНоменклатуры.Подразделение.Организация КАК Организация,
+	ЕСТЬNULL(ОстаткиНоменклатуры.СкладКомпании, ЗНАЧЕНИЕ(Справочник.СкладыКомпании.ПустаяСсылка)) КАК СкладКомпании,
+	МинимальныеОстаткиНоменклатуры.Номенклатура.ЭтоГруппа КАК НоменклатураЭтоГруппа,
+	ЕСТЬNULL(ОстаткиНоменклатуры.КоличествоОстаток, 0) КАК Количество,
+	МинимальныеОстаткиНоменклатуры.КоличествоОстаток КАК КоличествоПоПодразделению,
+	МинимальныеОстаткиНоменклатуры.РезервОстаток КАК РезервПоПодразделению,
+	МинимальныеОстаткиНоменклатуры.КоличествоОстаток - МинимальныеОстаткиНоменклатуры.РезервОстаток КАК СвободныйОстатокПоПодразделению,
+	ЕСТЬNULL(ОстаткиНоменклатуры.РезервОстаток, 0) КАК Резерв,
+	ЕСТЬNULL(ОстаткиНоменклатуры.КоличествоОстаток, 0) - ЕСТЬNULL(ОстаткиНоменклатуры.РезервОстаток, 0) КАК СвободныйОстаток,
+	МинимальныеОстаткиНоменклатуры.Заказано КАК Заказано,
+	МинимальныеОстаткиНоменклатуры.Распределено КАК Распределено,
+	МинимальныеОстаткиНоменклатуры.МинимальныйОстаток КАК МинимальныйОстаток,
+	0 КАК НедостатокПревышение
+{ВЫБРАТЬ
+	Номенклатура.* КАК Номенклатура,
+	Подразделение.* КАК Подразделение,
+	СкладКомпании.* КАК СкладКомпании,
+	Организация.* КАК Организация,
+	Количество КАК Количество,
+	Резерв КАК Резерв,
+	СвободныйОстаток КАК СвободныйОстаток,
+	МинимальныйОстаток КАК МинимальныйОстаток,
+	НедостатокПревышение КАК НедостатокПревышение,
+	Заказано КАК Заказано,
+	Количество КАК Количество,
+	РезервПоПодразделению КАК РезервПоПодразделению,
+	СвободныйОстатокПоПодразделению КАК СвободныйОстатокПоПодразделению,
+	КоличествоПоПодразделению КАК КоличествоПоПодразделению}
+ИЗ
+	МинимальныеОстаткиПоПодразделениям КАК МинимальныеОстаткиНоменклатуры
+		ЛЕВОЕ СОЕДИНЕНИЕ ОстаткиНоменклатуры КАК ОстаткиНоменклатуры
+		ПО (&amp;ЕстьПодразделение = ЛОЖЬ
+				ИЛИ МинимальныеОстаткиНоменклатуры.Подразделение = ОстаткиНоменклатуры.Подразделение)
+			И МинимальныеОстаткиНоменклатуры.Номенклатура = ОстаткиНоменклатуры.Номенклатура
+{ГДЕ
+	МинимальныеОстаткиНоменклатуры.Подразделение.* КАК Подразделение,
+	МинимальныеОстаткиНоменклатуры.Номенклатура.* КАК Номенклатура,
+	МинимальныеОстаткиНоменклатуры.Подразделение.Организация.* КАК Организация,
+	(ЕСТЬNULL(ОстаткиНоменклатуры.СкладКомпании, ЗНАЧЕНИЕ(Справочник.СкладыКомпании.ПустаяСсылка))).* КАК СкладКомпании}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>МАКСИМУМ(КоличествоПоПодразделению)</expression>
+		<group>Номенклатура</group>
+		<group>Подразделение</group>
+	</totalField>
+	<totalField>
+		<dataPath>МинимальныйОстаток</dataPath>
+		<expression>МАКСИМУМ(МинимальныйОстаток)</expression>
+		<group>Номенклатура</group>
+		<group>Подразделение</group>
+	</totalField>
+	<totalField>
+		<dataPath>НедостатокПревышение</dataPath>
+		<expression>СУММА(Количество) - МАКСИМУМ(МинимальныйОстаток)</expression>
+		<group>Номенклатура</group>
+		<group>Подразделение</group>
+	</totalField>
+	<totalField>
+		<dataPath>Резерв</dataPath>
+		<expression>МАКСИМУМ(РезервПоПодразделению)</expression>
+		<group>Номенклатура</group>
+		<group>Подразделение</group>
+	</totalField>
+	<totalField>
+		<dataPath>СвободныйОстаток</dataPath>
+		<expression>МАКСИМУМ(СвободныйОстатокПоПодразделению)</expression>
+		<group>Номенклатура</group>
+		<group>Подразделение</group>
+	</totalField>
+	<totalField>
+		<dataPath>Заказано</dataPath>
+		<expression>Сумма(Заказано)</expression>
+		<group>Номенклатура</group>
+	</totalField>
+	<totalField>
+		<dataPath>МинимальныйОстаток</dataPath>
+		<expression>0</expression>
+		<group>Номенклатура Иерархия</group>
+		<group>Организация</group>
+		<group>Подразделение Иерархия</group>
+		<group>СкладКомпании</group>
+		<group>СкладКомпании Иерархия</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>НедостатокПревышение</dataPath>
+		<expression>0</expression>
+		<group>Номенклатура Иерархия</group>
+		<group>Организация</group>
+		<group>Подразделение Иерархия</group>
+		<group>СкладКомпании</group>
+		<group>СкладКомпании Иерархия</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>Резерв</dataPath>
+		<expression>Сумма(Резерв)</expression>
+		<group>Номенклатура Иерархия</group>
+		<group>Организация</group>
+		<group>Подразделение Иерархия</group>
+		<group>СкладКомпании Иерархия</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>СвободныйОстаток</dataPath>
+		<expression>СУММА(СвободныйОстаток)</expression>
+		<group>Номенклатура Иерархия</group>
+		<group>Организация</group>
+		<group>Подразделение Иерархия</group>
+		<group>СвободныйОстатокПоПодразделению</group>
+		<group>СкладКомпании Иерархия</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>СвободныйОстаток</dataPath>
+		<expression>СУММА(СвободныйОстаток)</expression>
+		<group>СкладКомпании</group>
+	</totalField>
+	<totalField>
+		<dataPath>Резерв</dataPath>
+		<expression>Сумма(Резерв)</expression>
+		<group>СкладКомпании</group>
+	</totalField>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+		<group>СкладКомпании</group>
+	</totalField>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+		<group>Номенклатура Иерархия</group>
+		<group>Организация</group>
+		<group>Подразделение Иерархия</group>
+		<group>СкладКомпании Иерархия</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>Заказано</dataPath>
+		<expression>0</expression>
+		<group>Номенклатура Иерархия</group>
+		<group>Организация</group>
+		<group>Подразделение</group>
+		<group>Подразделение Иерархия</group>
+		<group>СкладКомпании</group>
+		<group>СкладКомпании Иерархия</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончанияГраница</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания граница</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ОтображениеМинимума</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отбор по результату</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>1</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+		<availableValue>
+			<value xsi:type="xs:decimal">0</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выводить все</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:decimal">1</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Недостаток</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:decimal">2</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Превышение</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ЕстьОтборПоПодразделению</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Есть отбор по подразделению</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ЕстьОтборПоПодразделениюИлиСкладу</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Есть отбор по подразделению или складу</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ЕстьПодразделение</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Есть подразделение</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МинимальныйОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НедостатокПревышение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Резерв</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СвободныйОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Заказано</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СкладКомпании</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура.Производитель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ОтображениеМинимума</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Подразделение</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Подразделение.Наименование</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Номенклатура</dcsset:field>
+								<dcsset:groupType>Hierarchy</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							<dcsset:item xsi:type="dcsset:OrderItemField">
+								<dcsset:field>Номенклатура.Наименование</dcsset:field>
+								<dcsset:orderType>Asc</dcsset:orderType>
+							</dcsset:item>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Номенклатура.Артикул</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Номенклатура.Производитель</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

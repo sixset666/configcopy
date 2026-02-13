@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд</dataPath>
+			<field>ЗаказНаряд</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ наряд</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПоследнегоДокумента</dataPath>
+			<field>ДатаПоследнегоДокумента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата последнего документа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидЗначения</dataPath>
+			<field>ВидЗначения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Телефон</dataPath>
+			<field>Телефон</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Телефон</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РеализацияАвтомобиля</dataPath>
+			<field>РеализацияАвтомобиля</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реализация автомобиля</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодВыпуска</dataPath>
+			<field>ГодВыпуска</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	АвтомобилиСрезПоследних.Автомобиль КАК Автомобиль,
+	АвтомобилиСрезПоследних.Значение КАК Значение
+ПОМЕСТИТЬ втВладельцы
+ИЗ
+	РегистрСведений.Автомобили.СрезПоследних КАК АвтомобилиСрезПоследних
+ГДЕ
+	АвтомобилиСрезПоследних.ВидЗначения = &amp;Хозяин
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МАКСИМУМ(ЗаказНаряд.Дата) КАК Дата,
+	ЗаказНаряд.Автомобиль КАК Автомобиль
+ПОМЕСТИТЬ втЗН
+ИЗ
+	Документ.ЗаказНаряд КАК ЗаказНаряд
+ГДЕ
+	ЗаказНаряд.Автомобиль &lt;&gt; &amp;Автомобиль
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНаряд.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗаказНаряд.Ссылка КАК Ссылка,
+	ЗаказНаряд.Дата КАК Дата,
+	ЗаказНаряд.Автомобиль КАК Автомобиль
+ПОМЕСТИТЬ внЗаказНаряды
+ИЗ
+	Документ.ЗаказНаряд КАК ЗаказНаряд
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РеализацияАвтомобилейАвтомобили.Автомобиль КАК Автомобиль,
+	МИНИМУМ(РеализацияАвтомобилейАвтомобили.Ссылка.Дата) КАК Дата
+ПОМЕСТИТЬ втРеализацияАвтомобиляДата
+ИЗ
+	Документ.РеализацияАвтомобилей.Автомобили КАК РеализацияАвтомобилейАвтомобили
+
+СГРУППИРОВАТЬ ПО
+	РеализацияАвтомобилейАвтомобили.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РеализацияАвтомобилейАвтомобили.Ссылка КАК Ссылка,
+	РеализацияАвтомобилейАвтомобили.Автомобиль КАК Автомобиль
+ПОМЕСТИТЬ втРеализацияАвтомобиля
+ИЗ
+	Документ.РеализацияАвтомобилей.Автомобили КАК РеализацияАвтомобилейАвтомобили
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Автомобили.Ссылка КАК Автомобиль,
+	Автомобили.Модель КАК Модель,
+	Автомобили.ГодВыпуска КАК ГодВыпуска,
+	втВладельцы.Значение КАК Контрагент,
+	втЗН.Дата КАК ДатаПоследнегоДокумента,
+	втРеализацияАвтомобиляДата.Дата КАК ДатаПоследнегоДокументаРеализация
+ПОМЕСТИТЬ втСводно
+ИЗ
+	Справочник.Автомобили КАК Автомобили
+		ЛЕВОЕ СОЕДИНЕНИЕ втВладельцы КАК втВладельцы
+		ПО Автомобили.Ссылка = втВладельцы.Автомобиль
+		ЛЕВОЕ СОЕДИНЕНИЕ втЗН КАК втЗН
+		ПО Автомобили.Ссылка = втЗН.Автомобиль
+		ЛЕВОЕ СОЕДИНЕНИЕ втРеализацияАвтомобиляДата КАК втРеализацияАвтомобиляДата
+		ПО Автомобили.Ссылка = втРеализацияАвтомобиляДата.Автомобиль
+ГДЕ
+	Автомобили.Модель.Родитель.Код = "ЦБ00000146"
+	И Автомобили.ГодВыпуска МЕЖДУ &amp;ГодВыпускаНач И &amp;ГодВыпускаКон
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втСводно.Контрагент КАК Контрагент,
+	втСводно.Контрагент.ОсновнойТелефон КАК Телефон,
+	втСводно.Автомобиль КАК Автомобиль,
+	втСводно.Модель КАК Модель,
+	втСводно.ГодВыпуска КАК ГодВыпуска,
+	втСводно.ДатаПоследнегоДокумента КАК ДатаПоследнегоДокумента,
+	внЗаказНаряды.Ссылка КАК ЗаказНаряд,
+	втРеализацияАвтомобиля.Ссылка КАК РеализацияАвтомобиля
+ИЗ
+	втСводно КАК втСводно
+		ЛЕВОЕ СОЕДИНЕНИЕ внЗаказНаряды КАК внЗаказНаряды
+		ПО втСводно.Автомобиль = внЗаказНаряды.Автомобиль
+			И втСводно.ДатаПоследнегоДокумента = внЗаказНаряды.Дата
+		ЛЕВОЕ СОЕДИНЕНИЕ втРеализацияАвтомобиля КАК втРеализацияАвтомобиля
+		ПО втСводно.Автомобиль = втРеализацияАвтомобиля.Автомобиль
+			И втСводно.ДатаПоследнегоДокументаРеализация = втРеализацияАвтомобиля.Ссылка.Дата</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Автомобиль</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Автомобиль</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Автомобили</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ГодВыпускаКон</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Год выпуска кон</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">2021-12-31T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ГодВыпускаНач</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Год выпуска нач</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">2000-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Хозяин</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Хозяин</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ДополнительнаяИнформацияАвтомобилей</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ДополнительнаяИнформацияАвтомобилей.Хозяин</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Телефон</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автомобиль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Модель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГодВыпуска</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПоследнегоДокумента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказНаряд</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РеализацияАвтомобиля</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автомобиль</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Автомобиль</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>121c4dee-3349-49a1-8f06-3089bf48af9d</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Contains</dcsset:comparisonType>
+					<dcsset:userSettingID>b7ef2f34-caf9-470c-84b1-a91a13e384dc</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ГодВыпуска</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

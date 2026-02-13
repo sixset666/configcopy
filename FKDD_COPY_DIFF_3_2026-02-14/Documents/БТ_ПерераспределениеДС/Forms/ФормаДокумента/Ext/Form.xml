@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="66">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="67"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<InputField name="ПредставлениеПериода" id="90">
+					<DataPath>ПредставлениеПериода</DataPath>
+					<SpinButton>true</SpinButton>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ПредставлениеПериодаКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="ПредставлениеПериодаРасширеннаяПодсказка" id="92"/>
+					<Events>
+						<Event name="Tuning">ПредставлениеПериодаРегулирование</Event>
+					</Events>
+				</InputField>
+				<Button name="ЗаполнитьТаблицы" id="73">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ЗаполнитьТаблицы</CommandName>
+					<ExtendedTooltip name="ЗаполнитьТаблицыРасширеннаяПодсказка" id="74"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="68">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполните кому не хватает бюджета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="69"/>
+			<ChildItems>
+				<Table name="Реципиент" id="41">
+					<Representation>List</Representation>
+					<TitleLocation>Auto</TitleLocation>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реципиент</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заполните у кого не хватает бюджета</v8:content>
+						</v8:item>
+					</ToolTip>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="РеципиентКонтекстноеМеню" id="42"/>
+					<AutoCommandBar name="РеципиентКоманднаяПанель" id="43"/>
+					<ExtendedTooltip name="РеципиентРасширеннаяПодсказка" id="44"/>
+					<SearchStringAddition name="РеципиентСтрокаПоиска" id="45">
+						<AdditionSource>
+							<Item>Реципиент</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="РеципиентСтрокаПоискаКонтекстноеМеню" id="46"/>
+						<ExtendedTooltip name="РеципиентСтрокаПоискаРасширеннаяПодсказка" id="47"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="РеципиентСостояниеПросмотра" id="48">
+						<AdditionSource>
+							<Item>Реципиент</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="РеципиентСостояниеПросмотраКонтекстноеМеню" id="49"/>
+						<ExtendedTooltip name="РеципиентСостояниеПросмотраРасширеннаяПодсказка" id="50"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="РеципиентУправлениеПоиском" id="51">
+						<AdditionSource>
+							<Item>Реципиент</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="РеципиентУправлениеПоискомКонтекстноеМеню" id="52"/>
+						<ExtendedTooltip name="РеципиентУправлениеПоискомРасширеннаяПодсказка" id="53"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="РеципиентНомерСтроки" id="54">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РеципиентНомерСтрокиКонтекстноеМеню" id="55"/>
+							<ExtendedTooltip name="РеципиентНомерСтрокиРасширеннаяПодсказка" id="56"/>
+						</LabelField>
+						<InputField name="РеципиентОрганизация" id="81">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РеципиентОрганизацияКонтекстноеМеню" id="82"/>
+							<ExtendedTooltip name="РеципиентОрганизацияРасширеннаяПодсказка" id="83"/>
+						</InputField>
+						<InputField name="РеципиентПодразделение" id="84">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РеципиентПодразделениеКонтекстноеМеню" id="85"/>
+							<ExtendedTooltip name="РеципиентПодразделениеРасширеннаяПодсказка" id="86"/>
+						</InputField>
+						<InputField name="РеципиентСценарий" id="57">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РеципиентСценарийКонтекстноеМеню" id="58"/>
+							<ExtendedTooltip name="РеципиентСценарийРасширеннаяПодсказка" id="59"/>
+						</InputField>
+						<InputField name="РеципиентСтатьяДДС" id="60">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РеципиентСтатьяДДСКонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="РеципиентСтатьяДДСРасширеннаяПодсказка" id="62"/>
+						</InputField>
+						<InputField name="РеципиентСумма" id="63">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РеципиентСуммаКонтекстноеМеню" id="64"/>
+							<ExtendedTooltip name="РеципиентСуммаРасширеннаяПодсказка" id="65"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<Table name="Донор" id="14">
+					<Representation>List</Representation>
+					<TitleLocation>Auto</TitleLocation>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Донор</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Здесь заполните у кого забрать</v8:content>
+						</v8:item>
+					</ToolTip>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ДонорКонтекстноеМеню" id="15"/>
+					<AutoCommandBar name="ДонорКоманднаяПанель" id="16"/>
+					<ExtendedTooltip name="ДонорРасширеннаяПодсказка" id="17"/>
+					<SearchStringAddition name="ДонорСтрокаПоиска" id="18">
+						<AdditionSource>
+							<Item>Донор</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДонорСтрокаПоискаКонтекстноеМеню" id="19"/>
+						<ExtendedTooltip name="ДонорСтрокаПоискаРасширеннаяПодсказка" id="20"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ДонорСостояниеПросмотра" id="21">
+						<AdditionSource>
+							<Item>Донор</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДонорСостояниеПросмотраКонтекстноеМеню" id="22"/>
+						<ExtendedTooltip name="ДонорСостояниеПросмотраРасширеннаяПодсказка" id="23"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ДонорУправлениеПоиском" id="24">
+						<AdditionSource>
+							<Item>Донор</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ДонорУправлениеПоискомКонтекстноеМеню" id="25"/>
+						<ExtendedTooltip name="ДонорУправлениеПоискомРасширеннаяПодсказка" id="26"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="2391e7b8-7235-45d7-ab7e-6ff3dc086396">ДонорПередНачаломДобавления</Event>
+						<Event name="ab930362-ff94-4dcb-ad16-188805d23e3c">ДонорПередНачаломИзменения</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="ДонорНомерСтроки" id="27">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДонорНомерСтрокиКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="ДонорНомерСтрокиРасширеннаяПодсказка" id="29"/>
+						</LabelField>
+						<InputField name="ДонорОрганизация" id="75">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДонорОрганизацияКонтекстноеМеню" id="76"/>
+							<ExtendedTooltip name="ДонорОрганизацияРасширеннаяПодсказка" id="77"/>
+						</InputField>
+						<InputField name="ДонорПодразделение" id="78">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДонорПодразделениеКонтекстноеМеню" id="79"/>
+							<ExtendedTooltip name="ДонорПодразделениеРасширеннаяПодсказка" id="80"/>
+						</InputField>
+						<InputField name="ДонорСценарий" id="30">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДонорСценарийКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="ДонорСценарийРасширеннаяПодсказка" id="32"/>
+						</InputField>
+						<InputField name="ДонорСтатьяДДС" id="33">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДонорСтатьяДДСКонтекстноеМеню" id="34"/>
+							<ExtendedTooltip name="ДонорСтатьяДДСРасширеннаяПодсказка" id="35"/>
+						</InputField>
+						<InputField name="ДонорСумма" id="36">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДонорСуммаКонтекстноеМеню" id="37"/>
+							<ExtendedTooltip name="ДонорСуммаРасширеннаяПодсказка" id="38"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="11"/>
+			<ChildItems>
+				<Page name="ГруппаДонор" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Донор</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаДонорРасширеннаяПодсказка" id="13"/>
+				</Page>
+				<Page name="ГруппаРеципиент" id="39">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реципиент</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаРеципиентРасширеннаяПодсказка" id="40"/>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.БТ_ПерераспределениеДС</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ПредставлениеПериода" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление периода</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьТаблицы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить таблицы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить таблицы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьТаблицы</Action>
+		</Command>
+	</Commands>
+</Form>

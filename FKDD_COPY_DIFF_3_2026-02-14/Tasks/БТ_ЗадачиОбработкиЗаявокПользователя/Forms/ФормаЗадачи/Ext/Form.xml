@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Задача Обработки заявок Пользователя</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Реквизиты" id="82">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Requisites</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Requisites</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="РеквизитыРасширеннаяПодсказка" id="83"/>
+			<ChildItems>
+				<UsualGroup name="Группа2" id="70">
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="71"/>
+					<ChildItems>
+						<InputField name="Номер" id="1">
+							<DataPath>Объект.Number</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="40"/>
+						</InputField>
+						<InputField name="Дата" id="5">
+							<DataPath>Объект.Date</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДатаКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="42"/>
+						</InputField>
+						<InputField name="ДатаВыполнения" id="15">
+							<DataPath>Объект.ДатаВыполнения</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДатаВыполненияКонтекстноеМеню" id="16"/>
+							<ExtendedTooltip name="ДатаВыполненияРасширеннаяПодсказка" id="47"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа3" id="72">
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="73"/>
+					<ChildItems>
+						<InputField name="ТочкаМаршрута" id="9">
+							<DataPath>Объект.RoutePoint</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТочкаМаршрутаКонтекстноеМеню" id="10"/>
+							<ExtendedTooltip name="ТочкаМаршрутаРасширеннаяПодсказка" id="44"/>
+						</InputField>
+						<InputField name="Роль" id="25">
+							<DataPath>Объект.Роль</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РольКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="РольРасширеннаяПодсказка" id="52"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа5" id="76">
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="77"/>
+					<ChildItems>
+						<InputField name="БизнесПроцесс" id="7">
+							<DataPath>Объект.BusinessProcess</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="БизнесПроцессКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="БизнесПроцессРасширеннаяПодсказка" id="43"/>
+						</InputField>
+						<InputField name="Пользователь" id="23">
+							<DataPath>Объект.Пользователь</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПользовательКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="51"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа1" id="80">
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>StrongSeparation</Representation>
+					<ChildItemsWidth>LeftWidest</ChildItemsWidth>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="81"/>
+					<ChildItems>
+						<CheckBoxField name="Выполнена" id="38">
+							<DataPath>Объект.Executed</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ВыполненаКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ВыполненаРасширеннаяПодсказка" id="53"/>
+						</CheckBoxField>
+						<CheckBoxField name="Отменена" id="13">
+							<DataPath>Объект.Отменена</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтмененаКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ОтмененаРасширеннаяПодсказка" id="46"/>
+						</CheckBoxField>
+						<CheckBoxField name="ОтправленаНаДоработку" id="84">
+							<DataPath>Объект.ОтправленаНаДоработку</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтправленаНаДоработкуКонтекстноеМеню" id="85"/>
+							<ExtendedTooltip name="ОтправленаНаДоработкуРасширеннаяПодсказка" id="86"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Прочие" id="68">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочие реквизиты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Others requisites</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочие</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Others</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Collapsible</Behavior>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ПрочиеРасширеннаяПодсказка" id="69"/>
+			<ChildItems>
+				<InputField name="Наименование" id="3">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="41"/>
+				</InputField>
+				<InputField name="ВидЗаявки" id="21">
+					<DataPath>Объект.ВидЗаявки</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид заявки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Application type</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВидЗаявкиКонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="ВидЗаявкиРасширеннаяПодсказка" id="50"/>
+				</InputField>
+				<UsualGroup name="Группа6" id="78">
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="79"/>
+					<ChildItems>
+						<CheckBoxField name="Распечатана" id="19">
+							<DataPath>Объект.Распечатана</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РаспечатанаКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="РаспечатанаРасширеннаяПодсказка" id="49"/>
+						</CheckBoxField>
+						<CheckBoxField name="Спотыкалка" id="17">
+							<DataPath>Объект.Спотыкалка</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="СпотыкалкаКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="СпотыкалкаРасширеннаяПодсказка" id="48"/>
+						</CheckBoxField>
+						<CheckBoxField name="ПереданоЗаместителю" id="11">
+							<DataPath>Объект.ПереданоЗаместителю</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПереданоЗаместителюКонтекстноеМеню" id="12"/>
+							<ExtendedTooltip name="ПереданоЗаместителюРасширеннаяПодсказка" id="45"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:TaskObject.БТ_ЗадачиОбработкиЗаявокПользователя</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПолученныеДанныеСтруктура" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полученные данные структура</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Obtained data structure</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+</Form>

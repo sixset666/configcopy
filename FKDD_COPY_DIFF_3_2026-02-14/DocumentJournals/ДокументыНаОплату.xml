@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<DocumentJournal uuid="2739fae5-67ea-4587-bee9-469c4850d9d1">
+		<InternalInfo>
+			<xr:GeneratedType name="DocumentJournalSelection.ДокументыНаОплату" category="Selection">
+				<xr:TypeId>28e83bdd-0d2d-484b-9a74-f7e1faa841cf</xr:TypeId>
+				<xr:ValueId>c4854837-a926-438c-ba51-da80aef116f7</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalList.ДокументыНаОплату" category="List">
+				<xr:TypeId>9ca2444e-6563-4abb-ae5f-f339cfc28e2e</xr:TypeId>
+				<xr:ValueId>9099681c-3256-4c40-a94f-6a5729b5aa83</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalManager.ДокументыНаОплату" category="Manager">
+				<xr:TypeId>6ed4e5f3-179b-4184-b7d1-49971c7de022</xr:TypeId>
+				<xr:ValueId>c21bb2a7-1c9b-47c8-bc9f-30e26c2eff79</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ДокументыНаОплату</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документы на оплату</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment>Журнал приходных и расходных кассовых ордеров</Comment>
+			<DefaultForm>DocumentJournal.ДокументыНаОплату.Form.ФормаСписка</DefaultForm>
+			<AuxiliaryForm/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<RegisteredDocuments>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка</xr:Item>
+			</RegisteredDocuments>
+			<IncludeHelpInContents>true</IncludeHelpInContents>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+		</Properties>
+		<ChildObjects>
+			<Column uuid="42b06139-311b-4cc0-9ef5-b05dd01c622a">
+				<Properties>
+					<Name>Операция</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Операция</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Выполняемая документом операция</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.ХозОперация</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="d005ddff-7614-4a28-ad5f-86aa0e8173d6">
+				<Properties>
+					<Name>Касса</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Касса</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Касса компании в которой проходила операция приема/выдачи денежных средств</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.КассаКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.КассаККМ</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.КассаККМ</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.КассаККМ</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="75c4e964-7299-4557-b6c9-40ef6cb42e1e">
+				<Properties>
+					<Name>Контрагент</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Контрагент, которому выдали / у которого приняли, денежные средства</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.Контрагент</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="3c61275f-e366-40da-b6e9-eb3d5d093cb5">
+				<Properties>
+					<Name>Сумма</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Сумма выданных/принятых денежных средств</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.СуммаДокументаПриход</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="3b65fcbc-65ca-4f02-ab05-4b52823c73bb">
+				<Properties>
+					<Name>Валюта</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валюта</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Валюта документа</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.ВалютаДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="15a3752e-daea-45c3-afe7-f060a0822735">
+				<Properties>
+					<Name>Курс</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Курс</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Курс валюты документа</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.КурсДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="596a7e54-6c69-4820-9a45-b5dbe256e707">
+				<Properties>
+					<Name>НомерЧека</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер чека</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Фискальный номер чека пробитого на ФР</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.НомерЧека</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.НомерЧека</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.НомерЧека</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.НомерЧека</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="10325dbc-956d-49e6-b67a-c332ac927623">
+				<Properties>
+					<Name>ДатаФР</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата ФР</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Дата пробития чека на ФР</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.ДатаФР</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.ДатаФР</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.ДатаФР</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.ДатаФР</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="d78a4b5b-726d-45ae-9a7e-e67587684e41">
+				<Properties>
+					<Name>НомерДокумента</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер документа</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Сквозной номер документа ФР</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.НомерДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.НомерДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.НомерДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.НомерДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="bf75f3e3-ea71-471b-82c0-84a395fb1331">
+				<Properties>
+					<Name>НомерСмены</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер смены</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Номер смены ФР</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.НомерСмены</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.НомерСмены</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.НомерСмены</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.НомерСмены</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="f96a4b22-ea46-4b54-b4ba-b50c54fba465">
+				<Properties>
+					<Name>ДляПробитияНаФР</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Для пробития на ФР</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Для пробития на фискальном регистраторе</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.ДляПробитияНаФР</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.ДляПробитияНаФР</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.ДляПробитияНаФР</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.ДляПробитияНаФР</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="1549b88c-5125-4e9f-a05b-36b52ee6177a">
+				<Properties>
+					<Name>Организация</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Юридическое лицо, от которого выписан документ</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.Организация</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="10e76da4-0090-4bb2-8531-1417fbae60d8">
+				<Properties>
+					<Name>Подразделение</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подразделение</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Подразделение компании в котором был выписан документ</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.ПодразделениеКомпании</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="49500faa-2e27-4f46-b1fa-9694cb64ee2f">
+				<Properties>
+					<Name>Договор</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Договор</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Договор по которому ведутся взаиморасчеты с контрагентом</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.ДоговорВзаиморасчетов</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.ДоговорВзаиморасчетов</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.ДоговорВзаиморасчетов</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.ДоговорВзаиморасчетов</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="bc840559-f68c-4227-9f93-aaf8ecff90d9">
+				<Properties>
+					<Name>Сделка</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сделка</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Документ, на основании которого введен кассовый ордер</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.ДокументОснование</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.ДокументОснование</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.ДокументОснование</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.ДокументОснование</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="9b391948-859b-4e2c-a23e-e98365ade6e4">
+				<Properties>
+					<Name>Автор</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автор</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Автор документа - пользователь, создавший документ.</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.Автор</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="a8dcead7-c7f7-414f-9259-760a7224593a">
+				<Properties>
+					<Name>Комментарий</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий к документу</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Комментарий к документу</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.Комментарий</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="5a83f0f6-6258-41e7-9229-bda2f630b542">
+				<Properties>
+					<Name>РегламентированныйУчет</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Регламентированный учет</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Флаг отражения документа в регламентированном учете</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.РегламентированныйУчет</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.РегламентированныйУчет</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.РегламентированныйУчет</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.РегламентированныйУчет</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="73853b70-817c-4918-91b8-9db9108ab9be">
+				<Properties>
+					<Name>ДатаСоздания</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата создания</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Дата создания</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.ДатаСоздания</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="962bd8f2-e3fd-4fae-9f71-98dfd654c384">
+				<Properties>
+					<Name>ДатаОперация</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата операция</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Дата операция</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПриходныйКассовыйОрдер.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЧекНаОплату.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.РасходныйКассовыйОрдер.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Выписка.Attribute.ДатаОперации</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Form>ФормаСписка</Form>
+		</ChildObjects>
+	</DocumentJournal>
+</MetaDataObject>

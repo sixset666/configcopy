@@ -1,0 +1,140 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn:itcauto.ru:CommonAggregateTypes:1.0.0">
+	<import namespace="urn:itcauto.ru:CommonLeafTypes:1.0.0"/>
+	<objectType name="ActType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="Order" type="d3p1:OrderType"/>
+	</objectType>
+	<objectType name="CarSaleType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="Car" type="d3p1:CarType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="Client" type="d3p1:ClientType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="PPPEnterpriseCode" type="d3p1:EnterpriseCodeType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="PPPDate" type="d3p1:DateType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="SaleDate" type="d3p1:DateType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Price" type="d3p1:PriceType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="SaleContractNum" type="d3p1:SaleContractNumType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="SaleContractDate" type="d3p1:DateType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="SaleActNum" type="d3p1:SaleActNumType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="SaleActDate" type="d3p1:DateType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="SaleType" type="d3p1:SaleTypeType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="PSSSCode" type="d3p1:EnterpriseCodeType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="ManagerName" type="d3p1:UserLogin"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="CertificateNum" type="d3p1:CertificateNumType"/>
+	</objectType>
+	<objectType name="CarType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="VINCode" type="d3p1:VINCodeType" nillable="false"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Model" type="d3p1:CarModelType" lowerBound="0" nillable="false"/>
+		<property name="WarrantyNum" lowerBound="0">
+			<typeDef xmlns:d4p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" xsi:type="ValueType" base="d4p1:WarrantyNumberType" variety="Atomic" length="7"/>
+		</property>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="PTSSeries" type="d3p1:PTSSeriesType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="PTSNumber" type="d3p1:PTSNumberType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="EnamelCode" type="d3p1:EnamelCodeType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="EngineModelCode" type="d3p1:EngineModelCodeType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="StateRegNum" type="d3p1:StateRegNumType" lowerBound="0"/>
+	</objectType>
+	<objectType name="CheckResultType"/>
+	<objectType name="ClientType" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Phone" type="d3p1:PhoneType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Email" type="d3p1:EmailType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Address" type="d3p1:AddressType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="INN" type="d3p1:INNType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Name" type="d3p1:NameType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="ClientIndividualPerson" type="d3p1:IndividualPersonType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="ClientJuridicalPerson" type="d3p1:JuridicalPersonType" lowerBound="0"/>
+	</objectType>
+	<objectType name="DefectInOrderType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="Defect" type="d3p1:DefectType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Num" type="d3p1:NumType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Description" type="d3p1:DescriptionType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Commentary" type="d3p1:DescriptionType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="GuaranteeTypeCode" type="d3p1:GuaranteeTypeCodeType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="MainDetail" type="d3p1:DetailType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="DetailInOrder" type="d3p1:DetailInOrderType" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="MaterialInOrder" type="d3p1:MateriaInOrderType" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="WorkInOrder" type="d3p1:WorkInOrderType" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="MechanicName" type="d3p1:NameType" lowerBound="0"/>
+	</objectType>
+	<objectType name="DefectType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="DetailTypeNum" type="d3p1:DetailTypeNumType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="DefectCode" type="d3p1:DefectCodeType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="DefectPlace" type="d3p1:DefectPlaceType"/>
+	</objectType>
+	<objectType name="DetailInOrderType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="Detail" type="d3p1:DetailType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Num" type="d3p1:NumType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="IsInstalled" type="d3p1:FlagType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Quantity" type="d3p1:QuantityIntType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Price" type="d3p1:PriceType"/>
+		<property name="DetailVinCode" lowerBound="0" nillable="true">
+			<typeDef xmlns:d4p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" xsi:type="ValueType" base="d4p1:DetailVINCodeType" variety="Atomic" minLength="10" maxLength="20"/>
+		</property>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="ProductionDate" type="d3p1:DateType" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Commentary" type="d3p1:DescriptionType" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="DetailType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="DetailTypeNum" type="d3p1:DetailTypeNumType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="DetailBaseModel" type="d3p1:DetailBaseModelType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="DetailVersion" type="d3p1:DetailVersion"/>
+		<property name="Producer" type="xs:anyType"/>
+	</objectType>
+	<objectType name="IndividualPersonDocType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="DocType" type="d3p1:DocTypeType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="DocSeries" type="d3p1:DocSeriesType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="DocNumber" type="d3p1:DocNumberType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="DocDate" type="d3p1:DateType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="DocOrgan" type="d3p1:DocOrganType" lowerBound="0"/>
+	</objectType>
+	<objectType name="IndividualPersonType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="IndividualPersonDoc" type="d3p1:IndividualPersonDocType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Sex" type="d3p1:SexType"/>
+	</objectType>
+	<objectType name="JuridicalPersonType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="KPP" type="d3p1:KPPType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Account" type="d3p1:AccountType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="OGRN" type="d3p1:OGRNType" lowerBound="0"/>
+	</objectType>
+	<objectType name="MateriaInOrderType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="MaterialCode" type="d3p1:MaterialCodeType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Quantity" type="d3p1:QuantityDblType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Price" type="d3p1:PriceType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Commentary" type="d3p1:DescriptionType" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="MessageInfoType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="MessageID" type="d3p1:GUIDType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="SrcMessageID" type="d3p1:GUIDType" lowerBound="0"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="PSSSCode" type="d3p1:EnterpriseCodeType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="MessageDateTime" type="d3p1:DateTimeType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="MessageTypeCode" type="d3p1:MessageTypeType"/>
+	</objectType>
+	<objectType name="OrderType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="Request" type="d3p1:RequestType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="Car" type="d3p1:CarType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="OrderNum" type="d3p1:OrderNumType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="OrderDate" type="d3p1:DateType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="OrderTypeCode" type="d3p1:OrderTypeType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="EngineerName" type="d3p1:UserLogin"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="DefectInOrder" type="d3p1:DefectInOrderType" upperBound="-1"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonAggregateTypes:1.0.0" name="Client" type="d3p1:ClientType"/>
+	</objectType>
+	<objectType name="PersonnelType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="FIO" type="d3p1:NameType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Post" type="d3p1:PersonnelPostType" upperBound="-1"/>
+	</objectType>
+	<objectType name="ProcessingResultType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="ProcessingResultCode" type="d3p1:ProcessingResultCodeType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="ProcessingResultDescr" type="d3p1:ProcessingResultDescrType" lowerBound="0"/>
+	</objectType>
+	<objectType name="RequestType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="RequestNum" type="d3p1:RequesrNumType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="RequestDate" type="d3p1:DateType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="PSSSCode" type="d3p1:EnterpriseCodeType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Run" type="d3p1:RunType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="InspPersonnelName" type="d3p1:UserLogin"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Description" type="d3p1:DescriptionType" lowerBound="0"/>
+	</objectType>
+	<objectType name="WorkInOrderType">
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="WorkCode" type="d3p1:WorkCodeType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="PositionNumber" type="d3p1:PositionNumberType"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Commentary" type="d3p1:DescriptionType" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="urn:itcauto.ru:CommonLeafTypes:1.0.0" name="Laboriousness" type="d3p1:LaboriousnessType"/>
+	</objectType>
+</package>

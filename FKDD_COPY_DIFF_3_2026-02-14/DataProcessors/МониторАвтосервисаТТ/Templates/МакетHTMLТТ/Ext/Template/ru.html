@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Монитор автосервиса</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type"></meta><!--style--><script>
+var week = Array("воскресенье","понедельник","вторник","среда",
+	"четверг","пятница","суббота");
+var month = Array("января","февраля","марта","апреля","мая","июня",
+	"июля","августа","сентября","октября","ноября","декабря");
+
+function UpdateTime() {
+var CurrentTime = new Date();
+var InputTime = document.getElementById('DateBoxTime');
+var InputDate = document.getElementById('DateBoxDate');
+var InputDay = document.getElementById('DateBoxDay');
+	h = CurrentTime.getHours();
+	if ( h < 10 ) h = "0" + h;
+	m = CurrentTime.getMinutes();
+	if ( m < 10 ) m = "0" + m;
+	s = CurrentTime.getSeconds();
+	if ( s < 10 ) s = "0" + s;
+	outString = h + ":" + m + ":" + s;
+	InputTime.innerHTML = outString;
+	outString = CurrentTime.getDate() + " ";
+	outString += month[CurrentTime.getMonth()] + " ";
+	outString += CurrentTime.getFullYear() + " г. ";
+	InputDay.innerHTML = week[CurrentTime.getDay()] + " ";
+	InputDate.innerHTML = outString;
+	setTimeout("UpdateTime()",1000);
+}
+
+function fade(element, o0, o1, t) {
+    // IE compatibility. Detect lack of native 'opacity' support, and ensure element
+    // has layout for IE6-7.
+    //
+    var canopaque= 'opacity' in element.style;
+    if (!canopaque && 'currentStyle' in element && element.currentStyle.hasLayout===false)
+        element.style.zoom= '1';
+
+    function setOpacity(o) {
+        if (canopaque)
+            element.style.opacity= ''+o;
+        else
+            element.style.filter= 'alpha(opacity='+Math.round(o*100)+')';
+    }
+
+    var t0= new Date().getTime();
+    setOpacity(o0);
+    var interval= setInterval(function() {
+        var dt= (new Date().getTime()-t0)/t;
+        if (dt>=1) {
+            dt= 1;
+            clearInterval(interval);
+        }
+        setOpacity(o1*dt+o0*(1-dt));
+    }, 25);
+   }
+</script><script>setTimeout(function(){location.reload();}, 120000);</script><meta name="GENERATOR" content="MSHTML 11.00.9600.18978"></meta></head><body id="AllElements" onload="UpdateTime(); setTimeout('UpdateTime()',1000); fade(document.getElementById('AllElements'), 0.0, 1, 1000);" style="FILTER: alpha(opacity=0)"></body></html>

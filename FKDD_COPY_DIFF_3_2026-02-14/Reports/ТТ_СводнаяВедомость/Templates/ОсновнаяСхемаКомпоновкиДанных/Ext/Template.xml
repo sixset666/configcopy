@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументРегистратор</dataPath>
+			<field>ДокументРегистратор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ регистратор</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>п_2_3</dataPath>
+			<field>п_2_3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>2.3. Покупная стоимость ремонтного участка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>п_1_3</dataPath>
+			<field>п_1_3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>1.3.	Услуги ремонтного участка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>п_3_3</dataPath>
+			<field>п_3_3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>3.3.    Услуги ремонтного участка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТоварыВПроизводстве.Регистратор КАК ЗаказНаряд,
+	СУММА(ТоварыВПроизводстве.СуммаУпр) КАК Себестоимость
+ПОМЕСТИТЬ вт_ТовПроизвОборот
+ИЗ
+	РегистрНакопления.ТоварыВПроизводстве КАК ТоварыВПроизводстве
+ГДЕ
+	ТоварыВПроизводстве.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ТоварыВПроизводстве.Регистратор ССЫЛКА Документ.ЗаказНаряд
+
+СГРУППИРОВАТЬ ПО
+	ТоварыВПроизводстве.Регистратор
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ТоварыВПроизводстве.СуммаУпр) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗаказНарядТовары.Ссылка КАК Ссылка,
+	СУММА(ЗаказНарядТовары.СуммаВсего - ЗаказНарядТовары.СуммаНДС) КАК Товары_СуммаБезНДС,
+	0 КАК Работы_СуммаБезНДС
+ПОМЕСТИТЬ вт_ЗН_БезНДС
+ИЗ
+	Документ.ЗаказНаряд.Товары КАК ЗаказНарядТовары
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядТовары.Ссылка
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ЗаказНарядРаботы.Ссылка,
+	0,
+	ЗаказНарядРаботы.СуммаВсего - ЗаказНарядРаботы.СуммаНДС
+ИЗ
+	Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	вт_ЗН_БезНДС.Ссылка КАК Ссылка,
+	СУММА(вт_ЗН_БезНДС.Товары_СуммаБезНДС) КАК Товары_СуммаБезНДС,
+	СУММА(вт_ЗН_БезНДС.Работы_СуммаБезНДС) КАК Работы_СуммаБезНДС,
+	вт_ЗН_БезНДС.Ссылка.Организация КАК Организация
+ПОМЕСТИТЬ вт_ЗН
+ИЗ
+	вт_ЗН_БезНДС КАК вт_ЗН_БезНДС
+
+СГРУППИРОВАТЬ ПО
+	вт_ЗН_БезНДС.Ссылка,
+	вт_ЗН_БезНДС.Ссылка.Организация
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	вт_ЗН.Ссылка КАК ДокументРегистратор,
+	вт_ЗН.Организация КАК Организация,
+	СУММА(вт_ЗН.Товары_СуммаБезНДС + вт_ЗН.Работы_СуммаБезНДС) КАК п_1_3,
+	СУММА(ТоварыВПроизводствеОбороты.Себестоимость) КАК п_2_3,
+	СУММА(вт_ЗН.Товары_СуммаБезНДС + вт_ЗН.Работы_СуммаБезНДС - ТоварыВПроизводствеОбороты.Себестоимость) КАК п_3_3
+ИЗ
+	вт_ЗН КАК вт_ЗН
+		{ЛЕВОЕ СОЕДИНЕНИЕ вт_ТовПроизвОборот КАК ТоварыВПроизводствеОбороты
+		ПО вт_ЗН.Ссылка = ТоварыВПроизводствеОбороты.ЗаказНаряд}
+ГДЕ
+	(вт_ЗН.Ссылка.ВидРемонта.Код = "00000001"
+			ИЛИ вт_ЗН.Ссылка.ВидРемонта.Код = "ЦБ000037"
+			ИЛИ вт_ЗН.Ссылка.ВидРемонта.Код = "ЦБ000010"
+			ИЛИ вт_ЗН.Ссылка.ВидРемонта.Код = "ЦБ000033")
+	И НЕ вт_ЗН.Ссылка.ПометкаУдаления
+	И вт_ЗН.Ссылка.ПодразделениеКомпании.Код = "ЦБ000133"
+	И вт_ЗН.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+
+СГРУППИРОВАТЬ ПО
+	вт_ЗН.Организация,
+	вт_ЗН.Ссылка</query>
+	</dataSet>
+	<totalField>
+		<dataPath>п_1_3</dataPath>
+		<expression>Сумма(п_1_3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>п_2_3</dataPath>
+		<expression>Сумма(п_2_3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>п_3_3</dataPath>
+		<expression>Сумма(п_3_3)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументРегистратор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>п_1_3</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>п_2_3</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>п_3_3</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеГруппировки</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionGroupPlacement">BeginAndEnd</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Организация</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДокументРегистратор</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

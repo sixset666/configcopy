@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<DocumentJournal uuid="a76d799a-b9bd-48ec-9adc-9357e155b547">
+		<InternalInfo>
+			<xr:GeneratedType name="DocumentJournalSelection.СкладскиеАкты" category="Selection">
+				<xr:TypeId>7b30b2d6-a0c9-4d30-93fd-61d281f05d55</xr:TypeId>
+				<xr:ValueId>6d4e3f3c-01a0-4584-8b21-e5d88ac9edb5</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalList.СкладскиеАкты" category="List">
+				<xr:TypeId>3e61ff78-28bf-42d0-a62e-690a4037da52</xr:TypeId>
+				<xr:ValueId>f38d2c6a-4bd3-4e75-88c0-ece333dc316e</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalManager.СкладскиеАкты" category="Manager">
+				<xr:TypeId>3f310443-41c5-4677-9deb-420ba7372078</xr:TypeId>
+				<xr:ValueId>b68be586-720d-4528-8087-2254630b6307</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>СкладскиеАкты</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Складские акты</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment>Журнал складских актов</Comment>
+			<DefaultForm>DocumentJournal.СкладскиеАкты.Form.ФормаСписка</DefaultForm>
+			<AuxiliaryForm/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<RegisteredDocuments>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПересортицаТоваров</xr:Item>
+			</RegisteredDocuments>
+			<IncludeHelpInContents>true</IncludeHelpInContents>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+		</Properties>
+		<ChildObjects>
+			<Column uuid="92429bcc-562e-4a74-8a86-921affe60361">
+				<Properties>
+					<Name>Операция</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Операция</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Выполняемая документом операция</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.ХозОперация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПересортицаТоваров.Attribute.ХозОперация</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="f47d1172-ce87-4150-bddf-438a2dc8e780">
+				<Properties>
+					<Name>Контрагент</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Комитент или комиссионер</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.Контрагент</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="9a1c649f-a03c-4e3c-a978-bd0ce5628dcd">
+				<Properties>
+					<Name>Сумма</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Сумма документа</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПересортицаТоваров.Attribute.СуммаДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="9c24b688-d647-48ea-a354-f8c9ba4558f2">
+				<Properties>
+					<Name>Валюта</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валюта</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Валюта документа</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПересортицаТоваров.Attribute.ВалютаДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="cf92dd9c-7d24-4087-9762-90707729b145">
+				<Properties>
+					<Name>Курс</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Курс</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Курс валюты документа</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.КурсДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПересортицаТоваров.Attribute.КурсДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="ac3ed574-e393-4a40-8563-09195cf9cb25">
+				<Properties>
+					<Name>Организация</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Юридическое лицо, от которого выписан документ</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПересортицаТоваров.Attribute.Организация</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="3d568fae-7834-448c-b7c4-196606c4a5af">
+				<Properties>
+					<Name>Подразделение</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подразделение</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Подразделение компании в котором был выписан документ</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.ПодразделениеКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПересортицаТоваров.Attribute.ПодразделениеКомпании</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="5ec581d4-70ac-4884-b5e7-fbec3ecc56af">
+				<Properties>
+					<Name>Договор</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Договор</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Договор комиссии по которому ведутся взаиморасчеты с комитентом или комиссионером</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.ДоговорВзаиморасчетов</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.ДоговорВзаиморасчетов</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="40dc1d05-b08d-4892-bea7-302bec2363e7">
+				<Properties>
+					<Name>Автор</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автор</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Автор документа - пользователь, создавший документ</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.Автор</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПересортицаТоваров.Attribute.Автор</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="365eceb7-1dcd-4fcc-b455-d4859a60de3e">
+				<Properties>
+					<Name>Склад</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Склад компании на котором выполняется складская операция</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.СкладКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.СкладКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.СкладКомпании</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПересортицаТоваров.Attribute.СкладКомпании</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="ffab37e2-89d8-49e5-98e6-c110064535a2">
+				<Properties>
+					<Name>ТипЦен</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип цен</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Тип цен</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.ТипЦен</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.ТипЦен</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.ТипЦен</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПересортицаТоваров.Attribute.ТипЦен</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="68e660b1-a068-4610-acb9-36094becd6c3">
+				<Properties>
+					<Name>РегламентированныйУчет</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Регламентированный учет</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Флаг отражения документа в регламентированном учете</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.РегламентированныйУчет</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.РегламентированныйУчет</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.РегламентированныйУчет</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="13d1cf41-5ce7-4385-b967-9dd9d2a9742d">
+				<Properties>
+					<Name>Комментарий</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий к документу</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Комментарий к документу</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПересортицаТоваров.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.Комментарий</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="ae14883b-ae59-4685-87c3-d1b44c154cb7">
+				<Properties>
+					<Name>СкладПолучатель</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад получатель</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Склад компании на который поступают товары</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.СкладПолучатель</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="fc259536-2dc8-4a38-802a-36d6779f924d">
+				<Properties>
+					<Name>ДатаСоздания</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата создания</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Дата создания</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПересортицаТоваров.Attribute.ДатаСоздания</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.ДатаСоздания</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="57df6025-a9f7-4e5f-bb5c-566a4e7a7471">
+				<Properties>
+					<Name>ДатаОперации</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата операции</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Дата операции</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.Инвентаризация.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПеремещениеТоваров.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПересортицаТоваров.Attribute.ДатаОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.СписаниеТоваров.Attribute.ДатаОперации</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Form>ФормаСписка</Form>
+		</ChildObjects>
+	</DocumentJournal>
+</MetaDataObject>

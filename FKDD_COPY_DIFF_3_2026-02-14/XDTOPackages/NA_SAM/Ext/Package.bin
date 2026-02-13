@@ -1,0 +1,194 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://mighttrust.me/">
+	<objectType name="ContragentInfo">
+		<property name="DMS_ID" type="xs:string" nillable="false"/>
+		<property name="RegistrationReasonCode" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="IndividualTaxNumber" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="LegalEntityDescription" type="xs:string" nillable="false"/>
+		<property name="Gender" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="MainEmail" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="MainTelephone" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="PersonTypeID" type="xs:int" nillable="true"/>
+		<property name="Address" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ContragentsInfo">
+		<property xmlns:d3p1="http://mighttrust.me/" name="ContragentInfo" type="d3p1:ContragentInfo" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="VehicleInfo">
+		<property name="DMS_ID" type="xs:string" nillable="false"/>
+		<property name="BodyType" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Brand" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Colour" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Engine" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="FirstRegistrationDate" type="xs:dateTime" nillable="true"/>
+		<property name="LicensePlate" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Model" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Owner_DMS_ID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="VIN" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="SaleDate" type="xs:dateTime" nillable="true"/>
+	</objectType>
+	<objectType name="VehiclesInfo">
+		<property xmlns:d3p1="http://mighttrust.me/" name="VehicleInfo" type="d3p1:VehicleInfo" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Complaint">
+		<property name="GUID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Content" type="xs:string"/>
+		<property name="Confirmed" type="xs:boolean"/>
+		<property name="Img" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ActDraft">
+		<property name="Act_DMS_Code" type="xs:string" nillable="true"/>
+		<property name="Act_DMS_ID" type="xs:string" nillable="true"/>
+		<property name="Date" type="xs:dateTime" nillable="true"/>
+		<property name="EmployeeLogin" type="xs:string" nillable="true"/>
+		<property name="Mileage" type="xs:int" nillable="true"/>
+		<property name="Owner_DMS_ID" type="xs:string" nillable="true"/>
+		<property name="Representator_DMS_ID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="VIN" type="xs:string" nillable="true"/>
+		<property name="Vehicle_DMS_ID" type="xs:string" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="Complaints" type="d3p1:Complaint" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="ServiceCampaigns" type="d3p1:ServiceCampaign" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="Jobs" type="d3p1:Job" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="Parts" type="d3p1:Part" lowerBound="0" upperBound="-1"/>
+		<property name="ContactDate" type="xs:dateTime" nillable="true"/>
+		<property name="EmployeeName" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ActDrafts">
+		<property xmlns:d3p1="http://mighttrust.me/" name="ActDraft" type="d3p1:ActDraft" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="DamageInfo">
+		<property name="MarkNumber" type="xs:integer" lowerBound="1" nillable="true"/>
+		<property name="ViewID" type="xs:string" nillable="true"/>
+		<property name="MarkTypeID" type="xs:integer" nillable="true"/>
+		<property name="DamageDescription" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="DamageTypeID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="DamageTypeName" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ImageFile" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Xcoord" type="xs:integer" nillable="true"/>
+		<property name="Ycoord" type="xs:integer" nillable="true"/>
+	</objectType>
+	<objectType name="OptionInfo">
+		<property name="OptionID" type="xs:string" lowerBound="1" nillable="true"/>
+		<property name="OptionName" type="xs:string" nillable="true"/>
+		<property name="OptionAnswer" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="OptionListID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="OptionSortOrder" type="xs:int" nillable="true"/>
+		<property name="Comment" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ViewInfo">
+		<property name="ViewSortOrder" type="xs:integer" lowerBound="1" nillable="true"/>
+		<property name="ViewContent" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ViewID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ViewTypeID" type="xs:int" lowerBound="1" nillable="true"/>
+	</objectType>
+	<objectType name="Job">
+		<property name="GUID" type="xs:string"/>
+		<property name="Code" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Name" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Description" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="TimeTerm" type="xs:double" nillable="true"/>
+		<property name="TimeMeasure" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Price" type="xs:double" nillable="true"/>
+		<property name="PriceMeasure" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="GroupID" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="Part">
+		<property name="GUID" type="xs:string"/>
+		<property name="Code" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Name" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Description" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Quantity" type="xs:double" nillable="true"/>
+		<property name="QuantityMeasure" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Price" type="xs:double" nillable="true"/>
+		<property name="PriceMeasure" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="GroupID" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="AccessoryInfo">
+		<property name="GUID" type="xs:string"/>
+		<property name="Code" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Name" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Description" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Quantity" type="xs:double" nillable="true"/>
+		<property name="QuantityMeasure" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Price" type="xs:double" nillable="true"/>
+		<property name="PriceMeasure" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Image" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Status" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="Package">
+		<property name="GUID" type="xs:string"/>
+		<property name="Code" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Name" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Description" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="Jobs" type="d3p1:Job"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="Parts" type="d3p1:Part"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="Accessories" type="d3p1:AccessoryInfo"/>
+		<property name="TimeTerm" type="xs:double"/>
+		<property name="TimeMeasure" type="xs:string"/>
+		<property name="Status" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ActInfo1">
+		<property name="Act_DMS_Code" type="xs:string" nillable="false"/>
+		<property name="Act_DMS_ID" type="xs:string" nillable="false"/>
+		<property name="Date" type="xs:dateTime" nillable="false"/>
+		<property name="Mileage" type="xs:int" nillable="true"/>
+		<property name="Owner_DMS_ID" type="xs:string" nillable="false"/>
+		<property name="Representator_DMS_ID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="VIN" type="xs:string" nillable="false"/>
+		<property name="Vehicle_DMS_ID" type="xs:string" nillable="false"/>
+		<property name="EmployeeLogin" type="xs:string" nillable="false"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="Damage" type="d3p1:DamageInfo" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="Option" type="d3p1:OptionInfo" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="View" type="d3p1:ViewInfo" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="SelectedJobs" type="d3p1:Job" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="SelectedParts" type="d3p1:Part" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="SelectedAccessories" type="d3p1:AccessoryInfo" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="SelectedPackages" type="d3p1:Package" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="RecommendedJobs" type="d3p1:Job" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="RecommendedParts" type="d3p1:Part" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="RecommendedAccessories" type="d3p1:AccessoryInfo" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="RecommendedPackages" type="d3p1:Package" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="Complaints" type="d3p1:Complaint" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="OptionLists" type="d3p1:OptionList" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="JobsPartsList">
+		<property xmlns:d3p1="http://mighttrust.me/" name="JobsForSync" type="d3p1:Job" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="PartsForSync" type="d3p1:Part" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="JobGroupsForSync" type="d3p1:GroupForSync" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://mighttrust.me/" name="PartGroupsForSync" type="d3p1:GroupForSync" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="CreateActInfo">
+		<property name="ResultStatus" type="xs:boolean"/>
+		<property name="ErrorMessage" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Act_DMS_Code" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Act_DMS_ID" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ServiceCampaign">
+		<property name="DMS_Code" type="xs:string"/>
+		<property name="Name" type="xs:string"/>
+		<property name="Description" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="DMS_ID">
+		<property name="DMS_ID" type="xs:string" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="OptionList">
+		<property name="OptionListID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="OptionListName" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="OptionListTypeID" type="xs:integer" nillable="true"/>
+		<property name="OptionListSortOrder" type="xs:integer" nillable="true"/>
+	</objectType>
+	<objectType name="GroupForSync">
+		<property name="DmsID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Name" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ParentGroupDmsId" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="JobInfoPrice">
+		<property name="JobGUID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Price" type="xs:double" nillable="true"/>
+		<property name="TimeTerm" type="xs:double" nillable="true"/>
+	</objectType>
+	<objectType name="PartInfoPrice">
+		<property name="PartGUID" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Price" type="xs:double" nillable="true"/>
+		<property name="Quantity" type="xs:double" nillable="true"/>
+	</objectType>
+</package>

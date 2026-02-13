@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="25"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаШапкаЛево" id="26">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка лево</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка лево</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаЛевоРасширеннаяПодсказка" id="27"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаДатаНомер" id="22">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа дата номер</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа дата номер</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаДатаНомерРасширеннаяПодсказка" id="23"/>
+							<ChildItems>
+								<InputField name="Номер" id="1">
+									<DataPath>Объект.Number</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+								</InputField>
+								<InputField name="Дата" id="4">
+									<DataPath>Объект.Date</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>от</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="Организация" id="19">
+							<DataPath>Объект.Организация</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="21"/>
+						</InputField>
+						<InputField name="РасчетныйПериод" id="7">
+							<EditMode>EnterOnInput</EditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>22</MaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="РасчетныйПериодКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="РасчетныйПериодРасширеннаяПодсказка" id="9"/>
+						</InputField>
+						<InputField name="Периодичность" id="10">
+							<DataPath>Объект.Периодичность</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПериодичностьКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ПериодичностьРасширеннаяПодсказка" id="12"/>
+							<Events>
+								<Event name="OnChange">ПереодичностьПриИзменении</Event>
+								<Event name="StartChoice">ПериодичностьНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="Декорация1" id="139">
+					<Width>1</Width>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="140"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="141"/>
+				</LabelDecoration>
+				<UsualGroup name="ГруппаШапкаПраво" id="28">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка право</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка право</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаПравоРасширеннаяПодсказка" id="29"/>
+					<ChildItems>
+						<InputField name="ПериодПланирования" id="13">
+							<DataPath>ДатаПланирования</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>25</MaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ChoiceButton>true</ChoiceButton>
+							<SpinButton>true</SpinButton>
+							<ContextMenu name="ПериодПланированияКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ПериодПланированияРасширеннаяПодсказка" id="15"/>
+							<Events>
+								<Event name="OnChange">ПериодПланированияПриИзменении</Event>
+								<Event name="StartChoice">ПериодПланированияНачалоВыбора</Event>
+								<Event name="Tuning">ПериодПланированияРегулирование</Event>
+								<Event name="StartListChoice">ПериодПланированияНачалоВыбораИзСписка</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПодразделениеКомпании" id="16">
+							<DataPath>Объект.ПодразделениеКомпании</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подразделение</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПодразделениеКомпанииКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ПодразделениеКомпанииРасширеннаяПодсказка" id="18"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницы" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="31"/>
+			<ChildItems>
+				<Page name="ГруппаТаблиц" id="32">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планы по должностям</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа таблиц</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаТаблицРасширеннаяПодсказка" id="33"/>
+					<ChildItems>
+						<Table name="Должности" id="34">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Должности</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ДолжностиКонтекстноеМеню" id="35"/>
+							<AutoCommandBar name="ДолжностиКоманднаяПанель" id="36">
+								<ChildItems>
+									<Button name="ЗаполнитьДолжности" id="130">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.ЗаполнитьДолжности</CommandName>
+										<Picture>
+											<xr:Ref>CommonPicture.Заполнение</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<ExtendedTooltip name="ЗаполнитьДолжностиРасширеннаяПодсказка" id="131"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ДолжностиРасширеннаяПодсказка" id="37"/>
+							<SearchStringAddition name="ДолжностиСтрокаПоиска" id="38">
+								<AdditionSource>
+									<Item>Должности</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДолжностиСтрокаПоискаКонтекстноеМеню" id="39"/>
+								<ExtendedTooltip name="ДолжностиСтрокаПоискаРасширеннаяПодсказка" id="40"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ДолжностиСостояниеПросмотра" id="41">
+								<AdditionSource>
+									<Item>Должности</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДолжностиСостояниеПросмотраКонтекстноеМеню" id="42"/>
+								<ExtendedTooltip name="ДолжностиСостояниеПросмотраРасширеннаяПодсказка" id="43"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ДолжностиУправлениеПоиском" id="44">
+								<AdditionSource>
+									<Item>Должности</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ДолжностиУправлениеПоискомКонтекстноеМеню" id="45"/>
+								<ExtendedTooltip name="ДолжностиУправлениеПоискомРасширеннаяПодсказка" id="46"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnEditEnd">ДолжностиПриОкончанииРедактирования</Event>
+								<Event name="BeforeDeleteRow">ДолжностиПередУдалением</Event>
+								<Event name="OnActivateRow">ДолжностиПриАктивизацииСтроки</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ДолжностиНомерСтроки" id="47">
+									<DataPath>Объект.Должности.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДолжностиНомерСтрокиКонтекстноеМеню" id="48"/>
+									<ExtendedTooltip name="ДолжностиНомерСтрокиРасширеннаяПодсказка" id="49"/>
+								</LabelField>
+								<InputField name="ДолжностиДолжность" id="50">
+									<DataPath>Объект.Должности.Должность</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДолжностиДолжностьКонтекстноеМеню" id="51"/>
+									<ExtendedTooltip name="ДолжностиДолжностьРасширеннаяПодсказка" id="52"/>
+									<Events>
+										<Event name="OnChange">ДолжностиДолжностьПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ДолжностиКатегория" id="53">
+									<DataPath>Объект.Должности.Категория</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДолжностиКатегорияКонтекстноеМеню" id="54"/>
+									<ExtendedTooltip name="ДолжностиКатегорияРасширеннаяПодсказка" id="55"/>
+									<Events>
+										<Event name="OnChange">ДолжностиКатегорияПриИзменении</Event>
+										<Event name="StartChoice">ДолжностиКатегорияНачалоВыбора</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<Table name="НаборыKPIДляРасчетаПлана" id="58">
+							<ChangeRowSet>false</ChangeRowSet>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.НаборыKPIДляРасчетаПлана</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>CancelSearch</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>Find</ExcludedCommand>
+								<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>OutputList</ExcludedCommand>
+								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
+								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="НаборыKPIДляРасчетаПланаКонтекстноеМеню" id="59"/>
+							<AutoCommandBar name="НаборыKPIДляРасчетаПланаКоманднаяПанель" id="60">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="НаборыKPIДляРасчетаПланаЗаполнитьНаборыKPI" id="132">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.ЗаполнитьНаборыKPI</CommandName>
+										<Picture>
+											<xr:Ref>CommonPicture.Заполнение</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<ExtendedTooltip name="НаборыKPIДляРасчетаПланаЗаполнитьНаборыKPIРасширеннаяПодсказка" id="133"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="НаборыKPIДляРасчетаПланаРасширеннаяПодсказка" id="61"/>
+							<SearchStringAddition name="НаборыKPIДляРасчетаПланаСтрокаПоиска" id="62">
+								<AdditionSource>
+									<Item>НаборыKPIДляРасчетаПлана</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НаборыKPIДляРасчетаПланаСтрокаПоискаКонтекстноеМеню" id="63"/>
+								<ExtendedTooltip name="НаборыKPIДляРасчетаПланаСтрокаПоискаРасширеннаяПодсказка" id="64"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="НаборыKPIДляРасчетаПланаСостояниеПросмотра" id="65">
+								<AdditionSource>
+									<Item>НаборыKPIДляРасчетаПлана</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НаборыKPIДляРасчетаПланаСостояниеПросмотраКонтекстноеМеню" id="66"/>
+								<ExtendedTooltip name="НаборыKPIДляРасчетаПланаСостояниеПросмотраРасширеннаяПодсказка" id="67"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="НаборыKPIДляРасчетаПланаУправлениеПоиском" id="68">
+								<AdditionSource>
+									<Item>НаборыKPIДляРасчетаПлана</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="НаборыKPIДляРасчетаПланаУправлениеПоискомКонтекстноеМеню" id="69"/>
+								<ExtendedTooltip name="НаборыKPIДляРасчетаПланаУправлениеПоискомРасширеннаяПодсказка" id="70"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">НаборыKPIДляРасчетаПланаПередНачаломДобавления</Event>
+								<Event name="OnStartEdit">НаборыKPIДляРасчетаПланаПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="НаборыKPIДляРасчетаПланаНомерСтроки" id="71">
+									<DataPath>Объект.НаборыKPIДляРасчетаПлана.LineNumber</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НаборыKPIДляРасчетаПланаНомерСтрокиКонтекстноеМеню" id="72"/>
+									<ExtendedTooltip name="НаборыKPIДляРасчетаПланаНомерСтрокиРасширеннаяПодсказка" id="73"/>
+								</LabelField>
+								<LabelField name="НаборыKPIДляРасчетаПланаKPIКод" id="142">
+									<DataPath>Объект.НаборыKPIДляРасчетаПлана.KPI.Code</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НаборыKPIДляРасчетаПланаKPIКодКонтекстноеМеню" id="143"/>
+									<ExtendedTooltip name="НаборыKPIДляРасчетаПланаKPIКодРасширеннаяПодсказка" id="144"/>
+								</LabelField>
+								<InputField name="НаборыKPIДляРасчетаПланаДолжность" id="74">
+									<DataPath>Объект.НаборыKPIДляРасчетаПлана.Должность</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НаборыKPIДляРасчетаПланаДолжностьКонтекстноеМеню" id="75"/>
+									<ExtendedTooltip name="НаборыKPIДляРасчетаПланаДолжностьРасширеннаяПодсказка" id="76"/>
+								</InputField>
+								<InputField name="НаборыKPIДляРасчетаПланаKPI" id="77">
+									<DataPath>Объект.НаборыKPIДляРасчетаПлана.KPI</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>KPI</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НаборыKPIДляРасчетаПланаKPIКонтекстноеМеню" id="78"/>
+									<ExtendedTooltip name="НаборыKPIДляРасчетаПланаKPIРасширеннаяПодсказка" id="79"/>
+									<Events>
+										<Event name="StartChoice">НаборыKPIДляРасчетаПланаKPIНачалоВыбора</Event>
+									</Events>
+								</InputField>
+								<InputField name="НаборыKPIДляРасчетаПланаПлан" id="80">
+									<DataPath>Объект.НаборыKPIДляРасчетаПлана.План</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НаборыKPIДляРасчетаПланаПланКонтекстноеМеню" id="81"/>
+									<ExtendedTooltip name="НаборыKPIДляРасчетаПланаПланРасширеннаяПодсказка" id="82"/>
+								</InputField>
+								<InputField name="НаборыKPIДляРасчетаПланаКатегория" id="83">
+									<DataPath>Объект.НаборыKPIДляРасчетаПлана.Категория</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НаборыKPIДляРасчетаПланаКатегорияКонтекстноеМеню" id="84"/>
+									<ExtendedTooltip name="НаборыKPIДляРасчетаПланаКатегорияРасширеннаяПодсказка" id="85"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<Table name="ПланыБЧ" id="88">
+							<CommandBarLocation>None</CommandBarLocation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ПланыБЧ</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>CancelSearch</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>Find</ExcludedCommand>
+								<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>OutputList</ExcludedCommand>
+								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
+								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПланыБЧКонтекстноеМеню" id="89"/>
+							<AutoCommandBar name="ПланыБЧКоманднаяПанель" id="90">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПланыБЧРасширеннаяПодсказка" id="91"/>
+							<SearchStringAddition name="ПланыБЧСтрокаПоиска" id="92">
+								<AdditionSource>
+									<Item>ПланыБЧ</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПланыБЧСтрокаПоискаКонтекстноеМеню" id="93"/>
+								<ExtendedTooltip name="ПланыБЧСтрокаПоискаРасширеннаяПодсказка" id="94"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПланыБЧСостояниеПросмотра" id="95">
+								<AdditionSource>
+									<Item>ПланыБЧ</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПланыБЧСостояниеПросмотраКонтекстноеМеню" id="96"/>
+								<ExtendedTooltip name="ПланыБЧСостояниеПросмотраРасширеннаяПодсказка" id="97"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПланыБЧУправлениеПоиском" id="98">
+								<AdditionSource>
+									<Item>ПланыБЧ</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПланыБЧУправлениеПоискомКонтекстноеМеню" id="99"/>
+								<ExtendedTooltip name="ПланыБЧУправлениеПоискомРасширеннаяПодсказка" id="100"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">ПланыБЧПередНачаломДобавления</Event>
+								<Event name="OnStartEdit">ПланыБЧПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ПланыБЧНомерСтроки" id="101">
+									<DataPath>Объект.ПланыБЧ.LineNumber</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПланыБЧНомерСтрокиКонтекстноеМеню" id="102"/>
+									<ExtendedTooltip name="ПланыБЧНомерСтрокиРасширеннаяПодсказка" id="103"/>
+								</LabelField>
+								<LabelField name="ПланыБЧБазоваяЧастьКод" id="145">
+									<DataPath>Объект.ПланыБЧ.БазоваяЧасть.Code</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПланыБЧБазоваяЧастьКодКонтекстноеМеню" id="146"/>
+									<ExtendedTooltip name="ПланыБЧБазоваяЧастьКодРасширеннаяПодсказка" id="147"/>
+								</LabelField>
+								<InputField name="ПланыБЧДолжность" id="104">
+									<DataPath>Объект.ПланыБЧ.Должность</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПланыБЧДолжностьКонтекстноеМеню" id="105"/>
+									<ExtendedTooltip name="ПланыБЧДолжностьРасширеннаяПодсказка" id="106"/>
+								</InputField>
+								<InputField name="ПланыБЧБазоваяЧасть" id="107">
+									<DataPath>Объект.ПланыБЧ.БазоваяЧасть</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Премиальная база</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПланыБЧБазоваяЧастьКонтекстноеМеню" id="108"/>
+									<ExtendedTooltip name="ПланыБЧБазоваяЧастьРасширеннаяПодсказка" id="109"/>
+								</InputField>
+								<InputField name="ПланыБЧПлан" id="110">
+									<DataPath>Объект.ПланыБЧ.План</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПланыБЧПланКонтекстноеМеню" id="111"/>
+									<ExtendedTooltip name="ПланыБЧПланРасширеннаяПодсказка" id="112"/>
+								</InputField>
+								<InputField name="ПланыБЧСвязанныйПараметрKPI" id="113">
+									<DataPath>Объект.ПланыБЧ.СвязанныйПараметрKPI</DataPath>
+									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Связанный параметр настройки KPI</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПланыБЧСвязанныйПараметрKPIКонтекстноеМеню" id="114"/>
+									<ExtendedTooltip name="ПланыБЧСвязанныйПараметрKPIРасширеннаяПодсказка" id="115"/>
+								</InputField>
+								<InputField name="ПланыБЧКатегория" id="116">
+									<DataPath>Объект.ПланыБЧ.Категория</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПланыБЧКатегорияКонтекстноеМеню" id="117"/>
+									<ExtendedTooltip name="ПланыБЧКатегорияРасширеннаяПодсказка" id="118"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаДополнительно" id="119">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница дополнительно</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаДополнительноРасширеннаяПодсказка" id="120"/>
+					<ChildItems>
+						<InputField name="Автор" id="121">
+							<DataPath>Объект.Автор</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="АвторКонтекстноеМеню" id="122"/>
+							<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="123"/>
+						</InputField>
+						<InputField name="АвторПоследнегоИзменения" id="124">
+							<DataPath>Объект.АвторПоследнегоИзменения</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="АвторПоследнегоИзмененияКонтекстноеМеню" id="125"/>
+							<ExtendedTooltip name="АвторПоследнегоИзмененияРасширеннаяПодсказка" id="126"/>
+						</InputField>
+						<InputField name="ДатаПоследнегоИзменения" id="127">
+							<DataPath>Объект.ДатаПоследнегоИзменения</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="ДатаПоследнегоИзмененияКонтекстноеМеню" id="128"/>
+							<ExtendedTooltip name="ДатаПоследнегоИзмененияРасширеннаяПодсказка" id="129"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<InputField name="Комментарий" id="136">
+			<DataPath>Объект.Комментарий</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>true</HorizontalStretch>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="137"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="138"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.ПлановыеЗначенияKPI</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ДатаПланирования" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата планирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущаяДолжность" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая должность</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Должности</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущаяКатегория" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая категория</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.КатегорииДолжностейСотрудников</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьДолжности" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить должности</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьДолжности</Action>
+		</Command>
+		<Command name="ЗаполнитьНаборыKPI" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить (Обновить)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить наборы KPI</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьНаборыKPI</Action>
+		</Command>
+		<Command name="ЗаполнитьБЧ" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить БЧ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьПланыБЧ</Action>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>InformationRegister.ПлановыеЗначенияKPI.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

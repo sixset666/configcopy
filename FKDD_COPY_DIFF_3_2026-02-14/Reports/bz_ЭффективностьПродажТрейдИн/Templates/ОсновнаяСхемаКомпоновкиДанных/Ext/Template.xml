@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГарМаржа</dataPath>
+			<field>ГарМаржа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Σ Гар.маржа, руб. </v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоРЛ</dataPath>
+			<field>КоличествоРЛ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество РЛ, шт.</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоПроданныхАвто</dataPath>
+			<field>КоличествоПроданныхАвто</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество проданных автомобилей, шт. </v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоляПроданныхАвто</dataPath>
+			<field>ДоляПроданныхАвто</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доля проданных автомобилей, % </v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФактМаржа</dataPath>
+			<field>ФактМаржа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Σ Факт.маржа, руб.</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФактМаржаПроцент</dataPath>
+			<field>ФактМаржаПроцент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Факт.маржа, % </v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Выручка</dataPath>
+			<field>Выручка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выручка, руб.</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МодельНовогоАвто</dataPath>
+			<field>МодельНовогоАвто</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ПоступлениеАвтомобилейАвтомобили.Автомобиль КАК Автомобиль,
+	МИНИМУМ(ПоступлениеАвтомобилейАвтомобили.Ссылка.Дата) КАК Дата1
+ПОМЕСТИТЬ втДатаПервогоПоступления
+ИЗ
+	Документ.ПоступлениеАвтомобилей.Автомобили КАК ПоступлениеАвтомобилейАвтомобили
+ГДЕ
+	ПоступлениеАвтомобилейАвтомобили.Ссылка.Проведен
+	И ПоступлениеАвтомобилейАвтомобили.Ссылка.Дата МЕЖДУ &amp;ДатаНвч И &amp;ДатаКон
+
+СГРУППИРОВАТЬ ПО
+	ПоступлениеАвтомобилейАвтомобили.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РеализацияАвтомобилейАвтомобили.Автомобиль КАК Автомобиль,
+	МАКСИМУМ(РеализацияАвтомобилейАвтомобили.Ссылка.Дата) КАК ДатаПродажи
+ПОМЕСТИТЬ втДатыПродажи
+ИЗ
+	Документ.РеализацияАвтомобилей.Автомобили КАК РеализацияАвтомобилейАвтомобили
+ГДЕ
+	РеализацияАвтомобилейАвтомобили.Ссылка.Проведен
+	И РеализацияАвтомобилейАвтомобили.Ссылка.Дата МЕЖДУ &amp;ДатаНвч И &amp;ДатаКон
+
+СГРУППИРОВАТЬ ПО
+	РеализацияАвтомобилейАвтомобили.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПоступлениеАвтомобилейАвтомобили.Сумма КАК Цена,
+	ПоступлениеАвтомобилейАвтомобили.Автомобиль КАК Автомобиль,
+	ПоступлениеАвтомобилейАвтомобили.Ссылка.Автор КАК МенеджерАвтомобиля
+ПОМЕСТИТЬ втЦеныПоступлений
+ИЗ
+	Документ.ПоступлениеАвтомобилей.Автомобили КАК ПоступлениеАвтомобилейАвтомобили
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втДатаПервогоПоступления КАК втДатаПервогоПоступления
+		ПО ПоступлениеАвтомобилейАвтомобили.Автомобиль = втДатаПервогоПоступления.Автомобиль
+			И ПоступлениеАвтомобилейАвтомобили.Ссылка.Дата = втДатаПервогоПоступления.Дата1
+ГДЕ
+	ПоступлениеАвтомобилейАвтомобили.Ссылка.Проведен
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РеализацияАвтомобилейАвтомобили.Сумма КАК Цена1,
+	РеализацияАвтомобилейАвтомобили.Автомобиль КАК Автомобиль
+ПОМЕСТИТЬ втЦеныПродажи
+ИЗ
+	Документ.РеализацияАвтомобилей.Автомобили КАК РеализацияАвтомобилейАвтомобили
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втДатыПродажи КАК втДатыПродажи
+		ПО РеализацияАвтомобилейАвтомобили.Автомобиль = втДатыПродажи.Автомобиль
+			И РеализацияАвтомобилейАвтомобили.Ссылка.Дата = втДатыПродажи.ДатаПродажи
+ГДЕ
+	РеализацияАвтомобилейАвтомобили.Ссылка.Проведен
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(ЗаказНаряд.СуммаДокумента) КАК СуммаДокумента,
+	ЗаказНаряд.Автомобиль КАК Автомобиль
+ПОМЕСТИТЬ втЗатратыНаПоготовку
+ИЗ
+	Документ.ЗаказНаряд КАК ЗаказНаряд
+ГДЕ
+	ЗаказНаряд.ВидРемонта.Код = "ЦБ000012"
+	И ЗаказНаряд.Проведен
+	И ЗаказНаряд.Состояние = &amp;СостояниеЗакрыт
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНаряд.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	тт_РабочийЛистТрейдИн.Модель КАК Модель,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ тт_РабочийЛистТрейдИн.Ссылка) КАК КоличествоРЛ,
+	тт_РабочийЛистТрейдИн.МодельНовогоАвто КАК МодельНовогоАвто
+ПОМЕСТИТЬ втКоличествоРЛ
+ИЗ
+	Документ.тт_РабочийЛистТрейдИн КАК тт_РабочийЛистТрейдИн
+ГДЕ
+	тт_РабочийЛистТрейдИн.Дата МЕЖДУ &amp;ДатаНвч И &amp;ДатаКон
+	И тт_РабочийЛистТрейдИн.Проведен
+
+СГРУППИРОВАТЬ ПО
+	тт_РабочийЛистТрейдИн.Модель,
+	тт_РабочийЛистТрейдИн.МодельНовогоАвто
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РеализацияАвтомобилейАвтомобили.Автомобиль.Модель КАК Модель,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ РеализацияАвтомобилейАвтомобили.Автомобиль) КАК КоличествоПринятыхАвто
+ПОМЕСТИТЬ вт_КоличествоПринятыхАвто
+ИЗ
+	Документ.РеализацияАвтомобилей.Автомобили КАК РеализацияАвтомобилейАвтомобили
+ГДЕ
+	РеализацияАвтомобилейАвтомобили.Ссылка.Проведен
+	И РеализацияАвтомобилейАвтомобили.Ссылка.Дата МЕЖДУ &amp;ДатаНвч И &amp;ДатаКон
+	И РеализацияАвтомобилейАвтомобили.Ссылка.СкладКомпании.тт_КатегорияСклада.Наименование = "Трейд-ин"
+
+СГРУППИРОВАТЬ ПО
+	РеализацияАвтомобилейАвтомобили.Автомобиль.Модель
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	тт_РабочийЛистТрейдИн.Модель КАК Модель,
+	СУММА(тт_РабочийЛистТрейдИн.ГарМаржа) КАК ГарМаржа
+ПОМЕСТИТЬ вт_ГарМаржа
+ИЗ
+	Документ.тт_РабочийЛистТрейдИн КАК тт_РабочийЛистТрейдИн
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.РеализацияАвтомобилей.Автомобили КАК РеализацияАвтомобилейАвтомобили
+		ПО тт_РабочийЛистТрейдИн.Автомобиль = РеализацияАвтомобилейАвтомобили.Автомобиль
+ГДЕ
+	тт_РабочийЛистТрейдИн.Дата МЕЖДУ &amp;ДатаНвч И &amp;ДатаКон
+	И тт_РабочийЛистТрейдИн.Проведен
+	И РеализацияАвтомобилейАвтомобили.Ссылка.Проведен
+
+СГРУППИРОВАТЬ ПО
+	тт_РабочийЛистТрейдИн.Модель
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втЦеныПродажи.Автомобиль.Модель КАК Модель,
+	СУММА(ЕСТЬNULL(втЦеныПродажи.Цена1, 0) - ЕСТЬNULL(втЦеныПоступлений.Цена, 0) - ЕСТЬNULL(втЗатратыНаПоготовку.СуммаДокумента, 0)) КАК ФактМаржа
+ПОМЕСТИТЬ вт_ФактМаржа
+ИЗ
+	втЦеныПродажи КАК втЦеныПродажи
+		ЛЕВОЕ СОЕДИНЕНИЕ втЦеныПоступлений КАК втЦеныПоступлений
+		ПО втЦеныПродажи.Автомобиль = втЦеныПоступлений.Автомобиль
+		ЛЕВОЕ СОЕДИНЕНИЕ втЗатратыНаПоготовку КАК втЗатратыНаПоготовку
+		ПО втЦеныПродажи.Автомобиль = втЗатратыНаПоготовку.Автомобиль
+
+СГРУППИРОВАТЬ ПО
+	втЦеныПродажи.Автомобиль.Модель
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РеализацияАвтомобилейАвтомобили.Автомобиль.Модель КАК Модель,
+	СУММА(РеализацияАвтомобилейАвтомобили.Сумма) КАК Сумма
+ПОМЕСТИТЬ вт_Выручка
+ИЗ
+	Документ.РеализацияАвтомобилей.Автомобили КАК РеализацияАвтомобилейАвтомобили
+ГДЕ
+	РеализацияАвтомобилейАвтомобили.Ссылка.Проведен
+	И РеализацияАвтомобилейАвтомобили.Ссылка.Дата МЕЖДУ &amp;ДатаНвч И &amp;ДатаКон
+	И РеализацияАвтомобилейАвтомобили.Ссылка.СкладКомпании.тт_КатегорияСклада.Наименование = "Трейд-ин"
+
+СГРУППИРОВАТЬ ПО
+	РеализацияАвтомобилейАвтомобили.Автомобиль.Модель
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втКоличествоРЛ.Модель КАК Модель,
+	втКоличествоРЛ.КоличествоРЛ КАК КоличествоРЛ,
+	ЕСТЬNULL(вт_КоличествоПринятыхАвто.КоличествоПринятыхАвто, 0) КАК КоличествоПроданныхАвто,
+	вт_ГарМаржа.ГарМаржа КАК ГарМаржа,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(втКоличествоРЛ.КоличествоРЛ, 0) = 0
+			ТОГДА 0
+		ИНАЧЕ ЕСТЬNULL(вт_КоличествоПринятыхАвто.КоличествоПринятыхАвто, 0) / втКоличествоРЛ.КоличествоРЛ * 100
+	КОНЕЦ КАК ДоляПроданныхАвто,
+	вт_ДельтаФактМаржа.ФактМаржа КАК ФактМаржа,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(вт_Выручка.Сумма, 0) = 0
+			ТОГДА 0
+		ИНАЧЕ ЕСТЬNULL(вт_ДельтаФактМаржа.ФактМаржа, 0) / ЕСТЬNULL(вт_Выручка.Сумма, 0) * 100
+	КОНЕЦ КАК ФактМаржаПроцент,
+	вт_Выручка.Сумма КАК Выручка,
+	втКоличествоРЛ.МодельНовогоАвто КАК МодельНовогоАвто
+ИЗ
+	втКоличествоРЛ КАК втКоличествоРЛ
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_ГарМаржа КАК вт_ГарМаржа
+		ПО втКоличествоРЛ.Модель = вт_ГарМаржа.Модель
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_КоличествоПринятыхАвто КАК вт_КоличествоПринятыхАвто
+		ПО втКоличествоРЛ.Модель = вт_КоличествоПринятыхАвто.Модель
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_ФактМаржа КАК вт_ДельтаФактМаржа
+		ПО втКоличествоРЛ.Модель = вт_ДельтаФактМаржа.Модель
+		ЛЕВОЕ СОЕДИНЕНИЕ вт_Выручка КАК вт_Выручка
+		ПО втКоличествоРЛ.Модель = вт_Выручка.Модель</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ДельтаМаржа</dataPath>
+		<expression>ФактМаржа-ГарМаржа</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Разница по марже, руб.</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>КоличествоРЛ</dataPath>
+		<expression>Сумма(КоличествоРЛ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ГарМаржа</dataPath>
+		<expression>Сумма(ГарМаржа)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДоляПроданныхАвто</dataPath>
+		<expression>ВЫБОР
+	КОГДА Сумма(КоличествоРЛ) = 0
+		ТОГДА 0
+	ИНАЧЕ Сумма(КоличествоПроданныхАвто)/Сумма(КоличествоРЛ)*100
+КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоПроданныхАвто</dataPath>
+		<expression>Сумма(КоличествоПроданныхАвто)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФактМаржа</dataPath>
+		<expression>Сумма(ФактМаржа)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФактМаржаПроцент</dataPath>
+		<expression>ВЫБОР
+	КОГДА ЕСТЬNULL(Сумма(Выручка), 0) = 0
+		ТОГДА 0
+	ИНАЧЕ Сумма(ФактМаржа)/Сумма(Выручка)*100
+КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Выручка</dataPath>
+		<expression>Сумма(Выручка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДельтаМаржа</dataPath>
+		<expression>Сумма(ДельтаМаржа)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаКон</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата кон</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;СтандартныйПериод.ДатаОкончания</expression>
+	</parameter>
+	<parameter>
+		<name>ДатаНвч</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата нвч</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;СтандартныйПериод.ДатаНачала</expression>
+	</parameter>
+	<parameter>
+		<name>СтандартныйПериод</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стандартный период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СостояниеЗакрыт</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Состояние закрыт</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВидыСостоянийЗаказНарядов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ВидыСостоянийЗаказНарядов.Закрыт</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Модель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоРЛ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоПроданныхАвто</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДоляПроданныхАвто</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГарМаржа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФактМаржа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФактМаржаПроцент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДельтаМаржа</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>СтандартныйПериод</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Модель.Наименование</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ФактМаржаПроцент</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ДоляПроданныхАвто</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:useInHierarchicalGroup>DontUse</dcsset:useInHierarchicalGroup>
+					<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+					<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+					<dcsset:useInResourceFieldsHeader>DontUse</dcsset:useInResourceFieldsHeader>
+					<dcsset:useInOverallHeader>DontUse</dcsset:useInOverallHeader>
+					<dcsset:useInOverallResourceFieldsHeader>DontUse</dcsset:useInOverallResourceFieldsHeader>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>МодельНовогоАвто</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

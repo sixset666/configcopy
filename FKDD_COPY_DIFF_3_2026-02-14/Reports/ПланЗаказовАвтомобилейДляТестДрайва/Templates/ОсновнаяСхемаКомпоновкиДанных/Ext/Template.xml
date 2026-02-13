@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<title xsi:type="xs:string">Автомобиль</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Автомобили</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании</dataPath>
+			<field>ПодразделениеКомпании</field>
+			<title xsi:type="xs:string">Подразделение</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ПодразделенияКомпании</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Актив</dataPath>
+			<field>Актив</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВвода</dataPath>
+			<field>ДатаВвода</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВыбытияПоПробегу</dataPath>
+			<field>ДатаВыбытияПоПробегу</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВыбытияПоСроку</dataPath>
+			<field>ДатаВыбытияПоСроку</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДнейВЭксплуатации</dataPath>
+			<field>ДнейВЭксплуатации</field>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаксПробег</dataPath>
+			<field>МаксПробег</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предельный пробег</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=1</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОсталосьДнейПоПробегу</dataPath>
+			<field>ОсталосьДнейПоПробегу</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОсталосьДнейПоСроку</dataPath>
+			<field>ОсталосьДнейПоСроку</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПробегВДень</dataPath>
+			<field>ПробегВДень</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=1</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СрокПоставки</dataPath>
+			<field>СрокПоставки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТекущийПробег</dataPath>
+			<field>ТекущийПробег</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=1</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТаблицаАвтомобилей.ПодразделениеКомпании,
+	ТаблицаАвтомобилей.Автомобиль КАК Автомобиль,
+	ТаблицаАвтомобилей.Модель КАК Модель,
+	АвтомобилиДляТестДрайва.Актив КАК Актив,
+	НАЧАЛОПЕРИОДА(АвтомобилиДляТестДрайва.Период, ДЕНЬ) КАК ДатаВвода,
+	МАКСИМУМ(АвтомобилиДляТестДрайва.МаксимальныйПробег) КАК МаксПробег,
+	МАКСИМУМ(АвтомобилиДляТестДрайва.МаксимальнаяПродолжительностьЭксплуатации) КАК СрокВыбытия
+ПОМЕСТИТЬ
+	ТаблицаАвтомобилиДляТестДрайва
+ИЗ
+	РегистрНакопления.АвтомобилиДляТестДрайва.Остатки({&amp;ДатаОкончания}, {(Автомобиль).* КАК Автомобиль}) КАК ТаблицаАвтомобилей
+ВНУТРЕННЕЕ СОЕДИНЕНИЕ
+	РегистрНакопления.АвтомобилиДляТестДрайва КАК АвтомобилиДляТестДрайва
+ПО
+	ТаблицаАвтомобилей.Автомобиль = АвтомобилиДляТестДрайва.Автомобиль И 
+	ТаблицаАвтомобилей.Модель     = АвтомобилиДляТестДрайва.Модель 
+ГДЕ
+	ТаблицаАвтомобилей.КоличествоОстаток&gt;0 И 
+	АвтомобилиДляТестДрайва.Период &lt;=&amp;ДатаОкончания И 
+	АвтомобилиДляТестДрайва.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+		//(АвтомобилиДляТестДрайва.МаксимальныйПробег &lt;&gt; 0 ИЛИ
+		//АвтомобилиДляТестДрайва.МаксимальнаяПродолжительностьЭксплуатации &lt;&gt; ДатаВремя(1, 1, 1))
+СГРУППИРОВАТЬ ПО
+	ТаблицаАвтомобилей.ПодразделениеКомпании,
+	ТаблицаАвтомобилей.Автомобиль,
+	ТаблицаАвтомобилей.Модель,
+	АвтомобилиДляТестДрайва.Актив,
+	НАЧАЛОПЕРИОДА(АвтомобилиДляТестДрайва.Период, ДЕНЬ)
+;
+
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТаблицаАвтомобилей.Автомобиль КАК Автомобиль,
+	ТаблицаАвтомобилей.Модель КАК Модель,
+	ТаблицаАвтомобилей.ДатаВвода КАК ДатаВвода,
+	НАЧАЛОПЕРИОДА(МИНИМУМ(ЕСТЬNULL(АвтомобилиДляТестДрайва.Период, &amp;ДатаПробега)), ДЕНЬ) КАК ДатаВыбытия
+ПОМЕСТИТЬ
+	ТаблицаИнтервалыТестДрайва
+ИЗ
+	ТаблицаАвтомобилиДляТестДрайва КАК ТаблицаАвтомобилей
+ЛЕВОЕ СОЕДИНЕНИЕ
+	РегистрНакопления.АвтомобилиДляТестДрайва КАК АвтомобилиДляТестДрайва
+ПО
+	ТаблицаАвтомобилей.Автомобиль = АвтомобилиДляТестДрайва.Автомобиль И 
+	ТаблицаАвтомобилей.Модель = АвтомобилиДляТестДрайва.Модель И 
+	ТаблицаАвтомобилей.ДатаВвода &lt;= АвтомобилиДляТестДрайва.Период И 
+	АвтомобилиДляТестДрайва.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+СГРУППИРОВАТЬ ПО
+	ТаблицаАвтомобилей.Автомобиль,
+	ТаблицаАвтомобилей.Модель,
+	ТаблицаАвтомобилей.ДатаВвода
+;
+
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ОбъединеннаяТаблица.Автомобиль КАК Автомобиль,
+	ОбъединеннаяТаблица.Модель КАК Модель,
+	МАКСИМУМ(ОбъединеннаяТаблица.ДатаВвода) КАК ДатаВвода,
+	МАКСИМУМ(ОбъединеннаяТаблица.ТекущийПробег) КАК ТекущийПробег,
+	МАКСИМУМ(ОбъединеннаяТаблица.ДатаПробега) КАК ДатаПробега,
+	ВЫБОР
+		КОГДА СУММА(ОбъединеннаяТаблица.Интервал) = 0 ТОГДА
+			СУММА(ОбъединеннаяТаблица.Пробег)
+		ИНАЧЕ
+			СУММА(ОбъединеннаяТаблица.Пробег)/СУММА(ОбъединеннаяТаблица.Интервал)
+	КОНЕЦ КАК ПробегВДень
+ПОМЕСТИТЬ
+	ТаблицаПробегаАвтомобилей
+ИЗ
+	(ВЫБРАТЬ
+		ТаблицаАвтомобилей.Автомобиль КАК Автомобиль,
+		ТаблицаАвтомобилей.Модель КАК Модель,
+		ТаблицаАвтомобилей.ДатаВвода КАК ДатаВвода,
+		МАКСИМУМ(ВЫРАЗИТЬ(Автомобили.Значение КАК ЧИСЛО)) КАК ТекущийПробег,
+		НАЧАЛОПЕРИОДА(МАКСИМУМ(Автомобили.Период), ДЕНЬ) КАК ДатаПробега,
+		РАЗНОСТЬДАТ(МИНИМУМ(ТаблицаАвтомобилей.ДатаВвода), МАКСИМУМ(ТаблицаАвтомобилей.ДатаВыбытия), ДЕНЬ) КАК Интервал,
+		МАКСИМУМ(ВЫРАЗИТЬ(Автомобили.Значение КАК ЧИСЛО)) - МАКСИМУМ(ВЫРАЗИТЬ(ЕСТЬNULL(АвтомобилиНачальныеДанные.Значение, 0) КАК ЧИСЛО)) КАК Пробег
+	ИЗ
+		ТаблицаИнтервалыТестДрайва КАК ТаблицаАвтомобилей
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ
+		РегистрСведений.Автомобили КАК Автомобили
+	ПО
+		ТаблицаАвтомобилей.Автомобиль = Автомобили.Автомобиль И 
+		ТаблицаАвтомобилей.ДатаВвода &lt;= НАЧАЛОПЕРИОДА(Автомобили.Период, ДЕНЬ) И 
+		ТаблицаАвтомобилей.ДатаВыбытия &gt;= НАЧАЛОПЕРИОДА(Автомобили.Период, ДЕНЬ)
+	ЛЕВОЕ СОЕДИНЕНИЕ
+		РегистрСведений.Автомобили КАК АвтомобилиНачальныеДанные
+	ПО
+		ТаблицаАвтомобилей.Автомобиль = АвтомобилиНачальныеДанные.Автомобиль И 
+		ТаблицаАвтомобилей.ДатаВвода &gt;= НАЧАЛОПЕРИОДА(АвтомобилиНачальныеДанные.Период, ДЕНЬ) И 
+		АвтомобилиНачальныеДанные.ВидЗначения = ЗНАЧЕНИЕ(Перечисление.ДополнительнаяИнформацияАвтомобилей.Пробег)
+	ГДЕ
+		Автомобили.ВидЗначения = ЗНАЧЕНИЕ(Перечисление.ДополнительнаяИнформацияАвтомобилей.Пробег)
+	СГРУППИРОВАТЬ ПО
+		ТаблицаАвтомобилей.Модель,
+		ТаблицаАвтомобилей.Автомобиль,
+		ТаблицаАвтомобилей.ДатаВвода,
+		ТаблицаАвтомобилей.ДатаВыбытия) КАК ОбъединеннаяТаблица
+СГРУППИРОВАТЬ ПО
+		ОбъединеннаяТаблица.Модель,
+		ОбъединеннаяТаблица.Автомобиль
+;
+
+УНИЧТОЖИТЬ
+	ТаблицаИнтервалыТестДрайва
+;
+
+ВЫБРАТЬ
+	ТаблицаСкоростиПробега.Модель КАК Модель,
+	ВЫБОР
+		КОГДА КОЛИЧЕСТВО(ТаблицаСкоростиПробега.Автомобиль) = 0 ТОГДА
+			СУММА(ТаблицаСкоростиПробега.ПробегВДень)
+		ИНАЧЕ
+			СУММА(ТаблицаСкоростиПробега.ПробегВДень)/КОЛИЧЕСТВО(ТаблицаСкоростиПробега.Автомобиль)
+	КОНЕЦ КАК ПробегВДень
+ПОМЕСТИТЬ
+	ТаблицаСкоростиПробега
+ИЗ
+	ТаблицаПробегаАвтомобилей КАК ТаблицаСкоростиПробега
+СГРУППИРОВАТЬ ПО
+	ТаблицаСкоростиПробега.Модель
+;
+
+ВЫБРАТЬ
+	ТаблицаАвтомобилей.Автомобиль КАК Автомобиль,
+	МАКСИМУМ(ТаблицаАвтомобилей.ДатаВвода) КАК ДатаВвода
+ПОМЕСТИТЬ
+	СрезПоследних
+ИЗ
+	ТаблицаАвтомобилиДляТестДрайва КАК ТаблицаАвтомобилей
+СГРУППИРОВАТЬ ПО
+	ТаблицаАвтомобилей.Автомобиль
+;
+
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	СрезПоследних.Автомобиль КАК Автомобиль,
+	ТаблицаАвтомобилиДляТестДрайва.ПодразделениеКомпании,
+	ТаблицаАвтомобилиДляТестДрайва.Модель КАК Модель,
+	ТаблицаАвтомобилиДляТестДрайва.Актив КАК Актив,
+	ЕСТЬNULL(НастройкиТестДрайва.СрокПоставки, 0) КАК СрокПоставки,
+	// По сроку
+	ТаблицаАвтомобилиДляТестДрайва.ДатаВвода КАК ДатаВвода,
+	РАЗНОСТЬДАТ(ТаблицаАвтомобилиДляТестДрайва.ДатаВвода, &amp;ДатаПробега, ДЕНЬ) КАК ДнейВЭксплуатации,
+	РАЗНОСТЬДАТ(&amp;ДатаОкончания, ТаблицаАвтомобилиДляТестДрайва.СрокВыбытия, ДЕНЬ) КАК ОсталосьДнейПоСроку,
+	ТаблицаАвтомобилиДляТестДрайва.СрокВыбытия КАК ДатаВыбытияПоСроку,
+	// По пробегу
+	ЕСТЬNULL(ТаблицаПробегаАвтомобилей.ТекущийПробег, 0) КАК ТекущийПробег,
+//	ЕСТЬNULL(ТаблицаПробегаАвтомобилей.ДатаПробега, ТаблицаАвтомобилиДляТестДрайва.ДатаВвода) КАК ДатаПробега,
+	ЕСТЬNULL(ТаблицаСкоростиПробега.ПробегВДень, 0) КАК ПробегВДень,
+	ТаблицаАвтомобилиДляТестДрайва.МаксПробег КАК МаксПробег,
+	ВЫБОР
+		КОГДА ТаблицаСкоростиПробега.ПробегВДень ЕСТЬ NULL ИЛИ ТаблицаСкоростиПробега.ПробегВДень = 0 ТОГДА
+			РАЗНОСТЬДАТ(&amp;ДатаОкончания, ТаблицаАвтомобилиДляТестДрайва.СрокВыбытия, ДЕНЬ)
+		ИНАЧЕ
+			РАЗНОСТЬДАТ(&amp;ДатаОкончания, ДОБАВИТЬКДАТЕ(&amp;ДатаПробега, ДЕНЬ, (ТаблицаАвтомобилиДляТестДрайва.МаксПробег-ЕСТЬNULL(ТаблицаПробегаАвтомобилей.ТекущийПробег, 0))/ТаблицаСкоростиПробега.ПробегВДень), ДЕНЬ)
+	КОНЕЦ КАК ОсталосьДнейПоПробегу,
+	ВЫБОР
+		КОГДА ТаблицаСкоростиПробега.ПробегВДень ЕСТЬ NULL ИЛИ ТаблицаСкоростиПробега.ПробегВДень = 0 ТОГДА
+			ТаблицаАвтомобилиДляТестДрайва.СрокВыбытия
+		ИНАЧЕ
+			ДОБАВИТЬКДАТЕ(&amp;ДатаПробега, ДЕНЬ, (ТаблицаАвтомобилиДляТестДрайва.МаксПробег-ЕСТЬNULL(ТаблицаПробегаАвтомобилей.ТекущийПробег, 0))/ТаблицаСкоростиПробега.ПробегВДень)
+	КОНЕЦ КАК ДатаВыбытияПоПробегу
+{ВЫБРАТЬ
+	Автомобиль.* КАК Автомобиль,
+	ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	Модель.* КАК Модель,
+	Актив.* КАК Актив,
+	СрокПоставки КАК СрокПоставки,
+	ДатаВвода КАК ДатаВвода,
+	ДнейВЭксплуатации КАК ДнейВЭксплуатации,
+	ОсталосьДнейПоСроку КАК ОсталосьДнейПоСроку,
+	ДатаВыбытияПоСроку КАК ДатаВыбытияПоСроку,
+	ТекущийПробег КАК ТекущийПробег,
+	ПробегВДень КАК ПробегВДень,
+	МаксПробег КАК МаксПробег,
+	ОсталосьДнейПоПробегу КАК ОсталосьДнейПоПробегу,
+	ДатаВыбытияПоПробегу КАК ДатаВыбытияПоПробегу
+}
+ИЗ
+	СрезПоследних КАК СрезПоследних
+ВНУТРЕННЕЕ СОЕДИНЕНИЕ
+	ТаблицаАвтомобилиДляТестДрайва КАК ТаблицаАвтомобилиДляТестДрайва
+ПО
+	СрезПоследних.Автомобиль = ТаблицаАвтомобилиДляТестДрайва.Автомобиль И 
+	СрезПоследних.ДатаВвода  = ТаблицаАвтомобилиДляТестДрайва.ДатаВвода
+ЛЕВОЕ СОЕДИНЕНИЕ
+	РегистрСведений.НастройкиТестДрайва.СрезПоследних({&amp;ДатаОкончания}, {(Модель).* КАК Модель}) КАК НастройкиТестДрайва
+ПО
+	ТаблицаАвтомобилиДляТестДрайва.Модель = НастройкиТестДрайва.Модель
+ЛЕВОЕ СОЕДИНЕНИЕ
+	ТаблицаСкоростиПробега КАК ТаблицаСкоростиПробега
+ПО
+	ТаблицаАвтомобилиДляТестДрайва.Модель = ТаблицаСкоростиПробега.Модель
+ЛЕВОЕ СОЕДИНЕНИЕ
+	ТаблицаПробегаАвтомобилей КАК ТаблицаПробегаАвтомобилей
+ПО
+	СрезПоследних.Автомобиль = ТаблицаПробегаАвтомобилей.Автомобиль
+{ГДЕ
+	ТаблицаАвтомобилиДляТестДрайва.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ТаблицаАвтомобилиДляТестДрайва.Актив.* КАК Актив,
+	ТаблицаАвтомобилиДляТестДрайва.Модель.* КАК Модель,
+	РАЗНОСТЬДАТ(&amp;ДатаОкончания, ТаблицаАвтомобилиДляТестДрайва.СрокВыбытия, ДЕНЬ) КАК ОсталосьДнейПоСроку,
+	ТаблицаАвтомобилиДляТестДрайва.СрокВыбытия КАК ДатаВыбытияПоСроку,
+	// По пробегу
+	ЕСТЬNULL(ТаблицаПробегаАвтомобилей.ТекущийПробег, 0) КАК ТекущийПробег,
+//	ЕСТЬNULL(ТаблицаПробегаАвтомобилей.ДатаПробега, ТаблицаАвтомобилиДляТестДрайва.ДатаВвода) КАК ДатаПробега,
+	ВЫБОР
+		КОГДА ТаблицаСкоростиПробега.ПробегВДень ЕСТЬ NULL ИЛИ ТаблицаСкоростиПробега.ПробегВДень = 0 ТОГДА
+			РАЗНОСТЬДАТ(&amp;ДатаОкончания, ТаблицаАвтомобилиДляТестДрайва.СрокВыбытия, ДЕНЬ)
+		ИНАЧЕ
+			РАЗНОСТЬДАТ(&amp;ДатаОкончания, ДОБАВИТЬКДАТЕ(&amp;ДатаПробега, ДЕНЬ, (ТаблицаАвтомобилиДляТестДрайва.МаксПробег-ЕСТЬNULL(ТаблицаПробегаАвтомобилей.ТекущийПробег, 0))/ТаблицаСкоростиПробега.ПробегВДень), ДЕНЬ)
+	КОНЕЦ КАК ОсталосьДнейПоПробегу,
+	ВЫБОР
+		КОГДА ТаблицаСкоростиПробега.ПробегВДень ЕСТЬ NULL ИЛИ ТаблицаСкоростиПробега.ПробегВДень = 0 ТОГДА
+			ТаблицаАвтомобилиДляТестДрайва.СрокВыбытия
+		ИНАЧЕ
+			ДОБАВИТЬКДАТЕ(&amp;ДатаПробега, ДЕНЬ, (ТаблицаАвтомобилиДляТестДрайва.МаксПробег-ЕСТЬNULL(ТаблицаПробегаАвтомобилей.ТекущийПробег, 0))/ТаблицаСкоростиПробега.ПробегВДень)
+	КОНЕЦ КАК ДатаВыбытияПоПробегу}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ТочкаЗаказа</dataPath>
+		<expression>ВЫБОР
+	КОГДА ДатаВыбытияПоСроку &gt; ДатаВыбытияПоПробегу ТОГДА
+		ДОБАВИТЬКДАТЕ(ДатаВыбытияПоПробегу, "День", -СрокПоставки)
+	ИНАЧЕ
+		ДОБАВИТЬКДАТЕ(ДатаВыбытияПоСроку, "День", -СрокПоставки)
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Точка заказа</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+			</dcscor:item>
+		</appearance>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ДатаВыбытия</dataPath>
+		<expression>ВЫБОР
+	КОГДА ДатаВыбытияПоСроку &gt; ДатаВыбытияПоПробегу ТОГДА
+		ДатаВыбытияПоПробегу
+	ИНАЧЕ
+		ДатаВыбытияПоСроку
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата выбытия</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+			</dcscor:item>
+		</appearance>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОсталосьДнейДоВыбытия</dataPath>
+		<expression>ВЫБОР
+	КОГДА ОсталосьДнейПоСроку &gt; ОсталосьДнейПоПробегу ТОГДА
+		ОсталосьДнейПоПробегу
+	ИНАЧЕ
+		ОсталосьДнейПоСроку
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Осталось дней до выбытия</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>10</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СрокТочкиЗаказа</dataPath>
+		<expression>ВЫБОР
+	КОГДА ОсталосьДнейПоСроку &gt; ОсталосьДнейПоПробегу ТОГДА
+		ОсталосьДнейПоПробегу-СрокПоставки
+	ИНАЧЕ
+		ОсталосьДнейПоСроку-СрокПоставки
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Срок точки заказа</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>10</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
+	<totalField>
+		<dataPath>ДатаВвода</dataPath>
+		<expression>Минимум(ДатаВвода)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДатаВыбытияПоПробегу</dataPath>
+		<expression>Минимум(ДатаВыбытияПоПробегу)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДатаВыбытияПоСроку</dataPath>
+		<expression>Минимум(ДатаВыбытияПоСроку)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДнейВЭксплуатации</dataPath>
+		<expression>Минимум(ДнейВЭксплуатации)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>МаксПробег</dataPath>
+		<expression>Минимум(МаксПробег)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОсталосьДнейПоПробегу</dataPath>
+		<expression>Минимум(ОсталосьДнейПоПробегу)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОсталосьДнейПоСроку</dataPath>
+		<expression>Минимум(ОсталосьДнейПоСроку)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПробегВДень</dataPath>
+		<expression>Минимум(ПробегВДень)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СрокПоставки</dataPath>
+		<expression>Максимум(СрокПоставки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТекущийПробег</dataPath>
+		<expression>Максимум(ТекущийПробег)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДатаВыбытия</dataPath>
+		<expression>Минимум(ДатаВыбытия)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТочкаЗаказа</dataPath>
+		<expression>Минимум(ТочкаЗаказа)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОсталосьДнейДоВыбытия</dataPath>
+		<expression>Минимум(ОсталосьДнейДоВыбытия)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СрокТочкиЗаказа</dataPath>
+		<expression>Сумма(СрокТочкиЗаказа)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<inputParameters>
+			<dcscor:item>
+				<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+			</dcscor:item>
+		</inputParameters>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаПробега</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата пробега</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>План заказов автомобилей для тест-драйва</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаВвода</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТекущийПробег</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МаксПробег</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПробегВДень</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество дней до выбытия</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОсталосьДнейПоПробегу</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОсталосьДнейПоСроку</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Vertically</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОсталосьДнейДоВыбытия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата выбытия</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДатаВыбытияПоПробегу</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДатаВыбытияПоСроку</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Vertically</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаВыбытия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СрокПоставки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СрокТочкиЗаказа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТочкаЗаказа</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Автомобиль</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Актив</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Модель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПодразделениеКомпании</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДатаВыбытия</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТочкаЗаказа</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>СрокТочкиЗаказа</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">СрокТочкиЗаказа</dcsset:left>
+							<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">#FF0000</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ПодразделениеКомпании</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Модель</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Автомобиль</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Выберите занятый терминал</v8:content>
+		</v8:item>
+	</Title>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<ChildItems>
+		<Table name="ТаблицаТерминалы" id="1">
+			<ReadOnly>true</ReadOnly>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<ChoiceMode>true</ChoiceMode>
+			<SelectionMode>SingleRow</SelectionMode>
+			<RowSelectionMode>Row</RowSelectionMode>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>Терминалы</DataPath>
+			<RowPictureDataPath>~Терминалы.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>true</AutoRefresh>
+			<AutoRefreshPeriod>5</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>false</AllowGettingCurrentRowURL>
+			<ContextMenu name="ТаблицаТерминалыКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="ТаблицаТерминалыКоманднаяПанель" id="3"/>
+			<ExtendedTooltip name="ТаблицаТерминалыРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ТаблицаТерминалыСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>ТаблицаТерминалы</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаТерминалыСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ТаблицаТерминалыСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ТаблицаТерминалыСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>ТаблицаТерминалы</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаТерминалыСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ТаблицаТерминалыСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ТаблицаТерминалыУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>ТаблицаТерминалы</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаТерминалыУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ТаблицаТерминалыУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="ValueChoice">ТаблицаТерминалыВыборЗначения</Event>
+				<Event name="Selection">ТаблицаТерминалыВыбор</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ТаблицаТерминалыТерминал" id="35">
+					<DataPath>Терминалы.Терминал</DataPath>
+					<ContextMenu name="ТаблицаТерминалыТерминалКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ТаблицаТерминалыТерминалРасширеннаяПодсказка" id="37"/>
+				</LabelField>
+				<LabelField name="ТаблицаТерминалыОрганизация" id="20">
+					<DataPath>Терминалы.Организация</DataPath>
+					<ContextMenu name="ТаблицаТерминалыОрганизацияКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ТаблицаТерминалыОрганизацияРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<LabelField name="ТаблицаТерминалыПодразделениеКомпании" id="23">
+					<DataPath>Терминалы.ПодразделениеКомпании</DataPath>
+					<ContextMenu name="ТаблицаТерминалыПодразделениеКомпанииКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ТаблицаТерминалыПодразделениеКомпанииРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+				<LabelField name="ТаблицаТерминалыСтатус" id="29">
+					<DataPath>Терминалы.Статус</DataPath>
+					<ContextMenu name="ТаблицаТерминалыСтатусКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ТаблицаТерминалыСтатусРасширеннаяПодсказка" id="31"/>
+				</LabelField>
+				<LabelField name="ТаблицаТерминалыВремяСтатуса" id="14">
+					<DataPath>Терминалы.ВремяСтатуса</DataPath>
+					<ContextMenu name="ТаблицаТерминалыВремяСтатусаКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ТаблицаТерминалыВремяСтатусаРасширеннаяПодсказка" id="16"/>
+				</LabelField>
+				<LabelField name="ТаблицаТерминалыПользователь" id="26">
+					<DataPath>Терминалы.Пользователь</DataPath>
+					<ContextMenu name="ТаблицаТерминалыПользовательКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ТаблицаТерминалыПользовательРасширеннаяПодсказка" id="28"/>
+				</LabelField>
+				<LabelField name="ТаблицаТерминалыДокумент" id="17">
+					<DataPath>Терминалы.Документ</DataPath>
+					<ContextMenu name="ТаблицаТерминалыДокументКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ТаблицаТерминалыДокументРасширеннаяПодсказка" id="19"/>
+				</LabelField>
+				<LabelField name="ТаблицаТерминалыСумма" id="32">
+					<DataPath>Терминалы.Сумма</DataPath>
+					<ContextMenu name="ТаблицаТерминалыСуммаКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ТаблицаТерминалыСуммаРасширеннаяПодсказка" id="34"/>
+				</LabelField>
+				<LabelField name="ТаблицаТерминалыТерминалН" id="38">
+					<DataPath>Терминалы.ТерминалН</DataPath>
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Терминал наименование</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ТаблицаТерминалыТерминалНКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ТаблицаТерминалыТерминалНРасширеннаяПодсказка" id="40"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.AB_НеобработанныеТранзакции</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Терминалы" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Терминалы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	AB_ТерминалыАльфабанк.Ссылка КАК Ссылка,
+	AB_ТерминалыАльфабанк.ID КАК ID,
+	AB_ТерминалыАльфабанк.Наименование КАК Наименование,
+	AB_ТерминалыАльфабанк.Организация КАК Организация,
+	AB_ТерминалыАльфабанк.ПодразделениеКомпании КАК ПодразделениеКомпании
+ПОМЕСТИТЬ Терминалы
+ИЗ
+	Справочник.AB_ТерминалыАльфабанк КАК AB_ТерминалыАльфабанк
+ГДЕ
+	AB_ТерминалыАльфабанк.ПометкаУдаления = ЛОЖЬ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	AB_РаботаСТерминаломАльфаБанкСрезПоследних.Терминал КАК Терминал,
+	AB_РаботаСТерминаломАльфаБанкСрезПоследних.Пользователь КАК Пользователь,
+	AB_РаботаСТерминаломАльфаБанкСрезПоследних.Статус КАК Статус,
+	AB_РаботаСТерминаломАльфаБанкСрезПоследних.Период КАК Период,
+	AB_РаботаСТерминаломАльфаБанкСрезПоследних.Документ КАК Документ
+ПОМЕСТИТЬ СтатусТерминалов
+ИЗ
+	РегистрСведений.AB_РаботаСТерминаломАльфаБанк.СрезПоследних(
+			,
+			Статус = ЗНАЧЕНИЕ(Перечисление.AB_СтатусыТерминаловАльфабанк.Открыт)
+				ИЛИ Статус = ЗНАЧЕНИЕ(Перечисление.AB_СтатусыТерминаловАльфабанк.Занят)) КАК AB_РаботаСТерминаломАльфаБанкСрезПоследних
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Терминалы.Наименование КАК ТерминалН,
+	СтатусТерминалов.Статус КАК Статус,
+	СтатусТерминалов.Период КАК ВремяСтатуса,
+	Терминалы.Организация КАК Организация,
+	СтатусТерминалов.Пользователь КАК Пользователь,
+	СУММА(AB_РаботаСТерминаломАльфаБанк.Сумма) КАК Сумма,
+	Терминалы.Ссылка КАК Терминал,
+	Терминалы.ПодразделениеКомпании КАК ПодразделениеКомпании,
+	СтатусТерминалов.Документ КАК Документ
+ПОМЕСТИТЬ Выборка
+ИЗ
+	Терминалы КАК Терминалы
+		ЛЕВОЕ СОЕДИНЕНИЕ СтатусТерминалов КАК СтатусТерминалов
+		ПО Терминалы.Ссылка = СтатусТерминалов.Терминал
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.AB_РаботаСТерминаломАльфаБанк КАК AB_РаботаСТерминаломАльфаБанк
+		ПО (СтатусТерминалов.Период &lt; AB_РаботаСТерминаломАльфаБанк.Период)
+			И Терминалы.Ссылка = AB_РаботаСТерминаломАльфаБанк.Терминал
+
+СГРУППИРОВАТЬ ПО
+	Терминалы.Наименование,
+	СтатусТерминалов.Статус,
+	СтатусТерминалов.Период,
+	Терминалы.Организация,
+	СтатусТерминалов.Пользователь,
+	Терминалы.Ссылка,
+	Терминалы.ПодразделениеКомпании,
+	СтатусТерминалов.Документ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Выборка.ТерминалН КАК ТерминалН,
+	Выборка.Статус КАК Статус,
+	Выборка.ВремяСтатуса КАК ВремяСтатуса,
+	Выборка.Организация КАК Организация,
+	Выборка.Пользователь КАК Пользователь,
+	Выборка.Сумма КАК Сумма,
+	Выборка.Терминал КАК Терминал,
+	Выборка.ПодразделениеКомпании КАК ПодразделениеКомпании,
+	Выборка.Документ КАК Документ
+ИЗ
+	Выборка КАК Выборка
+ГДЕ
+	Выборка.Статус = &amp;Статус</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Документ</dcssch:dataPath>
+					<dcssch:field>Документ</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Терминал</dcssch:dataPath>
+					<dcssch:field>Терминал</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПодразделениеКомпании</dcssch:dataPath>
+					<dcssch:field>ПодразделениеКомпании</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВремяСтатуса</dcssch:dataPath>
+					<dcssch:field>ВремяСтатуса</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время статуса</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>UUID</dcssch:dataPath>
+					<dcssch:field>UUID</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТерминалН</dcssch:dataPath>
+					<dcssch:field>ТерминалН</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Терминал Н</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Пользователь</dcssch:dataPath>
+					<dcssch:field>Пользователь</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Статус</dcssch:dataPath>
+					<dcssch:field>Статус</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Сумма</dcssch:dataPath>
+					<dcssch:field>Сумма</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>Период</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>Статус</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:EnumRef.AB_СтатусыТерминаловАльфабанк</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="dcscor:DesignTimeValue">Перечисление.AB_СтатусыТерминаловАльфабанк.Занят</dcssch:value>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Банк</dataPath>
+			<field>Банк</field>
+			<title xsi:type="xs:string">Банк</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Банки</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КредитнаяПрограмма</dataPath>
+			<field>КредитнаяПрограмма</field>
+			<title xsi:type="xs:string">Кредитная программа</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.КредитныеПрограммы</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
+			<title xsi:type="xs:string">Менеджер</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Сотрудники</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Основание</dataPath>
+			<field>Основание</field>
+			<title xsi:type="xs:string">Документ-основание</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.РабочийЛист</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РабочийЛистКредитногоОтдела</dataPath>
+			<field>РабочийЛистКредитногоОтдела</field>
+			<title xsi:type="xs:string">Рабочий лист кредитного отдела</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.РабочийЛистКредитногоОтдела</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<title xsi:type="xs:string">Статус</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СтатусыРабочегоЛиста</v8:Type>
+			</valueType>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛистКредитногоОтдела) КАК РабочийЛистКредитногоОтдела,
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛистКредитногоОтдела).ДокументОснование КАК Основание,
+	ВЫРАЗИТЬ(ЖурналСостояний.Состояние КАК Справочник.СтатусыРабочегоЛиста) КАК Статус,
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛистКредитногоОтдела).Банк КАК Банк,
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛистКредитногоОтдела).МенеджерКредитногоОтдела КАК Менеджер,
+	ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛистКредитногоОтдела).КредитнаяПрограмма КАК КредитнаяПрограмма
+{ВЫБРАТЬ
+	РабочийЛистКредитногоОтдела.* КАК РабочийЛистКредитногоОтдела,
+	Основание.*                   КАК Основание,
+	Банк.*                        КАК Банк,
+	Менеджер.*                    КАК Менеджер,
+	КредитнаяПрограмма.*          КАК КредитнаяПрограмма,
+	Статус.*                      КАК Статус
+}
+ИЗ
+	РегистрСведений.ЖурналСостояний.СрезПоследних(&amp;ДатаОкончания, Объект ССЫЛКА Документ.РабочийЛистКредитногоОтдела	
+	И Состояние ССЫЛКА Справочник.СтатусыРабочегоЛиста
+	И Состояние&lt;&gt;ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.Отказ)
+	И Состояние&lt;&gt;ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.Сделка)
+	И (НЕ Объект.ПометкаУдаления) {
+	(ВЫРАЗИТЬ(Объект КАК Документ.РабочийЛистКредитногоОтдела)).* КАК РабочийЛистКредитногоОтдела,
+	ВЫРАЗИТЬ(Объект КАК Документ.РабочийЛистКредитногоОтдела).ДокументОснование.* КАК Основание,
+	ВЫРАЗИТЬ(Объект КАК Документ.РабочийЛистКредитногоОтдела).Банк.* КАК Банк,
+	ВЫРАЗИТЬ(Объект КАК Документ.РабочийЛистКредитногоОтдела).МенеджерКредитногоОтдела.* КАК Менеджер,
+	ВЫРАЗИТЬ(Объект КАК Документ.РабочийЛистКредитногоОтдела).КредитнаяПрограмма.* КАК КредитнаяПрограмма,
+	(ВЫРАЗИТЬ(Состояние КАК Справочник.СтатусыРабочегоЛиста)).* КАК  Статус}) КАК ЖурналСостояний
+	
+{ГДЕ
+	(ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛистКредитногоОтдела)).* КАК РабочийЛистКредитногоОтдела,
+	(ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛистКредитногоОтдела).ДокументОснование).* КАК Основание,
+	(ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛистКредитногоОтдела).МенеджерКредитногоОтдела).* КАК Менеджер,
+	(ВЫРАЗИТЬ(ЖурналСостояний.Объект КАК Документ.РабочийЛистКредитногоОтдела).КредитнаяПрограмма).* КАК КредитнаяПрограмма
+}
+	</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<calculatedField>
+		<dataPath>Количество</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Количество</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<group>true</group>
+		</useRestriction>
+	</calculatedField>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>КОЛИЧЕСТВО(РАЗЛИЧНЫЕ РабочийЛистКредитногоОтдела)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Банк</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Основание</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">КредитнаяПрограмма</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Менеджер</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">РабочийЛистКредитногоОтдела</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Статус</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Статус</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Статус.Наименование</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>РабочийЛистКредитногоОтдела</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							<dcsset:item xsi:type="dcsset:OrderItemField">
+								<dcsset:field>РабочийЛистКредитногоОтдела.Дата</dcsset:field>
+								<dcsset:orderType>Asc</dcsset:orderType>
+							</dcsset:item>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

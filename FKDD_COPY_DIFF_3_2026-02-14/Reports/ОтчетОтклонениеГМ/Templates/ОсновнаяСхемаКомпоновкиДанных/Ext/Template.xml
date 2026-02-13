@@ -1,0 +1,767 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрогнозГМ</dataPath>
+			<field>ПрогнозГМ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прогноз ГМ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГМ</dataPath>
+			<field>ГМ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ГМ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвтомобильБУМодель</dataPath>
+			<field>АвтомобильБУМодель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автомобиль БУМодель</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвтомобильМодель</dataPath>
+			<field>АвтомобильМодель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвтомобильБУVIN</dataPath>
+			<field>АвтомобильБУVIN</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автомобиль БУVIN</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвтомобильVIN</dataPath>
+			<field>АвтомобильVIN</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоступлениеБУАвтоДата</dataPath>
+			<field>ПоступлениеБУАвтоДата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поступление БУАвто дата</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Реализация</dataPath>
+			<field>Реализация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реализация</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании</dataPath>
+			<field>ПодразделениеКомпании</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подразделение компании</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	БТ_КонтрагентыИсключенияПриФормированииКуммаржи.Организация КАК Организация,
+	БТ_КонтрагентыИсключенияПриФормированииКуммаржи.Контрагенты КАК Контрагенты
+ПОМЕСТИТЬ ВТ_КонтрыИсключенияКМ
+ИЗ
+	РегистрСведений.БТ_КонтрагентыИсключенияПриФормированииКуммаржи КАК БТ_КонтрагентыИсключенияПриФормированииКуммаржи
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РеализацияАвтомобилейАвтомобили.Ссылка КАК Ссылка,
+	РеализацияАвтомобилейАвтомобили.Автомобиль КАК Автомобиль
+ПОМЕСТИТЬ ВТ_РеализацииНовые
+ИЗ
+	Документ.РеализацияАвтомобилей.Автомобили КАК РеализацияАвтомобилейАвтомобили
+ГДЕ
+	РеализацияАвтомобилейАвтомобили.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;Датаокончания
+	И РеализацияАвтомобилейАвтомобили.Ссылка.Проведен
+	И НЕ РеализацияАвтомобилейАвтомобили.Ссылка.Контрагент В
+				(ВЫБРАТЬ
+					ВТ_КонтрыИсключенияКМ.Контрагенты КАК Контрагенты
+				ИЗ
+					ВТ_КонтрыИсключенияКМ КАК ВТ_КонтрыИсключенияКМ
+				СГРУППИРОВАТЬ ПО
+					ВТ_КонтрыИсключенияКМ.Контрагенты)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВЫБОР
+		КОГДА ЭМ_КумулятивнаяМаржа.Показатель = ЗНАЧЕНИЕ(Справочник.ЭМ_ПоказателиКумулятивнойМАржи.ПрогнозМаржаТрейдИН)
+			ТОГДА ЕСТЬNULL(ЭМ_КумулятивнаяМаржа.Сумма, 2)
+		ИНАЧЕ 0
+	КОНЕЦ - ВЫБОР
+		КОГДА ЭМ_КумулятивнаяМаржа.Показатель = ЗНАЧЕНИЕ(Справочник.ЭМ_ПоказателиКумулятивнойМАржи.ПрогнозМаржаТрейдИН)
+			ТОГДА ЕСТЬNULL(ЭМ_КумулятивнаяМаржа.СуммаНДС, 2)
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПрогнозТрейдСумма,
+	ЭМ_КумулятивнаяМаржа.Автомобиль КАК Автомобиль,
+	ЭМ_КумулятивнаяМаржа.РеализацияАвтомобиля КАК РеализацияАвтомобиля
+ПОМЕСТИТЬ ВТ_РеализацииНовыеКМ
+ИЗ
+	РегистрНакопления.ЭМ_КумулятивнаяМаржа КАК ЭМ_КумулятивнаяМаржа
+ГДЕ
+	ЭМ_КумулятивнаяМаржа.Автомобиль В
+			(ВЫБРАТЬ
+				ВТ_РеализацииНовые.Автомобиль КАК Автомобиль
+			ИЗ
+				ВТ_РеализацииНовые КАК ВТ_РеализацииНовые
+			СГРУППИРОВАТЬ ПО
+				ВТ_РеализацииНовые.Автомобиль)
+	И ЭМ_КумулятивнаяМаржа.Показатель = ЗНАЧЕНИЕ(Справочник.ЭМ_ПоказателиКумулятивнойМАржи.ПрогнозМаржаТрейдИН)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_РеализацииНовые.Ссылка КАК Ссылка,
+	ВТ_РеализацииНовые.Автомобиль КАК Автомобиль,
+	ЕСТЬNULL(ВТ_РеализацииНовыеКМ.ПрогнозТрейдСумма, 0) КАК ПрогнозГМ,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВТ_РеализацииНовыеКМ.ПрогнозТрейдСумма, 0) = 0
+			ТОГДА 0
+		ИНАЧЕ 1
+	КОНЕЦ КАК СредняяГМ
+ПОМЕСТИТЬ ВТ_Новые
+ИЗ
+	ВТ_РеализацииНовые КАК ВТ_РеализацииНовые
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_РеализацииНовыеКМ КАК ВТ_РеализацииНовыеКМ
+		ПО ВТ_РеализацииНовые.Автомобиль = ВТ_РеализацииНовыеКМ.Автомобиль
+			И ВТ_РеализацииНовые.Ссылка = ВТ_РеализацииНовыеКМ.РеализацияАвтомобиля
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗначенияСвойствОбъектов.Объект КАК ПоступлениеБУАвто,
+	ПоступлениеАвтомобилейАвтомобили.Автомобиль КАК АвтомобильБУ,
+	ЗначенияСвойствОбъектов.Значение КАК ЗНА_Новый
+ПОМЕСТИТЬ ВТ_БУ
+ИЗ
+	РегистрСведений.ЗначенияСвойствОбъектов КАК ЗначенияСвойствОбъектов
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеАвтомобилей.Автомобили КАК ПоступлениеАвтомобилейАвтомобили
+		ПО ЗначенияСвойствОбъектов.Объект = ПоступлениеАвтомобилейАвтомобили.Ссылка
+ГДЕ
+	ЗначенияСвойствОбъектов.Свойство = ЗНАЧЕНИЕ(планвидовхарактеристик.свойстваобъектов.заказнаавтомобиль)
+	И ЗначенияСвойствОбъектов.Значение.Автомобиль В
+			(ВЫБРАТЬ
+				ВТ_РеализацииНовые.Автомобиль КАК Автомобиль
+			ИЗ
+				ВТ_РеализацииНовые КАК ВТ_РеализацииНовые
+			СГРУППИРОВАТЬ ПО
+				ВТ_РеализацииНовые.Автомобиль)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_БУ.ПоступлениеБУАвто КАК ПоступлениеБУАвто,
+	ВТ_БУ.АвтомобильБУ КАК АвтомобильБУ,
+	ВТ_БУ.ЗНА_Новый КАК ЗНА_Новый,
+	ОКР(ЕСТЬNULL(тт_РабочийЛистТрейдИн.ГарМаржа, 0) / 1.22, 2) КАК ГМ
+ПОМЕСТИТЬ ВТ_БУ_ГМ
+ИЗ
+	ВТ_БУ КАК ВТ_БУ
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.тт_РабочийЛистТрейдИн КАК тт_РабочийЛистТрейдИн
+		ПО ВТ_БУ.АвтомобильБУ = тт_РабочийЛистТрейдИн.Автомобиль
+			И (НАЧАЛОПЕРИОДА(ВТ_БУ.ПоступлениеБУАвто.Дата, ДЕНЬ) = НАЧАЛОПЕРИОДА(тт_РабочийЛистТрейдИн.Дата, ДЕНЬ))
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Новые.Ссылка КАК Ссылка,
+	ВТ_Новые.Автомобиль КАК Автомобиль,
+	СУММА(ЕСТЬNULL(ВТ_БУ_ГМ.ГМ, 0)) КАК ГМ
+ПОМЕСТИТЬ ВТ_СуммаФактаГМ
+ИЗ
+	ВТ_Новые КАК ВТ_Новые
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_БУ_ГМ КАК ВТ_БУ_ГМ
+		ПО ВТ_Новые.Автомобиль = ВТ_БУ_ГМ.ЗНА_Новый.Автомобиль
+			И ВТ_Новые.Ссылка.ДокументОснование = ВТ_БУ_ГМ.ЗНА_Новый
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Новые.Ссылка,
+	ВТ_Новые.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МАКСИМУМ(ВТ_БУ.ПоступлениеБУАвто.Дата) КАК ПоступлениеБУАвтоДата,
+	ВТ_БУ.ЗНА_Новый КАК ЗНА_Новый
+ПОМЕСТИТЬ ВТ_МаксДатаБУ
+ИЗ
+	ВТ_БУ КАК ВТ_БУ
+
+СГРУППИРОВАТЬ ПО
+	ВТ_БУ.ЗНА_Новый
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Новые.Автомобиль.Модель КАК АвтомобильМодель,
+	ВТ_Новые.Автомобиль.VIN КАК АвтомобильVIN,
+	ВТ_Новые.ПрогнозГМ КАК ПрогнозГМ,
+	ВТ_БУ_ГМ.АвтомобильБУ.Модель КАК АвтомобильБУМодель,
+	ВТ_БУ_ГМ.АвтомобильБУ.VIN КАК АвтомобильБУVIN,
+	ЕСТЬNULL(ВТ_БУ_ГМ.ГМ, 0) КАК ГМ,
+	ВТ_МаксДатаБУ.ПоступлениеБУАвтоДата КАК ПоступлениеБУАвтоДата,
+	ВТ_Новые.Ссылка КАК Реализация,
+	ВТ_Новые.Ссылка.ПодразделениеКомпании КАК ПодразделениеКомпании
+ПОМЕСТИТЬ ВТ_Итог
+ИЗ
+	ВТ_Новые КАК ВТ_Новые
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_БУ_ГМ КАК ВТ_БУ_ГМ
+		ПО ВТ_Новые.Автомобиль = ВТ_БУ_ГМ.ЗНА_Новый.Автомобиль
+			И ВТ_Новые.Ссылка.ДокументОснование = ВТ_БУ_ГМ.ЗНА_Новый
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_СуммаФактаГМ КАК ВТ_СуммаФактаГМ
+		ПО ВТ_Новые.Автомобиль = ВТ_СуммаФактаГМ.Автомобиль
+			И ВТ_Новые.Ссылка = ВТ_СуммаФактаГМ.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_МаксДатаБУ КАК ВТ_МаксДатаБУ
+		ПО ВТ_Новые.Автомобиль = ВТ_МаксДатаБУ.ЗНА_Новый.Автомобиль
+			И ВТ_Новые.Ссылка.ДокументОснование = ВТ_МаксДатаБУ.ЗНА_Новый
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Новые.Автомобиль.Модель,
+	ВТ_Новые.Автомобиль.VIN,
+	ВТ_Новые.ПрогнозГМ,
+	ВТ_БУ_ГМ.АвтомобильБУ.Модель,
+	ВТ_БУ_ГМ.АвтомобильБУ.VIN,
+	ВТ_МаксДатаБУ.ПоступлениеБУАвтоДата,
+	ВТ_Новые.Ссылка,
+	ВТ_Новые.Ссылка.ПодразделениеКомпании,
+	ЕСТЬNULL(ВТ_БУ_ГМ.ГМ, 0),
+	ВТ_БУ_ГМ.ГМ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Итог.АвтомобильVIN КАК АвтомобильVIN,
+	СРЕДНЕЕ(ВТ_Итог.ПрогнозГМ) КАК ПрогнозГМ,
+	ВТ_Итог.Реализация КАК Реализация,
+	СУММА(1) КАК КолвоЗаписей
+ПОМЕСТИТЬ ВТ_ПрогнозГМСРеднее
+ИЗ
+	ВТ_Итог КАК ВТ_Итог
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Итог.АвтомобильVIN,
+	ВТ_Итог.Реализация
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ПрогнозГМСРеднее.АвтомобильVIN КАК АвтомобильVIN,
+	ОКР(ВТ_ПрогнозГМСРеднее.ПрогнозГМ / ВТ_ПрогнозГМСРеднее.КолвоЗаписей, 2) КАК ПрогнозГМ,
+	ВТ_ПрогнозГМСРеднее.Реализация КАК Реализация,
+	ВТ_ПрогнозГМСРеднее.КолвоЗаписей КАК КолвоЗаписей
+ПОМЕСТИТЬ ВТ_ПрогнозГМИтог
+ИЗ
+	ВТ_ПрогнозГМСРеднее КАК ВТ_ПрогнозГМСРеднее
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Итог.АвтомобильМодель КАК АвтомобильМодель,
+	ВТ_Итог.АвтомобильVIN КАК АвтомобильVIN,
+	ВТ_Итог.АвтомобильБУМодель КАК АвтомобильБУМодель,
+	ВТ_Итог.АвтомобильБУVIN КАК АвтомобильБУVIN,
+	ВТ_Итог.ГМ КАК ГМ,
+	ВТ_Итог.ПоступлениеБУАвтоДата КАК ПоступлениеБУАвтоДата,
+	ВТ_Итог.Реализация КАК Реализация,
+	ВТ_Итог.ПодразделениеКомпании КАК ПодразделениеКомпании,
+	ВТ_ПрогнозГМИтог.ПрогнозГМ КАК ПрогнозГМ
+ИЗ
+	ВТ_Итог КАК ВТ_Итог
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ПрогнозГМИтог КАК ВТ_ПрогнозГМИтог
+		ПО ВТ_Итог.АвтомобильVIN = ВТ_ПрогнозГМИтог.АвтомобильVIN
+			И ВТ_Итог.Реализация = ВТ_ПрогнозГМИтог.Реализация</query>
+		<useQueryGroupIfPossible>false</useQueryGroupIfPossible>
+	</dataSet>
+	<calculatedField>
+		<dataPath>СписокМодельБУ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Список модель БУ</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СписокVINБУ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Список VIN БУ</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СредняяГМ</dataPath>
+		<expression>Количество(Различные выбор когда ПрогнозГМ = 0 тогда NULL иначе АвтомобильVIN конец)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Средняя ГМ</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СредняяГМГруппа</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Средняя ГМ Группа</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОтклонениеГМОбщ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отклонение ГМ Общ</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>ГМ</dataPath>
+		<expression>Сумма(ГМ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СписокМодельБУ</dataPath>
+		<expression>СоединитьСтроки (Массив(АвтомобильБУМодель), ",")</expression>
+		<group>АвтомобильVIN</group>
+		<group>Реализация</group>
+	</totalField>
+	<totalField>
+		<dataPath>СписокVINБУ</dataPath>
+		<expression>СоединитьСтроки (Массив(АвтомобильБУVIN), ",")</expression>
+		<group>АвтомобильVIN</group>
+		<group>Реализация</group>
+	</totalField>
+	<totalField>
+		<dataPath>СредняяГМ</dataPath>
+		<expression>СредняяГМ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СредняяГМГруппа</dataPath>
+		<expression>выбор когда Сумма(ПрогнозГМ) = 0 или СредняяГМ = 0 тогда 0 иначе окр(Сумма(ПрогнозГМ)/СредняяГМ,2) конец</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеГМОбщ</dataPath>
+		<expression>окр(сумма(ПрогнозГМ)-Сумма(ГМ),2)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПрогнозГМ</dataPath>
+		<expression>Сумма(ПрогнозГМ)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>&amp;Период.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Датаокончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Датаокончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>&amp;Период.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Новый автомобиль</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>АвтомобильМодель</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>АвтомобильVIN</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Реализация.Менеджер</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Реализация.Дата</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПрогнозГМ</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автомобиль Трейд-Ин</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СписокМодельБУ</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СписокVINБУ</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПоступлениеБУАвтоДата</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ГМ</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СредняяГМ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеГМОбщ</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отклонение ГМ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СредняяГМГруппа</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Средняя ГМ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>8f304d16-f78d-4e3e-bb11-399235c96a34</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisMonth</v8:variant>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Датаокончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Реализация.Дата</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ПоступлениеБУАвтоДата</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Реализация.Дата</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=dd.MM.yyyy</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>СписокVINБУ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СписокМодельБУ</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">25</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:name>Подразделение</dcsset:name>
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ПодразделениеКомпании</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>АвтомобильМодель</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>АвтомобильVIN</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Реализация.Менеджер</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Реализация.Дата</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ПоступлениеБУАвтоДата</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СистемныеПоля.НомерПоПорядкуВГруппировке</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Новый автомобиль</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>АвтомобильМодель</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>АвтомобильVIN</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Реализация.Менеджер</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Реализация.Дата</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПрогнозГМ</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Автомобиль Трейд-Ин</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СписокМодельБУ</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СписокVINБУ</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПоступлениеБУАвтоДата</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ГМ</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:field>СредняяГМГруппа</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:field>СредняяГМ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ОтклонениеГМОбщ</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отклонение ГМ</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Период" id="1">
+			<DataPath>Объект.Период</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПериодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="ДобавленРаньшеДаты" id="103">
+			<DataPath>Объект.ДобавленРаньшеДаты</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ДобавленРаньшеДатыКонтекстноеМеню" id="104"/>
+			<ExtendedTooltip name="ДобавленРаньшеДатыРасширеннаяПодсказка" id="105"/>
+		</InputField>
+		<UsualGroup name="Группа2" id="83">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="84"/>
+			<ChildItems>
+				<CheckBoxField name="УдалитьЗначения" id="56">
+					<DataPath>Объект.УдалитьЗначения</DataPath>
+					<Visible>false</Visible>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УдалитьЗначенияКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="УдалитьЗначенияРасширеннаяПодсказка" id="58"/>
+				</CheckBoxField>
+				<Button name="Рассчитать" id="54">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Рассчитать</CommandName>
+					<Font bold="true" kind="AutoFont"/>
+					<ExtendedTooltip name="РассчитатьРасширеннаяПодсказка" id="55"/>
+				</Button>
+				<CheckBoxField name="ТолькоУдаление" id="97">
+					<DataPath>Объект.ТолькоУдаление</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТолькоУдалениеКонтекстноеМеню" id="98"/>
+					<ExtendedTooltip name="ТолькоУдалениеРасширеннаяПодсказка" id="99"/>
+				</CheckBoxField>
+				<CheckBoxField name="СнятьФлагВыгружен" id="100">
+					<DataPath>Объект.СнятьФлагВыгружен</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СнятьФлагВыгруженКонтекстноеМеню" id="101"/>
+					<ExtendedTooltip name="СнятьФлагВыгруженРасширеннаяПодсказка" id="102"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="5"/>
+			<ChildItems>
+				<Page name="ГруппаПоказатели" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Показатели</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаПоказателиРасширеннаяПодсказка" id="7"/>
+					<ChildItems>
+						<Table name="Показатели" id="8">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Показатели</DataPath>
+							<CommandSet>
+								<ExcludedCommand>CancelSearch</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>Find</ExcludedCommand>
+								<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+								<ExcludedCommand>OutputList</ExcludedCommand>
+								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+								<ExcludedCommand>SearchHistory</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
+								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПоказателиКонтекстноеМеню" id="9"/>
+							<AutoCommandBar name="ПоказателиКоманднаяПанель" id="10">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ПоказателиВыделитьВсеПоказатели" id="85">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ВыделитьВсеПоказатели</CommandName>
+										<ExtendedTooltip name="ПоказателиВыделитьВсеПоказателиРасширеннаяПодсказка" id="86"/>
+									</Button>
+									<Button name="ПоказателиСнятьВсеПоказатели" id="87">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СнятьВсеПоказатели</CommandName>
+										<ExtendedTooltip name="ПоказателиСнятьВсеПоказателиРасширеннаяПодсказка" id="88"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПоказателиРасширеннаяПодсказка" id="11"/>
+							<SearchStringAddition name="ПоказателиСтрокаПоиска" id="12">
+								<AdditionSource>
+									<Item>Показатели</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПоказателиСтрокаПоискаКонтекстноеМеню" id="13"/>
+								<ExtendedTooltip name="ПоказателиСтрокаПоискаРасширеннаяПодсказка" id="14"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПоказателиСостояниеПросмотра" id="15">
+								<AdditionSource>
+									<Item>Показатели</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПоказателиСостояниеПросмотраКонтекстноеМеню" id="16"/>
+								<ExtendedTooltip name="ПоказателиСостояниеПросмотраРасширеннаяПодсказка" id="17"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПоказателиУправлениеПоиском" id="18">
+								<AdditionSource>
+									<Item>Показатели</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПоказателиУправлениеПоискомКонтекстноеМеню" id="19"/>
+								<ExtendedTooltip name="ПоказателиУправлениеПоискомРасширеннаяПодсказка" id="20"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<CheckBoxField name="ПоказателиФлаг" id="24">
+									<DataPath>Объект.Показатели.Флаг</DataPath>
+									<EditMode>Directly</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПоказателиФлагКонтекстноеМеню" id="25"/>
+									<ExtendedTooltip name="ПоказателиФлагРасширеннаяПодсказка" id="26"/>
+								</CheckBoxField>
+								<InputField name="ПоказателиПоказатель" id="27">
+									<DataPath>Объект.Показатели.Показатель</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПоказателиПоказательКонтекстноеМеню" id="28"/>
+									<ExtendedTooltip name="ПоказателиПоказательРасширеннаяПодсказка" id="29"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Группа1" id="59">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организации</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="60"/>
+					<ChildItems>
+						<Table name="Организации" id="61">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Организации</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ОрганизацииКонтекстноеМеню" id="62"/>
+							<AutoCommandBar name="ОрганизацииКоманднаяПанель" id="63">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ОрганизацииВыделитьВсеОрганизации" id="89">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ВыделитьВсеОрганизации</CommandName>
+										<ExtendedTooltip name="ОрганизацииВыделитьВсеОрганизацииРасширеннаяПодсказка" id="90"/>
+									</Button>
+									<Button name="ОрганизацииСнятьВсеОрганизации" id="91">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СнятьВсеОрганизации</CommandName>
+										<ExtendedTooltip name="ОрганизацииСнятьВсеОрганизацииРасширеннаяПодсказка" id="92"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ОрганизацииРасширеннаяПодсказка" id="64"/>
+							<SearchStringAddition name="ОрганизацииСтрокаПоиска" id="65">
+								<AdditionSource>
+									<Item>Организации</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОрганизацииСтрокаПоискаКонтекстноеМеню" id="66"/>
+								<ExtendedTooltip name="ОрганизацииСтрокаПоискаРасширеннаяПодсказка" id="67"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ОрганизацииСостояниеПросмотра" id="68">
+								<AdditionSource>
+									<Item>Организации</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОрганизацииСостояниеПросмотраКонтекстноеМеню" id="69"/>
+								<ExtendedTooltip name="ОрганизацииСостояниеПросмотраРасширеннаяПодсказка" id="70"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ОрганизацииУправлениеПоиском" id="71">
+								<AdditionSource>
+									<Item>Организации</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ОрганизацииУправлениеПоискомКонтекстноеМеню" id="72"/>
+								<ExtendedTooltip name="ОрганизацииУправлениеПоискомРасширеннаяПодсказка" id="73"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<CheckBoxField name="ОрганизацииФлаг" id="77">
+									<DataPath>Объект.Организации.Флаг</DataPath>
+									<EditMode>Directly</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ОрганизацииФлагКонтекстноеМеню" id="78"/>
+									<ExtendedTooltip name="ОрганизацииФлагРасширеннаяПодсказка" id="79"/>
+								</CheckBoxField>
+								<InputField name="ОрганизацииОрганизация" id="80">
+									<DataPath>Объект.Организации.Организация</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ОрганизацииОрганизацияКонтекстноеМеню" id="81"/>
+									<ExtendedTooltip name="ОрганизацииОрганизацияРасширеннаяПодсказка" id="82"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаПодразделения" id="30">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подразделения</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаПодразделенияРасширеннаяПодсказка" id="31"/>
+					<ChildItems>
+						<Table name="Подразделения" id="32">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Подразделения</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПодразделенияКонтекстноеМеню" id="33"/>
+							<AutoCommandBar name="ПодразделенияКоманднаяПанель" id="34">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ПодразделенияВыделитьВсеПодразделения" id="93">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ВыделитьВсеПодразделения</CommandName>
+										<ExtendedTooltip name="ПодразделенияВыделитьВсеПодразделенияРасширеннаяПодсказка" id="94"/>
+									</Button>
+									<Button name="ПодразделенияСнятьВсеПодразделения" id="95">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СнятьВсеПодразделения</CommandName>
+										<ExtendedTooltip name="ПодразделенияСнятьВсеПодразделенияРасширеннаяПодсказка" id="96"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПодразделенияРасширеннаяПодсказка" id="35"/>
+							<SearchStringAddition name="ПодразделенияСтрокаПоиска" id="36">
+								<AdditionSource>
+									<Item>Подразделения</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПодразделенияСтрокаПоискаКонтекстноеМеню" id="37"/>
+								<ExtendedTooltip name="ПодразделенияСтрокаПоискаРасширеннаяПодсказка" id="38"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПодразделенияСостояниеПросмотра" id="39">
+								<AdditionSource>
+									<Item>Подразделения</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПодразделенияСостояниеПросмотраКонтекстноеМеню" id="40"/>
+								<ExtendedTooltip name="ПодразделенияСостояниеПросмотраРасширеннаяПодсказка" id="41"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПодразделенияУправлениеПоиском" id="42">
+								<AdditionSource>
+									<Item>Подразделения</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПодразделенияУправлениеПоискомКонтекстноеМеню" id="43"/>
+								<ExtendedTooltip name="ПодразделенияУправлениеПоискомРасширеннаяПодсказка" id="44"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<CheckBoxField name="ПодразделенияФлаг" id="48">
+									<DataPath>Объект.Подразделения.Флаг</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПодразделенияФлагКонтекстноеМеню" id="49"/>
+									<ExtendedTooltip name="ПодразделенияФлагРасширеннаяПодсказка" id="50"/>
+								</CheckBoxField>
+								<InputField name="ПодразделенияПодразделение" id="51">
+									<DataPath>Объект.Подразделения.Подразделение</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПодразделенияПодразделениеКонтекстноеМеню" id="52"/>
+									<ExtendedTooltip name="ПодразделенияПодразделениеРасширеннаяПодсказка" id="53"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.БТ_ВыборочныйРасчетПоказателей</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Рассчитать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рассчитать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рассчитать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Рассчитать</Action>
+		</Command>
+		<Command name="ВыделитьВсеПоказатели" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить все показатели</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить все показатели</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыделитьВсеПоказатели</Action>
+		</Command>
+		<Command name="СнятьВсеПоказатели" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять все показатели</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить все показатели</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьВсеПоказатели</Action>
+		</Command>
+		<Command name="ВыделитьВсеОрганизации" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить все организации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить все показатели</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыделитьВсеОрганизации</Action>
+		</Command>
+		<Command name="СнятьВсеОрганизации" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять все организации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить все показатели</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьВсеОрганизации</Action>
+		</Command>
+		<Command name="ВыделитьВсеПодразделения" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить все подразделения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить все показатели</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыделитьВсеПодразделения</Action>
+		</Command>
+		<Command name="СнятьВсеПодразделения" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять все подразделения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить все показатели</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьВсеПодразделения</Action>
+		</Command>
+	</Commands>
+</Form>
